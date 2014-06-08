@@ -3,6 +3,9 @@ package objects;
 import javax.swing.Icon;
 import javax.swing.JLabel;
 
+import util.ImageLibrary;
+import util.Tileizer;
+
 public class Tile extends JLabel {
 	public int x, y, idx;
 
@@ -35,6 +38,8 @@ public class Tile extends JLabel {
 		this.x = x;
 		this.y = y;
 		this.idx = idx;
+		setSize(Tileizer.WIDTH, Tileizer.WIDTH);
+		setVisible(true);
 	}
 
 	public Tile(int x, int y, int idx) {
@@ -42,5 +47,12 @@ public class Tile extends JLabel {
 		this.x = x;
 		this.y = y;
 		this.idx = idx;
+	}
+
+	public static Tile blank(int x, int y) {
+		Tile temp = new Tile(ImageLibrary.blank, x, y, 0);
+		temp.setSize(Tileizer.WIDTH, Tileizer.WIDTH);
+		temp.setVisible(true);
+		return temp;
 	}
 }

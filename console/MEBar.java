@@ -23,7 +23,7 @@ public class MEBar extends JMenuBar implements ActionListener {
 		JMenu menu = new JMenu("File");
 
 		save = new JMenuItem("Save");
-		n = new JMenuItem("New (Broken)");
+		n = new JMenuItem("New");
 		load = new JMenuItem("Load");
 		label = new JLabel(ImageLibrary.blank);
 		e.set_bar_label(label);

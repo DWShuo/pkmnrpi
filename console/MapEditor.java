@@ -3,6 +3,7 @@ package console;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,6 +15,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTabbedPane;
 import javax.swing.ScrollPaneConstants;
 
 import objects.TileMap;
@@ -22,9 +24,10 @@ import util.ImageLibrary;
 import util.Tileizer;
 
 public class MapEditor extends JPanel implements ActionListener {
-	private JPanel selection, creation;
+	private JPanel creation;
+	private JPanel[] selections;
 	private JScrollPane viewer;
-	private Tile[][] mytiles, newtiles;
+	private Tile[][][] tiles;
 	public int s_width = 10, c_width = 25, c_height = 25;
 	public int paint_bucket = ImageLibrary.DEFAULT_ICON;
 	private TileMap tmap;
@@ -55,7 +58,11 @@ public class MapEditor extends JPanel implements ActionListener {
 
 	public void init() {
 		this.removeAll();
-		this.setSize(new Dimension((c_width + s_width + 3) * (Tileizer.WIDTH), c_height * (Tileizer.WIDTH)));
+		this.setSize(new Dimension((c_width + s_width * 3 + 3) * (Tileizer.WIDTH), c_height * (Tileizer.WIDTH)));
+		this.setLayout(new FlowLayout());
+		tiles = new Tile[9][][];
+		selections = new JPanel[8];
+		creation = new JPanel();
 
 		Dimension viewsize = new Dimension(c_width * Tileizer.WIDTH + 28, c_height * Tileizer.WIDTH + 28);
 
@@ -67,7 +74,6 @@ public class MapEditor extends JPanel implements ActionListener {
 		left.setPreferredSize(new Dimension(15, viewsize.height + 20));
 		right.setPreferredSize(new Dimension(15, viewsize.height + 20));
 
-		creation = new JPanel();
 		creation.setLayout(new GridLayout(tmap.mapdata.length, tmap.mapdata[0].length, 0, 0));
 		creation.setPreferredSize(new Dimension(tmap.mapdata[0].length * Tileizer.WIDTH, tmap.mapdata.length * Tileizer.WIDTH));
 
@@ -76,9 +82,26 @@ public class MapEditor extends JPanel implements ActionListener {
 		viewer.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 		viewer.setPreferredSize(viewsize);
 
-		selection = new JPanel();
-		selection.setLayout(new GridLayout(c_height, s_width, 0, 0));
-		selection.setSize(s_width * Tileizer.WIDTH, c_height * Tileizer.WIDTH);
+		JTabbedPane tabs1 = new JTabbedPane();
+		JTabbedPane tabs2 = new JTabbedPane();
+		JTabbedPane tabs3 = new JTabbedPane();
+		tabs1.setSize(s_width * Tileizer.WIDTH + 20, c_height * Tileizer.WIDTH + 5);
+		tabs2.setSize(s_width * Tileizer.WIDTH + 20, c_height * Tileizer.WIDTH + 5);
+		tabs3.setSize(s_width * Tileizer.WIDTH + 20, c_height * Tileizer.WIDTH + 5);
+
+		for (int i = 0; i < 8; ++i) {
+			selections[i] = new JPanel();
+			selections[i].setLayout(new GridLayout(c_height, s_width, 0, 0));
+			selections[i].setSize(s_width * Tileizer.WIDTH, c_height * Tileizer.WIDTH);
+		}
+		tabs1.addTab("DAY", selections[0]);
+		tabs1.addTab("2", selections[1]);
+		tabs2.addTab("ROOF", selections[2]);
+		tabs2.addTab("2", selections[3]);
+		tabs3.addTab("MISC", selections[4]);
+		tabs3.addTab("2", selections[5]);
+		tabs3.addTab("3", selections[6]);
+		tabs2.addTab("WALL", selections[7]);
 
 		dirp.add(up, BorderLayout.NORTH);
 		dirp.add(down, BorderLayout.SOUTH);
@@ -86,43 +109,115 @@ public class MapEditor extends JPanel implements ActionListener {
 		dirp.add(right, BorderLayout.EAST);
 		dirp.add(viewer, BorderLayout.CENTER);
 
-		this.add(selection);
+		this.add(tabs1);
+		this.add(tabs2);
+		this.add(tabs3);
 		this.add(dirp);
 
 		MELabelListener1 l1 = new MELabelListener1(this);
 		MELabelListener2 l2 = new MELabelListener2(this);
 
-		// Initilize Pallet
-		mytiles = new Tile[c_height][s_width];
+		int unit = s_width * c_height;
+		// Initilize day 1
+		tiles[1] = new Tile[c_height][s_width];
 		for (int i = 0; i < c_height; ++i) {
 			for (int j = 0; j < s_width; ++j) {
-				if (i * s_width + j >= ImageLibrary.icons.length) {
-					Tile temp = new Tile(ImageLibrary.blank, j, i, 0);
-					temp.setSize(Tileizer.WIDTH, Tileizer.WIDTH);
-					selection.add(temp);
-					mytiles[i][j] = temp;
-					temp.setVisible(true);
-					temp.addMouseListener(l1);
-				} else {
-					Tile temp = new Tile(ImageLibrary.icons[i * s_width + j], j, i, i * s_width + j);
-					temp.setSize(Tileizer.WIDTH, Tileizer.WIDTH);
-					selection.add(temp);
-					mytiles[i][j] = temp;
-					temp.setVisible(true);
-					temp.addMouseListener(l1);
-				}
+				int count = i * s_width + j;
+				tiles[1][i][j] = new Tile(ImageLibrary.icons[ImageLibrary.start_counts[3] + count], j, i, ImageLibrary.start_counts[3] + count);
+				tiles[1][i][j].addMouseListener(l1);
+				selections[0].add(tiles[1][i][j]);
+			}
+		}
+		// Initilize day 2
+		tiles[2] = new Tile[c_height][s_width];
+		for (int i = 0; i < c_height; ++i) {
+			for (int j = 0; j < s_width; ++j) {
+				int count = i * s_width + j;
+				if (count + unit < ImageLibrary.icon_counts[3]) {
+					tiles[1][i][j] = new Tile(ImageLibrary.icons[ImageLibrary.start_counts[3] + unit + count], j, i, ImageLibrary.start_counts[3] + unit + count);
+					tiles[1][i][j].addMouseListener(l1);
+					selections[1].add(tiles[1][i][j]);
+				} else
+					selections[1].add(Tile.blank(j, i));
+			}
+		}
+		// Initilize roof 1
+		tiles[3] = new Tile[c_height][s_width];
+		for (int i = 0; i < c_height; ++i) {
+			for (int j = 0; j < s_width; ++j) {
+				int count = i * s_width + j;
+				tiles[1][i][j] = new Tile(ImageLibrary.icons[ImageLibrary.start_counts[1] + count], j, i, ImageLibrary.start_counts[1] + count);
+				tiles[1][i][j].addMouseListener(l1);
+				selections[2].add(tiles[1][i][j]);
+			}
+		}
+		// Initilize roof 2
+		tiles[4] = new Tile[c_height][s_width];
+		for (int i = 0; i < c_height; ++i) {
+			for (int j = 0; j < s_width; ++j) {
+				int count = i * s_width + j;
+				if (unit + count < ImageLibrary.icon_counts[1]) {
+					tiles[1][i][j] = new Tile(ImageLibrary.icons[ImageLibrary.start_counts[1] + unit + count], j, i, ImageLibrary.start_counts[1] + unit + count);
+					tiles[1][i][j].addMouseListener(l1);
+					selections[3].add(tiles[1][i][j]);
+				} else
+					selections[3].add(Tile.blank(j, i));
+			}
+		}
+		// Initilize misc 1
+		tiles[5] = new Tile[c_height][s_width];
+		for (int i = 0; i < c_height; ++i) {
+			for (int j = 0; j < s_width; ++j) {
+				int count = i * s_width + j;
+				tiles[1][i][j] = new Tile(ImageLibrary.icons[count], j, i, count);
+				tiles[1][i][j].addMouseListener(l1);
+				selections[4].add(tiles[1][i][j]);
+			}
+		}
+		// Initilize misc 2
+		tiles[6] = new Tile[c_height][s_width];
+		for (int i = 0; i < c_height; ++i) {
+			for (int j = 0; j < s_width; ++j) {
+				int count = i * s_width + j;
+				tiles[1][i][j] = new Tile(ImageLibrary.icons[unit + count], j, i, unit + count);
+				tiles[1][i][j].addMouseListener(l1);
+				selections[5].add(tiles[1][i][j]);
+			}
+		}
+		// Initilize misc 3
+		tiles[7] = new Tile[c_height][s_width];
+		for (int i = 0; i < c_height; ++i) {
+			for (int j = 0; j < s_width; ++j) {
+				int count = i * s_width + j;
+				if (unit + unit + count < ImageLibrary.icon_counts[0]) {
+					tiles[1][i][j] = new Tile(ImageLibrary.icons[unit + unit + count], j, i, unit + unit + count);
+					tiles[1][i][j].addMouseListener(l1);
+					selections[6].add(tiles[1][i][j]);
+				} else
+					selections[6].add(Tile.blank(j, i));
+			}
+		}
+		// Initilize walls
+		tiles[8] = new Tile[c_height][s_width];
+		for (int i = 0; i < c_height; ++i) {
+			for (int j = 0; j < s_width; ++j) {
+				int count = i * s_width + j;
+				if (count < ImageLibrary.icon_counts[2]) {
+					tiles[1][i][j] = new Tile(ImageLibrary.icons[ImageLibrary.start_counts[2] + count], j, i, ImageLibrary.start_counts[2] + count);
+					tiles[1][i][j].addMouseListener(l1);
+					selections[7].add(tiles[1][i][j]);
+				} else
+					selections[7].add(Tile.blank(j, i));
 			}
 		}
 
 		// Initilize new map
-		newtiles = new Tile[tmap.mapdata.length + 1][tmap.mapdata[0].length + 1];
+		tiles[0] = new Tile[tmap.mapdata.length + 1][tmap.mapdata[0].length + 1];
 		for (int i = 0; i < tmap.mapdata.length; ++i) {
 			for (int j = 0; j < tmap.mapdata[0].length; ++j) {
 				Tile temp = new Tile(ImageLibrary.icons[tmap.mapdata[i][j]], j, i, i * tmap.mapdata[0].length + j);
-				temp.setSize(Tileizer.WIDTH, Tileizer.WIDTH);
 				creation.add(temp);
-				newtiles[i][j] = temp;
-				temp.setVisible(true);
+				tiles[0][i][j] = temp;
 				temp.addMouseListener(l2);
 			}
 		}
@@ -139,11 +234,10 @@ public class MapEditor extends JPanel implements ActionListener {
 		frame.pack();
 		repaint();
 	}
-
-	// BROKEN
 	public void clear_all() {
-		super.removeAll();
+		tmap = new TileMap(c_width, c_height);
 		init();
+		frame.pack();
 		repaint();
 	}
 
@@ -173,6 +267,7 @@ public class MapEditor extends JPanel implements ActionListener {
 		f.add(m);
 		f.setJMenuBar(new MEBar(m));
 		f.pack();
+		f.setResizable(false);
 		f.setVisible(true);
 	}
 
