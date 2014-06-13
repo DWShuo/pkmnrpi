@@ -2,7 +2,7 @@ package objects;
 
 import java.util.ArrayList;
 
-public class Person {
+public class Person extends Thing{
 	//private Pokemon[] my_pkmn;
 	public String name;
 	public ArrayList<String> dialog;
@@ -10,9 +10,11 @@ public class Person {
 	public Person() {
 	}
 
-	@Override
 	public String toString() {
-		String str = "";
-		return str;
+		return name;
+	}
+
+	public Sprite getSprite() {
+		return null;
 	}
 }

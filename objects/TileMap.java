@@ -1,5 +1,6 @@
 package objects;
 
+import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -30,6 +31,10 @@ public class TileMap {
 		flags = f;
 	}
 
+	public TileMap(String filename) {
+		load(new File(filename));
+	}
+
 	public void clear_map() {
 		flags = new ArrayList<Flag>();
 		for (int i = 0; i < mapdata.length; ++i)
@@ -37,13 +42,26 @@ public class TileMap {
 				mapdata[i][k] = ImageLibrary.DEFAULT_ICON;
 	}
 
+	public ArrayList<Sprite> get_sprites() {
+		return new ArrayList<Sprite>();
+	}
+
+	public BufferedImage get_static_map() {
+		int unit = ImageLibrary.pixel_width[0];
+		BufferedImage im = new BufferedImage(mapdata[0].length * unit, mapdata.length * unit, BufferedImage.TYPE_INT_ARGB);
+		for (int i = 0; i < mapdata.length; ++i) {
+			for (int j = 0; j < mapdata[i].length; ++j) {
+				im.getGraphics().drawImage(ImageLibrary.icons[mapdata[i][j]].getImage(), j * unit, i * unit, null);
+			}
+		}
+		return im;
+	}
+
 	/**
 	 * IMPORTANT: SAVE FILE FORMAT
 	 * 
 	 * \------map data------/\------flag data------/
 	 * [y]:[x]:[]:[].....:[]![flag-data]![flag-data]
-	 * 
-	 * Seperators: (: & !)
 	 * 
 	 */
 

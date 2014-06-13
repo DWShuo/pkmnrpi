@@ -3,7 +3,7 @@ package objects;
 public class Flag {
 	public static final int ITEM_FLAG = 0, DOOR_FLAG = 1, NPC_FLAG = 2, VIEW_FLAG = 3;
 	private TileMap map;
-	public Person lnk;
+	public Thing thing;
 	public int x, y, flag;
 
 	public Flag(TileMap m) {
@@ -20,6 +20,7 @@ public class Flag {
 	public Flag(Flag f) {
 		map = f.map;
 		flag = f.flag;
+		thing = f.thing;
 		x = f.x;
 		y = f.y;
 	}
@@ -44,9 +45,15 @@ public class Flag {
 	@Override
 	public String toString() {
 		String str = flag + ":" + x + ":" + y;
-		if (lnk != null)
-			str += ":" + lnk.name;
+		if (thing != null)
+			str += ":" + thing.toString();
 		return str;
+	}
+
+	public Sprite get_sprite() {
+		if (thing == null)
+			return null;
+		return thing.getSprite();
 	}
 
 	public boolean isAt(int x, int y) {
