@@ -17,6 +17,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.ScrollPaneConstants;
+import javax.swing.UIManager;
+import javax.swing.UIManager.LookAndFeelInfo;
 
 import objects.TileMap;
 import objects.Tile;
@@ -36,6 +38,16 @@ public class MapEditor extends JPanel implements ActionListener {
 	private JLabel bar_label;
 
 	public MapEditor(JFrame f) {
+		try {
+		    for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+		        if ("Nimbus".equals(info.getName())) {
+		            UIManager.setLookAndFeel(info.getClassName());
+		            break;
+		        }
+		    }
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		frame = f;
 		this.setBackground(Color.gray.darker());
 		ImageLibrary.init();
@@ -234,6 +246,7 @@ public class MapEditor extends JPanel implements ActionListener {
 		frame.pack();
 		repaint();
 	}
+
 	public void clear_all() {
 		tmap = new TileMap(c_width, c_height);
 		init();

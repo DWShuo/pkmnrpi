@@ -7,6 +7,7 @@ import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 
 import javax.swing.*;
+import javax.swing.UIManager.LookAndFeelInfo;
 
 import objects.TileMap;
 import util.ImageLibrary;
@@ -24,6 +25,17 @@ public class GameBoard extends JScrollPane implements KeyListener {
 
 	public GameBoard() {
 		super();
+		// Set the look and feel to Nimbus
+		try {
+		    for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+		        if ("Nimbus".equals(info.getName())) {
+		            UIManager.setLookAndFeel(info.getClassName());
+		            break;
+		        }
+		    }
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		setHorizontalScrollBarPolicy(HORIZONTAL_SCROLLBAR_NEVER);
 		setVerticalScrollBarPolicy(VERTICAL_SCROLLBAR_NEVER);
 		setSize(area);
