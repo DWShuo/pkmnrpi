@@ -9,30 +9,32 @@ import java.awt.image.BufferedImage;
 import javax.swing.*;
 import javax.swing.UIManager.LookAndFeelInfo;
 
+import objects.Person;
+import objects.Sprite;
 import objects.TileMap;
 import util.ImageLibrary;
 import util.LayeredPanel;
-import util.TestFrame;
 
 public class GameBoard extends JScrollPane implements KeyListener {
-	private static final int tilew = 25, tileh = 25, tsize = ImageLibrary.pixel_width[0];
-	private static final String default_map = "src/default.map";
-	private static final Dimension area = new Dimension(ImageLibrary.pixel_width[0] * tilew, ImageLibrary.pixel_width[0] * tileh);
+	public static final int tilew = 25, tileh = 25, tsize = ImageLibrary.pixel_width[0];
+	public static final String default_map = "src/default.map";
+	public static final Dimension area = new Dimension(ImageLibrary.pixel_width[0] * tilew, ImageLibrary.pixel_width[0] * tileh);
 
 	private LayeredPanel background;
 	private GamePanel foreground;
 	private TileMap map;
+	private Person player;
 
 	public GameBoard() {
 		super();
 		// Set the look and feel to Nimbus
 		try {
-		    for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-		        if ("Nimbus".equals(info.getName())) {
-		            UIManager.setLookAndFeel(info.getClassName());
-		            break;
-		        }
-		    }
+			for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+				if ("Nimbus".equals(info.getName())) {
+					UIManager.setLookAndFeel(info.getClassName());
+					break;
+				}
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -46,6 +48,7 @@ public class GameBoard extends JScrollPane implements KeyListener {
 
 		load_map(default_map);
 		this.setViewportView(background);
+		initilize_player();
 	}
 
 	public void load_map(String filename) {
@@ -59,14 +62,20 @@ public class GameBoard extends JScrollPane implements KeyListener {
 
 	public void keyPressed(KeyEvent e) {
 		String in = KeyEvent.getKeyText(e.getKeyCode());
+		if (GameState.clock.isAnimating())
+			return;
 		if (in == "Up") {
-			movePanel(0, -1);
+			GameState.clock.animate_sprite(foreground, player, 0, -tsize, 6, Person.UP);
+			GameState.clock.animate_background(this, 0, -tsize, 6);
 		} else if (in == "Down") {
-			movePanel(0, 1);
+			GameState.clock.animate_sprite(foreground, player, 0, tsize, 6, Person.DOWN);
+			GameState.clock.animate_background(this, 0, tsize, 6);
 		} else if (in == "Right") {
-			movePanel(1, 0);
+			GameState.clock.animate_sprite(foreground, player, tsize, 0, 6, Person.RIGHT);
+			GameState.clock.animate_background(this, tsize, 0, 6);
 		} else if (in == "Left") {
-			movePanel(-1, 0);
+			GameState.clock.animate_sprite(foreground, player, -tsize, 0, 6, Person.LEFT);
+			GameState.clock.animate_background(this, -tsize, 0, 6);
 		}
 	}
 
@@ -85,6 +94,21 @@ public class GameBoard extends JScrollPane implements KeyListener {
 		f.setVisible(true);
 	}
 
+	private void initilize_player() {
+		player = new Person();
+		player.name = "Phonyx";
+		player.walk = new BufferedImage[10];
+		for (int i = 0; i < 10; ++i)
+			player.walk[i] = ImageLibrary.player[i];
+		player.bike = new BufferedImage[10];
+		for (int i = 0; i < 10; ++i)
+			player.bike[i] = ImageLibrary.player[i + 10];
+		player.sprite = new Sprite(player.walk[0]);
+		player.sprite.x = 12 * tsize;
+		player.sprite.y = 16 * tsize;
+		foreground.sprites.add(player.sprite);
+	}
+
 	private int getMaxXExtent() {
 		return map.mapdata[0].length * tsize - tilew * tsize;
 	}
@@ -93,7 +117,7 @@ public class GameBoard extends JScrollPane implements KeyListener {
 		return map.mapdata.length * tsize - tileh * tsize;
 	}
 
-	private void movePanel(int xmove, int ymove) {
+	public void movePanel(int xmove, int ymove) {
 		Point pt = viewport.getViewPosition();
 		pt.x += xmove;
 		pt.y += ymove;
@@ -104,13 +128,5 @@ public class GameBoard extends JScrollPane implements KeyListener {
 		pt.y = Math.min(getMaxYExtent(), pt.y);
 
 		viewport.setViewPosition(pt);
-	}
-	
-	private void animate_screen(int x, int y, int frames) {
-		
-	}
-	
-	private void animate_sprite() {
-		
 	}
 }

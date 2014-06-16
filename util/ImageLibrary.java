@@ -1,5 +1,7 @@
 package util;
 
+import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
@@ -12,7 +14,7 @@ public class ImageLibrary {
 	public static final int GRAY = 0, GREEN = 1, BLACK = 2, VIOLET = 3, YELLOW = 4, BROWN = 5, RED = 6, LAVENDER = 7, PURPLE = 8, LIME = 9, GOLD = 10, ICE = 11, BEIGE = 12,
 			MAGENTA = 13, PINK = 14, SAND = 15, WHITE = 16, SKY = 17, gray = GRAY, green = GREEN, black = BLACK, violet = VIOLET, yellow = YELLOW, brown = BROWN, red = RED,
 			lavender = LAVENDER, purple = PURPLE, lime = LIME, gold = GOLD, ice = ICE, beige = BEIGE, magenta = MAGENTA, pink = PINK, sand = SAND, white = WHITE, sky = SKY;
-	public static BufferedImage[] image_sheets;
+	public static BufferedImage[] image_sheets, player;
 	public static final String[] image_sheet_names = { "src/tilesets/misc_tiles.png", "src/tilesets/day_roofs.png", "src/tilesets/day_buildings.png",
 			"src/tilesets/day_landscape.png", "src/tilesets/front_sprites.png", "src/tilesets/back_sprites.png" };
 	public static final int[] pixel_width = { 16, 16, 16, 16, 56, 56 };
@@ -21,6 +23,18 @@ public class ImageLibrary {
 	public static final int[] start_counts = { 0, 700, 1137, 1304 };
 	public static final ImageIcon blank = new ImageIcon("src/blank.png");
 	public static final int DEFAULT_ICON = icon_counts[0];
+
+	public static BufferedImage bufferSolidColor(Color c, int w, int h) {
+		BufferedImage base = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+		Graphics g = base.getGraphics();
+		g.setColor(c);
+		g.fillRect(0, 0, w, h);
+		return base;
+	}
+
+	public static ImageIcon getSolidColor(Color c, int w, int h) {
+		return new ImageIcon(bufferSolidColor(c, w, h));
+	}
 
 	public static void init() {
 		// Initilize the image sheet array
@@ -71,17 +85,23 @@ public class ImageLibrary {
 			back_sprites[i] = new ImageIcon(lst.get(5).get(i));
 
 		// Create the text sprites
-		Image im = (new ImageIcon("src/tilesets/fonts_sprites.png")).getImage();
+		Image im = (new ImageIcon("src/tilesets/typefont.png")).getImage();
 		int w = im.getWidth(null), h = im.getHeight(null), idx = image_sheets.length - 1;
 		image_sheets[idx] = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
 		image_sheets[idx].getGraphics().drawImage(im, 0, 0, null);
 		// Split the sheet up by color
-		BufferedImage[] ls = (BufferedImage[]) Tileizer.cutter(image_sheets[idx], w, h, 119, 56, 18).toArray();
+		BufferedImage[] ls = new BufferedImage[18];
+		int temp = 0;
+		for (BufferedImage b : Tileizer.cutter(image_sheets[idx], w, h, 119, 48, 18))
+			ls[temp++ ] = b;
 		text = new ImageIcon[18][];
 		for (int i = 0; i < text.length; ++i) {
 			text[i] = new ImageIcon[68];
 			// Cut up the sheets into font sprites
-			BufferedImage[] font = (BufferedImage[]) Tileizer.cutter(ls[i], 119, 56, 7, 14, 4 * 17).toArray();
+			BufferedImage[] font = new BufferedImage[4 * 17];
+			temp = 0;
+			for (BufferedImage b : Tileizer.cutter(ls[i], 119, 48, 7, 12, 4 * 17))
+				font[temp++ ] = b;
 			// Pull the letters in first
 			int c = 0;
 			for (int j = 0; j < 13; ++j) {
@@ -109,5 +129,16 @@ public class ImageLibrary {
 				text[i][c++ ] = new ImageIcon(font[j]);
 			}
 		}
+
+		// Load player sprites
+		im = (new ImageIcon("src/tilesets/player_motion.png")).getImage();
+		w = im.getWidth(null);
+		h = im.getHeight(null);
+		BufferedImage buf = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+		buf.getGraphics().drawImage(im, 0, 0, null);
+		player = new BufferedImage[20];
+		temp = 0;
+		for (BufferedImage b : Tileizer.cutter(buf, w, h, 16, 16, 20))
+			player[temp++ ] = b;
 	}
 }

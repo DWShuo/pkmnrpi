@@ -19,9 +19,6 @@ Catch_rate: 45
 Base_EXP: 64
 Growth_Rate: 0
 Description: "Chikorita, the Leaf Pokémon. Chikorita emits pleasant aromas from the leaves on their heads and they love to sunbathe."
-//Activeset
-Tackle
-Growl
 //Learnset
 01 Tackle
 01 Growl
@@ -80,11 +77,6 @@ Catch_rate: 45
 Base_EXP: 141
 Growth_Rate: 2
 Description: "Bayleef, the Leaf Pokémon. The evolved form of Chikorita. Bayleef emits a spicy aroma from the leaves around its neck and its Razor Leaf is extremely powerful."
-//Activeset
-Tackle
-Growl
-Razor_Leaf
-Poison_Powder
 //Learnset
 01 Tackle
 01 Growl
@@ -145,11 +137,6 @@ Catch_rate: 45
 Base_EXP: 208
 Growth_Rate: 2
 Description: "Meganium, the Herb Pokémon. Meganium have the ability to fully restore dried up plants and bring them back to life with its breath."
-//Activeset
-Tackle
-Growl
-Razor_Leaf
-Reflect
 //Learnset
 01 Tackle
 01 Growl
@@ -212,9 +199,6 @@ Catch_rate: 45
 Base_EXP: 65
 Growth_Rate: 2
 Description: "Cyndaquil, the Fire Mouse Pokémon. Normally mild and even tempered, Cyndaquil will shoot a scorching flame out of its back when upset."
-//Activeset
-Tackle
-Leer
 //Learnset
 01 Tackle
 01 Leer
@@ -269,10 +253,6 @@ Catch_rate: 45
 Base_EXP: 142
 Growth_Rate: 2
 Description: "Quilava, the Volcano Pokémon. Quilava is the evolved form of Cyndaquil and capable of incredible attacks using the flame on its back."
-//Activeset
-Tackle
-Leer
-Smokescreen
 //Learnset
 01 Tackle
 01 Leer
@@ -330,11 +310,6 @@ Catch_rate: 45
 Base_EXP: 142
 Growth_Rate: 2
 Description: "If its rage peaks, it becomes so hot that anything that touches it will instantly go up in flames."
-//Activeset
-Tackle
-Leer
-Ember
-Smokescreen
 //Learnset
 01 Smokescreen
 01 Leer
@@ -396,9 +371,6 @@ Catch_rate: 45
 Base_EXP: 66
 Growth_Rate: 2
 Description: "Totodile, the Big Jaw Pokémon. Its highly developed jaw is so powerful, it can crush practically anything. Trainers beware: this Pokémon loves to use its teeth."
-//Activeset
-Scratch
-Leer
 //Learnset
 01 Scratch
 01 Leer
@@ -455,10 +427,6 @@ Catch_rate: 45
 Base_EXP: 143
 Growth_Rate: 2
 Description: "The tips of its fangs are slanted backward. Once those fangs clamp down, the prey has no hope of escape."
-//Activeset
-Scratch
-Leer
-Rage
 //Learnset
 01 Scratch
 01 Leer
@@ -517,11 +485,6 @@ Catch_rate: 45
 Base_EXP: 210
 Growth_Rate: 2
 Description: "Feraligatr, the Big Jaw Pokémon. The final evolution of Totodile. Once a Feraligatr has clamped its powerful jaws around an opponent, it won't let go until the opponent is defeated."
-//Activeset
-Scratch
-Leer
-Rage
-Water_Gun
 //Learnset
 01 Scratch
 01 Leer
@@ -582,8 +545,6 @@ Catch_rate: 255
 Base_EXP: 57
 Growth_Rate: 1
 Description: "Sentret, the Scout Pokémon. Sentret is able to see great distances by rising up on its tail. When it spots an enemy, or any kind of danger, it emits a loud, shrill cry as a warning."
-//Activeset
-Tackle
 //Learnset
 01 Tackle
 05 Defense Curl
@@ -643,10 +604,6 @@ Catch_rate: 90
 Base_EXP: 116
 Growth_Rate: 1
 Description: "There is no telling where the tail begins. Despite its short legs, it is quick at hunting Rattata."
-//Activeset
-Tackle
-Quick_Attack
-Defense_Curl
 //Learnset
 01 Tackle
 01 Defense Curl
@@ -709,9 +666,6 @@ Catch_rate: 255
 Base_EXP: 58
 Growth_Rate: 1
 Description: "Hoothoot, the Owl Pokémon. Hoothoot stands on one leg, but uses both its powerful eyes to see clearly even through the darkest night."
-//Activeset
-Tackle
-Growl
 //Learnset
 01 Tackle
 01 Growl
@@ -765,9 +719,6 @@ Catch_rate: 90
 Base_EXP: 162
 Growth_Rate: 3
 Description: "Noctowl, the Owl Pokémon. The evolved form of Hoothoot. This highly intelligent Pokémon often twists its head 180 degrees when it is thinking. Noctowl is a nocturnal Pokémon."
-//Activeset
-Tackle
-Growl
 //Learnset
 01 Tackle
 01 Growl
@@ -824,8 +775,6 @@ Catch_rate: 255
 Base_EXP: 54
 Growth_Rate: 0
 Description: "Ledyba, the Five Star Pokémon. These naturally gentle Bug-types gather in groups during cold weather to keep warm."
-//Activeset
-Tackle
 //Learnset
 01 Tackle
 08 Supersonic
@@ -883,9 +832,6 @@ Catch_rate: 90
 Base_EXP: 134
 Growth_Rate: 0
 Description: "Ledian, the Five Star Pokémon. The evolved form of Ledyba. The spots on the Ledian's back are said to respond to the stars in the night sky."
-//Activeset
-Tackle
-Supersonic
 //Learnset
 01 Tackle
 01 Supersonic
@@ -945,9 +891,6 @@ Catch_rate: 255
 Base_EXP: 54
 Growth_Rate: 0
 Description: "Spinarak, the String Spit Pokémon. Spinarak can climb any surface easily, and shoot a strong web from both the front and back of its body. Its prey is caught and held tight in its web."
-//Activeset
-Poison_Sting
-String_Shot
 //Learnset
 01 Poison_Sting
 01 String_Shot
@@ -1001,11 +944,6 @@ Catch_rate: 90
 Base_EXP: 134
 Growth_Rate: 0
 Description: "Ariados, the Long Leg Pokémon. The evolved form of Spinarak. Ariados is able to spin extremely strong and sticky webs to trap its adversaries."
-//Activeset
-Poison_Sting
-String_Shot
-Constrict
-Scary_Face
 //Learnset
 01 Poison_Sting
 01 String_Shot
@@ -1059,10 +997,6 @@ Catch_rate: 90
 Base_EXP: 204
 Growth_Rate: 1
 Description: "Crobat, the evolved form of Golbat. With its two additional wings, Crobat is able to fly much faster than Golbat."
-//Activeset
-Supersonic
-Screech
-Leech_Life
 //Learnset
 01 Supersonic
 01 Screech
@@ -1118,9 +1052,6 @@ Catch_rate: 190
 Base_EXP: 90
 Growth_Rate: 3
 Description: "Chinchou, the Angler Pokémon, have the ability to conduct electrical currents from their two tentacles which flow positive from one end and negative to the other. Chinchou can also communicate underwater by flashing its tentacles."
-//Activeset
-Thunder_Wave
-Bubble
 //Learnset
 01 Thunder_Wave
 01 Bubble
@@ -1171,10 +1102,6 @@ Catch_rate: 75
 Base_EXP: 156
 Growth_Rate: 3
 Description: "Lanturn, the Light Pokémon. The light that emits from its tentacle-like limb shines bright enough to illuminate the bottom of a deep sea."
-//Activeset
-Supersonic
-Thunder_Wave
-Bubble
 //Learnset
 01 Thunder_Wave
 01 Bubble
@@ -1226,9 +1153,6 @@ Catch_rate: 190
 Base_EXP: 42
 Growth_Rate: 1
 Description: "Pichu, the Tiny Mouse Pokémon. A pre-evolved form of Pikachu. Despite their size, Pichu release bursts of electricity that can shock even humans. However, Pichu are unskilled at controlling their electricity, and sometimes release it by accident when surprised, or when laughing and shock themselves."
-//Activeset
-Thunder_Shock
-Charm
 //Learnset
 01 Thunder_Shock
 01 Charm
@@ -1278,9 +1202,6 @@ Catch_rate: 150
 Base_EXP: 37
 Growth_Rate: 0
 Description: "Cleffa, the Star Shape Pokémon. Cleffa is the pre-evolved form of Clefairy. Their star shape has led some to believe that they reach the Earth riding on shooting stars. Strangely, many Cleffa are often found on nights of meteor showers."
-//Activeset
-Pound
-Charm
 //Learnset
 01 Pound
 01 Charm
@@ -1336,9 +1257,6 @@ Catch_rate: 170
 Base_EXP: 39
 Growth_Rate: 0
 Description: "Igglybuff, the Balloon Pokémon. Igglybuff's resilient body allows it to bounce endlessly once it's been put in motion."
-//Activeset
-Sing
-Charm
 //Learnset
 01 Sing
 01 Charm
@@ -1394,9 +1312,6 @@ Catch_rate: 190
 Base_EXP: 74
 Growth_Rate: 0
 Description: "Togepi is imprinted with the first image it sees after it hatches, thinking this is its mother."
-//Activeset
-Growl
-Charm
 //Learnset
 01 Sing
 01 Charm
@@ -1454,9 +1369,6 @@ Catch_rate: 75
 Base_EXP: 114
 Growth_Rate: 0
 Description: "They say that it will appear before kindhearted, caring people and shower them with happiness."
-//Activeset
-Growl
-Charm
 //Learnset
 01 Sing
 01 Charm
@@ -1518,9 +1430,6 @@ Catch_rate: 190
 Base_EXP: 73
 Growth_Rate: 1
 Description: "Natu, the Tiny Bird Pokémon. The Natu moves around by hopping and always seems to be staring at something."
-//Activeset
-Leer
-Peck
 //Learnset
 01 Leer
 01 Peck
@@ -1573,10 +1482,6 @@ Catch_rate: 75
 Base_EXP: 171
 Growth_Rate: 1
 Description: "Xatu, the Mystic Pokémon. Xatu is said to be able to foretell the future with a high degree of accuracy, but it is unknown whether its prophecies are correct."
-//Activeset
-Leer
-Peck
-Night_Shade
 //Learnset
 01 Leer
 01 Peck
@@ -1633,9 +1538,6 @@ Catch_rate: 235
 Base_EXP: 59
 Growth_Rate: 2
 Description: "Mareep, the Wool Pokémon. Mareep stores static electricity in their wooly coat. They avoid battle and have mild dispositions."
-//Activeset
-Tackle
-Growl
 //Learnset
 01 Tackle
 01 Growl
@@ -1683,9 +1585,6 @@ Catch_rate: 235
 Base_EXP: 59
 Growth_Rate: 2
 Description: "Mareep, the Wool Pokémon. Mareep stores static electricity in their wooly coat. They avoid battle and have mild dispositions."
-//Activeset
-Tackle
-Growl
 //Learnset
 01 Tackle
 01 Growl
@@ -1736,10 +1635,6 @@ Catch_rate: 120
 Base_EXP: 117
 Growth_Rate: 2
 Description: "As a result of storing too much electricity, it developed patches where even downy wool won't grow."
-//Activeset
-Tackle
-Growl
-Thunder_Shock
 //Learnset
 01 Tackle
 01 Growl
@@ -1794,11 +1689,6 @@ Catch_rate: 45
 Base_EXP: 194
 Growth_Rate: 2
 Description: "Ampharos, the Light Pokémon. Ampharos emits a strong light from the tip of its tail, which can be seen over long distances and serve as a beacon to those who are lost."
-//Activeset
-Tackle
-Growl
-Thunder_Shock
-Thunder_Wave
 //Learnset
 01 Tackle
 01 Growl
@@ -1855,11 +1745,6 @@ Catch_rate: 45
 Base_EXP: 184
 Growth_Rate: 2
 Description: "Bellossom, the Flower Pokémon. When these Pokémon move, their delicate petals rub together, creating a pleasant sound. They are also known for their unique acrobatic dancing abilities."
-//Activeset
-Absorb
-Stun_Spore
-Petal_Dance
-Sweet_Scent
 //Learnset
 01 Stun_Spore
 01 Petal_Dance
@@ -1905,8 +1790,6 @@ Catch_rate: 190
 Base_EXP: 58
 Growth_Rate: 0
 Description: "Marill, the Water Mouse Pokémon. Its sensitive ears can detect distant sounds and the round rubbery tip on its tail can expand and contract, assisting Marill in the water."
-//Activeset
-Tackle
 //Learnset
 01 Tackle
 03 Defense_Curl
@@ -1963,11 +1846,6 @@ Catch_rate: 75
 Base_EXP: 153
 Growth_Rate: 0
 Description: "Azumarill, the Aqua Rabbit Pokémon. The evolved form of Marill. This Pokémon uses its large, highly developed ears to hear great distances, even underwater."
-//Activeset
-Tackle
-Tail_Whip
-Water_Gun
-Defense_Curl
 //Learnset
 01 Tackle
 01 Defense_Curl
@@ -2027,9 +1905,6 @@ Catch_rate: 65
 Base_EXP: 135
 Growth_Rate: 1
 Description: "Sudowoodo, the Imitation Pokémon. This rare Pokémon hides in trees to avoid capture."
-//Activeset
-Rock_Throw
-Mimic
 //Learnset
 01 Rock_Throw
 01 Mimic
@@ -2086,11 +1961,6 @@ Catch_rate: 45
 Base_EXP: 185
 Growth_Rate: 2
 Description: "Politoed, the Frog Pokémon. Politoed likes to expand its throat and sing out, drawing in Poliwag and Poliwhirl from all around."
-//Activeset
-Double_Slap
-Water_Gun
-Hypnosis
-Perish_Song
 //Learnset
 01 Double_Slap
 01 Water_Gun
@@ -2150,9 +2020,6 @@ Catch_rate: 255
 Base_EXP: 74
 Growth_Rate: 2
 Description: "Hoppip, the Cottonweed Pokémon. This hopping Pokémon is light as a feather, and can be lifted by the gentlest breeze."
-//Activeset
-Splash
-Synthesis
 //Learnset
 01 Splash
 01 Synthesis
@@ -2205,11 +2072,6 @@ Catch_rate: 120
 Base_EXP: 136
 Growth_Rate: 2
 Description: "Skiploom, the evolved form of Hoppip. This happy-go-lucky Grass-type has a flower on its head which opens and closes depending on the temperature."
-//Activeset
-Splash
-Synthesis
-Tackle
-Tail_Whip
 //Learnset
 01 Splash
 01 Synthesis
@@ -2261,11 +2123,6 @@ Catch_rate: 45
 Base_EXP: 176
 Growth_Rate: 2
 Description: "Jumpluff, the Cottonweed Pokémon. Jumpluff catches a simmer of wind to spread its cotton-like spores and make offspring."
-//Activeset
-Splash
-Synthesis
-Tackle
-Tail_Whip
 //Learnset
 01 Splash
 01 Synthesis
@@ -2318,9 +2175,6 @@ Catch_rate: 45
 Base_EXP: 94
 Growth_Rate: 0
 Description: "Aipom, the Long Tail Pokémon. Aipom is able to climb and hang from branches using its powerful tail. Aipom live atop tall trees."
-//Activeset
-Scratch
-Tail_Whip
 //Learnset
 01 Scratch
 01 Tail_Whip
@@ -2384,8 +2238,6 @@ Catch_rate: 235
 Base_EXP: 52
 Growth_Rate: 2
 Description: "Sunkern, the Seed Pokémon. Sunkern drink the dew that collects beneath leaves. It is believed that it neither eats nor drinks anything else."
-//Activeset
-Absorb
 //Learnset
 01 Absorb
 04 Growth
@@ -2433,9 +2285,6 @@ Catch_rate: 120
 Base_EXP: 146
 Growth_Rate: 2
 Description: "Sunflora, the Sun Pokémon. This smiling Pokémon loves the sun, but it also needs plenty of water to ensure healthy development."
-//Activeset
-Absorb
-Pound
 //Learnset
 01 Absorb
 01 Pound
@@ -2485,9 +2334,6 @@ Catch_rate: 75
 Base_EXP: 147
 Growth_Rate: 1
 Description: "If it flaps its wings really fast, it can generate shock waves that will shatter windows in the area."
-//Activeset
-Tackle
-Foresight
 //Learnset
 01 Tackle
 01 Foresight
@@ -2539,9 +2385,6 @@ Catch_rate: 255
 Base_EXP: 52
 Growth_Rate: 1
 Description: "This Pokémon lives in cold water. It will leave the water to search for food when it gets cold outside."
-//Activeset
-Tail_Whip
-Water_Gun
 //Learnset
 01 Tail_Whip
 01 Water_Gun
@@ -2601,9 +2444,6 @@ Catch_rate: 255
 Base_EXP: 52
 Growth_Rate: 1
 Description: "This Pokémon lives in cold water. It will leave the water to search for food when it gets cold outside."
-//Activeset
-Tail_Whip
-Water_Gun
 //Learnset
 01 Tail_Whip
 01 Water_Gun
@@ -2662,9 +2502,6 @@ Catch_rate: 90
 Base_EXP: 137
 Growth_Rate: 1
 Description: "This carefree Pokémon has an easy-going nature. While swimming, it always bumps into boat hulls."
-//Activeset
-Tail_Whip
-Water_Gun
 //Learnset
 01 Tail_Whip
 01 Water_Gun
@@ -2725,9 +2562,6 @@ Catch_rate: 45
 Base_EXP: 197
 Growth_Rate: 1
 Description: "Espeon, the Sun Pokémon. Espeon are able to read air currents allowing it to predict the future as well as its opponents' next moves."
-//Activeset
-Tail_Whip
-Tackle
 //Learnset
 01 Tackle
 01 Tail_Whip
@@ -2788,9 +2622,6 @@ Catch_rate: 45
 Base_EXP: 197
 Growth_Rate: 1
 Description: "Umbreon, the Moonlight Pokémon. When an Eevee has had sufficient training and is exposed to moonlight, it evolves into an Umbreon."
-//Activeset
-Tail_Whip
-Tackle
 //Learnset
 01 Tackle
 01 Tail_Whip
@@ -2851,8 +2682,6 @@ Catch_rate: 30
 Base_EXP: 107
 Growth_Rate: 2
 Description: "Murkrow, the Darkness Pokémon. Murkrow confuse would-be attackers by luring them into dark mountain trails, where they are sure to get lost."
-//Activeset
-Peck
 //Learnset
 01 Peck
 11 Pursuit
@@ -2905,8 +2734,6 @@ Catch_rate: 30
 Base_EXP: 107
 Growth_Rate: 2
 Description: "Murkrow, the Darkness Pokémon. Murkrow confuse would-be attackers by luring them into dark mountain trails, where they are sure to get lost."
-//Activeset
-Peck
 //Learnset
 01 Peck
 11 Pursuit
@@ -2959,9 +2786,6 @@ Catch_rate: 70
 Base_EXP: 164
 Growth_Rate: 1
 Description: "Slowking, the Royal Pokémon. Slowking possess great knowledge and inspiration, and are known for maintaining a level head in any circumstances."
-//Activeset
-Tackle
-Curse
 //Learnset
 01 Tackle
 01 Curse
@@ -3031,9 +2855,6 @@ Catch_rate: 45
 Base_EXP: 147
 Growth_Rate: 0
 Description: "Misdreavus, the Screech Pokémon. Misdreavus are extremely mischievous and like to cry out at night just to startle people."
-//Activeset
-Growl
-Psywave
 //Learnset
 01 Growl
 01 Psywave
@@ -3090,11 +2911,6 @@ Catch_rate: 45
 Base_EXP: 177
 Growth_Rate: 1
 Description: "Wobbuffet, the Patient Pokémon. Wobbuffet like to live in dark areas so they can keep their pitch black tail concealed."
-//Activeset
-Counter
-Destiny_Bond
-Safeguard
-Mirror_Coat
 //Learnset
 01 Counter
 01 Destiny_Bond
@@ -3120,11 +2936,6 @@ Catch_rate: 60
 Base_EXP: 149
 Growth_Rate: 1
 Description: "Girafarig, the Long Neck Pokémon. Girafarig has a second head on its tail that bite those who approach it carelessly."
-//Activeset
-Stomp
-Tackle
-Growl
-Confusion
 //Learnset
 01 Stomp
 01 Tackle
@@ -3185,9 +2996,6 @@ Catch_rate: 190
 Base_EXP: 60
 Growth_Rate: 1
 Description: "Pineco, the Bagworm Pokémon. Appears calm as it hangs quietly on tree branches, but it will self-destruct at the slightest provocation."
-//Activeset
-Stomp
-Tackle
 //Learnset
 01 Tackle
 01 Protect
@@ -3240,10 +3048,6 @@ Catch_rate: 75
 Base_EXP: 118
 Growth_Rate: 1
 Description: "Forretress, the Bagworm Pokémon. Forretress is the evolved form of Pineco. Its entire body is covered in a steel hard shell."
-//Activeset
-Tackle
-Self-Destruct
-Protect
 //Learnset
 01 Tackle
 01 Protect
@@ -3298,8 +3102,6 @@ Catch_rate: 190
 Base_EXP: 75
 Growth_Rate: 1
 Description: "Dunsparce, the Land Snake Pokémon. When discovered, the Dunsparce uses its tail to burrow into the earth and evade capture."
-//Activeset
-Rage
 //Learnset
 01 Rage
 05 Defense_Curl
@@ -3358,8 +3160,6 @@ Catch_rate: 60
 Base_EXP: 108
 Growth_Rate: 2
 Description: "Gligar, the Fly Scorpion Pokémon. Gligar uses the cape-like wings on its back to fly from tree to tree quickly and quietly."
-//Activeset
-Poison_Sting
 //Learnset
 01 Poison_Sting
 06 Sand_Attack
@@ -3418,9 +3218,6 @@ Catch_rate: 25
 Base_EXP: 196
 Growth_Rate: 1
 Description: "Steelix, the Iron Snake Pokémon. Steelix is the evolved form of Onix. It has been compressed underground, making its body harder than diamonds."
-//Activeset
-Tackle
-Screech
 //Learnset
 01 Tackle
 01 Screech
@@ -3480,9 +3277,6 @@ Catch_rate: 190
 Base_EXP: 63
 Growth_Rate: 0
 Description: "Snubbull, the Fairy Pokémon. While it may appear gruff and grumpy, deep down, Snubbull is a kind and caring Pokémon."
-//Activeset
-Tackle
-Scary_Face
 //Learnset
 01 Tackle
 01 Scary_Face
@@ -3545,9 +3339,6 @@ Catch_rate: 75
 Base_EXP: 178
 Growth_Rate: 0
 Description: "Granbull, the Fairy Pokémon. The evolved form of Snubbull. Granbull has extreme fighting power due to its heavily muscled jaw and its strong teeth and tusks."
-//Activeset
-Tackle
-Scary_Face
 //Learnset
 01 Tackle
 01 Scary_Face
@@ -3610,9 +3401,6 @@ Catch_rate: 45
 Base_EXP: 100
 Growth_Rate: 1
 Description: "Qwilfish, the Balloon Pokémon. The quills covering the entire body have evolved from scales. A Qwilfish can cause its body to swell in order to shoot its needles in all directions."
-//Activeset
-Tackle
-Scary_Face
 //Learnset
 01 Tackle
 01 Poison_Sting
@@ -3666,9 +3454,6 @@ Catch_rate: 25
 Base_EXP: 200
 Growth_Rate: 1
 Description: "Scizor, the Scissor Pokémon. The evolved form of Scyther. Its incredible attack speed and its large scissor-like claws make it a formidable opponent."
-//Activeset
-Leer
-Quick_Attack
 //Learnset
 01 Leer
 01 Quick_Attack
@@ -3725,9 +3510,6 @@ Catch_rate: 190
 Base_EXP: 80
 Growth_Rate: 2
 Description: "Shuckle, the Mold Pokémon. Shuckle stores Berries inside its shell, and the Berries eventually turn into a delicious juice."
-//Activeset
-Withdraw
-Constrict
 //Learnset
 01 Withdraw
 01 Constrict
@@ -3781,9 +3563,6 @@ Catch_rate: 200
 Base_EXP: 70
 Growth_Rate: 3
 Description: "Heracross, the Single Horn Pokémon. Though gentle and docile, Heracross possesses great strength and power. Their favorite food is the fresh sap of leafy trees."
-//Activeset
-Withdraw
-Constrict
 //Learnset
 01 Withdraw
 01 Constrict
@@ -3837,9 +3616,6 @@ Catch_rate: 60
 Base_EXP: 132
 Growth_Rate: 2
 Description: "Sneasel, the Sharp Claw Pokémon. Sneasel can extend or retract its claws instantly during attack."
-//Activeset
-Scratch
-Leer
 //Learnset
 01 Scratch
 01 Leer
@@ -3906,9 +3682,6 @@ Catch_rate: 120
 Base_EXP: 124
 Growth_Rate: 1
 Description: "Teddiursa, the Little Bear Pokémon. This cute, cuddly Pokémon is easily frightened and frequently licks its paws, which are usually covered with sweet honey."
-//Activeset
-Scratch
-Leer
 //Learnset
 01 Scratch
 01 Leer
@@ -3969,11 +3742,6 @@ Catch_rate: 60
 Base_EXP: 189
 Growth_Rate: 1
 Description: "Ursaring, the Hibernate Pokémon. The Ursaring has such a keen sense of smell that it can even find food that has been buried."
-//Activeset
-Scratch
-Leer
-Lick
-Fury_Swipes
 //Learnset
 01 Scratch
 01 Leer
@@ -4037,8 +3805,6 @@ Catch_rate: 190
 Base_EXP: 78
 Growth_Rate: 1
 Description: "Slugma, the Lava Pokémon. Slugma have intensely hot magma which circulates throughout their bodies carrying nutrients and oxygen to their organs."
-//Activeset
-Smog
 //Learnset
 01 Smog
 08 Ember
@@ -4087,10 +3853,6 @@ Catch_rate: 75
 Base_EXP: 154
 Growth_Rate: 1
 Description: "Magcargo, the Lava Pokémon. Magcargo lives primarily in volcanic regions and occasionally emits the lava from its back that circles its body."
-//Activeset
-Smog
-Ember
-Rock_Throw
 //Learnset
 01 Smog
 01 Ember
@@ -4143,8 +3905,6 @@ Catch_rate: 225
 Base_EXP: 78
 Growth_Rate: 3
 Description: "Swinub, the Pig Pokémon. The Swinub has an extremely keen sense of smell, which it usually uses to find food."
-//Activeset
-Tackle
 //Learnset
 01 Tackle
 10 Powder_Snow
@@ -4196,8 +3956,6 @@ Catch_rate: 75
 Base_EXP: 160
 Growth_Rate: 3
 Description: "Piloswine, the Swine Pokémon and the evolved form of Swinub. Piloswine's entire body is covered with fur, which makes it hard to see, so it uses its nose to sense its environment instead."
-//Activeset
-Tackle
 //Learnset
 01 Horn_Attack
 01 Powder_Snow
@@ -4250,8 +4008,6 @@ Catch_rate: 60
 Base_EXP: 70
 Growth_Rate: 0
 Description: "Corsola, the Coral Pokémon. A combination of both Water and Rock types. It sheds and regrows the horns on its head numerous times."
-//Activeset
-Tackle
 //Learnset
 01 Tackle
 07 Harden
@@ -4308,8 +4064,6 @@ Catch_rate: 190
 Base_EXP: 78
 Growth_Rate: 1
 Description: "Remoraid, the Jet Pokémon. Often found in large groups, Remoraid can fire water and hit targets up to 100 meters away."
-//Activeset
-Water_Gun
 //Learnset
 01 Water_Gun
 11 Lock-On
@@ -4360,8 +4114,6 @@ Catch_rate: 75
 Base_EXP: 164
 Growth_Rate: 1
 Description: "Octillery, the Jet Pokémon. Will instinctively sneak into rocky holes. It locks onto opponents with its leg suckers, then rams them with its rock-hard head."
-//Activeset
-Water_Gun
 //Learnset
 01 Water_Gun
 11 Constrict
@@ -4413,8 +4165,6 @@ Catch_rate: 45
 Base_EXP: 183
 Growth_Rate: 0
 Description: "Delibird, the Delivery Pokémon. Delibird’s most unique attack is giving presents, however, some of these presents have been known to explode."
-//Activeset
-Present
 //Learnset
 01 Present
 //HM/TM
@@ -4458,9 +4208,6 @@ Catch_rate: 25
 Base_EXP: 168
 Growth_Rate: 3
 Description: "Mantine, the Kite Pokémon. Mantine swims about the ocean, majestically, and may fly out of the water if it builds up enough speed."
-//Activeset
-Tackle
-Bubble
 //Learnset
 01 Tackle
 01 Bubble
@@ -4512,9 +4259,6 @@ Catch_rate: 25
 Base_EXP: 168
 Growth_Rate: 3
 Description: "Skarmory, the Armor Bird Pokémon. Because Skarmory nests in briers and is constantly scratched by thorns, its wings become razor sharp."
-//Activeset
-Leer
-Peck
 //Learnset
 01 Leer
 01 Peck
@@ -4567,9 +4311,6 @@ Catch_rate: 120
 Base_EXP: 114
 Growth_Rate: 0
 Description: "Houndour, the Dark Pokémon. Houndour travel in packs and communicate though barks in order to surround their prey."
-//Activeset
-Leer
-Ember
 //Learnset
 01 Leer
 01 Ember
@@ -4627,9 +4368,6 @@ Catch_rate: 45
 Base_EXP: 204
 Growth_Rate: 0
 Description: "Houndoom, the Dark Pokémon. The evolved form of Houndour. Houndoom's eerie howl is said to cause those who hear it to shudder in fear."
-//Activeset
-Leer
-Ember
 //Learnset
 01 Leer
 01 Ember
@@ -4689,11 +4427,6 @@ Catch_rate: 45
 Base_EXP: 207
 Growth_Rate: 1
 Description: "Kingdra, the Dragon Pokémon. Normally at rest on the ocean floor, but in theories of high activity, even a yawn has enough power to create whirlpools."
-//Activeset
-Leer
-Water_Gun
-Smoke_Screen
-Bubble
 //Learnset
 01 Leer
 01 Water_Gun
@@ -4746,9 +4479,6 @@ Catch_rate: 120
 Base_EXP: 124
 Growth_Rate: 1
 Description: "Phanpy, the Long Nose Pokémon. Phanpy uses its powerful snout to express affection. Not realizing its strength can send you flying."
-//Activeset
-Tackle
-Growl
 //Learnset
 01 Tackle
 01 Growl
@@ -4800,9 +4530,6 @@ Catch_rate: 120
 Base_EXP: 124
 Growth_Rate: 1
 Description: "Phanpy, the Long Nose Pokémon. Phanpy uses its powerful snout to express affection. Not realizing its strength can send you flying."
-//Activeset
-Tackle
-Growl
 //Learnset
 01 Tackle
 01 Growl
@@ -4853,9 +4580,6 @@ Catch_rate: 60
 Base_EXP: 189
 Growth_Rate: 1
 Description: "Donphan, the Armor Pokémon. With its strong tusks and tough skin, Donphan is known for its powerful Tackle attack. The length of Donphan's tusks indicates its level."
-//Activeset
-Horn_Attack
-Growl
 //Learnset
 01 Horn_Attack
 01 Growl
@@ -4907,10 +4631,6 @@ Catch_rate: 45
 Base_EXP: 180
 Growth_Rate: 1
 Description: "This upgraded version of Porygon is designed for space exploration. It can't fly, though."
-//Activeset
-Tackle
-Conversion
-Conversion_2
 //Learnset
 01 Tackle
 01 Conversion
@@ -4967,8 +4687,6 @@ Catch_rate: 45
 Base_EXP: 165
 Growth_Rate: 3
 Description: "Stantler, the Big Horn Pokémon. The eye-like shape at the base of its horn produces a pleasant odor and has a bewildering effect on anyone who smells it."
-//Activeset
-Tackle
 //Learnset
 01 Tackle
 08 Leer
@@ -5024,8 +4742,6 @@ Catch_rate: 45
 Base_EXP: 106
 Growth_Rate: 0
 Description: "Smeargle, the Painter Pokémon. Colored fluids ooze from their tails which they use to mark their territory and to express themselves."
-//Activeset
-Sketch
 //Learnset
 01 Sketch
 //HM/TM
@@ -5048,8 +4764,6 @@ Catch_rate: 75
 Base_EXP: 91
 Growth_Rate: 1
 Description: "Tyrogue, the Scuffle Pokémon. Tyrogue is the evolved form of Hitmonlee and Hitmonchan. It has a small but very energetic body."
-//Activeset
-Tackle
 //Learnset
 01 Tackle
 //HM/TM
@@ -5092,8 +4806,6 @@ Catch_rate: 45
 Base_EXP: 138
 Growth_Rate: 1
 Description: "Hitmontop, the Handstand Pokémon. Hitmontop's smooth graceful kicks are deceptively powerful. Opponents may be surprised by their force, so beware."
-//Activeset
-Rolling_Kick
 //Learnset
 01 Rolling_Kick
 07 Focus_Energy
@@ -5146,9 +4858,6 @@ Catch_rate: 45
 Base_EXP: 87
 Growth_Rate: 1
 Description: "Smoochum, the Kiss Pokémon. The pre-evolved form of Jynx. This sweet natured Pokémon has sensitive lips, which it uses to explore and examine with."
-//Activeset
-Pound
-Lick
 //Learnset
 01 Pound
 01 Lick
@@ -5206,9 +4915,6 @@ Catch_rate: 45
 Base_EXP: 106
 Growth_Rate: 1
 Description: "Elekid, the Electric Pokémon. Elekid is the pre-evolved form of Electabuzz. It generates electricity by spinning its arms."
-//Activeset
-Leer
-Quick_Attack
 //Learnset
 01 Leer
 01 Quick_Attack
@@ -5264,8 +4970,6 @@ Catch_rate: 45
 Base_EXP: 117
 Growth_Rate: 1
 Description: "Magby, the Live Coal Pokémon. Magby is the pre-evolved form of Magmar. Despite its small size, it is a tough opponent and produces an extremely hot flame."
-//Activeset
-Ember
 //Learnset
 01 Ember
 07 Leer
@@ -5318,8 +5022,6 @@ Catch_rate: 45
 Base_EXP: 200
 Growth_Rate: 3
 Description: "Miltank, the Milk Cow Pokémon. Miltank produces very nutritious milk, a perfect drink for reviving sick Pokémon. Miltank are very even tempered and prefer not to battle."
-//Activeset
-Tackle
 //Learnset
 01 Tackle
 04 Growl
@@ -5387,8 +5089,6 @@ Catch_rate: 30
 Base_EXP: 255
 Growth_Rate: 0
 Description: "Blissey, the Happiness Pokémon. It is kindhearted and loves helping people. Blissey is the evolved form of Chansey."
-//Activeset
-Pound
 //Learnset
 01 Pound
 04 Growl
@@ -5455,9 +5155,6 @@ Catch_rate: 3
 Base_EXP: 216
 Growth_Rate: 3
 Description: "Raikou, the Thunder Pokémon. It is said to have descended to earth on a bolt of lightning."
-//Activeset
-Leer
-Bite
 //Learnset
 01 Leer
 01 Bite
@@ -5518,9 +5215,6 @@ Catch_rate: 3
 Base_EXP: 217
 Growth_Rate: 3
 Description: "Volcanoes erupt when it barks. Unable to restrain its extreme power, it races headlong around the land."
-//Activeset
-Leer
-Bite
 //Learnset
 01 Leer
 01 Bite
@@ -5582,9 +5276,6 @@ Catch_rate: 3
 Base_EXP: 215
 Growth_Rate: 3
 Description: "Suicune, the Aurora Pokémon. It travels the world and purifies water wherever it goes, sailing on the North Wind."
-//Activeset
-Leer
-Bite
 //Learnset
 01 Leer
 01 Bite
@@ -5649,9 +5340,6 @@ Catch_rate: 45
 Base_EXP: 67
 Growth_Rate: 3
 Description: "Larvitar, the Rock Skin Pokémon. Larvitar generally hatch deep within the earth and take a long time before coming to the surface."
-//Activeset
-Leer
-Bite
 //Learnset
 01 Leer
 01 Bite
@@ -5706,11 +5394,6 @@ Catch_rate: 45
 Base_EXP: 144
 Growth_Rate: 3
 Description: "Pupitar, the Hard Shell Pokémon. Pupitar is encased in a nearly indestructible shell and has enough power to topple a mountain."
-//Activeset
-Leer
-Bite
-Screech
-Sandstorm
 //Learnset
 01 Leer
 01 Bite
@@ -5764,11 +5447,6 @@ Catch_rate: 45
 Base_EXP: 218
 Growth_Rate: 3
 Description: "Tyranitar, the Armor Pokémon. Tyranitar has a heavily armored body that can withstand powerful attacks and is able to crush a mountain with one hand."
-//Activeset
-Leer
-Bite
-Screech
-Sandstorm
 //Learnset
 01 Leer
 01 Bite
@@ -5832,8 +5510,6 @@ Catch_rate: 3
 Base_EXP: 220
 Growth_Rate: 3
 Description: "It is said that it quietly spends its time deep at the bottom of the sea because its powers are too strong."
-//Activeset
-Aeroblast
 //Learnset
 01 Aeroblast
 11 Safeguard
@@ -5904,8 +5580,6 @@ Catch_rate: 3
 Base_EXP: 220
 Growth_Rate: 3
 Description: "Legends claim this Pokémon flies the world's skies continuously on its magnificent seven-colored wings."
-//Activeset
-Sacred_Fire
 //Learnset
 01 Sacred_Fire
 11 Safeguard
@@ -5976,11 +5650,6 @@ Catch_rate: 45
 Base_EXP: 64
 Growth_Rate: 2
 Description: "Celebi, the Time Travel Pokémon. Celebi wanders across time as guardian of the forest. Wherever it appears, trees and grass flourish."
-//Activeset
-Leech_Seed
-Confusion
-Recover
-Heal_Bell
 //Learnset
 01 Leech_Seed
 01 Confusion
@@ -6023,5 +5692,3 @@ Rest
 Nightmare
 
 END
-//Tommy Fang
-//6/13/14

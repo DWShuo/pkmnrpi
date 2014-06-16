@@ -19,8 +19,8 @@ public class LayeredPanel extends JPanel {
 		}
 	}
 	
-	private JLabel background;
-	private JPanel foreground;
+	public JLabel background;
+	public JPanel foreground;
 
 	public LayeredPanel() {
 		setLayout(null);
