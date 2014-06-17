@@ -1,8 +1,14 @@
 // @author Theodore Tenedorio
 
-package game;
+package Pokedex;
 
+import game.GameState;
+
+import java.awt.BasicStroke;
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,25 +20,29 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 import util.ImageLibrary;
+import util.PatternPanel;
 import util.ScalePanel;
 
 // This is a class that acts like a text area using pre-defined icons to draw the fonts.
 public class PokedexTextArea extends JPanel implements ActionListener {
 	public static final ImageIcon blank = PokedexSearchBar.blank;
-	public static final ScalePanel background = PokedexSearchBar.background;
+	public static final PatternPanel background = new PatternPanel(PatternPanel.TEXT_AREA);
 
-	private int row, col, index;
+	private int row, col, index, width, height;
 	private Dimension[] loc;
 	private JLabel[][] text;
 	private String source = "";
 	private Timer time;
 	public int color = ImageLibrary.black;
 
-	// The dimensions of the area cannot change, and must be passed to the constructor.
+	// The dimensions of the area cannot change, and must be passed to the
+	// constructor.
 	public PokedexTextArea(int width, int height) {
 		super();
 		setLayout(null); // Needed to overlap on background
 		setPreferredSize(new Dimension(width, height));
+		this.width = width;
+		this.height = height;
 
 		// Calculate the number of text cells
 		int w = width / 7 - 4;
@@ -58,7 +68,8 @@ public class PokedexTextArea extends JPanel implements ActionListener {
 		center.setBounds((width - w * 7) / 2, (height - h * 12) / 2, w * 7, h * 12);
 	}
 
-	// Text must be added afterwards and will be placed in character by character at the given interval
+	// Text must be added afterwards and will be placed in character by
+	// character at the given interval
 	public void set_text(String str, int mills) {
 		if (time != null)
 			time.stop();
@@ -83,7 +94,7 @@ public class PokedexTextArea extends JPanel implements ActionListener {
 	private boolean set_text_locations() {
 		index = row = col = 0;
 		loc = new Dimension[source.length()];
-		
+
 		// Check each word to see if there is room on the current line
 		String[] lst = source.split(" ");
 		for (String word : lst) {
@@ -96,7 +107,8 @@ public class PokedexTextArea extends JPanel implements ActionListener {
 			} else { // Otherwise move to the next row and do the same
 				row++ ;
 				col = 0;
-				// If you are out of rows or the word is too big for the line, quit.
+				// If you are out of rows or the word is too big for the line,
+				// quit.
 				if (row == text.length || !is_room_for_word(word))
 					return false;
 				for (int i = 0; i < word.length(); ++i)

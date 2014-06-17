@@ -109,23 +109,27 @@ public class GameBoard extends JScrollPane implements KeyListener {
 		foreground.sprites.add(player.sprite);
 	}
 
-	private int getMaxXExtent() {
-		return map.mapdata[0].length * tsize - tilew * tsize;
-	}
-
-	private int getMaxYExtent() {
-		return map.mapdata.length * tsize - tileh * tsize;
+	public void moveSprite(int xmove, int ymove, Sprite s) {
+		xmove += s.x;
+		ymove += s.y;
+		xmove = Math.max(0, xmove);
+		ymove = Math.max(0, ymove);
+		xmove = Math.min(xmove, map.mapdata[0].length * tsize - s.width);
+		ymove = Math.min(ymove, map.mapdata.length * tsize - s.height);
+		s.x = xmove;
+		s.y = ymove;
 	}
 
 	public void movePanel(int xmove, int ymove) {
 		Point pt = viewport.getViewPosition();
+		int maxxextend = map.mapdata[0].length * tsize - tilew * tsize, maxyextend = map.mapdata.length * tsize - tileh * tsize;
 		pt.x += xmove;
 		pt.y += ymove;
 
 		pt.x = Math.max(0, pt.x);
-		pt.x = Math.min(getMaxXExtent(), pt.x);
+		pt.x = Math.min(maxxextend, pt.x);
 		pt.y = Math.max(0, pt.y);
-		pt.y = Math.min(getMaxYExtent(), pt.y);
+		pt.y = Math.min(maxyextend, pt.y);
 
 		viewport.setViewPosition(pt);
 	}

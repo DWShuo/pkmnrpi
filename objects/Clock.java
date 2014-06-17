@@ -62,7 +62,7 @@ public class Clock extends Timer implements ActionListener {
 			if (frames == 0) {
 				flags[BACK] = false;
 				if (is_alone(BACK))
-					stop();
+					;// stop();
 			}
 			board.movePanel(a, b);
 		}
@@ -75,18 +75,17 @@ public class Clock extends Timer implements ActionListener {
 			if (sf == 0) {
 				flags[FORE] = false;
 				if (is_alone(FORE))
-					stop();
+					;// stop();
 			}
-			player.sprite.x += a;
-			player.sprite.y += b;
+			board.moveSprite(a, b, player.sprite);
 			if (direction == Person.UP) {
-				player.sprite.image = player.walk[7 + inc++ % 3];
+				player.sprite.setImage(player.walk[7 + inc++ % 3]);
 			} else if (direction == Person.DOWN) {
-				player.sprite.image = player.walk[4 + inc++ % 3];
+				player.sprite.setImage(player.walk[4 + inc++ % 3]);
 			} else if (direction == Person.RIGHT) {
-				player.sprite.image = player.walk[inc++ % 2];
+				player.sprite.setImage(player.walk[inc++ % 2]);
 			} else if (direction == Person.LEFT) {
-				player.sprite.image = player.walk[2 + inc++ % 2];
+				player.sprite.setImage(player.walk[2 + inc++ % 2]);
 			}
 			panel.repaint();
 		}

@@ -1,4 +1,6 @@
-package game;
+package Pokedex;
+
+import game.GameState;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -12,12 +14,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import util.ImageLibrary;
+import util.PatternPanel;
 import util.ScalePanel;
 import util.Searchable;
 
 public class PokedexSearchBar extends JPanel implements KeyListener {
 	public static final int pixel_height = 22;
-	public static final ScalePanel background = new ScalePanel(new ImageIcon("src/tilesets/text_area.png").getImage());
+	public static final PatternPanel background = new PatternPanel(0);
 	public static final ImageIcon blank = ImageLibrary.getSolidColor(Color.white, 7, 14);
 	public static final String all_valid_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!?,.:$";
 

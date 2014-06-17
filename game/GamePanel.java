@@ -1,5 +1,6 @@
 package game;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
 
@@ -13,6 +14,7 @@ public class GamePanel extends JPanel {
 	public GamePanel() {
 		super();
 		sprites = new ArrayList<Sprite>();
+		setBackground(Color.red);
 	}
 
 	public void paint(Graphics g) {
