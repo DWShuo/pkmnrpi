@@ -118,6 +118,7 @@ public class GameBoard extends JScrollPane implements KeyListener {
 		ymove = Math.min(ymove, map.mapdata.length * tsize - s.height);
 		s.x = xmove;
 		s.y = ymove;
+		foreground.repaint();
 	}
 
 	public void movePanel(int xmove, int ymove) {

@@ -1,4 +1,4 @@
-package util;
+package util.panels;
 
 import java.awt.Graphics;
 import java.awt.Image;

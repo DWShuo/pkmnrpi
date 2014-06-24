@@ -1,4 +1,4 @@
-package util;
+package util.panels;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -26,17 +26,21 @@ public class PatternPanel extends JPanel implements ComponentListener {
 		super.paintComponents(g);
 		//Graphics2D g = (Graphics2D) gg;
 		if (pattern == TEXT_AREA) {
-			g.setColor(blackish);
-			g.fillRoundRect(0, 0, x, y, 5, 5);
-			g.setColor(redish);
-			int gap = 3;
-			g.fillRoundRect(gap, gap, x - 2 * gap, y - 2 * gap, 5, 5);
-			g.setColor(pinkish);
-			int buff = 10;
-			g.fillRect(gap + buff, gap, x - 2 * gap - 2 * buff, y - 2 * gap);
-			g.setColor(Color.white);
-			g.fillRect(gap + buff + 2, gap + 1, x - 2 * gap - 2 * buff - 4, y - 2 * gap - 2);
+			paint_text_area(g, x, y);
 		}
+	}
+	
+	public static void paint_text_area(Graphics g, int x, int y) {
+		g.setColor(blackish);
+		g.fillRoundRect(0, 0, x, y, 5, 5);
+		g.setColor(redish);
+		int gap = 3;
+		g.fillRoundRect(gap, gap, x - 2 * gap, y - 2 * gap, 5, 5);
+		g.setColor(pinkish);
+		int buff = 10;
+		g.fillRect(gap + buff, gap, x - 2 * gap - 2 * buff, y - 2 * gap);
+		g.setColor(Color.white);
+		g.fillRect(gap + buff + 2, gap + 1, x - 2 * gap - 2 * buff - 4, y - 2 * gap - 2);
 	}
 
 	public void componentHidden(ComponentEvent e) {}

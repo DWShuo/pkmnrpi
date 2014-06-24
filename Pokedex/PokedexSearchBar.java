@@ -14,15 +14,15 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import util.ImageLibrary;
-import util.PatternPanel;
-import util.ScalePanel;
 import util.Searchable;
+import util.panels.PatternPanel;
+import util.panels.ScalePanel;
 
 public class PokedexSearchBar extends JPanel implements KeyListener {
 	public static final int pixel_height = 22;
 	public static final PatternPanel background = new PatternPanel(0);
 	public static final ImageIcon blank = ImageLibrary.getSolidColor(Color.white, 7, 14);
-	public static final String all_valid_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!?,.:$";
+	public static final String all_valid_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!?,.:$ ";
 
 	private JLabel[] text;
 	private int max, idx;

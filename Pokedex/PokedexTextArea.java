@@ -4,33 +4,33 @@ package Pokedex;
 
 import game.GameState;
 
-import java.awt.BasicStroke;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
 import util.ImageLibrary;
-import util.PatternPanel;
-import util.ScalePanel;
+import util.panels.PatternPanel;
 
 // This is a class that acts like a text area using pre-defined icons to draw the fonts.
-public class PokedexTextArea extends JPanel implements ActionListener {
+public class PokedexTextArea extends JLayeredPane implements ActionListener, ComponentListener {
 	public static final ImageIcon blank = PokedexSearchBar.blank;
-	public static final PatternPanel background = new PatternPanel(PatternPanel.TEXT_AREA);
+	public PatternPanel background = new PatternPanel(PatternPanel.TEXT_AREA);
 
-	private int row, col, index, width, height;
+	private int row, col, index, width, height, w, h;
 	private Dimension[] loc;
 	private JLabel[][] text;
+	private JPanel center;
 	private String source = "";
 	private Timer time;
 	public int color = ImageLibrary.black;
@@ -39,16 +39,15 @@ public class PokedexTextArea extends JPanel implements ActionListener {
 	// constructor.
 	public PokedexTextArea(int width, int height) {
 		super();
-		setLayout(null); // Needed to overlap on background
 		setPreferredSize(new Dimension(width, height));
 		this.width = width;
 		this.height = height;
 
 		// Calculate the number of text cells
-		int w = width / 7 - 4;
-		int h = (height) / 12 - 2;
+		w = width / 7 - 5;
+		h = height / 12 - 2;
 
-		JPanel center = new JPanel();
+		center = new JPanel();
 		center.setLayout(new GridLayout(h, w, 0, 0));
 		center.setPreferredSize(new Dimension(w * 7, h * 12));
 		center.setOpaque(false);
@@ -62,8 +61,8 @@ public class PokedexTextArea extends JPanel implements ActionListener {
 				center.add(text[i][j]);
 			}
 		}
-		add(center);
-		add(background);
+		add(center, 0);
+		add(background, 1);
 		background.setBounds(0, 0, width, height);
 		center.setBounds((width - w * 7) / 2, (height - h * 12) / 2, w * 7, h * 12);
 	}
@@ -98,8 +97,11 @@ public class PokedexTextArea extends JPanel implements ActionListener {
 		// Check each word to see if there is room on the current line
 		String[] lst = source.split(" ");
 		for (String word : lst) {
+			if(word == "*") {
+				row++;
+				col = 0;
 			// If there is set the locations and move on
-			if (is_room_for_word(word)) {
+			} else if (is_room_for_word(word)) {
 				for (int i = 0; i < word.length(); ++i)
 					loc[index++ ] = new Dimension(row, col++ );
 				index++ ;
@@ -117,6 +119,7 @@ public class PokedexTextArea extends JPanel implements ActionListener {
 				col++ ;
 			}
 		}
+		source = source.replace('*', ' ');
 		return true; // Report success to brethren
 	}
 
@@ -138,17 +141,16 @@ public class PokedexTextArea extends JPanel implements ActionListener {
 		text[location.width][location.height].setIcon(ImageLibrary.text[color][id]);
 	}
 
-	public static void main(String[] args) {
-		GameState.initilize_all();
-		JFrame f = new JFrame("Test");
-		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		int w = 300, h = 100;
-		f.setBounds(600, 200, w, h);
-		PokedexTextArea a = new PokedexTextArea(w, h);
-		f.add(a);
-		f.pack();
-		f.setVisible(true);
+	public void componentHidden(ComponentEvent arg0) {}
 
-		a.set_text("WARNING!!!! THIS IS FUCKING AWESOME. this is so freaking cool i wonder if the text wrapping is working. Ill just have to give it a spin:", 80);
+	public void componentMoved(ComponentEvent arg0) {}
+
+	public void componentResized(ComponentEvent arg0) {
+		width = getWidth();
+		height = getHeight();
+		background.setBounds(0, 0, width, height);
+		center.setBounds((width - w * 7) / 2, (height - h * 12) / 2, w * 7, h * 12);
 	}
+
+	public void componentShown(ComponentEvent arg0) {}
 }

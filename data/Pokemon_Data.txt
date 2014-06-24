@@ -18,7 +18,7 @@ Total: 318
 Catch_rate: 45
 Base_EXP: 64
 Growth_Rate: 0
-Description: "Chikorita, the Leaf Pokémon. Chikorita emits pleasant aromas from the leaves on their heads and they love to sunbathe."
+Description: "Chikorita, the Leaf Pokemon. Chikorita emits pleasant aromas from the leaves on their heads and they love to sunbathe."
 //Learnset
 01 Tackle
 01 Growl
@@ -56,12 +56,11 @@ Sleep_Talk
 Substitute
 Nature_Power
 Confide
------------------------
+------------------------
 ID#: 153
 Name: Bayleef
 Type: Grass
-Species: Leaf
-Gender: Female
+Species: Lea
 Height: 1.2
 Weight: 15.8
 32 Meganium
@@ -76,7 +75,7 @@ Speed: 60
 Catch_rate: 45
 Base_EXP: 141
 Growth_Rate: 2
-Description: "Bayleef, the Leaf Pokémon. The evolved form of Chikorita. Bayleef emits a spicy aroma from the leaves around its neck and its Razor Leaf is extremely powerful."
+Description: "Bayleef, the Leaf Pokemon. The evolved form of Chikorita. Bayleef emits a spicy aroma from the leaves around its neck and its Razor Leaf is extremely powerful."
 //Learnset
 01 Tackle
 01 Growl
@@ -110,7 +109,7 @@ Frustration
 Solar_Beam
 Iron_Tail
 Return
-Mud-Slap
+Mud Slap
 Double_Team
 Swagger
 Sleep_Talk
@@ -118,7 +117,7 @@ Detect
 Rest
 Attract
 Fury_Cutter
------------------------
+------------------------
 ID#: 154
 Name: Meganium
 Type: Grass
@@ -136,7 +135,7 @@ Speed: 80
 Catch_rate: 45
 Base_EXP: 208
 Growth_Rate: 2
-Description: "Meganium, the Herb Pokémon. Meganium have the ability to fully restore dried up plants and bring them back to life with its breath."
+Description: "Meganium, the Herb Pokemon. Meganium have the ability to fully restore dried up plants and bring them back to life with its breath."
 //Learnset
 01 Tackle
 01 Growl
@@ -170,7 +169,7 @@ Solar_Beam
 Iron_Tail
 Earthquake
 Return
-Mud-Slap
+Mud Slap
 Double_Team
 Swagger
 Sleep_Talk
@@ -178,7 +177,7 @@ Detect
 Rest
 Attract
 Fury_Cutter
------------------------
+------------------------
 ID#: 155
 Name: Cyndaquil
 Type: Fire
@@ -198,7 +197,7 @@ Speed: 65
 Catch_rate: 45
 Base_EXP: 65
 Growth_Rate: 2
-Description: "Cyndaquil, the Fire Mouse Pokémon. Normally mild and even tempered, Cyndaquil will shoot a scorching flame out of its back when upset."
+Description: "Cyndaquil, the Fire Mouse Pokemon. Normally mild and even tempered, Cyndaquil will shoot a scorching flame out of its back when upset."
 //Learnset
 01 Tackle
 01 Leer
@@ -223,7 +222,7 @@ Frustration
 Iron_Tail
 Return
 Dig
-Mud-Slap
+Mud Slap
 Double_Team
 Swagger
 Sleep_Talk
@@ -233,7 +232,7 @@ Defense_Curl
 Detect
 Rest
 Attract
------------------------
+------------------------
 ID#: 156
 Name: Quilava
 Type: Fire
@@ -252,7 +251,7 @@ Speed: 80
 Catch_rate: 45
 Base_EXP: 142
 Growth_Rate: 2
-Description: "Quilava, the Volcano Pokémon. Quilava is the evolved form of Cyndaquil and capable of incredible attacks using the flame on its back."
+Description: "Quilava, the Volcano Pokemon. Quilava is the evolved form of Cyndaquil and capable of incredible attacks using the flame on its back."
 //Learnset
 01 Tackle
 01 Leer
@@ -280,7 +279,7 @@ Frustration
 Iron_Tail
 Return
 Dig
-Mud-Slap
+Mud Slap
 Double_Team
 Swagger
 Sleep_Talk
@@ -291,7 +290,7 @@ Detect
 Rest
 Attract
 Fury_Cutter
------------------------
+------------------------
 ID#: 157
 Name: Typhlosion
 Type: Fire
@@ -338,7 +337,7 @@ Frustration
 Iron_Tail
 Return
 Dig
-Mud-Slap
+Mud Slap
 Double_Team
 Swagger
 Sleep_Talk
@@ -350,7 +349,7 @@ Detect
 Rest
 Attract
 Fury_Cutter
------------------------
+------------------------
 ID#: 158
 Name: Totodile
 Type: Water
@@ -370,7 +369,7 @@ Speed: 43
 Catch_rate: 45
 Base_EXP: 66
 Growth_Rate: 2
-Description: "Totodile, the Big Jaw Pokémon. Its highly developed jaw is so powerful, it can crush practically anything. Trainers beware: this Pokémon loves to use its teeth."
+Description: "Totodile, the Big Jaw Pokemon. Its highly developed jaw is so powerful, it can crush practically anything. Trainers beware: this Pokemon loves to use its teeth."
 //Learnset
 01 Scratch
 01 Leer
@@ -400,7 +399,7 @@ Frustration
 Iron_Tail
 Return
 Dig
-Mud-Slap
+Mud Slap
 Double_Team
 IcePunch
 Swagger
@@ -408,7 +407,7 @@ Sleep_Talk
 Detect
 Rest
 Attract
------------------------
+------------------------
 ID#: 159
 Name: Croconaw
 Type: Water
@@ -457,7 +456,7 @@ Frustration
 Iron_Tail
 Return
 Dig
-Mud-Slap
+Mud Slap
 Double_Team
 IcePunch
 Swagger
@@ -466,7 +465,7 @@ Detect
 Rest
 Attract
 Fury_Cutter
------------------------
+------------------------
 ID#: 160
 Name: Feraligatr
 Type: Water
@@ -484,7 +483,7 @@ Speed: 100
 Catch_rate: 45
 Base_EXP: 210
 Growth_Rate: 2
-Description: "Feraligatr, the Big Jaw Pokémon. The final evolution of Totodile. Once a Feraligatr has clamped its powerful jaws around an opponent, it won't let go until the opponent is defeated."
+Description: "Feraligatr, the Big Jaw Pokemon. The final evolution of Totodile. Once a Feraligatr has clamped its powerful jaws around an opponent, it won't let go until the opponent is defeated."
 //Learnset
 01 Scratch
 01 Leer
@@ -516,7 +515,7 @@ Frustration
 Iron_Tail
 Return
 Dig
-Mud-Slap
+Mud Slap
 Double_Team
 IcePunch
 Swagger
@@ -525,7 +524,7 @@ Detect
 Rest
 Attract
 Fury_Cutter
------------------------
+------------------------
 ID#: 161
 Name: Sentret
 Type: Normal
@@ -544,7 +543,7 @@ Speed: 20
 Catch_rate: 255
 Base_EXP: 57
 Growth_Rate: 1
-Description: "Sentret, the Scout Pokémon. Sentret is able to see great distances by rising up on its tail. When it spots an enemy, or any kind of danger, it emits a loud, shrill cry as a warning."
+Description: "Sentret, the Scout Pokemon. Sentret is able to see great distances by rising up on its tail. When it spots an enemy, or any kind of danger, it emits a loud, shrill cry as a warning."
 //Learnset
 01 Tackle
 05 Defense Curl
@@ -571,7 +570,7 @@ Iron_Tail
 Return
 Dig
 Shadow_Ball
-Mud-Slap
+Mud Slap
 Double_Team
 IcePunch
 Swagger
@@ -585,7 +584,7 @@ Attract
 Thief
 FirePunch
 Fury_Cutter
------------------------
+------------------------
 ID#: 162
 Name: Furret
 Type: Normal
@@ -632,7 +631,7 @@ Iron_Tail
 Return
 Dig
 Shadow_Ball
-Mud-Slap
+Mud Slap
 Double_Team
 IcePunch
 Swagger
@@ -646,7 +645,7 @@ Attract
 Thief
 FirePunch
 Fury_Cutter
------------------------
+------------------------
 ID#: 163
 Name: Hoothoot
 Type: Normal/Flying
@@ -665,7 +664,7 @@ Speed: 50
 Catch_rate: 255
 Base_EXP: 58
 Growth_Rate: 1
-Description: "Hoothoot, the Owl Pokémon. Hoothoot stands on one leg, but uses both its powerful eyes to see clearly even through the darkest night."
+Description: "Hoothoot, the Owl Pokemon. Hoothoot stands on one leg, but uses both its powerful eyes to see clearly even through the darkest night."
 //Learnset
 01 Tackle
 01 Growl
@@ -688,7 +687,7 @@ Protect
 Endure
 Frustration
 Return
-Mud-Slap
+Mud Slap
 Double_Team
 Swagger
 Sleep_Talk
@@ -700,7 +699,7 @@ Attract
 Thief
 Steel_Wing
 Nightmare
------------------------
+------------------------
 ID#: 164
 Name: Noctowl
 Type: Normal/Flying
@@ -718,7 +717,7 @@ Speed: 70
 Catch_rate: 90
 Base_EXP: 162
 Growth_Rate: 3
-Description: "Noctowl, the Owl Pokémon. The evolved form of Hoothoot. This highly intelligent Pokémon often twists its head 180 degrees when it is thinking. Noctowl is a nocturnal Pokémon."
+Description: "Noctowl, the Owl Pokemon. The evolved form of Hoothoot. This highly intelligent Pokemon often twists its head 180 degrees when it is thinking. Noctowl is a nocturnal Pokemon."
 //Learnset
 01 Tackle
 01 Growl
@@ -743,7 +742,7 @@ Protect
 Endure
 Frustration
 Return
-Mud-Slap
+Mud Slap
 Double_Team
 Swagger
 Sleep_Talk
@@ -755,7 +754,7 @@ Attract
 Thief
 Steel_Wing
 Nightmare
------------------------
+------------------------
 ID#: 165
 Name: Ledyba
 Type: Bug/Flying
@@ -774,7 +773,7 @@ Speed: 70
 Catch_rate: 255
 Base_EXP: 54
 Growth_Rate: 0
-Description: "Ledyba, the Five Star Pokémon. These naturally gentle Bug-types gather in groups during cold weather to keep warm."
+Description: "Ledyba, the Five Star Pokemon. These naturally gentle Bug types gather in groups during cold weather to keep warm."
 //Learnset
 01 Tackle
 08 Supersonic
@@ -785,7 +784,7 @@ Description: "Ledyba, the Five Star Pokémon. These naturally gentle Bug-types g
 29 Baton_Pass
 36 Swift
 43 Agility
-50 Double-Edge
+50 Double Edge
 //HM/TM
 Flash
 DynamicPunch
@@ -813,7 +812,7 @@ ThunderPunch
 Rest
 Attract
 Thief
------------------------
+------------------------
 ID#: 166
 Name: Ledian
 Type: Bug/Flying
@@ -831,7 +830,7 @@ Speed: 85
 Catch_rate: 90
 Base_EXP: 134
 Growth_Rate: 0
-Description: "Ledian, the Five Star Pokémon. The evolved form of Ledyba. The spots on the Ledian's back are said to respond to the stars in the night sky."
+Description: "Ledian, the Five Star Pokemon. The evolved form of Ledyba. The spots on the Ledian's back are said to respond to the stars in the night sky."
 //Learnset
 01 Tackle
 01 Supersonic
@@ -842,7 +841,7 @@ Description: "Ledian, the Five Star Pokémon. The evolved form of Ledyba. The sp
 33 Baton_Pass
 42 Swift
 51 Agility
-60 Double-Edge
+60 Double Edge
 //HM/TM
 Flash
 DynamicPunch
@@ -871,7 +870,7 @@ ThunderPunch
 Rest
 Attract
 Thief
------------------------
+------------------------
 ID#: 167
 Name: Spinarak
 Type: Bug/Poison
@@ -890,7 +889,7 @@ Speed: 30
 Catch_rate: 255
 Base_EXP: 54
 Growth_Rate: 0
-Description: "Spinarak, the String Spit Pokémon. Spinarak can climb any surface easily, and shoot a strong web from both the front and back of its body. Its prey is caught and held tight in its web."
+Description: "Spinarak, the String Spit Pokemon. Spinarak can climb any surface easily, and shoot a strong web from both the front and back of its body. Its prey is caught and held tight in its web."
 //Learnset
 01 Poison_Sting
 01 String_Shot
@@ -925,7 +924,7 @@ Sludge_Bomb
 Rest
 Attract
 Thief
------------------------
+------------------------
 ID#: 168
 Name: Ariados
 Type: Bug/Poison
@@ -943,7 +942,7 @@ Speed: 40
 Catch_rate: 90
 Base_EXP: 134
 Growth_Rate: 0
-Description: "Ariados, the Long Leg Pokémon. The evolved form of Spinarak. Ariados is able to spin extremely strong and sticky webs to trap its adversaries."
+Description: "Ariados, the Long Leg Pokemon. The evolved form of Spinarak. Ariados is able to spin extremely strong and sticky webs to trap its adversaries."
 //Learnset
 01 Poison_Sting
 01 String_Shot
@@ -978,7 +977,7 @@ Sludge_Bomb
 Rest
 Attract
 Thief
------------------------
+------------------------
 ID#: 169
 Name: Crobat
 Type: Poison/Flying
@@ -1032,7 +1031,7 @@ Rest
 Attract
 Thief
 Steel_Wing
------------------------
+------------------------
 ID#: 170
 Name: Chinchou
 Type: Water/Electric
@@ -1051,7 +1050,7 @@ Speed: 67
 Catch_rate: 190
 Base_EXP: 90
 Growth_Rate: 3
-Description: "Chinchou, the Angler Pokémon, have the ability to conduct electrical currents from their two tentacles which flow positive from one end and negative to the other. Chinchou can also communicate underwater by flashing its tentacles."
+Description: "Chinchou, the Angler Pokemon, have the ability to conduct electrical currents from their two tentacles which flow positive from one end and negative to the other. Chinchou can also communicate underwater by flashing its tentacles."
 //Learnset
 01 Thunder_Wave
 01 Bubble
@@ -1083,7 +1082,7 @@ Swagger
 Sleep_Talk
 Rest
 Attract
------------------------
+------------------------
 ID#: 171
 Name: Lanturn
 Type: Water/Electric
@@ -1101,7 +1100,7 @@ Speed: 67
 Catch_rate: 75
 Base_EXP: 156
 Growth_Rate: 3
-Description: "Lanturn, the Light Pokémon. The light that emits from its tentacle-like limb shines bright enough to illuminate the bottom of a deep sea."
+Description: "Lanturn, the Light Pokemon. The light that emits from its tentacle like limb shines bright enough to illuminate the bottom of a deep sea."
 //Learnset
 01 Thunder_Wave
 01 Bubble
@@ -1134,7 +1133,7 @@ Swagger
 Sleep_Talk
 Rest
 Attract
------------------------
+------------------------
 ID#: 172
 Name: Pichu
 Type: Electric
@@ -1152,7 +1151,7 @@ Speed: 60
 Catch_rate: 190
 Base_EXP: 42
 Growth_Rate: 1
-Description: "Pichu, the Tiny Mouse Pokémon. A pre-evolved form of Pikachu. Despite their size, Pichu release bursts of electricity that can shock even humans. However, Pichu are unskilled at controlling their electricity, and sometimes release it by accident when surprised, or when laughing and shock themselves."
+Description: "Pichu, the Tiny Mouse Pokemon. A pre evolved form of Pikachu. Despite their size, Pichu release bursts of electricity that can shock even humans. However, Pichu are unskilled at controlling their electricity, and sometimes release it by accident when surprised, or when laughing and shock themselves."
 //Learnset
 01 Thunder_Shock
 01 Charm
@@ -1174,7 +1173,7 @@ Frustration
 Iron_Tail
 Thunder
 Return
-Mud-Slap
+Mud Slap
 Double_Team
 Swagger
 Sleep_Talk
@@ -1183,7 +1182,7 @@ Defense_Curl
 Detect
 Rest
 Attract
------------------------
+------------------------
 ID#: 173
 Name: Cleffa
 Type: Normal
@@ -1201,7 +1200,7 @@ Speed: 15
 Catch_rate: 150
 Base_EXP: 37
 Growth_Rate: 0
-Description: "Cleffa, the Star Shape Pokémon. Cleffa is the pre-evolved form of Clefairy. Their star shape has led some to believe that they reach the Earth riding on shooting stars. Strangely, many Cleffa are often found on nights of meteor showers."
+Description: "Cleffa, the Star Shape Pokemon. Cleffa is the pre evolved form of Clefairy. Their star shape has led some to believe that they reach the Earth riding on shooting stars. Strangely, many Cleffa are often found on nights of meteor showers."
 //Learnset
 01 Pound
 01 Charm
@@ -1227,7 +1226,7 @@ Thunder
 Return
 Psychic
 Shadow_Ball
-Mud-Slap
+Mud Slap
 Double_Team
 Swagger
 Sleep_Talk
@@ -1238,7 +1237,7 @@ Detect
 Rest
 Attract
 Nightmare
------------------------
+------------------------
 ID#: 174
 Name: Igglybuff
 Type: Normal
@@ -1256,7 +1255,7 @@ Speed: 15
 Catch_rate: 170
 Base_EXP: 39
 Growth_Rate: 0
-Description: "Igglybuff, the Balloon Pokémon. Igglybuff's resilient body allows it to bounce endlessly once it's been put in motion."
+Description: "Igglybuff, the Balloon Pokemon. Igglybuff's resilient body allows it to bounce endlessly once it's been put in motion."
 //Learnset
 01 Sing
 01 Charm
@@ -1282,7 +1281,7 @@ Solar_Beam
 Return
 Psychic
 Shadow_Ball
-Mud-Slap
+Mud Slap
 Double_Team
 Swagger
 Sleep_Talk
@@ -1293,7 +1292,7 @@ Detect
 Rest
 Attract
 Nightmare
------------------------
+------------------------
 ID#: 175
 Name: Togepi
 Type: Normal
@@ -1319,7 +1318,7 @@ Description: "Togepi is imprinted with the first image it sees after it hatches,
 18 Sweet_Kiss
 25 Encore
 31 Safeguard
-38 Double-Edge
+38 Double Edge
 //HM/TM
 Flash
 Headbutt
@@ -1339,7 +1338,7 @@ Solar_Beam
 Return
 Psychic
 Shadow_Ball
-Mud-Slap
+Mud Slap
 Double_Team
 Swagger
 Sleep_Talk
@@ -1350,7 +1349,7 @@ Dream_Eater
 Detect
 Rest
 Attract
------------------------
+------------------------
 ID#: 176
 Name: Togetic
 Type: Normal/Flying
@@ -1376,7 +1375,7 @@ Description: "They say that it will appear before kindhearted, caring people and
 18 Sweet_Kiss
 25 Encore
 31 Safeguard
-38 Double-Edge
+38 Double Edge
 //HM/TM
 Fly
 Flash
@@ -1398,7 +1397,7 @@ Solar_Beam
 Return
 Psychic
 Shadow_Ball
-Mud-Slap
+Mud Slap
 Double_Team
 Swagger
 Sleep_Talk
@@ -1410,7 +1409,7 @@ Detect
 Rest
 Attract
 Steel_Wing
------------------------
+------------------------
 ID#: 177
 Name: Natu
 Type: Psychic/Flying
@@ -1429,7 +1428,7 @@ Speed: 70
 Catch_rate: 190
 Base_EXP: 73
 Growth_Rate: 1
-Description: "Natu, the Tiny Bird Pokémon. The Natu moves around by hopping and always seems to be staring at something."
+Description: "Natu, the Tiny Bird Pokemon. The Natu moves around by hopping and always seems to be staring at something."
 //Learnset
 01 Leer
 01 Peck
@@ -1463,7 +1462,7 @@ Rest
 Attract
 Thief
 Nightmare
------------------------
+------------------------
 ID#: 178
 Name: Xatu
 Type: Psychic/Flying
@@ -1481,7 +1480,7 @@ Speed: 95
 Catch_rate: 75
 Base_EXP: 171
 Growth_Rate: 1
-Description: "Xatu, the Mystic Pokémon. Xatu is said to be able to foretell the future with a high degree of accuracy, but it is unknown whether its prophecies are correct."
+Description: "Xatu, the Mystic Pokemon. Xatu is said to be able to foretell the future with a high degree of accuracy, but it is unknown whether its prophecies are correct."
 //Learnset
 01 Leer
 01 Peck
@@ -1517,7 +1516,7 @@ Rest
 Attract
 Thief
 Nightmare
------------------------
+------------------------
 ID#: 179
 Name: Mareep
 Type: Electric
@@ -1537,7 +1536,7 @@ Speed: 95
 Catch_rate: 235
 Base_EXP: 59
 Growth_Rate: 2
-Description: "Mareep, the Wool Pokémon. Mareep stores static electricity in their wooly coat. They avoid battle and have mild dispositions."
+Description: "Mareep, the Wool Pokemon. Mareep stores static electricity in their wooly coat. They avoid battle and have mild dispositions."
 //Learnset
 01 Tackle
 01 Growl
@@ -1584,7 +1583,7 @@ Speed: 95
 Catch_rate: 235
 Base_EXP: 59
 Growth_Rate: 2
-Description: "Mareep, the Wool Pokémon. Mareep stores static electricity in their wooly coat. They avoid battle and have mild dispositions."
+Description: "Mareep, the Wool Pokemon. Mareep stores static electricity in their wooly coat. They avoid battle and have mild dispositions."
 //Learnset
 01 Tackle
 01 Growl
@@ -1615,7 +1614,7 @@ Swift
 Defense_Curl
 Rest
 Attract
------------------------
+------------------------
 ID#: 180
 Name: Flaaffy
 Type: Electric
@@ -1670,7 +1669,7 @@ ThunderPunch
 Rest
 Attract
 FirePunch
------------------------
+------------------------
 ID#: 181
 Name: Ampharos
 Type: Electric
@@ -1688,7 +1687,7 @@ Speed: 95
 Catch_rate: 45
 Base_EXP: 194
 Growth_Rate: 2
-Description: "Ampharos, the Light Pokémon. Ampharos emits a strong light from the tip of its tail, which can be seen over long distances and serve as a beacon to those who are lost."
+Description: "Ampharos, the Light Pokemon. Ampharos emits a strong light from the tip of its tail, which can be seen over long distances and serve as a beacon to those who are lost."
 //Learnset
 01 Tackle
 01 Growl
@@ -1726,7 +1725,7 @@ ThunderPunch
 Rest
 Attract
 FirePunch
------------------------
+------------------------
 ID#: 182
 Name: Bellossom
 Type: Grass
@@ -1744,7 +1743,7 @@ Speed: 50
 Catch_rate: 45
 Base_EXP: 184
 Growth_Rate: 2
-Description: "Bellossom, the Flower Pokémon. When these Pokémon move, their delicate petals rub together, creating a pleasant sound. They are also known for their unique acrobatic dancing abilities."
+Description: "Bellossom, the Flower Pokemon. When these Pokemon move, their delicate petals rub together, creating a pleasant sound. They are also known for their unique acrobatic dancing abilities."
 //Learnset
 01 Stun_Spore
 01 Petal_Dance
@@ -1770,7 +1769,7 @@ Swagger
 Sleep_Talk
 Rest
 Attract
------------------------
+------------------------
 ID#: 183
 Name: Marill
 Type: Water
@@ -1789,7 +1788,7 @@ Speed: 40
 Catch_rate: 190
 Base_EXP: 58
 Growth_Rate: 0
-Description: "Marill, the Water Mouse Pokémon. Its sensitive ears can detect distant sounds and the round rubbery tip on its tail can expand and contract, assisting Marill in the water."
+Description: "Marill, the Water Mouse Pokemon. Its sensitive ears can detect distant sounds and the round rubbery tip on its tail can expand and contract, assisting Marill in the water."
 //Learnset
 01 Tackle
 03 Defense_Curl
@@ -1797,7 +1796,7 @@ Description: "Marill, the Water Mouse Pokémon. Its sensitive ears can detect di
 10 Water_Gun
 15 Rollout
 21 Bubble_Beam
-28 Double-Edge
+28 Double Edge
 36 Rain_Dance
 //HM/TM
 Surf
@@ -1818,7 +1817,7 @@ Endure
 Frustration
 Iron_Tail
 Return
-Mud-Slap
+Mud Slap
 Double_Team
 IcePunch
 Swagger
@@ -1827,7 +1826,7 @@ Swift
 Defense_Curl
 Rest
 Attract
------------------------
+------------------------
 ID#: 183
 Name: Azumarill
 Type: Water
@@ -1845,7 +1844,7 @@ Speed: 50
 Catch_rate: 75
 Base_EXP: 153
 Growth_Rate: 0
-Description: "Azumarill, the Aqua Rabbit Pokémon. The evolved form of Marill. This Pokémon uses its large, highly developed ears to hear great distances, even underwater."
+Description: "Azumarill, the Aqua Rabbit Pokemon. The evolved form of Marill. This Pokemon uses its large, highly developed ears to hear great distances, even underwater."
 //Learnset
 01 Tackle
 01 Defense_Curl
@@ -1853,7 +1852,7 @@ Description: "Azumarill, the Aqua Rabbit Pokémon. The evolved form of Marill. T
 01 Water_Gun
 15 Rollout
 25 Bubble_Beam
-36 Double-Edge
+36 Double Edge
 48 Rain_Dance
 //HM/TM
 Surf
@@ -1877,7 +1876,7 @@ Endure
 Frustration
 Iron_Tail
 Return
-Mud-Slap
+Mud Slap
 Double_Team
 IcePunch
 Swagger
@@ -1886,7 +1885,7 @@ Swift
 Defense_Curl
 Rest
 Attract
------------------------
+------------------------
 ID#: 185
 Name: Sudowoodo
 Type: Rock
@@ -1904,7 +1903,7 @@ Speed: 30
 Catch_rate: 65
 Base_EXP: 135
 Growth_Rate: 1
-Description: "Sudowoodo, the Imitation Pokémon. This rare Pokémon hides in trees to avoid capture."
+Description: "Sudowoodo, the Imitation Pokemon. This rare Pokemon hides in trees to avoid capture."
 //Learnset
 01 Rock_Throw
 01 Mimic
@@ -1930,7 +1929,7 @@ Frustration
 Earthquake
 Return
 Dig
-Mud-Slap
+Mud Slap
 Double_Team
 IcePunch
 Swagger
@@ -1942,7 +1941,7 @@ Rest
 Attract
 Thief
 FirePunch
------------------------
+------------------------
 ID#: 186
 Name: Politoed
 Type: Water
@@ -1960,7 +1959,7 @@ Speed: 70
 Catch_rate: 45
 Base_EXP: 185
 Growth_Rate: 2
-Description: "Politoed, the Frog Pokémon. Politoed likes to expand its throat and sing out, drawing in Poliwag and Poliwhirl from all around."
+Description: "Politoed, the Frog Pokemon. Politoed likes to expand its throat and sing out, drawing in Poliwag and Poliwhirl from all around."
 //Learnset
 01 Double_Slap
 01 Water_Gun
@@ -1988,7 +1987,7 @@ Frustration
 Earthquake
 Return
 Psychic
-Mud-Slap
+Mud Slap
 Double_Team
 IcePunch
 Swagger
@@ -1999,7 +1998,7 @@ Detect
 Rest
 Attract
 Thief
------------------------
+------------------------
 ID#: 187
 Name: Hoppip
 Type: Grass/Flying
@@ -2019,7 +2018,7 @@ Speed: 50
 Catch_rate: 255
 Base_EXP: 74
 Growth_Rate: 2
-Description: "Hoppip, the Cottonweed Pokémon. This hopping Pokémon is light as a feather, and can be lifted by the gentlest breeze."
+Description: "Hoppip, the Cottonweed Pokemon. This hopping Pokemon is light as a feather, and can be lifted by the gentlest breeze."
 //Learnset
 01 Splash
 01 Synthesis
@@ -2052,7 +2051,7 @@ Sleep Talk
 Defense_Curl
 Rest
 Attract
------------------------
+------------------------
 ID#: 188
 Name: Skiploom
 Type: Grass/Flying
@@ -2071,7 +2070,7 @@ Speed: 80
 Catch_rate: 120
 Base_EXP: 136
 Growth_Rate: 2
-Description: "Skiploom, the evolved form of Hoppip. This happy-go-lucky Grass-type has a flower on its head which opens and closes depending on the temperature."
+Description: "Skiploom, the evolved form of Hoppip. This happy go lucky Grass type has a flower on its head which opens and closes depending on the temperature."
 //Learnset
 01 Splash
 01 Synthesis
@@ -2104,7 +2103,7 @@ Sleep Talk
 Defense_Curl
 Rest
 Attract
------------------------
+------------------------
 ID#: 189
 Name: Jumpluff
 Type: Grass/Flying
@@ -2122,7 +2121,7 @@ Speed: 110
 Catch_rate: 45
 Base_EXP: 176
 Growth_Rate: 2
-Description: "Jumpluff, the Cottonweed Pokémon. Jumpluff catches a simmer of wind to spread its cotton-like spores and make offspring."
+Description: "Jumpluff, the Cottonweed Pokemon. Jumpluff catches a simmer of wind to spread its cotton like spores and make offspring."
 //Learnset
 01 Splash
 01 Synthesis
@@ -2156,7 +2155,7 @@ Sleep Talk
 Defense_Curl
 Rest
 Attract
------------------------
+------------------------
 ID#: 190
 Name: Aipom
 Type: Normal
@@ -2174,7 +2173,7 @@ Speed: 85
 Catch_rate: 45
 Base_EXP: 94
 Growth_Rate: 0
-Description: "Aipom, the Long Tail Pokémon. Aipom is able to climb and hang from branches using its powerful tail. Aipom live atop tall trees."
+Description: "Aipom, the Long Tail Pokemon. Aipom is able to climb and hang from branches using its powerful tail. Aipom live atop tall trees."
 //Learnset
 01 Scratch
 01 Tail_Whip
@@ -2203,7 +2202,7 @@ Iron_Tail
 Thunder
 Return
 Shadow_Ball
-Mud-Slap
+Mud Slap
 Double_Team
 IcePunch
 Swagger
@@ -2219,7 +2218,7 @@ Thief
 FirePunch
 Fury_Cutter
 Nightmare
------------------------
+------------------------
 ID#: 191
 Name: Sunkern
 Type: Grass
@@ -2237,7 +2236,7 @@ Speed: 30
 Catch_rate: 235
 Base_EXP: 52
 Growth_Rate: 2
-Description: "Sunkern, the Seed Pokémon. Sunkern drink the dew that collects beneath leaves. It is believed that it neither eats nor drinks anything else."
+Description: "Sunkern, the Seed Pokemon. Sunkern drink the dew that collects beneath leaves. It is believed that it neither eats nor drinks anything else."
 //Learnset
 01 Absorb
 04 Growth
@@ -2266,7 +2265,7 @@ Sleep_Talk
 Sludge_Bomb
 Rest
 Attract
------------------------
+------------------------
 ID#: 192
 Name: Sunflora
 Type: Grass
@@ -2284,7 +2283,7 @@ Speed: 30
 Catch_rate: 120
 Base_EXP: 146
 Growth_Rate: 2
-Description: "Sunflora, the Sun Pokémon. This smiling Pokémon loves the sun, but it also needs plenty of water to ensure healthy development."
+Description: "Sunflora, the Sun Pokemon. This smiling Pokemon loves the sun, but it also needs plenty of water to ensure healthy development."
 //Learnset
 01 Absorb
 01 Pound
@@ -2315,7 +2314,7 @@ Sleep_Talk
 Sludge_Bomb
 Rest
 Attract
------------------------
+------------------------
 ID#: 193
 Name: Yanma
 Type: Bug/Flying
@@ -2366,7 +2365,7 @@ Detect
 Rest
 Attract
 Thief
------------------------
+------------------------
 ID#: 194
 Name: Wooper
 Type: Water/Gronud
@@ -2384,7 +2383,7 @@ Speed: 15
 Catch_rate: 255
 Base_EXP: 52
 Growth_Rate: 1
-Description: "This Pokémon lives in cold water. It will leave the water to search for food when it gets cold outside."
+Description: "This Pokemon lives in cold water. It will leave the water to search for food when it gets cold outside."
 //Learnset
 01 Tail_Whip
 01 Water_Gun
@@ -2414,7 +2413,7 @@ Iron_Tail
 Earthquake
 Return
 Dig
-Mud-Slap
+Mud Slap
 Double_Team
 IcePunch
 Swagger
@@ -2424,7 +2423,7 @@ Sandstorm
 Defense_Curl
 Rest
 Attract
------------------------
+------------------------
 ID#: 195
 Name: Wooper
 Type: Water/Gronud
@@ -2443,7 +2442,7 @@ Speed: 15
 Catch_rate: 255
 Base_EXP: 52
 Growth_Rate: 1
-Description: "This Pokémon lives in cold water. It will leave the water to search for food when it gets cold outside."
+Description: "This Pokemon lives in cold water. It will leave the water to search for food when it gets cold outside."
 //Learnset
 01 Tail_Whip
 01 Water_Gun
@@ -2473,7 +2472,7 @@ Iron_Tail
 Earthquake
 Return
 Dig
-Mud-Slap
+Mud Slap
 Double_Team
 IcePunch
 Swagger
@@ -2483,7 +2482,7 @@ Sandstorm
 Defense_Curl
 Rest
 Attract
------------------------
+------------------------
 ID#: 195
 Name: Quagsire
 Type: Water/Gronud
@@ -2501,7 +2500,7 @@ Speed: 35
 Catch_rate: 90
 Base_EXP: 137
 Growth_Rate: 1
-Description: "This carefree Pokémon has an easy-going nature. While swimming, it always bumps into boat hulls."
+Description: "This carefree Pokemon has an easy going nature. While swimming, it always bumps into boat hulls."
 //Learnset
 01 Tail_Whip
 01 Water_Gun
@@ -2533,7 +2532,7 @@ Iron_Tail
 Earthquake
 Return
 Dig
-Mud-Slap
+Mud Slap
 Double_Team
 IcePunch
 Swagger
@@ -2543,7 +2542,7 @@ Sandstorm
 Defense_Curl
 Rest
 Attract
------------------------
+------------------------
 ID#: 196
 Name: Espeon
 Type: Psychic
@@ -2561,7 +2560,7 @@ Speed: 110
 Catch_rate: 45
 Base_EXP: 197
 Growth_Rate: 1
-Description: "Espeon, the Sun Pokémon. Espeon are able to read air currents allowing it to predict the future as well as its opponents' next moves."
+Description: "Espeon, the Sun Pokemon. Espeon are able to read air currents allowing it to predict the future as well as its opponents' next moves."
 //Learnset
 01 Tackle
 01 Tail_Whip
@@ -2593,7 +2592,7 @@ Iron_Tail
 Return
 Psychic
 Shadow_Ball
-Mud-Slap
+Mud Slap
 Double_Team
 Swagger
 Sleep_Talk
@@ -2603,7 +2602,7 @@ Detect
 Rest
 Attract
 Nightmare
------------------------
+------------------------
 ID#: 197
 Name: Umbreon
 Type: Dark
@@ -2621,7 +2620,7 @@ Speed: 65
 Catch_rate: 45
 Base_EXP: 197
 Growth_Rate: 1
-Description: "Umbreon, the Moonlight Pokémon. When an Eevee has had sufficient training and is exposed to moonlight, it evolves into an Umbreon."
+Description: "Umbreon, the Moonlight Pokemon. When an Eevee has had sufficient training and is exposed to moonlight, it evolves into an Umbreon."
 //Learnset
 01 Tackle
 01 Tail_Whip
@@ -2653,7 +2652,7 @@ Iron_Tail
 Return
 Psychic
 Shadow_Ball
-Mud-Slap
+Mud Slap
 Double_Team
 Swagger
 Sleep_Talk
@@ -2663,7 +2662,7 @@ Detect
 Rest
 Attract
 Nightmare
------------------------
+------------------------
 ID#: 197
 Name: Murkrow
 Type: Dark/Flying
@@ -2681,7 +2680,7 @@ Speed: 91
 Catch_rate: 30
 Base_EXP: 107
 Growth_Rate: 2
-Description: "Murkrow, the Darkness Pokémon. Murkrow confuse would-be attackers by luring them into dark mountain trails, where they are sure to get lost."
+Description: "Murkrow, the Darkness Pokemon. Murkrow confuse would be attackers by luring them into dark mountain trails, where they are sure to get lost."
 //Learnset
 01 Peck
 11 Pursuit
@@ -2703,7 +2702,7 @@ Endure
 Frustration
 Return
 Shadow_Ball
-Mud-Slap
+Mud Slap
 Double_Team
 Swagger
 Sleep_Talk
@@ -2715,7 +2714,7 @@ Attract
 Thief
 Steel_Wing
 Nightmare
------------------------
+------------------------
 ID#: 198
 Name: Murkrow
 Type: Dark/Flying
@@ -2733,7 +2732,7 @@ Speed: 65
 Catch_rate: 30
 Base_EXP: 107
 Growth_Rate: 2
-Description: "Murkrow, the Darkness Pokémon. Murkrow confuse would-be attackers by luring them into dark mountain trails, where they are sure to get lost."
+Description: "Murkrow, the Darkness Pokemon. Murkrow confuse would be attackers by luring them into dark mountain trails, where they are sure to get lost."
 //Learnset
 01 Peck
 11 Pursuit
@@ -2755,7 +2754,7 @@ Endure
 Frustration
 Return
 Shadow_Ball
-Mud-Slap
+Mud Slap
 Double_Team
 Swagger
 Sleep_Talk
@@ -2767,7 +2766,7 @@ Attract
 Thief
 Steel_Wing
 Nightmare
------------------------
+------------------------
 ID#: 199
 Name: Slowking
 Type: Water/Psychic
@@ -2785,7 +2784,7 @@ Speed: 30
 Catch_rate: 70
 Base_EXP: 164
 Growth_Rate: 1
-Description: "Slowking, the Royal Pokémon. Slowking possess great knowledge and inspiration, and are known for maintaining a level head in any circumstances."
+Description: "Slowking, the Royal Pokemon. Slowking possess great knowledge and inspiration, and are known for maintaining a level head in any circumstances."
 //Learnset
 01 Tackle
 01 Curse
@@ -2824,7 +2823,7 @@ Return
 Dig
 Psychic
 Shadow_Ball
-Mud-Slap
+Mud Slap
 Double_Team
 Ice_Punch
 Swagger
@@ -2836,7 +2835,7 @@ Rest
 Attract
 Fury_Cutter
 Nightmare
------------------------
+------------------------
 ID#: 200
 Name: Misdreavus
 Type: Ghost
@@ -2854,7 +2853,7 @@ Speed: 85
 Catch_rate: 45
 Base_EXP: 147
 Growth_Rate: 0
-Description: "Misdreavus, the Screech Pokémon. Misdreavus are extremely mischievous and like to cry out at night just to startle people."
+Description: "Misdreavus, the Screech Pokemon. Misdreavus are extremely mischievous and like to cry out at night just to startle people."
 //Learnset
 01 Growl
 01 Psywave
@@ -2892,7 +2891,7 @@ Rest
 Attract
 Thief
 Nightmare
------------------------
+------------------------
 ID#: 202
 Name: Wobbuffet
 Type: Psychic
@@ -2910,14 +2909,14 @@ Speed: 33
 Catch_rate: 45
 Base_EXP: 177
 Growth_Rate: 1
-Description: "Wobbuffet, the Patient Pokémon. Wobbuffet like to live in dark areas so they can keep their pitch black tail concealed."
+Description: "Wobbuffet, the Patient Pokemon. Wobbuffet like to live in dark areas so they can keep their pitch black tail concealed."
 //Learnset
 01 Counter
 01 Destiny_Bond
 01 Safeguard
 01 Mirror_Coat
 //HM/TM
------------------------
+------------------------
 ID#: 203
 Name: Girafarig
 Type: Normal/Psychic
@@ -2935,7 +2934,7 @@ Speed: 85
 Catch_rate: 60
 Base_EXP: 149
 Growth_Rate: 1
-Description: "Girafarig, the Long Neck Pokémon. Girafarig has a second head on its tail that bite those who approach it carelessly."
+Description: "Girafarig, the Long Neck Pokemon. Girafarig has a second head on its tail that bite those who approach it carelessly."
 //Learnset
 01 Stomp
 01 Tackle
@@ -2966,7 +2965,7 @@ Earthquake
 Return
 Psychic
 Shadow_Ball
-Mud-Slap
+Mud Slap
 Double_Team
 Swagger
 Sleep_Talk
@@ -2976,7 +2975,7 @@ Rest
 Attract
 Thief
 Nightmare
------------------------
+------------------------
 ID#: 204
 Name: Pineco
 Type: Bug
@@ -2995,17 +2994,17 @@ Speed: 15
 Catch_rate: 190
 Base_EXP: 60
 Growth_Rate: 1
-Description: "Pineco, the Bagworm Pokémon. Appears calm as it hangs quietly on tree branches, but it will self-destruct at the slightest provocation."
+Description: "Pineco, the Bagworm Pokemon. Appears calm as it hangs quietly on tree branches, but it will self destruct at the slightest provocation."
 //Learnset
 01 Tackle
 01 Protect
-08 Self-Destruct
+08 Self Destruct
 15 Take_Down
 22 Rapid_Spin
 29 Bide
 36 Explosion
 43 Spikes
-50 Double-Edge
+50 Double Edge
 //HM/TM
 Strength
 Headbutt
@@ -3029,7 +3028,7 @@ Sleep_Talk
 Defense_Curl
 Rest
 Attract
------------------------
+------------------------
 ID#: 205
 Name: Forretress
 Type: Bug/Steel
@@ -3047,17 +3046,17 @@ Speed: 40
 Catch_rate: 75
 Base_EXP: 118
 Growth_Rate: 1
-Description: "Forretress, the Bagworm Pokémon. Forretress is the evolved form of Pineco. Its entire body is covered in a steel hard shell."
+Description: "Forretress, the Bagworm Pokemon. Forretress is the evolved form of Pineco. Its entire body is covered in a steel hard shell."
 //Learnset
 01 Tackle
 01 Protect
-01 Self-Destruct
+01 Self Destruct
 15 Take_Down
 22 Rapid_Spin
 29 Bide
 39 Explosion
 49 Spikes
-59 Double-Edge
+59 Double Edge
 //HM/TM
 Strength
 Headbutt
@@ -3083,7 +3082,7 @@ Sandstorm
 Defense_Curl
 Rest
 Attract
------------------------
+------------------------
 ID#: 206
 Name: Dunsparce
 Type: Normal
@@ -3101,7 +3100,7 @@ Speed: 45
 Catch_rate: 190
 Base_EXP: 75
 Growth_Rate: 1
-Description: "Dunsparce, the Land Snake Pokémon. When discovered, the Dunsparce uses its tail to burrow into the earth and evade capture."
+Description: "Dunsparce, the Land Snake Pokemon. When discovered, the Dunsparce uses its tail to burrow into the earth and evade capture."
 //Learnset
 01 Rage
 05 Defense_Curl
@@ -3131,7 +3130,7 @@ Iron_Tail
 Thunder
 Return
 Dig
-Mud-Slap
+Mud Slap
 Double_Team
 Swagger
 Sleep_Talk
@@ -3141,7 +3140,7 @@ Rest
 Attract
 Thief
 Nightmare
------------------------
+------------------------
 ID#: 207
 Name: Gligar
 Type: Ground/Flying
@@ -3159,7 +3158,7 @@ Speed: 45
 Catch_rate: 60
 Base_EXP: 108
 Growth_Rate: 2
-Description: "Gligar, the Fly Scorpion Pokémon. Gligar uses the cape-like wings on its back to fly from tree to tree quickly and quietly."
+Description: "Gligar, the Fly Scorpion Pokemon. Gligar uses the cape like wings on its back to fly from tree to tree quickly and quietly."
 //Learnset
 01 Poison_Sting
 06 Sand_Attack
@@ -3199,7 +3198,7 @@ Spite
 Pursuit
 Screech
 Take Down
------------------------
+------------------------
 ID#: 208
 Name: Steelix
 Type: Ground/Steel
@@ -3217,7 +3216,7 @@ Speed: 30
 Catch_rate: 25
 Base_EXP: 196
 Growth_Rate: 1
-Description: "Steelix, the Iron Snake Pokémon. Steelix is the evolved form of Onix. It has been compressed underground, making its body harder than diamonds."
+Description: "Steelix, the Iron Snake Pokemon. Steelix is the evolved form of Onix. It has been compressed underground, making its body harder than diamonds."
 //Learnset
 01 Tackle
 01 Screech
@@ -3249,7 +3248,7 @@ Dragon_Breath
 Earthquake
 Return
 Dig
-Mud-Slap
+Mud Slap
 Double_Team
 Swagger
 Sleep_Talk
@@ -3257,7 +3256,7 @@ Sandstorm
 Defense_Curl
 Rest
 Attract
------------------------
+------------------------
 ID#: 209
 Name: Snubbull
 Type: Normal
@@ -3276,7 +3275,7 @@ Speed: 30
 Catch_rate: 190
 Base_EXP: 63
 Growth_Rate: 0
-Description: "Snubbull, the Fairy Pokémon. While it may appear gruff and grumpy, deep down, Snubbull is a kind and caring Pokémon."
+Description: "Snubbull, the Fairy Pokemon. While it may appear gruff and grumpy, deep down, Snubbull is a kind and caring Pokemon."
 //Learnset
 01 Tackle
 01 Scary_Face
@@ -3306,7 +3305,7 @@ Frustration
 Thunder
 Return
 Shadow_Ball
-Mud-Slap
+Mud Slap
 Double Team
 IcePunch
 Swagger
@@ -3319,7 +3318,7 @@ Rest
 Attract
 Thief
 FirePunch
------------------------
+------------------------
 ID#: 210
 Name: Granbull
 Type: Normal
@@ -3338,7 +3337,7 @@ Speed: 45
 Catch_rate: 75
 Base_EXP: 178
 Growth_Rate: 0
-Description: "Granbull, the Fairy Pokémon. The evolved form of Snubbull. Granbull has extreme fighting power due to its heavily muscled jaw and its strong teeth and tusks."
+Description: "Granbull, the Fairy Pokemon. The evolved form of Snubbull. Granbull has extreme fighting power due to its heavily muscled jaw and its strong teeth and tusks."
 //Learnset
 01 Tackle
 01 Scary_Face
@@ -3369,7 +3368,7 @@ Frustration
 Thunder
 Return
 Shadow_Ball
-Mud-Slap
+Mud Slap
 Double Team
 IcePunch
 Swagger
@@ -3382,7 +3381,7 @@ Rest
 Attract
 Thief
 FirePunch
------------------------
+------------------------
 ID#: 211
 Name: Qwilfish
 Type: Water/Poison
@@ -3400,7 +3399,7 @@ Speed: 85
 Catch_rate: 45
 Base_EXP: 100
 Growth_Rate: 1
-Description: "Qwilfish, the Balloon Pokémon. The quills covering the entire body have evolved from scales. A Qwilfish can cause its body to swell in order to shoot its needles in all directions."
+Description: "Qwilfish, the Balloon Pokemon. The quills covering the entire body have evolved from scales. A Qwilfish can cause its body to swell in order to shoot its needles in all directions."
 //Learnset
 01 Tackle
 01 Poison_Sting
@@ -3435,7 +3434,7 @@ Swift
 Defense_Curl
 Rest
 Attract
------------------------
+------------------------
 ID#: 212
 Name: Scizor
 Type: Bug/Steel
@@ -3453,7 +3452,7 @@ Speed: 65
 Catch_rate: 25
 Base_EXP: 200
 Growth_Rate: 1
-Description: "Scizor, the Scissor Pokémon. The evolved form of Scyther. Its incredible attack speed and its large scissor-like claws make it a formidable opponent."
+Description: "Scizor, the Scissor Pokemon. The evolved form of Scyther. Its incredible attack speed and its large scissor like claws make it a formidable opponent."
 //Learnset
 01 Leer
 01 Quick_Attack
@@ -3491,7 +3490,7 @@ Attract
 Thief
 Steel_Wing
 Fury_Cutter
------------------------
+------------------------
 ID#: 213
 Name: Shuckle
 Type: Bug/Rock
@@ -3509,7 +3508,7 @@ Speed: 5
 Catch_rate: 190
 Base_EXP: 80
 Growth_Rate: 2
-Description: "Shuckle, the Mold Pokémon. Shuckle stores Berries inside its shell, and the Berries eventually turn into a delicious juice."
+Description: "Shuckle, the Mold Pokemon. Shuckle stores Berries inside its shell, and the Berries eventually turn into a delicious juice."
 //Learnset
 01 Withdraw
 01 Constrict
@@ -3535,7 +3534,7 @@ Frustration
 Earthquake
 Return
 Dig
-Mud-Slap
+Mud Slap
 Double_Team
 Swagger
 Sleep_Talk
@@ -3544,7 +3543,7 @@ Sandstorm
 Defense_Curl
 Rest
 Attract
------------------------
+------------------------
 ID#: 214
 Name: Heracross
 Type: Bug/Fighting
@@ -3562,7 +3561,7 @@ Speed: 85
 Catch_rate: 200
 Base_EXP: 70
 Growth_Rate: 3
-Description: "Heracross, the Single Horn Pokémon. Though gentle and docile, Heracross possesses great strength and power. Their favorite food is the fresh sap of leafy trees."
+Description: "Heracross, the Single Horn Pokemon. Though gentle and docile, Heracross possesses great strength and power. Their favorite food is the fresh sap of leafy trees."
 //Learnset
 01 Withdraw
 01 Constrict
@@ -3588,7 +3587,7 @@ Frustration
 Earthquake
 Return
 Dig
-Mud-Slap
+Mud Slap
 Double_Team
 Swagger
 Sleep_Talk
@@ -3597,7 +3596,7 @@ Sandstorm
 Defense_Curl
 Rest
 Attract
------------------------
+------------------------
 ID#: 215
 Name: Sneasel
 Type: Dark/Ice
@@ -3615,7 +3614,7 @@ Speed: 115
 Catch_rate: 60
 Base_EXP: 132
 Growth_Rate: 2
-Description: "Sneasel, the Sharp Claw Pokémon. Sneasel can extend or retract its claws instantly during attack."
+Description: "Sneasel, the Sharp Claw Pokemon. Sneasel can extend or retract its claws instantly during attack."
 //Learnset
 01 Scratch
 01 Leer
@@ -3648,7 +3647,7 @@ Iron_Tail
 Return
 Dig
 Shadow_Ball
-Mud-Slap
+Mud Slap
 Double_Team
 IcePunch
 Swagger
@@ -3662,7 +3661,7 @@ Attract
 Thief
 Fury_Cutter
 Nightmare
------------------------
+------------------------
 ID#: 216
 Name: Teddiursa
 Type: Normal
@@ -3681,7 +3680,7 @@ Speed: 40
 Catch_rate: 120
 Base_EXP: 124
 Growth_Rate: 1
-Description: "Teddiursa, the Little Bear Pokémon. This cute, cuddly Pokémon is easily frightened and frequently licks its paws, which are usually covered with sweet honey."
+Description: "Teddiursa, the Little Bear Pokemon. This cute, cuddly Pokemon is easily frightened and frequently licks its paws, which are usually covered with sweet honey."
 //Learnset
 01 Scratch
 01 Leer
@@ -3710,7 +3709,7 @@ Frustration
 Earthquake
 Return
 Dig
-Mud-Slap
+Mud Slap
 Double_Team
 Ice_Punch
 Swagger
@@ -3723,7 +3722,7 @@ Attract
 Thief
 FirePunch
 Fury_Cutter
------------------------
+------------------------
 ID#: 217
 Name: Ursaring
 Type: Normal
@@ -3741,7 +3740,7 @@ Speed: 55
 Catch_rate: 60
 Base_EXP: 189
 Growth_Rate: 1
-Description: "Ursaring, the Hibernate Pokémon. The Ursaring has such a keen sense of smell that it can even find food that has been buried."
+Description: "Ursaring, the Hibernate Pokemon. The Ursaring has such a keen sense of smell that it can even find food that has been buried."
 //Learnset
 01 Scratch
 01 Leer
@@ -3772,7 +3771,7 @@ Frustration
 Earthquake
 Return
 Dig
-Mud-Slap
+Mud Slap
 Double_Team
 Ice_Punch
 Swagger
@@ -3785,7 +3784,7 @@ Attract
 Thief
 FirePunch
 Fury_Cutter
------------------------
+------------------------
 ID#: 218
 Name: Slugma
 Type: Fire
@@ -3804,7 +3803,7 @@ Speed: 20
 Catch_rate: 190
 Base_EXP: 78
 Growth_Rate: 1
-Description: "Slugma, the Lava Pokémon. Slugma have intensely hot magma which circulates throughout their bodies carrying nutrients and oxygen to their organs."
+Description: "Slugma, the Lava Pokemon. Slugma have intensely hot magma which circulates throughout their bodies carrying nutrients and oxygen to their organs."
 //Learnset
 01 Smog
 08 Ember
@@ -3826,7 +3825,7 @@ Protect
 Endure
 Frustration
 Return
-Mud-Slap
+Mud Slap
 Double_Team
 Swagger
 Sleep_Talk
@@ -3834,7 +3833,7 @@ Fire Blast
 Defense_Curl
 Rest
 Attract
------------------------
+------------------------
 ID#: 219
 Name: Magcargo
 Type: Fire/Rock
@@ -3852,7 +3851,7 @@ Speed: 30
 Catch_rate: 75
 Base_EXP: 154
 Growth_Rate: 1
-Description: "Magcargo, the Lava Pokémon. Magcargo lives primarily in volcanic regions and occasionally emits the lava from its back that circles its body."
+Description: "Magcargo, the Lava Pokemon. Magcargo lives primarily in volcanic regions and occasionally emits the lava from its back that circles its body."
 //Learnset
 01 Smog
 01 Ember
@@ -3877,7 +3876,7 @@ Endure
 Frustration
 Earthquake
 Return
-Mud-Slap
+Mud Slap
 Double_Team
 Swagger
 Sleep_Talk
@@ -3885,7 +3884,7 @@ Fire Blast
 Defense_Curl
 Rest
 Attract
------------------------
+------------------------
 ID#: 220
 Name: Swinub
 Type: Ice/Ground
@@ -3904,7 +3903,7 @@ Speed: 50
 Catch_rate: 225
 Base_EXP: 78
 Growth_Rate: 3
-Description: "Swinub, the Pig Pokémon. The Swinub has an extremely keen sense of smell, which it usually uses to find food."
+Description: "Swinub, the Pig Pokemon. The Swinub has an extremely keen sense of smell, which it usually uses to find food."
 //Learnset
 01 Tackle
 10 Powder_Snow
@@ -3929,7 +3928,7 @@ Endure
 Frustration
 Earthquake
 Return
-Mud-Slap
+Mud Slap
 Double_Team
 Swagger
 Sleep_Talk
@@ -3937,7 +3936,7 @@ Defense_Curl
 Detect
 Rest
 Attract
------------------------
+------------------------
 ID#: 221
 Name: Piloswine
 Type: Ice/Ground
@@ -3955,7 +3954,7 @@ Speed: 50
 Catch_rate: 75
 Base_EXP: 160
 Growth_Rate: 3
-Description: "Piloswine, the Swine Pokémon and the evolved form of Swinub. Piloswine's entire body is covered with fur, which makes it hard to see, so it uses its nose to sense its environment instead."
+Description: "Piloswine, the Swine Pokemon and the evolved form of Swinub. Piloswine's entire body is covered with fur, which makes it hard to see, so it uses its nose to sense its environment instead."
 //Learnset
 01 Horn_Attack
 01 Powder_Snow
@@ -3982,14 +3981,14 @@ Endure
 Frustration
 Earthquake
 Return
-Mud-Slap
+Mud Slap
 Double_Team
 Swagger
 Sleep_Talk
 Defense_Curl
 Detect
 Rest
------------------------
+------------------------
 ID#: 222
 Name: Corsola
 Type: Water/Rock
@@ -4007,7 +4006,7 @@ Speed: 35
 Catch_rate: 60
 Base_EXP: 70
 Growth_Rate: 0
-Description: "Corsola, the Coral Pokémon. A combination of both Water and Rock types. It sheds and regrows the horns on its head numerous times."
+Description: "Corsola, the Coral Pokemon. A combination of both Water and Rock types. It sheds and regrows the horns on its head numerous times."
 //Learnset
 01 Tackle
 07 Harden
@@ -4044,7 +4043,7 @@ Defense_Curl
 Detect
 Rest
 Attract
------------------------
+------------------------
 ID#: 223
 Name: Remoraid
 Type: Water
@@ -4063,10 +4062,10 @@ Speed: 65
 Catch_rate: 190
 Base_EXP: 78
 Growth_Rate: 1
-Description: "Remoraid, the Jet Pokémon. Often found in large groups, Remoraid can fire water and hit targets up to 100 meters away."
+Description: "Remoraid, the Jet Pokemon. Often found in large groups, Remoraid can fire water and hit targets up to 100 meters away."
 //Learnset
 01 Water_Gun
-11 Lock-On
+11 Lock On
 22 Psybeam
 22 Bubble_Beam
 22 Aurora_Beam
@@ -4086,7 +4085,7 @@ Rain_Dance
 Endure
 Frustration
 Return
-Mud-Slap
+Mud Slap
 Double_Team
 Swagger
 Sleep_Talk
@@ -4095,7 +4094,7 @@ Defense_Curl
 Rest
 Attract
 Thief
------------------------
+------------------------
 ID#: 224
 Name: Octillery
 Type: Water
@@ -4113,7 +4112,7 @@ Speed: 45
 Catch_rate: 75
 Base_EXP: 164
 Growth_Rate: 1
-Description: "Octillery, the Jet Pokémon. Will instinctively sneak into rocky holes. It locks onto opponents with its leg suckers, then rams them with its rock-hard head."
+Description: "Octillery, the Jet Pokemon. Will instinctively sneak into rocky holes. It locks onto opponents with its leg suckers, then rams them with its rock hard head."
 //Learnset
 01 Water_Gun
 11 Constrict
@@ -4137,7 +4136,7 @@ Rain_Dance
 Endure
 Frustration
 Return
-Mud-Slap
+Mud Slap
 Double_Team
 Swagger
 Sleep_Talk
@@ -4146,7 +4145,7 @@ Defense_Curl
 Rest
 Attract
 Thief
------------------------
+------------------------
 ID#: 225
 Name: Delibird
 Type: Ice/Flying
@@ -4164,7 +4163,7 @@ Speed: 75
 Catch_rate: 45
 Base_EXP: 183
 Growth_Rate: 0
-Description: "Delibird, the Delivery Pokémon. Delibird’s most unique attack is giving presents, however, some of these presents have been known to explode."
+Description: "Delibird, the Delivery Pokemon. Delibird’s most unique attack is giving presents, however, some of these presents have been known to explode."
 //Learnset
 01 Present
 //HM/TM
@@ -4180,7 +4179,7 @@ Rain_Dance
 Endure
 Frustration
 Return
-Mud-Slap
+Mud Slap
 Double_Team
 Swagger
 Sleep_Talk
@@ -4189,7 +4188,7 @@ Detect
 Rest
 Attract
 Thief
------------------------
+------------------------
 ID#: 226
 Name: Mantine
 Type: Water/Flying
@@ -4207,7 +4206,7 @@ Speed: 70
 Catch_rate: 25
 Base_EXP: 168
 Growth_Rate: 3
-Description: "Mantine, the Kite Pokémon. Mantine swims about the ocean, majestically, and may fly out of the water if it builds up enough speed."
+Description: "Mantine, the Kite Pokemon. Mantine swims about the ocean, majestically, and may fly out of the water if it builds up enough speed."
 //Learnset
 01 Tackle
 01 Bubble
@@ -4233,14 +4232,14 @@ Rain_Dance
 Endure
 Frustration
 Return
-Mud-Slap
+Mud Slap
 Double_Team
 Swagger
 Sleep_Talk
 Swift
 Rest
 Attract
------------------------
+------------------------
 ID#: 227
 Name: Skarmory
 Type: Steel/Flying
@@ -4258,7 +4257,7 @@ Speed: 70
 Catch_rate: 25
 Base_EXP: 168
 Growth_Rate: 3
-Description: "Skarmory, the Armor Bird Pokémon. Because Skarmory nests in briers and is constantly scratched by thorns, its wings become razor sharp."
+Description: "Skarmory, the Armor Bird Pokemon. Because Skarmory nests in briers and is constantly scratched by thorns, its wings become razor sharp."
 //Learnset
 01 Leer
 01 Peck
@@ -4279,7 +4278,7 @@ Protect
 Endure
 Frustration
 Return
-Mud-Slap
+Mud Slap
 Double_Team
 Swagger
 Sleep_Talk
@@ -4291,7 +4290,7 @@ Attract
 Thief
 Steel_Wing
 Attract
------------------------
+------------------------
 ID#: 228
 Name: Houndour
 Type: Dark/Fire
@@ -4310,7 +4309,7 @@ Speed: 65
 Catch_rate: 120
 Base_EXP: 114
 Growth_Rate: 0
-Description: "Houndour, the Dark Pokémon. Houndour travel in packs and communicate though barks in order to surround their prey."
+Description: "Houndour, the Dark Pokemon. Houndour travel in packs and communicate though barks in order to surround their prey."
 //Learnset
 01 Leer
 01 Ember
@@ -4336,7 +4335,7 @@ Solar_Beam
 Iron_Tail
 Return
 Shadow_Ball
-Mud-Slap
+Mud Slap
 Double_Team
 Swagger
 Sludge_Bomb
@@ -4349,7 +4348,7 @@ Rest
 Attract
 Thief
 Nightmare
------------------------
+------------------------
 ID#: 229
 Name: Houndoom
 Type: Dark/Fire
@@ -4367,7 +4366,7 @@ Speed: 95
 Catch_rate: 45
 Base_EXP: 204
 Growth_Rate: 0
-Description: "Houndoom, the Dark Pokémon. The evolved form of Houndour. Houndoom's eerie howl is said to cause those who hear it to shudder in fear."
+Description: "Houndoom, the Dark Pokemon. The evolved form of Houndour. Houndoom's eerie howl is said to cause those who hear it to shudder in fear."
 //Learnset
 01 Leer
 01 Ember
@@ -4395,7 +4394,7 @@ Solar_Beam
 Iron_Tail
 Return
 Shadow_Ball
-Mud-Slap
+Mud Slap
 Double_Team
 Swagger
 Sludge_Bomb
@@ -4408,7 +4407,7 @@ Rest
 Attract
 Thief
 Nightmare
------------------------
+------------------------
 ID#: 230
 Name: Kingdra
 Type: Water/Dragon
@@ -4426,7 +4425,7 @@ Speed: 85
 Catch_rate: 45
 Base_EXP: 207
 Growth_Rate: 1
-Description: "Kingdra, the Dragon Pokémon. Normally at rest on the ocean floor, but in theories of high activity, even a yawn has enough power to create whirlpools."
+Description: "Kingdra, the Dragon Pokemon. Normally at rest on the ocean floor, but in theories of high activity, even a yawn has enough power to create whirlpools."
 //Learnset
 01 Leer
 01 Water_Gun
@@ -4459,14 +4458,13 @@ Sleep_Talk
 Swift
 Rest
 Attract
------------------------
+------------------------
 ID#: 231
 Name: Phanpy
 Type: Ground
 Species: Long_Nose
 Height: 0.5
 Weight: 33.5
-
 //Stats
 HP:	90
 Attack: 60
@@ -4478,7 +4476,7 @@ Speed: 40
 Catch_rate: 120
 Base_EXP: 124
 Growth_Rate: 1
-Description: "Phanpy, the Long Nose Pokémon. Phanpy uses its powerful snout to express affection. Not realizing its strength can send you flying."
+Description: "Phanpy, the Long Nose Pokemon. Phanpy uses its powerful snout to express affection. Not realizing its strength can send you flying."
 //Learnset
 01 Tackle
 01 Growl
@@ -4487,7 +4485,7 @@ Description: "Phanpy, the Long Nose Pokémon. Phanpy uses its powerful snout to 
 25 Take_Down
 33 Rollout
 41 Endure
-49 Double-Edge
+49 Double Edge
 //HM/TM
 Strength
 Headbutt
@@ -4501,7 +4499,7 @@ Snore
 Protect
 Endure
 Frustration
-Mud-Slap
+Mud Slap
 Return
 Double_Team
 Swagger
@@ -4510,7 +4508,7 @@ Sandstorm
 Defense_Curl
 Rest
 Attract
------------------------
+------------------------
 ID#: 231
 Name: Phanpy
 Type: Ground
@@ -4529,7 +4527,7 @@ Speed: 40
 Catch_rate: 120
 Base_EXP: 124
 Growth_Rate: 1
-Description: "Phanpy, the Long Nose Pokémon. Phanpy uses its powerful snout to express affection. Not realizing its strength can send you flying."
+Description: "Phanpy, the Long Nose Pokemon. Phanpy uses its powerful snout to express affection. Not realizing its strength can send you flying."
 //Learnset
 01 Tackle
 01 Growl
@@ -4538,7 +4536,7 @@ Description: "Phanpy, the Long Nose Pokémon. Phanpy uses its powerful snout to 
 25 Take_Down
 33 Rollout
 41 Endure
-49 Double-Edge
+49 Double Edge
 //HM/TM
 Strength
 Headbutt
@@ -4552,7 +4550,7 @@ Snore
 Protect
 Endure
 Frustration
-Mud-Slap
+Mud Slap
 Return
 Double_Team
 Swagger
@@ -4561,7 +4559,7 @@ Sandstorm
 Defense_Curl
 Rest
 Attract
------------------------
+------------------------
 ID#: 232
 Name: Donphan
 Type: Ground
@@ -4579,7 +4577,7 @@ Speed: 50
 Catch_rate: 60
 Base_EXP: 189
 Growth_Rate: 1
-Description: "Donphan, the Armor Pokémon. With its strong tusks and tough skin, Donphan is known for its powerful Tackle attack. The length of Donphan's tusks indicates its level."
+Description: "Donphan, the Armor Pokemon. With its strong tusks and tough skin, Donphan is known for its powerful Tackle attack. The length of Donphan's tusks indicates its level."
 //Learnset
 01 Horn_Attack
 01 Growl
@@ -4603,7 +4601,7 @@ Hyper_Beam
 Protect
 Endure
 Frustration
-Mud-Slap
+Mud Slap
 Return
 Double_Team
 Swagger
@@ -4612,7 +4610,7 @@ Sandstorm
 Defense_Curl
 Rest
 Attract
------------------------
+------------------------
 ID#: 233
 Name: Porygon2
 Type: Normal
@@ -4639,7 +4637,7 @@ Description: "This upgraded version of Porygon is designed for space exploration
 12 Psybeam
 20 Recover
 24 Defense_Curl
-32 Lock-On
+32 Lock On
 36 Tri_Attack
 44 Zap_Cannon
 //HM/TM
@@ -4668,7 +4666,7 @@ Dream_Eater
 Rest
 Thief
 Nightmare
------------------------
+------------------------
 ID#: 234
 Name: Stantler
 Type: Normal
@@ -4686,7 +4684,7 @@ Speed: 85
 Catch_rate: 45
 Base_EXP: 165
 Growth_Rate: 3
-Description: "Stantler, the Big Horn Pokémon. The eye-like shape at the base of its horn produces a pleasant odor and has a bewildering effect on anyone who smells it."
+Description: "Stantler, the Big Horn Pokemon. The eye like shape at the base of its horn produces a pleasant odor and has a bewildering effect on anyone who smells it."
 //Learnset
 01 Tackle
 08 Leer
@@ -4712,7 +4710,7 @@ Frustration
 Earthquake
 Return
 Psychic
-Mud-Slap
+Mud Slap
 Double_Team
 Swagger
 Sleep_Talk
@@ -4723,7 +4721,7 @@ Rest
 Attract
 Thief
 Nightmare
------------------------
+------------------------
 ID#: 235
 Name: Smeargle
 Type: Normal
@@ -4741,11 +4739,11 @@ Speed: 75
 Catch_rate: 45
 Base_EXP: 106
 Growth_Rate: 0
-Description: "Smeargle, the Painter Pokémon. Colored fluids ooze from their tails which they use to mark their territory and to express themselves."
+Description: "Smeargle, the Painter Pokemon. Colored fluids ooze from their tails which they use to mark their territory and to express themselves."
 //Learnset
 01 Sketch
 //HM/TM
------------------------
+------------------------
 ID#: 236
 Name: Tyrogue
 Type: Fighting
@@ -4763,7 +4761,7 @@ Speed: 35
 Catch_rate: 75
 Base_EXP: 91
 Growth_Rate: 1
-Description: "Tyrogue, the Scuffle Pokémon. Tyrogue is the evolved form of Hitmonlee and Hitmonchan. It has a small but very energetic body."
+Description: "Tyrogue, the Scuffle Pokemon. Tyrogue is the evolved form of Hitmonlee and Hitmonchan. It has a small but very energetic body."
 //Learnset
 01 Tackle
 //HM/TM
@@ -4779,7 +4777,7 @@ Protect
 Endure
 Frustration
 Return
-Mud-Slap
+Mud Slap
 Sleep_Talk
 Swagger
 Detect
@@ -4787,7 +4785,7 @@ Swift
 Rest
 Attract
 Thief
------------------------
+------------------------
 ID#: 237
 Name: Hitmontop
 Type: Fighting
@@ -4805,7 +4803,7 @@ Speed: 70
 Catch_rate: 45
 Base_EXP: 138
 Growth_Rate: 1
-Description: "Hitmontop, the Handstand Pokémon. Hitmontop's smooth graceful kicks are deceptively powerful. Opponents may be surprised by their force, so beware."
+Description: "Hitmontop, the Handstand Pokemon. Hitmontop's smooth graceful kicks are deceptively powerful. Opponents may be surprised by their force, so beware."
 //Learnset
 01 Rolling_Kick
 07 Focus_Energy
@@ -4830,7 +4828,7 @@ Endure
 Frustration
 Return
 Dig
-Mud-Slap
+Mud Slap
 Sleep_Talk
 Swagger
 Detect
@@ -4838,7 +4836,7 @@ Swift
 Rest
 Attract
 Thief
------------------------
+------------------------
 ID#: 238
 Name: Smoochum
 Type: Ice/Psychic
@@ -4857,7 +4855,7 @@ Speed: 65
 Catch_rate: 45
 Base_EXP: 87
 Growth_Rate: 1
-Description: "Smoochum, the Kiss Pokémon. The pre-evolved form of Jynx. This sweet natured Pokémon has sensitive lips, which it uses to explore and examine with."
+Description: "Smoochum, the Kiss Pokemon. The pre evolved form of Jynx. This sweet natured Pokemon has sensitive lips, which it uses to explore and examine with."
 //Learnset
 01 Pound
 01 Lick
@@ -4885,7 +4883,7 @@ Frustration
 Return
 Psychic
 Shadow_Ball
-Mud-Slap
+Mud Slap
 Double_Team
 IcePunch
 Sleep_Talk
@@ -4895,7 +4893,7 @@ Rest
 Attract
 Thief
 Nightmare
------------------------
+------------------------
 ID#: 239
 Name: Elekid
 Type: Electric
@@ -4914,7 +4912,7 @@ Speed: 95
 Catch_rate: 45
 Base_EXP: 106
 Growth_Rate: 1
-Description: "Elekid, the Electric Pokémon. Elekid is the pre-evolved form of Electabuzz. It generates electricity by spinning its arms."
+Description: "Elekid, the Electric Pokemon. Elekid is the pre evolved form of Electabuzz. It generates electricity by spinning its arms."
 //Learnset
 01 Leer
 01 Quick_Attack
@@ -4939,7 +4937,7 @@ Frustration
 Thunder
 Return
 Psychic
-Mud-Slap
+Mud Slap
 Double_Team
 IcePunch
 Sleep_Talk
@@ -4950,7 +4948,7 @@ Rest
 Attract
 Thief
 FirePunch
------------------------
+------------------------
 ID#: 240
 Name: Magby
 Type: Fire
@@ -4969,7 +4967,7 @@ Speed: 83
 Catch_rate: 45
 Base_EXP: 117
 Growth_Rate: 1
-Description: "Magby, the Live Coal Pokémon. Magby is the pre-evolved form of Magmar. Despite its small size, it is a tough opponent and produces an extremely hot flame."
+Description: "Magby, the Live Coal Pokemon. Magby is the pre evolved form of Magmar. Despite its small size, it is a tough opponent and produces an extremely hot flame."
 //Learnset
 01 Ember
 07 Leer
@@ -4993,7 +4991,7 @@ Frustration
 Iron_Tail
 Return
 Psychic
-Mud-Slap
+Mud Slap
 Double_Team
 Sleep_Talk
 ThunderPunch
@@ -5003,7 +5001,7 @@ Rest
 Attract
 Thief
 FirePunch
------------------------
+------------------------
 ID#: 241
 Name: Miltank
 Type: Normal
@@ -5021,7 +5019,7 @@ Speed: 100
 Catch_rate: 45
 Base_EXP: 200
 Growth_Rate: 3
-Description: "Miltank, the Milk Cow Pokémon. Miltank produces very nutritious milk, a perfect drink for reviving sick Pokémon. Miltank are very even tempered and prefer not to battle."
+Description: "Miltank, the Milk Cow Pokemon. Miltank produces very nutritious milk, a perfect drink for reviving sick Pokemon. Miltank are very even tempered and prefer not to battle."
 //Learnset
 01 Tackle
 04 Growl
@@ -5059,7 +5057,7 @@ Thunder
 Earthquake
 Return
 Shadow_Ball
-Mud-Slap
+Mud Slap
 Double_Team
 Sleep_Talk
 IcePunch
@@ -5070,7 +5068,7 @@ Sandstorm
 Rest
 Attract
 FirePunch
------------------------
+------------------------
 ID#: 242
 Name: Blissey
 Type: Normal
@@ -5088,19 +5086,19 @@ Speed: 55
 Catch_rate: 30
 Base_EXP: 255
 Growth_Rate: 0
-Description: "Blissey, the Happiness Pokémon. It is kindhearted and loves helping people. Blissey is the evolved form of Chansey."
+Description: "Blissey, the Happiness Pokemon. It is kindhearted and loves helping people. Blissey is the evolved form of Chansey."
 //Learnset
 01 Pound
 04 Growl
 07 Tail_Whip
-10 Soft-Boiled
+10 Soft Boiled
 13 Double_Slap
 18 Minimize
 23 Sing
 28 Egg_Bomb
 33 Defense_Curl
 40 Light_Screen
-47 Double-Edge
+47 Double Edge
 //HM/TM
 Strength
 Flash
@@ -5126,7 +5124,7 @@ Thunder
 Psychic
 Return
 Shadow_Ball
-Mud-Slap
+Mud Slap
 Double_Team
 Sleep_Talk
 Sandstorm
@@ -5136,7 +5134,7 @@ Defense_Curl
 Swagger
 Rest
 Attract
------------------------
+------------------------
 ID#: 243
 Name: Raikou
 Type: Electric
@@ -5154,7 +5152,7 @@ Speed: 115
 Catch_rate: 3
 Base_EXP: 216
 Growth_Rate: 3
-Description: "Raikou, the Thunder Pokémon. It is said to have descended to earth on a bolt of lightning."
+Description: "Raikou, the Thunder Pokemon. It is said to have descended to earth on a bolt of lightning."
 //Learnset
 01 Leer
 01 Bite
@@ -5188,7 +5186,7 @@ Iron_Tail
 Thunder
 Return
 Dig
-Mud-Slap
+Mud Slap
 Double_Team
 Swagger
 Sleep_Talk
@@ -5196,7 +5194,7 @@ Sandstorm
 Swift
 Detect
 Rest
------------------------
+------------------------
 ID#: 244
 Name: Entei
 Type: Fire
@@ -5248,7 +5246,7 @@ Iron_Tail
 Solar_Beam
 Return
 Dig
-Mud-Slap
+Mud Slap
 Double_Team
 Swagger
 Sleep_Talk
@@ -5257,7 +5255,7 @@ Fire_Blast
 Swift
 Detect
 Rest
------------------------
+------------------------
 ID#: 245
 Name: Suicine
 Type: Water
@@ -5275,7 +5273,7 @@ Speed: 85
 Catch_rate: 3
 Base_EXP: 215
 Growth_Rate: 3
-Description: "Suicune, the Aurora Pokémon. It travels the world and purifies water wherever it goes, sailing on the North Wind."
+Description: "Suicune, the Aurora Pokemon. It travels the world and purifies water wherever it goes, sailing on the North Wind."
 //Learnset
 01 Leer
 01 Bite
@@ -5311,7 +5309,7 @@ Frustration
 Iron_Tail
 Return
 Dig
-Mud-Slap
+Mud Slap
 Double_Team
 Swagger
 Sleep_Talk
@@ -5319,7 +5317,7 @@ Sandstorm
 Swift
 Detect
 Rest
------------------------
+------------------------
 ID#: 246
 Name: Larvitar
 Type: Rock/Ground
@@ -5339,7 +5337,7 @@ Speed: 41
 Catch_rate: 45
 Base_EXP: 67
 Growth_Rate: 3
-Description: "Larvitar, the Rock Skin Pokémon. Larvitar generally hatch deep within the earth and take a long time before coming to the surface."
+Description: "Larvitar, the Rock Skin Pokemon. Larvitar generally hatch deep within the earth and take a long time before coming to the surface."
 //Learnset
 01 Leer
 01 Bite
@@ -5366,7 +5364,7 @@ Frustration
 Earthquake
 Return
 Dig
-Mud-Slap
+Mud Slap
 Double_Team
 Swagger
 Sleep Talk
@@ -5374,7 +5372,7 @@ Sandstorm
 Detect
 Rest
 Attract
------------------------
+------------------------
 ID#: 247
 Name: Pupitar
 Type: Rock/Ground
@@ -5393,7 +5391,7 @@ Speed: 51
 Catch_rate: 45
 Base_EXP: 144
 Growth_Rate: 3
-Description: "Pupitar, the Hard Shell Pokémon. Pupitar is encased in a nearly indestructible shell and has enough power to topple a mountain."
+Description: "Pupitar, the Hard Shell Pokemon. Pupitar is encased in a nearly indestructible shell and has enough power to topple a mountain."
 //Learnset
 01 Leer
 01 Bite
@@ -5420,7 +5418,7 @@ Frustration
 Earthquake
 Return
 Dig
-Mud-Slap
+Mud Slap
 Double_Team
 Swagger
 Sleep Talk
@@ -5428,7 +5426,7 @@ Sandstorm
 Detect
 Rest
 Attract
------------------------
+------------------------
 ID#: 248
 Name: Tyranitar
 Type: Rock/Ground
@@ -5446,7 +5444,7 @@ Speed: 61
 Catch_rate: 45
 Base_EXP: 218
 Growth_Rate: 3
-Description: "Tyranitar, the Armor Pokémon. Tyranitar has a heavily armored body that can withstand powerful attacks and is able to crush a mountain with one hand."
+Description: "Tyranitar, the Armor Pokemon. Tyranitar has a heavily armored body that can withstand powerful attacks and is able to crush a mountain with one hand."
 //Learnset
 01 Leer
 01 Bite
@@ -5479,7 +5477,7 @@ Dragon_Breath
 Earthquake
 Return
 Dig
-Mud-Slap
+Mud Slap
 Double_Team
 Swagger
 Sleep Talk
@@ -5491,7 +5489,7 @@ Attract
 FirePunch
 Fury_Cutter
 Nightmare
------------------------
+------------------------
 ID#: 249
 Name: Lugia
 Type: Psychic/Flying
@@ -5550,7 +5548,7 @@ Earthquake
 Return
 Psychic
 Shadow_Ball
-Mud-Slap
+Mud Slap
 Double_Team
 Swagger
 Sleep_Talk
@@ -5561,9 +5559,9 @@ Detect
 Rest
 Steel_Wing
 Nightmare
------------------------
+------------------------
 ID#: 250
-Name: Ho-oh
+Name: Ho oh
 Type: Fire/Flying
 Species: Rainbow
 Height: 3.8
@@ -5579,7 +5577,7 @@ Speed: 90
 Catch_rate: 3
 Base_EXP: 220
 Growth_Rate: 3
-Description: "Legends claim this Pokémon flies the world's skies continuously on its magnificent seven-colored wings."
+Description: "Legends claim this Pokemon flies the world's skies continuously on its magnificent seven colored wings."
 //Learnset
 01 Sacred_Fire
 11 Safeguard
@@ -5620,7 +5618,7 @@ Earthquake
 Return
 Psychic
 Shadow_Ball
-Mud-Slap
+Mud Slap
 Double_Team
 Swagger
 Sleep_Talk
@@ -5631,9 +5629,9 @@ Detect
 Rest
 Steel_Wing
 Nightmare
------------------------
-ID#: Celebi
-Name: Ho-oh
+------------------------
+ID#: 251
+Name: Celebi
 Type: Psychic/Grass
 Species: Time_Travel
 Height: 0.6
@@ -5649,7 +5647,7 @@ Speed: 100
 Catch_rate: 45
 Base_EXP: 64
 Growth_Rate: 2
-Description: "Celebi, the Time Travel Pokémon. Celebi wanders across time as guardian of the forest. Wherever it appears, trees and grass flourish."
+Description: "Celebi, the Time Travel Pokemon. Celebi wanders across time as guardian of the forest. Wherever it appears, trees and grass flourish."
 //Learnset
 01 Leech_Seed
 01 Confusion
@@ -5679,7 +5677,7 @@ Solar_Beam
 Return
 Psychic
 Shadow_Ball
-Mud-Slap
+Mud Slap
 Double_Team
 Swagger
 Sleep_Talk

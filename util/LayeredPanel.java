@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 
 public class LayeredPanel extends JPanel {
 	private static final ImageIcon def = new ImageIcon("src/bliss.jpg");
-	private static final Dimension pref = new Dimension(400, 300);
+	private Dimension pref = new Dimension(400, 300);
 	
 	private static class ClearPanel extends JPanel {
 		public ClearPanel() {
@@ -68,10 +68,13 @@ public class LayeredPanel extends JPanel {
 		if (d == null)
 			d = new Dimension(0, 0);
 		super.setPreferredSize(d);
+		pref = d;
 		foreground.setBounds(0, 0, d.width, d.height);
 		background.setBounds(0, 0, d.width, d.height);
 		removeAll();
 		add(foreground);
 		add(background);
+		foreground.setBounds(0, 0, d.width, d.height);
+		background.setBounds(0, 0, d.width, d.height);
 	}
 }
