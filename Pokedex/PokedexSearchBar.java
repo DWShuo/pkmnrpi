@@ -2,13 +2,11 @@ package Pokedex;
 
 import game.GameState;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -16,19 +14,16 @@ import javax.swing.JPanel;
 import util.ImageLibrary;
 import util.Searchable;
 import util.panels.PatternPanel;
-import util.panels.ScalePanel;
 
-public class PokedexSearchBar extends JPanel implements KeyListener {
+public class PokedexSearchBar extends JPanel implements KeyListener, PokedexUI {
 	public static final int pixel_height = 22;
-	public static final PatternPanel background = new PatternPanel(0);
-	public static final ImageIcon blank = ImageLibrary.getSolidColor(Color.white, 7, 14);
-	public static final String all_valid_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!?,.:$ ";
 
 	private JLabel[] text;
 	private int max, idx;
 	private Searchable pokedex;
-	public int color = ImageLibrary.black;
 	private String current = "";
+	public int color = ImageLibrary.black;
+	public PatternPanel background = new PatternPanel(0);
 
 	public PokedexSearchBar(int width, Searchable s) {
 		super();
@@ -59,37 +54,39 @@ public class PokedexSearchBar extends JPanel implements KeyListener {
 	public void keyPressed(KeyEvent e) {
 		// Catch enter key
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-			//System.out.println("ENTER");
+			// System.out.println("ENTER");
 			if (pokedex == null)
 				return;
 			pokedex.search(current);
 		}
 		// Catch backspace key
 		if (e.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
-			//System.out.println("BACKSPACE");
+			// System.out.println("BACKSPACE");
 			if (idx <= 0)
 				return;
 			text[--idx].setIcon(blank);
 			current = current.substring(0, current.length() - 1);
 		}
 		char c = e.getKeyChar();
-		//System.out.println(c);
-		int index = all_valid_chars.indexOf(c);
+		// System.out.println(c);
+		int index = valid_chars.indexOf(c);
 		if (index == -1)
 			return;
 		if (idx >= max)
 			return;
-		//new TestFrame(ImageLibrary.text[color][index]);
-		text[idx++ ].setIcon(ImageLibrary.text[color][index]);
+		// new TestFrame(ImageLibrary.text[color][index]);
+		text[idx++].setIcon(ImageLibrary.text[color][index]);
 		current += c;
 	}
 
-	public void keyReleased(KeyEvent e) {}
+	public void keyReleased(KeyEvent e) {
+	}
 
-	public void keyTyped(KeyEvent e) {}
+	public void keyTyped(KeyEvent e) {
+	}
 
 	public static boolean is_valid_char(char c) {
-		return all_valid_chars.contains(c + "");
+		return valid_chars.contains(c + "");
 	}
 
 	public static void main(String[] args) {

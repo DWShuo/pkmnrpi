@@ -8,6 +8,8 @@ import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 
+import Pokedex.PokedexUI;
+
 public class ImageLibrary extends Library {
 	public static ImageIcon[] icons, front_sprites, back_sprites, small_sprites;
 	public static ImageIcon[][] text;
@@ -142,7 +144,7 @@ public class ImageLibrary extends Library {
 			for (int j = 64; j < 68; ++j) {
 				text[i][c++ ] = new ImageIcon(font[j]);
 			}
-			text[i][68] = blank;
+			text[i][68] = PokedexUI.blank;
 		}
 
 		// Load player sprites
