@@ -9,10 +9,10 @@ import javax.swing.JPanel;
 import Pokedex.Pokedex;
 
 public class GameEngine {
-	private GameState state;
-	private GameBoard board;
-	private Pokedex dex;
-	private JFrame frame;
+	public GameState state;
+	public GameBoard board;
+	public Pokedex dex;
+	public JFrame frame;
 
 	public GameEngine() {
 		GameState.initilize_all();
@@ -35,6 +35,9 @@ public class GameEngine {
 		frame.add(contents);
 		frame.pack();
 		frame.setVisible(true);
+		
+		//TODO: Play intro credits
+		//TODO: select save file or start new game
 	}
 
 	public static void main(String[] args) {

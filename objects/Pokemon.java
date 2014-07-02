@@ -14,6 +14,7 @@ public class Pokemon implements PokedexUI {
 			ROCK = 4, DARK = 5, GHOST = 6, STEEL = 7, ELECTRIC = 8, FLYING = 9,
 			DRAGON = 10, ICE = 11, PSYCHIC = 12, POISON = 13, FIGHTING = 14,
 			NORMAL = 15;
+	public static Pokemon[] all_pokemon;
 	public String name, species, description;
 	public boolean male = true;
 	public int type, t2 = -1;
@@ -82,7 +83,8 @@ public class Pokemon implements PokedexUI {
 
 	}
 
-	public static Pokemon[] load_all(String filename) {
+	public static void init() {
+		String filename = "src/data/Pokemon_Data.txt";
 		ArrayList<Pokemon> all = new ArrayList<Pokemon>();
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(filename));
@@ -99,7 +101,7 @@ public class Pokemon implements PokedexUI {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return order_pokemon(all);
+		all_pokemon = order_pokemon(all);
 	}
 
 	public static Pokemon[] order_pokemon(ArrayList<Pokemon> lst) {
@@ -112,14 +114,15 @@ public class Pokemon implements PokedexUI {
 		return all;
 	}
 
-	private static boolean is_uniform(String str, char c) {
+	public static boolean is_uniform(String str, char c) {
+		str.replace(' ', '-');
 		for (char h : str.toCharArray())
 			if (c != h)
 				return false;
 		return true;
 	}
 
-	private static String strip_label(String str) {
+	public static String strip_label(String str) {
 		String temp = str.substring(str.indexOf(":") + 2);
 		for (char c : bad_chars.toCharArray())
 			temp = temp.replace(c, ' ');

@@ -1,0 +1,775 @@
+Name: Aeroblast
+Type: Flying
+Category: Special
+Power: 100
+Accuracy: 95
+PP: 5
+Description: "Has a high critical hit ratio."
+Effect: "Aeroblast deals damage and has an increased critical hit ratio (1/8 instead of 1/16)"
+-----------------------------
+Name: Ancient_Power
+Type: Rock
+Category: Special
+Power: 60
+Accuracy 100
+PP: 5
+Description: "An attack that may raise all stats."
+Effect: "Ancient Power deals damage and has a 10% chance of raising all the user's stats at once - Attack, Defense, Special Attack, Special Defense and Speed - by one stage each."
+-----------------------------
+Name: Attract
+Type: Normal
+Category: Status
+Power: 0
+Accuracy: 100
+PP: 15
+Description: "If opponent is the opposite gender, it's less likely to attack."
+Effect: "Attract causes Pokémon of the opposite gender to become infatuated. Infatuated Pokémon have a 50% chance of being immobilized by love each turn and unable to attack."
+-----------------------------
+Name: Baton_Pass
+Type: Normal
+Category: Status
+Power: 0
+Accuracy: 0
+PP: 40
+Description: "User switches out and gives stat changes to the incoming Pokémon."
+Effect: "Baton Pass causes the user to switch out for another Pokémon, passing any stat changes to the Pokémon that switches in."
+-----------------------------
+Name: Beat_Up
+Type: Dark
+Category: Physical
+Power: 0
+Accuracy: 100
+PP: 30
+Description: "Each Pokémon in your party attacks."
+Effect: "Beat Up deals damage from each Pokémon on your team that does not have a status ailment (nor is fainted). Each strike has a different base power, calculated as: UsersBaseAttack ÷ 10 + 5"
+-----------------------------
+Name: Belly_Drum
+Type: Normal
+Category: Status
+Power: 0
+Accuracy: 0
+PP: 10
+Description: "User loses 50% of its max HP, but Attack raises to maximum."
+Effect: "Reduces own HP to maximize ATTACK."
+-----------------------------
+Name: Bone_Rush
+Type: Ground
+Category: Physical
+Power: 25
+Accuracy: 90
+PP: 10
+Description: "Hits 2-5 times in one turn."
+Effect: "Bone Rush hits 2-5 times per turn used. See chart"
+-----------------------------
+Name: Charm
+Type: Normal
+Category: Status
+Power: 0
+Accuracy: 100
+PP: 20
+Description: "Sharply lowers opponent's Attack."
+Effect: "Charm lowers the target's Attack by two stages. -6 max."
+-----------------------------
+Name: Conversion_2
+Type: Normal
+Category: Status
+Power: 0
+Accuracy: 0
+PP: 30
+Description: "User changes type to become resistant to opponent's last move."
+Effect: "Conversion 2 changes the user's type to one that is resistant (or immune) to the last move used by the target, randomly. For example, if the target last used a Fighting type move, Conversion 2 would change the user's type to one of Poison, Flying, Psychic, Bug, Ghost or Fairy at random."
+
+-----------------------------
+Name: Cotton_Spore
+Type: Grass
+Category: Status
+Power: 0
+Accuracy: 100
+PP: 40
+Description: "Sharply lowers opponent's Speed."
+Effect: "Cotton Spore lowers the target's Speed by two stages. -6 max"
+-----------------------------
+Name: Cross_Chop
+Type: Fighting
+Category: Physical
+Power: 100
+Accuracy: 80
+PP: 5
+Description: "High critical hit ratio."
+Effect: "Cross Chop deals damage and has an increased critical hit ratio (1/8 instead of 1/16)."
+-----------------------------
+Name: Crunch
+Type: Dark
+Category: Physical
+Power: 80
+Accuracy: 100
+PP: 15
+Description: "May lower opponent's Defense."
+Effect: "Crunch deals damage and has a 20% chance of lowering the target's Defense by one stage."
+-----------------------------
+Name: Curse
+Type: Ghost
+Category: Status
+Power: 0
+Accuracy: 0
+PP: 10
+Description: "Ghosts lose 50% of max HP and curse the opponent; Non-Ghosts raise Attack, Defense and lower Speed."
+Effect: "Ghost-type Pokémon use 50% of their maximum HP to place a curse on the target. The cursed Pokémon loses 25% of their maximum HP every turn. If the user has less than 50% HP remaining, they will faint but the curse still takes effect."
+-----------------------------
+Name: Destiny_Bond
+Type: Ghost
+Category: Status
+Power: 0
+Accuracy: 0
+PP: 5
+Description: "If the user faints, the opponent also faints."
+Effect: "If the user faints, the opponent also faints."
+-----------------------------
+Name: Detect
+Type: Fighting
+Category: Status
+Power: 0
+Accuracy: 0
+PP: 5
+Description: "Opponent's attack doesn't affect you, but may fail if used often."
+Effect: "Its accuracy drops to 50% if used consecutively after itself, Protect, Endure, Quick Guard or Wide Guard."
+-----------------------------
+Name: DragonBreath
+Type: Dragon
+Category: Special
+Power: 60
+Accuracy: 100
+PP: 20
+Description: "May paralyze opponent."
+Effect: "Dragon Breath deals damage and has a 30% chance of paralyzing the target."
+-----------------------------
+Name: DynamicPunch
+Type: Fighting
+Category: Physical
+Power: 100
+Accuracy: 50
+PP: 5
+Description: "Confuses opponent."
+Effect: "Dynamic Punch deals damage and confuses the target, if it hits. Confused Pokémon have a 50% chance of hurting themselves each turn, for 1-4 turns. The damage received is as if the Pokémon attacks itself with a typeless 40 base power Physical attack."
+-----------------------------
+Name: Encore
+Type: Normal
+Category: Status
+Power: 0
+Accuracy: 100
+PP: 5
+Description: "Forces opponent to keep using its last move for 3 turns."
+Effect: "Encore does not work against Encore itself, Mimic, Mirror Move, Sketch, Struggle or Transform."
+-----------------------------
+Name: Endure
+Type: Normal
+Category: Status
+Power: 0
+Accuracy: 0
+PP: 10
+Description: "Always left with at least 1 HP, but may fail if used consecutively"
+Effect: "Its accuracy drops to 50% if used consecutively after itself, Detect, Protect, Quick Guard or Wide Guard."
+-----------------------------
+Name: Extreme_Speed
+Type: Normal
+Category: Physical
+Power: 60
+Accuracy: 100
+PP: 5
+Description: "User attacks first."
+Effect: "User attacks first."
+-----------------------------
+Name: False_Swipe
+Type: Normal
+Category: Physical
+Power: 40
+Accuracy: 100
+PP: 40
+Description: "Always leaves opponent with at least 1 HP."
+Effect: "Always leaves opponent with at least 1 HP."
+-----------------------------
+Name: Feint_Attack
+Type: Dark
+Category: Physical
+Power: 60
+Accuracy: 0
+PP: 20
+Description: "Ignores Accuracy and Evasiveness."
+Effect: "Ignores Accuracy and Evasiveness."
+-----------------------------
+Name: Flail
+Type: Normal
+Category: Physical
+Power: 0
+Accuracy: 100
+PP: 15
+Description: "The lower the user's HP, the higher the power."
+Effect: "The lower the user's HP, the higher the power."
+-----------------------------
+Name: Flame_Wheel
+Type: Fire
+Category: Physical
+Power: 60
+Accuracy: 100
+PP: 25
+Description: "May burn opponent."
+Effect: "Flame Wheel deals damage and has a 10% chance of burning the target. If the user is frozen, Flame Wheel can be used and will thaw out the Pokemon before attacking."
+-----------------------------
+Name: Foresight
+Type: Normal
+Category: Status
+Power: 0
+Accuracy: 0
+PP: 40
+Description: "Negates accuracy reduction moves."
+Effect: "Resets opponent's Evasiveness, Normal-type and Fighting-type attacks can now hit Ghosts, and Ghost-type attacks hit Normal."
+-----------------------------
+Name: Frustration
+Type: Normal
+Category: Physical
+Power: 0
+Accuracy: 100
+PP: 20
+Description: "Power decreases with higher Happiness."
+Effect: "The power of Frustration is higher when the Pokémon likes its trainer less. The base power varies between 1 (maximum happiness) and 102 (minimum happiness)."
+-----------------------------
+Name: Fury_Cutter
+Type: Bug
+Category: Physical
+Power: 40
+Accuracy: 95
+PP: 20
+Description: "Successive hits raise power."
+Effect: "Fury Cutter deals damage starting at base power 40, and for each successful consecutive hit doubles in power, up to a maximum base power of 160. If the move misses for any reason, the base power resets to 40."
+-----------------------------
+Name: Future_Sight
+Type: Psychic
+Category: Special
+Power: 120
+Accuracy: 100
+PP: 10
+Description: "An attack that hits on 3rd turn."
+Effect: "Future Sight deals damage, but does not hit until two turns after the move is used. If the opponent switched Pokémon in the meantime, the new Pokémon gets hit, with their type and stats taken into account."
+-----------------------------
+Name: Giga_Drain
+Type: Grass
+Category: Special
+Power: 75
+Accuracy: 100
+PP: 10
+Description: "Steals 1/2 of the damage inflicted."
+Effect: "Steals 1/2 of the damage inflicted."
+-----------------------------
+Name: Heal_Bell
+Type: Normal
+Category: Status
+Power: 0
+Accuracy: 0
+PP: 5
+Description: "Eliminates all status problems."
+Effect: "Heals the user's party's status conditions."
+-----------------------------
+Name: Hidden_Power
+Type: Normal
+Category: Special
+Power: 60
+Accuracy: 100
+PP: 15
+Description: "The power varies with the pokemon."
+Effect: "Hidden Power deals damage, however its type varies for every Pokémon, depending on that Pokémon's Individual Values (IVs). This makes it a useful move for coverage - giving the Pokémon a type of move they don't normally have."
+-----------------------------
+Name: Icy_Wind
+Type: Ice
+Category: Special
+Power: 55
+Accuracy: 95
+PP: 15
+Description: "An icy attack that lowers SPEED."
+Effect: "Icy Wind deals damage and lowers the target's Speed by one stage."
+-----------------------------
+Name: Iron_Tail
+Type: Steel
+Category: Physical
+Power: 100
+Accuracy: 75
+PP: 15
+Description: "An attack that may reduce DEFENSE."
+Effect: "Iron Tail deals damage and has a 30% chance of lowering the target's Defense by one stage."
+-----------------------------
+Name: Lock-On
+Type: Normal
+Category: Status
+Power: 0
+Accuracy: 0
+PP: 5
+Description: "Ensures the next attack will hit."
+Effect: "Ensures the next attack will hit."
+-----------------------------
+Name: Mach_Punch
+Type: Fighting
+Category: Physical
+Power: 40
+Accuracy: 100
+PP: 30
+Description: "A fast punch that lands first."
+Effect: "User attacks first."
+-----------------------------
+Name: Magnitude
+Type: Ground
+Category: Physical
+Power: 0
+Accuracy: 100
+PP: 30
+Description: "A ground attack with random power."
+Effect: "The base power of Magnitude is one of 7 random values, with varying probability, as per the table to the right. Magnitude will hit with double power if the opponent is underground due to the move Dig."
+-----------------------------
+Name: Mean_Look
+Type: Normal
+Category: Status
+Power: 0
+Accuracy: 0
+PP: 5
+Description: "Prevents fleeing or switching."
+Effect: "Prevents fleeing or switching."
+-----------------------------
+Name: Megahorn
+Type: Bug
+Category: Physical
+Power: 120
+Accuracy: 85
+PP: 10
+Description: "A powerful charge attack."
+Effect: ""
+-----------------------------
+Name: Metal_Claw
+Type: Steel
+Category: Physical
+Power: 50
+Accuracy: 95
+PP: 35
+Description: "An attack that may up user's ATTACK."
+Effect: "Metal Claw deals damage and has a 10% chance of raising the user's Attack by one stage."
+-----------------------------
+Name: Milk_Drink
+Type: Normal
+Category: Status
+Power: 0
+Accuracy: 0
+PP: 10
+Description: "Restores HP by 1/2 the max HP."
+Effect: ""
+-----------------------------
+Name: Mind_Reader
+Type: Normal
+Category: Status
+Power: 0
+Accuracy: 0
+PP: 5
+Description: "Ensures the next attack will hit."
+Effect: "User's next attack is guaranteed to hit."
+-----------------------------
+Name: Mirror_Coat
+Type: Psychic
+Category: Special
+Power: 0
+Accuracy: 100
+PP: 20
+Description: "When hit by a Special Attack, user strikes back with 2x power."
+Effect: "When hit by a Special Attack, user strikes back with 2x power."
+-----------------------------
+Name: Moonlight
+Type: Psychic
+Category: Special
+Power: 0
+Accuracy: 0
+PP: 5
+Description: "Restores HP (varies by time)."
+Effect: "The user restores its own HP. The amount of HP regained varies with the weather."
+-----------------------------
+Name: Morning_Sun
+Type: Normal
+Category: Status
+Power: 0
+Accuracy: 0
+PP: 5
+Description: Restores HP (varies by time)."
+Effect: "The user restores its own HP. The amount of HP regained varies with the weather."
+-----------------------------
+Name: Mud-Slap
+Type: Ground
+Category: Special
+Power: 20
+Accuracy: 100
+PP: 10
+Description: "Reduces the foe's accuracy."
+Effect: "Mud-Slap deals damage and lowers the target's Accuracy by one stage."
+-----------------------------
+Name: Nightmare
+Type: Ghost
+Category: Special
+Power: 0
+Accuracy: 100
+PP: 15
+Description: "A sleeper loses 1/4 HP every turn."
+Effect: "If the target is asleep, Nightmare causes it to lose 1/4 of its maximum HP after each turn. The status condition is cured when the Pokemon wakes up."
+-----------------------------
+Name: Octazooka
+Type: Water
+Category: Special
+Power: 65
+Accuracy: 85
+PP: 10
+Description: "An attack that may reduce accuracy."
+Effect: "Octazooka deals damage and has a 50% chance of lowering the target's Accuracy by one stage."
+-----------------------------
+Name: Outrage
+Type: Dragon
+Category: Physical
+Power: 120
+Accuracy: 100
+PP: 10
+Description: "Works 2-3 turns and confuses User."
+Effect: "The user of Outrage attacks for 2-3 turns, during which it cannot switch out, and then becomes confused. Confused Pokémon have a 50% chance of hurting themselves each turn, for 1-4 turns. The damage received is as if the Pokémon attacks itself with a typeless 40 base power Physical attack. If Outrage is disrupted (e.g. if the move misses or the user cannot attack due to paralysis) then it will stop and not cause confusion."
+-----------------------------
+Name: Pain_Split
+Type: Normal
+Category: Status
+Power: 0
+Accuracy: 0
+PP: 20
+Description: "Adds user and foe's HPs. Shares total."
+Effect: "The user's and opponent's HP becomes the average of both."
+-----------------------------
+Name: Perish_Song
+Type: Normal
+Category: Status
+Power: 0
+Accuracy: 0
+PP: 5
+Description: "Both user and foe faint in 3 turns."
+Effect: "Any Pokémon in play when this attack is used faints in 3 turns."
+-----------------------------
+Name: Powder_Snow
+Type: Ice
+Category: Special
+Power: 40
+Accuracy: 100
+PP: 25
+Description: "An attack that may cause freezing."
+Effect: "Powder Snow deals damage and has a 10% chance of freezing the target."
+-----------------------------
+Name: Present
+Type: Normal
+Category: Physical
+Power: 0
+Accuracy: 90
+PP: 15
+Description: "A bomb that may restore HP."
+Effect: "Either damage or heals."
+-----------------------------
+Name: Protect
+Type: Normal
+Category: Status
+Power: 0
+Accuracy: 0
+PP: 10
+Description: "Foils attack that turn. It may fail."
+Effect: "Protect prevents any attacks targeted at the user from striking on that turn. Accuracy decreases to 50% if used consecutively."
+-----------------------------
+Name: Psych_Up
+Type: Normal
+Category: Status
+Power: 0
+Accuracy: 0
+PP: 10
+Description: "Copies the foe's stat changes."
+Effect: "Copies the foe's stat changes."
+-----------------------------
+Name: Pursuit
+Type: Dark
+Category: Physical
+Power: 40
+Accuracy: 100
+PP: 20
+Description: "Heavily strikes switching pokemon."
+Effect: "Pursuit deals damage, and hits with double power if the target is switching out. In that case, Pursuit technically has priority +7, meaning it attacks before all other actions and moves."
+-----------------------------
+Name: Rain_Dance
+Type: Water
+Category: Status
+Power: 0
+Accuracy: 0
+PP: 5
+Description: "Boosts water-type moves for 5 turns."
+Effect: "The power of Water-type moves increases by 50%. The power of Fire-type moves and SolarBeam decreases by 50%. The accuracy of Thunder and Hurricane rises to 100%."
+-----------------------------
+Name: Rapid_Spin
+Type: Normal
+Category: Physical
+Power: 20
+Accuracy: 100
+PP: 40
+Description:
+Effect: "Rapid Spin deals a small amount of damage and removes the effects of several trap moves. It fails if the move misses or the target is immune."
+-----------------------------
+Name: Return
+Type: Normal
+Category: Physical
+Power: 0
+Accuracy: 100
+PP: 20
+Description: "An attack that is based on loyalty."
+Effect: "The power of Return is higher when the user likes its trainer more. The base power varies between 1 (minimum happiness) and 102 (maximum happiness)."
+-----------------------------
+Name: Reversal
+Type: Fighting
+Category: Physical
+Power: 0
+Accuracy: 100
+PP: 15
+Description: "Stronger if the user's HP is low."
+Effect: "Reversal deals more damage the lower the user's HP is, as per the table below."
+-----------------------------
+Name: Rock_Smash
+Type: Fighting
+Category: Physical
+Power: 20
+Accuracy: 100
+PP: 15
+Description: "An attack that may lower DEFENSE."
+Effect: "Rock Smash deals damage and has a 50% chance of lowering the target's Defense by one stage."
+-----------------------------
+Name: Rollout
+Type: Rock
+Category: Physical
+Power: 30
+Accuracy: 90
+PP: 20
+Description: "Attacks 5 turns with rising power."
+Effect: "Rollout deals damage for 5 turns, doubling in power each turn. The move stops if it misses on any turn. If it doesn't miss, Rollout will deal 30, 60, 120, 240 and 480 base power damage each turn respectively. As Rollout has 90% accuracy, the chances of it being successful for each turn (with normal Accuracy/Evasion and no other interruptions) are 90%, 81%, 73%, 66% and 59% respectively."
+-----------------------------
+Name: Sacred_Fire
+Type: Fire
+Category: Physical
+Power: 100
+Accuracy: 95
+PP: 5
+Description: "An attack that my inflict a burn."
+Effect: "Sacred Fire deals damage and has a 50% chance of burning the target."
+-----------------------------
+Name: Safeguard
+Type: Normal
+Category: Status
+Power: 0
+Accuracy: 0
+PP: 25
+Description: "Prevents all status problems."
+Effect: "The user's party is protected from status conditions."
+-----------------------------
+Name: Sandstorm
+Type: Rock
+Category: Status
+Power: 0
+Accuracy: 0
+PP: 10
+Description:
+Effect: "All Pokemon except Rock, Ground and Steel types and those with the Sand Veil, Sand Rush or Sand Force abilities, lose 1/16 of their max HP at the end of each turn. The power of SolarBeam decreases by 50%. The moves Synthesis, Morning Sun and Moonlight recover 1/4 of the user's max HP (instead of the usual 1/2 HP)."
+-----------------------------
+Name: Scary_Face
+Type: Normal
+Category: Status
+Power: 0
+Accuracy: 100
+PP: 10
+Description: "Sharply reduces the foe's SPEED."
+Effect: "Scary Face lowers the target's Speed by two stages."
+-----------------------------
+Name: Shadow_Ball
+Type: Ghost
+Category: Special
+Power: 80
+Accuracy: 100
+PP: 15
+Description: "An attack that may lower SP. DEFENSE."
+Effect: "Shadow Ball deals damage and has a 20% chance of lowering the target's Special Defense by one stage."
+-----------------------------
+Name: Sketch
+Type: Normal
+Category: Status
+Power: 0
+Accuracy: 0
+PP: 1
+Description: "Permanently copies the opponent's last move."
+Effect: "Copies the foe's move permanently."
+-----------------------------
+Name: Sleep_Talk
+Type: Normal
+Category: Status
+Power: 0
+Accuracy: 0
+PP: 10
+Description: "Randomly attacks while asleep."
+Effect: "User performs one of its own moves while sleeping."
+-----------------------------
+Name: Sludge_Bomb
+Type: Poison
+Category: Special
+Power: 90
+Accuracy: 100
+PP: 10
+Description: "An attack that may poison the foe."
+Effect: "Sludge Bomb deals damage and has a 30% chance of poisoning the target."
+-----------------------------
+Name: Snore
+Type: Normal
+Category: Special
+Power: 40
+Accuracy: 100
+PP: 15
+Description: "An attack useable only while asleep."
+Effect: "Snore deals damage and has a 30% chance of causing the target to flinch (if the target has not yet moved). However, it can only be used while the user is asleep (either from a move like Hypnosis or self-induced via Rest)."
+-----------------------------
+Name: Spark
+Type: Electric
+Category: Physical
+Power: 65
+Accuracy: 100
+PP: 20
+Description: "An attack that may cause paralysis."
+Effect: "Spark deals damage and has a 30% chance of paralyzing."
+-----------------------------
+Name: Spider_Web
+Type: Bug
+Category: Status
+Power: 0 
+Accuracy: 0
+PP: 10
+Description: "Prevents fleeing or switching."
+Effect: "Oppenent cannot escape/switch."
+-----------------------------
+Name: Spikes
+Type: Ground
+Category: Status
+Power: 0
+Accuracy: 0
+PP: 20
+Description: "Hurts foes when they switch out."
+Effect: "Check table for damage."
+-----------------------------
+Name: Spite
+Type: Ghost
+Category: Status
+Power: 0
+Accuracy: 100
+PP: 10
+Description: "Cuts the PP of the foe's last move."
+Effect: "The opponent's last move loses 2-5 PP."
+-----------------------------
+Name: Steel_Wing
+Type: Steel
+Category: Physical
+Power: 70
+Accuracy: 90
+PP: 25
+Description: "Stiff wings strike the foe."
+Effect: "Steel Wing deals damage and has a 10% chance of raising the user's Defense by one stage."
+-----------------------------
+Name: Sunny_Day
+Type: Fire
+Category: Status
+Power: 0
+Accuracy: 0
+PP: 5
+Description:
+Effect: "The power of Fire-type moves increases by 50%. The power of Water-type moves decreases by 50%. The accuracy of Thunder and Hurricane lowers to 50%. SolarBeam does not require the charging turn, thus attacks straight away."
+-----------------------------
+Name: Swagger
+Type: Normal
+Category: Status
+Power: 0
+Accuracy: 90
+PP: 15
+Description: "Causes confusion and raises ATTACK."
+Effect: "Opponent becomes confused, but its Attack is raised two stages."
+-----------------------------
+Name: Sweet_Kiss
+Type: Normal
+Category: Status 
+Power: 0
+Accuracy: 75
+PP: 10
+Description: "A move that causes confusion."
+Effect: "Sweet Kiss causes the target to become confused. Confused Pokémon have a 50% chance of hurting themselves each turn, for 1-4 turns. The damage received is as if the Pokémon attacks itself with a typeless 40 base power Physical attack."
+-----------------------------
+Name: Sweet_Scent
+Type: Normal
+Category: Status
+Power: 0
+Accuracy: 0
+PP: 20
+Description: "Reduce the foe's evasiveness."
+Effect: "Sweet Scent lowers target's Evasion by one stage."
+-----------------------------
+Name: Synthesis
+Type: Grass
+Category: Status
+Power: 0
+Accuracy: 0
+PP: 5
+Description: "Restores HP (varies by time)."
+Effect: "User recovers HP. Amount varies with the weather."
+-----------------------------
+Name: Thief
+Type: Dark
+Category: Physical
+Power: 40
+Accuracy: 100
+PP: 10
+Description: "An attack that may steel a held item."
+Effect: "Thief deals damage and steals the target's held item, if the user is not holding an item."
+-----------------------------
+Name: Triple_Kick
+Type: Fighting
+Category: Physical
+Power: 10
+Accuracy: 90
+PP: 10
+Description: "Hits three times with rising power."
+Effect: "Triple Kick deals damage and will strike three times, with each kick's base power increasing by 10. In other words the blows will be base power 10, 20 and 30 - a total of 60."
+-----------------------------
+Name: Twister
+Type: Dragon
+Category: Special
+Power: 40
+Accuracy: 100
+PP: 20
+Description:
+Effect: "Twister deals damage and has a 30% chance of causing the target to flinch (if the target has not yet moved). Double damage if opponent is flying."
+-----------------------------
+Name: Vital_Throw
+Type: Fighting
+Category: Physical
+Power: 70
+Accuracy: 0
+PP: 10
+Description: "A 2nd-strike move that never misses."
+Effect: "Vital Throw deals damage with lower priority, so most attacks will take place before it. Vital Throw ignores changes to the Accuracy and Evasion stats. However, it will not hit Pokemon during the invulnerable stage of Bounce, Dig, Dive, Fly, Shadow Force or Sky Drop."
+-----------------------------
+Name: Whirlpool
+Type: Water
+Category: Special
+Power: 35
+Accuracy: 85
+PP: 15
+Description: "Traps the foe for 2-5 turns."
+Effect: "Whirlpool inflicts damage on the first turn then traps the opponent in the vortex, causing them to lose 1/16 of their maximum HP after each turn, for 4-5 turns. If the user holds a Grip Claw then it is always 5 turns."
+-----------------------------
+Name: Zap_Cannon
+Type: Electric
+Category: Special
+Power: 100
+Accuracy: 50
+PP: 5
+Description: "An attack that always paralyzes."
+Effect: "Zap Cannon deals damage and paralyzes the target, if it hits. Paralyzed Pokémon have a 25% chance of not being able to attack, and their Speed is decreased by 75%."
+-----------------------------

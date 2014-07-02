@@ -22,8 +22,8 @@ public class GameBoard extends JScrollPane implements KeyListener {
 
 	private LayeredPanel background;
 	private GamePanel foreground;
-	private TileMap map;
-	private Person player;
+	public TileMap map;
+	public Person player;
 
 	public GameBoard() {
 		super();

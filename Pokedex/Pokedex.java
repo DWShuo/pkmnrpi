@@ -109,9 +109,5 @@ public class Pokedex extends JPanel implements Searchable {
 			return null;
 		return all_pokemon[result];
 	}
-
-	public static void init() {
-		all_pokemon = Pokemon.load_all("src/data/Pokemon_Data.txt");
-	}
-
 }
+
