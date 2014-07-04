@@ -19,6 +19,7 @@ public class ImageLibrary extends Library {
 	public static String[] image_sheet_names = { "src/tilesets/misc_tiles.png", "src/tilesets/day_roofs.png", "src/tilesets/day_buildings.png", "src/tilesets/day_landscape.png",
 			"src/tilesets/front_sprites.png", "src/tilesets/back_sprites.png" };
 	public static BufferedImage[] image_sheets, player;
+	public static boolean[] walk_tiles;
 
 	public static final int DEFAULT_ICON = icon_counts[0];
 
@@ -158,5 +159,12 @@ public class ImageLibrary extends Library {
 		temp = 0;
 		for (BufferedImage b : Tileizer.cutter(buf, w, h, 16, 16, 20))
 			player[temp++ ] = b;
+		
+		// Create the walk_tiles lookup table
+		walk_tiles = new boolean[icons.length];
+		for(boolean b : walk_tiles)
+			b = false;
+		for(int i : valid_walk_tiles)
+			walk_tiles[i] = true;
 	}
 }

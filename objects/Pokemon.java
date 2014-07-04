@@ -10,10 +10,8 @@ import Pokedex.PokedexUI;
 
 public class Pokemon implements PokedexUI {
 	// TYPES
-	public static final int FIRE = 0, WATER = 1, GRASS = 2, GROUND = 3,
-			ROCK = 4, DARK = 5, GHOST = 6, STEEL = 7, ELECTRIC = 8, FLYING = 9,
-			DRAGON = 10, ICE = 11, PSYCHIC = 12, POISON = 13, FIGHTING = 14,
-			NORMAL = 15;
+	public static final int FIRE = 0, WATER = 1, GRASS = 2, GROUND = 3, ROCK = 4, DARK = 5, GHOST = 6, STEEL = 7, ELECTRIC = 8, FLYING = 9, DRAGON = 10, ICE = 11, PSYCHIC = 12,
+			POISON = 13, FIGHTING = 14, NORMAL = 15;
 	public static Pokemon[] all_pokemon;
 	public String name, species, description;
 	public boolean male = true;
@@ -123,9 +121,13 @@ public class Pokemon implements PokedexUI {
 	}
 
 	public static String strip_label(String str) {
+		if (str.indexOf(":") == str.length() - 1)
+			return "";
 		String temp = str.substring(str.indexOf(":") + 2);
 		for (char c : bad_chars.toCharArray())
 			temp = temp.replace(c, ' ');
+		while (temp.endsWith(" "))
+			temp = temp.substring(0, temp.length() - 1);
 		return temp;
 	}
 

@@ -58,11 +58,11 @@ public class Clock extends Timer implements ActionListener {
 			int b = y / frames;
 			x -= a;
 			y -= b;
-			frames-- ;
+			frames--;
 			if (frames == 0) {
 				flags[BACK] = false;
 				if (is_alone(BACK))
-					;// stop();
+					stop();
 			}
 			board.movePanel(a, b);
 		}
@@ -71,11 +71,20 @@ public class Clock extends Timer implements ActionListener {
 			int b = sy / sf;
 			sx -= a;
 			sy -= b;
-			sf-- ;
+			sf--;
 			if (sf == 0) {
 				flags[FORE] = false;
+				if (direction == Person.UP) {
+					player.y--;
+				} else if (direction == Person.DOWN) {
+					player.y++;
+				} else if (direction == Person.RIGHT) {
+					player.x++;
+				} else if (direction == Person.LEFT) {
+					player.x--;
+				}
 				if (is_alone(FORE))
-					;// stop();
+					stop();
 			}
 			board.moveSprite(a, b, player.sprite);
 			if (direction == Person.UP) {

@@ -11,7 +11,7 @@ Name: Ancient_Power
 Type: Rock
 Category: Special
 Power: 60
-Accuracy 100
+Accuracy: 100
 PP: 5
 Description: "An attack that may raise all stats."
 Effect: "Ancient Power deals damage and has a 10% chance of raising all the user's stats at once - Attack, Defense, Special Attack, Special Defense and Speed - by one stage each."

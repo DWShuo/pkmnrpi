@@ -17,7 +17,7 @@ import util.LayeredPanel;
 
 public class GameBoard extends JScrollPane implements KeyListener {
 	public static final int tilew = 25, tileh = 25, tsize = ImageLibrary.pixel_width[0];
-	public static final String default_map = "src/default.map";
+	public static final String default_map = "src/sample.map";
 	public static final Dimension area = new Dimension(ImageLibrary.pixel_width[0] * tilew, ImageLibrary.pixel_width[0] * tileh);
 
 	private LayeredPanel background;
@@ -65,18 +65,53 @@ public class GameBoard extends JScrollPane implements KeyListener {
 		if (GameState.clock.isAnimating())
 			return;
 		if (in == "Up") {
+			if(!can_move(Person.UP)) {
+				player.set_direction(Person.UP);
+				foreground.repaint();
+				return;
+			}
 			GameState.clock.animate_sprite(foreground, player, 0, -tsize, 6, Person.UP);
 			GameState.clock.animate_background(this, 0, -tsize, 6);
 		} else if (in == "Down") {
+			if(!can_move(Person.DOWN)) {
+				player.set_direction(Person.DOWN);
+				foreground.repaint();
+				return;
+			}
 			GameState.clock.animate_sprite(foreground, player, 0, tsize, 6, Person.DOWN);
 			GameState.clock.animate_background(this, 0, tsize, 6);
 		} else if (in == "Right") {
+			if(!can_move(Person.RIGHT)) {
+				player.set_direction(Person.RIGHT);
+				foreground.repaint();
+				return;
+			}
 			GameState.clock.animate_sprite(foreground, player, tsize, 0, 6, Person.RIGHT);
 			GameState.clock.animate_background(this, tsize, 0, 6);
 		} else if (in == "Left") {
+			if(!can_move(Person.LEFT)) {
+				player.set_direction(Person.LEFT);
+				foreground.repaint();
+				return;
+			}
 			GameState.clock.animate_sprite(foreground, player, -tsize, 0, 6, Person.LEFT);
 			GameState.clock.animate_background(this, -tsize, 0, 6);
 		}
+	}
+	
+	public boolean can_move(int direction) {
+		int x = player.x;
+		int y = player.y;
+		if (direction == Person.UP) {
+			y--;
+		} else if (direction == Person.DOWN) {
+			y++;
+		} else if (direction == Person.RIGHT) {
+			x++;
+		} else if (direction == Person.LEFT) {
+			x--;
+		}
+		return ImageLibrary.walk_tiles[map.mapdata[y][x]];
 	}
 
 	public void keyReleased(KeyEvent e) {}
@@ -104,8 +139,7 @@ public class GameBoard extends JScrollPane implements KeyListener {
 		for (int i = 0; i < 10; ++i)
 			player.bike[i] = ImageLibrary.player[i + 10];
 		player.sprite = new Sprite(player.walk[0]);
-		player.sprite.x = 12 * tsize;
-		player.sprite.y = 16 * tsize;
+		player.set_location(5, 5);
 		foreground.sprites.add(player.sprite);
 	}
 

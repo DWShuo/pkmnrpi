@@ -1,5 +1,7 @@
 package objects;
 
+import game.GameBoard;
+
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
@@ -10,7 +12,7 @@ public class Person extends Thing {
 	public ArrayList<String> dialog;
 	public Sprite sprite;
 	public BufferedImage[] walk, bike;
-	public int animation_flag;
+	public int animation_flag, x, y, direction;
 	public boolean on_bike;
 
 	public Person() {
@@ -18,6 +20,19 @@ public class Person extends Thing {
 
 	public String toString() {
 		return name;
+	}
+
+	public void set_location(int x, int y) {
+		this.x = x;
+		this.y = y;
+		sprite.x = x * GameBoard.tsize;
+		sprite.y = y * GameBoard.tsize;
+	}
+
+	public void set_direction(int d) {
+		direction = d;
+		int[] lookup = { 7, 4, 0, 2 };
+		sprite.setImage(walk[lookup[direction]]);
 	}
 
 	public Sprite getSprite() {

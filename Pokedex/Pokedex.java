@@ -1,6 +1,7 @@
 //Author: Tommy Fang
 package Pokedex;
 
+import game.GameEngine;
 import game.GameState;
 
 import java.awt.Dimension;
@@ -18,7 +19,6 @@ import util.Searchable;
 
 public class Pokedex extends JPanel implements Searchable {
 	private static final int width = 228, height = 228;
-	private static Pokemon[] all_pokemon;
 	public static HashMap<String, Integer> pkmn_lookup;
 
 	private JPanel contents;
@@ -29,14 +29,7 @@ public class Pokedex extends JPanel implements Searchable {
 	public PokedexSearchBar search;
 
 	public static void main(String[] args) {
-		GameState.initilize_all();
-		JFrame frame = new JFrame();
-		Pokedex dex = new Pokedex();
-		frame.add(dex);
-		frame.addKeyListener(dex.search);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setVisible(true);
-		frame.pack();
+		new GameEngine();
 	}
 
 	public Pokedex() {
@@ -107,7 +100,7 @@ public class Pokedex extends JPanel implements Searchable {
 		Integer result = pkmn_lookup.get(name.toLowerCase());
 		if (result == null)
 			return null;
-		return all_pokemon[result];
+		return Pokemon.all_pokemon[result];
 	}
 }
 

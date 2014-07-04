@@ -30,21 +30,22 @@ public class MapEditor extends JPanel implements ActionListener {
 	private JPanel[] selections;
 	private JScrollPane viewer;
 	private Tile[][][] tiles;
-	public int s_width = 10, c_width = 25, c_height = 25;
+	public int s_width = 10, c_width = 50, c_height = 25;
 	public int paint_bucket = ImageLibrary.DEFAULT_ICON;
 	private TileMap tmap;
 	private JFrame frame;
 	private JButton left, right, up, down;
 	private JLabel bar_label;
+	public boolean bucketfill = false;
 
 	public MapEditor(JFrame f) {
 		try {
-		    for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-		        if ("Nimbus".equals(info.getName())) {
-		            UIManager.setLookAndFeel(info.getClassName());
-		            break;
-		        }
-		    }
+			for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+				if ("Nimbus".equals(info.getName())) {
+					UIManager.setLookAndFeel(info.getClassName());
+					break;
+				}
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -52,7 +53,7 @@ public class MapEditor extends JPanel implements ActionListener {
 		this.setBackground(Color.gray.darker());
 		ImageLibrary.init();
 		tmap = new TileMap(c_width, c_height);
-		tmap.load(new File("src/default.map"));
+		tmap.load(new File("src/sample.map"));
 		left = new JButton(new ImageIcon("src/left.png"));
 		left.addActionListener(this);
 		left.setBackground(Color.gray.brighter());
@@ -249,6 +250,7 @@ public class MapEditor extends JPanel implements ActionListener {
 
 	public void clear_all() {
 		tmap = new TileMap(c_width, c_height);
+		tmap.fill_map(paint_bucket);
 		init();
 		frame.pack();
 		repaint();
@@ -264,9 +266,25 @@ public class MapEditor extends JPanel implements ActionListener {
 	public void apply_to(Object o) {
 		Tile t = (Tile) o;
 		t.setIcon(ImageLibrary.icons[paint_bucket]);
+		if (bucketfill) {
+			fill_to(t.x, t.y, tmap.mapdata[t.y][t.x]);
+		}
 		tmap.mapdata[t.y][t.x] = paint_bucket;
 		t.idx = paint_bucket;
 		repaint();
+	}
+
+	public void fill_to(int x, int y, int tile) {
+		if (x < 0 || y < 0 || x >= c_width || y >= c_height)
+			return;
+		if (tmap.mapdata[y][x] != tile || tmap.mapdata[y][x] == paint_bucket)
+			return;
+		tmap.mapdata[y][x] = paint_bucket;
+		tiles[0][y][x].idx = paint_bucket;
+		fill_to(x - 1, y, tile);
+		fill_to(x + 1, y, tile);
+		fill_to(x, y - 1, tile);
+		fill_to(x, y + 1, tile);
 	}
 
 	public void set_bar_label(JLabel l) {
@@ -287,6 +305,7 @@ public class MapEditor extends JPanel implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		boolean flagged = true;
+		tmap.fill = paint_bucket;
 		if (e.getSource() == left) {
 			tmap.buffer_left_cols(25);
 		} else if (e.getSource() == right) {

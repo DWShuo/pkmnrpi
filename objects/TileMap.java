@@ -34,6 +34,12 @@ public class TileMap {
 	public TileMap(String filename) {
 		load(new File(filename));
 	}
+	
+	public void fill_map(int tile) {
+		for (int i = 0; i < mapdata.length; ++i)
+			for (int k = 0; k < mapdata[0].length; ++k)
+				mapdata[i][k] = tile;
+	}
 
 	public void clear_map() {
 		flags = new ArrayList<Flag>();

@@ -13,7 +13,7 @@ import util.ImageLibrary;
 
 public class MEBar extends JMenuBar implements ActionListener {
 	private MapEditor editor;
-	private JMenuItem save, n, load;
+	private JMenuItem save, n, load, pen, bucket;
 	private JFileChooser filer;
 	private JLabel label;
 
@@ -21,23 +21,32 @@ public class MEBar extends JMenuBar implements ActionListener {
 		editor = e;
 		filer = new JFileChooser();
 		JMenu menu = new JMenu("File");
+		JMenu tools = new JMenu("Tools");
 
 		save = new JMenuItem("Save");
 		n = new JMenuItem("New");
 		load = new JMenuItem("Load");
+		bucket = new JMenuItem("Bucket");
+		pen = new JMenuItem("Pencil");
 		label = new JLabel(ImageLibrary.blank);
 		e.set_bar_label(label);
 
 		add(menu);
 		add(label);
+		add(tools);
 
 		menu.add(save);
 		menu.add(n);
 		menu.add(load);
 
+		tools.add(pen);
+		tools.add(bucket);
+
 		save.addActionListener(this);
 		n.addActionListener(this);
 		load.addActionListener(this);
+		pen.addActionListener(this);
+		bucket.addActionListener(this);
 	}
 
 	@Override
@@ -52,6 +61,10 @@ public class MEBar extends JMenuBar implements ActionListener {
 			if (filer.showSaveDialog(editor) == JFileChooser.APPROVE_OPTION) {
 				editor.load(filer.getSelectedFile());
 			}
+		} else if (e.getSource() == pen) {
+			editor.bucketfill = false;
+		} else if (e.getSource() == bucket) {
+			editor.bucketfill = true;
 		}
 	}
 
