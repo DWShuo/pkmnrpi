@@ -248,7 +248,7 @@ public class MapEditor extends JPanel implements ActionListener {
 		repaint();
 	}
 
-	public void clear_all() {
+	public void clearAll() {
 		tmap = new TileMap(c_width, c_height);
 		tmap.fill_map(paint_bucket);
 		init();
@@ -263,31 +263,31 @@ public class MapEditor extends JPanel implements ActionListener {
 		tmap.fill = paint_bucket;
 	}
 
-	public void apply_to(Object o) {
+	public void applyTo(Object o) {
 		Tile t = (Tile) o;
 		t.setIcon(ImageLibrary.icons[paint_bucket]);
 		if (bucketfill) {
-			fill_to(t.x, t.y, tmap.mapdata[t.y][t.x]);
+			fillTo(t.x, t.y, tmap.mapdata[t.y][t.x]);
 		}
 		tmap.mapdata[t.y][t.x] = paint_bucket;
 		t.idx = paint_bucket;
 		repaint();
 	}
 
-	public void fill_to(int x, int y, int tile) {
+	public void fillTo(int x, int y, int tile) {
 		if (x < 0 || y < 0 || x >= c_width || y >= c_height)
 			return;
 		if (tmap.mapdata[y][x] != tile || tmap.mapdata[y][x] == paint_bucket)
 			return;
 		tmap.mapdata[y][x] = paint_bucket;
 		tiles[0][y][x].idx = paint_bucket;
-		fill_to(x - 1, y, tile);
-		fill_to(x + 1, y, tile);
-		fill_to(x, y - 1, tile);
-		fill_to(x, y + 1, tile);
+		fillTo(x - 1, y, tile);
+		fillTo(x + 1, y, tile);
+		fillTo(x, y - 1, tile);
+		fillTo(x, y + 1, tile);
 	}
 
-	public void set_bar_label(JLabel l) {
+	public void setBarLabel(JLabel l) {
 		bar_label = l;
 	}
 

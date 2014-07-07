@@ -17,6 +17,10 @@ import objects.Pokemon;
 import util.ImageLibrary;
 import util.Searchable;
 
+/**
+ * This class handles all of the GUI construction for the pokedex panel.
+ * Additionally it supports the search bar with a lookup table.
+ */
 public class Pokedex extends JPanel implements Searchable {
 	private static final int width = 228, height = 228;
 	public static HashMap<String, Integer> pkmn_lookup;
@@ -27,15 +31,19 @@ public class Pokedex extends JPanel implements Searchable {
 	private PokedexFieldArea info;
 	private PokedexNameArea name;
 	public PokedexSearchBar search;
+	public GameEngine engine;
 
 	public static void main(String[] args) {
 		new GameEngine();
 	}
 
-	public Pokedex() {
+	public Pokedex(GameEngine e) {
+		engine = e;
 		int picbuf = 15;
 		int picwidth = 56 + 2 * picbuf;
-		String[] titles = { "M:", "Kgs:" };
+		String[] titles = { "M:", "Kgs:" };// Find something prettier...
+
+		// INITILIZATIONS!!!!
 		contents = new JPanel();
 		portrait = new JLabel();
 		JPanel center = new JPanel();
@@ -46,17 +54,16 @@ public class Pokedex extends JPanel implements Searchable {
 		info = new PokedexFieldArea(width - picwidth, height / 2 - 30, titles);
 		search = new PokedexSearchBar(width, this);
 
-		setPreferredSize(new Dimension(width, height
-				+ PokedexSearchBar.pixel_height));
-		setMaximumSize(new Dimension(width, height
-				+ PokedexSearchBar.pixel_height));
-
+		// Set all preferred sizes
+		this.setPreferredSize(new Dimension(width, height + PokedexSearchBar.pixel_height));
+		this.setMaximumSize(new Dimension(width, height + PokedexSearchBar.pixel_height));
 		contents.setPreferredSize(new Dimension(width, height));
 		portrait.setPreferredSize(new Dimension(56, 56));
 		center.setPreferredSize(new Dimension(width, height / 2));
 		left.setPreferredSize(new Dimension(width / 2, height / 2));
 		temp.setPreferredSize(new Dimension(56, 56));
 
+		// Set all layouts
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		contents.setLayout(new BoxLayout(contents, BoxLayout.Y_AXIS));
 		center.setLayout(new BoxLayout(center, BoxLayout.X_AXIS));
@@ -77,9 +84,10 @@ public class Pokedex extends JPanel implements Searchable {
 		add(search);
 		add(contents);
 
-		search("Lugia");
+		// search("Lugia");
 	}
 
+	// Loads a specific pokemon's info onto the pokedex page
 	public void search(String str) {
 		Pokemon next = getPokemon(str);
 		if (next == null)
@@ -96,6 +104,7 @@ public class Pokedex extends JPanel implements Searchable {
 		maintext.set_text(next.description, 50);
 	}
 
+	// Returns the instance of the pokemon that the text names.
 	public static Pokemon getPokemon(String name) {
 		Integer result = pkmn_lookup.get(name.toLowerCase());
 		if (result == null)
@@ -103,4 +112,3 @@ public class Pokedex extends JPanel implements Searchable {
 		return Pokemon.all_pokemon[result];
 	}
 }
-

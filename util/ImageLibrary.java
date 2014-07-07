@@ -10,6 +10,10 @@ import javax.swing.ImageIcon;
 
 import Pokedex.PokedexUI;
 
+/**
+ * This is a database class designed specifically to hold the static sprite
+ * data. However this class also helps with some of the text organization.
+ */
 public class ImageLibrary extends Library {
 	public static ImageIcon[] icons, front_sprites, back_sprites, small_sprites;
 	public static ImageIcon[][] text;
@@ -23,6 +27,7 @@ public class ImageLibrary extends Library {
 
 	public static final int DEFAULT_ICON = icon_counts[0];
 
+	// This method simply creates a solid color background sprite.
 	public static BufferedImage bufferSolidColor(Color c, int w, int h) {
 		BufferedImage base = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
 		Graphics g = base.getGraphics();
@@ -31,7 +36,12 @@ public class ImageLibrary extends Library {
 		return base;
 	}
 
-	public static BufferedImage remove_background(BufferedImage base, int background_RGB) {
+	public static ImageIcon getSolidColor(Color c, int w, int h) {
+		return new ImageIcon(bufferSolidColor(c, w, h));
+	}
+
+	// This method is used to ensure transparency for sprites and animations.
+	public static BufferedImage removeBackground(BufferedImage base, int background_RGB) {
 		int w = base.getWidth();
 		int h = base.getHeight();
 		BufferedImage image = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
@@ -43,10 +53,6 @@ public class ImageLibrary extends Library {
 					image.setRGB(i, j, base.getRGB(i, j));
 			}
 		return image;
-	}
-
-	public static ImageIcon getSolidColor(Color c, int w, int h) {
-		return new ImageIcon(bufferSolidColor(c, w, h));
 	}
 
 	public static void init() {
@@ -63,7 +69,7 @@ public class ImageLibrary extends Library {
 			// Draw the image on to the buffered image
 			image_sheets[i].getGraphics().drawImage(im, 0, 0, w, h, 0, 0, w, h, null);
 			if (pixel_width[i] == 56)
-				image_sheets[i] = remove_background(image_sheets[i], bitwise_background_color);
+				image_sheets[i] = removeBackground(image_sheets[i], bitwise_background_color);
 			// Now the sheets are cut up into the icons
 			lst.add(Tileizer.cutter(image_sheets[i], w, h, pixel_width[i], pixel_width[i], icon_counts[i]));
 		}
@@ -80,15 +86,15 @@ public class ImageLibrary extends Library {
 		icons = new ImageIcon[total];
 		int index = 0;
 		for (BufferedImage im : lst.get(0))
-			icons[index++ ] = new ImageIcon(im);
-		icons[index++ ] = blank;
-		icon_counts[0]++ ;
+			icons[index++] = new ImageIcon(im);
+		icons[index++] = blank;
+		icon_counts[0]++;
 		for (BufferedImage im : lst.get(1))
-			icons[index++ ] = new ImageIcon(im);
+			icons[index++] = new ImageIcon(im);
 		for (BufferedImage im : lst.get(2))
-			icons[index++ ] = new ImageIcon(im);
+			icons[index++] = new ImageIcon(im);
 		for (BufferedImage im : lst.get(3))
-			icons[index++ ] = new ImageIcon(im);
+			icons[index++] = new ImageIcon(im);
 
 		// Create front sprites, an array of image icons
 		front_sprites = new ImageIcon[icon_counts[4]]; // One for each pokemon
@@ -104,12 +110,12 @@ public class ImageLibrary extends Library {
 		int w = im.getWidth(null), h = im.getHeight(null), idx = image_sheets.length - 1;
 		image_sheets[idx] = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
 		image_sheets[idx].getGraphics().drawImage(im, 0, 0, null);
-		image_sheets[idx] = remove_background(image_sheets[idx], -1);
+		image_sheets[idx] = removeBackground(image_sheets[idx], -1);
 		// Split the sheet up by color
 		BufferedImage[] ls = new BufferedImage[18];
 		int temp = 0;
 		for (BufferedImage b : Tileizer.cutter(image_sheets[idx], w, h, 119, 48, 18))
-			ls[temp++ ] = b;
+			ls[temp++] = b;
 		text = new ImageIcon[18][];
 		for (int i = 0; i < text.length; ++i) {
 			text[i] = new ImageIcon[69];
@@ -117,33 +123,33 @@ public class ImageLibrary extends Library {
 			BufferedImage[] font = new BufferedImage[4 * 17];
 			temp = 0;
 			for (BufferedImage b : Tileizer.cutter(ls[i], 119, 48, 7, 12, 4 * 17))
-				font[temp++ ] = b;
+				font[temp++] = b;
 			// Pull the letters in first
 			int c = 0;
 			for (int j = 0; j < 13; ++j) {
-				text[i][c++ ] = new ImageIcon(font[j]);
+				text[i][c++] = new ImageIcon(font[j]);
 			}
 			for (int j = 17; j < 30; ++j) {
-				text[i][c++ ] = new ImageIcon(font[j]);
+				text[i][c++] = new ImageIcon(font[j]);
 			}
 			for (int j = 34; j < 47; ++j) {
-				text[i][c++ ] = new ImageIcon(font[j]);
+				text[i][c++] = new ImageIcon(font[j]);
 			}
 			for (int j = 51; j < 64; ++j) {
-				text[i][c++ ] = new ImageIcon(font[j]);
+				text[i][c++] = new ImageIcon(font[j]);
 			}
 			// Then pull the numbers
 			for (int j = 13; j < 17; ++j) {
-				text[i][c++ ] = new ImageIcon(font[j]);
+				text[i][c++] = new ImageIcon(font[j]);
 			}
 			for (int j = 30; j < 34; ++j) {
-				text[i][c++ ] = new ImageIcon(font[j]);
+				text[i][c++] = new ImageIcon(font[j]);
 			}
 			for (int j = 47; j < 51; ++j) {
-				text[i][c++ ] = new ImageIcon(font[j]);
+				text[i][c++] = new ImageIcon(font[j]);
 			}
 			for (int j = 64; j < 68; ++j) {
-				text[i][c++ ] = new ImageIcon(font[j]);
+				text[i][c++] = new ImageIcon(font[j]);
 			}
 			text[i][68] = PokedexUI.blank;
 		}
@@ -154,17 +160,17 @@ public class ImageLibrary extends Library {
 		h = im.getHeight(null);
 		BufferedImage buf = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
 		buf.getGraphics().drawImage(im, 0, 0, null);
-		buf = remove_background(buf, bitwise_background_color);
+		buf = removeBackground(buf, bitwise_background_color);
 		player = new BufferedImage[20];
 		temp = 0;
 		for (BufferedImage b : Tileizer.cutter(buf, w, h, 16, 16, 20))
-			player[temp++ ] = b;
-		
+			player[temp++] = b;
+
 		// Create the walk_tiles lookup table
 		walk_tiles = new boolean[icons.length];
-		for(boolean b : walk_tiles)
-			b = false;
-		for(int i : valid_walk_tiles)
+		for (int i = 0; i < icons.length; ++i)
+			walk_tiles[i] = false;
+		for (int i : valid_walk_tiles)
 			walk_tiles[i] = true;
 	}
 }

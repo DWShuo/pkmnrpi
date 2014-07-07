@@ -7,11 +7,11 @@ import java.awt.event.MouseListener;
 
 import javax.swing.Timer;
 
-public class MELabelListener2 implements MouseListener, ActionListener{
+public class MELabelListener2 implements MouseListener, ActionListener {
 	private MapEditor editor;
 	private static boolean pressed;
 	private static Timer time;
-	
+
 	public MELabelListener2(MapEditor e) {
 		editor = e;
 		time = new Timer(750, this);
@@ -19,23 +19,25 @@ public class MELabelListener2 implements MouseListener, ActionListener{
 	}
 
 	@Override
-	public void mouseClicked(MouseEvent e) {}
+	public void mouseClicked(MouseEvent e) {
+	}
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		if(pressed) {
-			editor.apply_to(e.getSource());
+		if (pressed) {
+			editor.applyTo(e.getSource());
 			time.restart();
 		}
 	}
 
 	@Override
-	public void mouseExited(MouseEvent e) {}
+	public void mouseExited(MouseEvent e) {
+	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
 		pressed = true;
-		editor.apply_to(e.getSource());
+		editor.applyTo(e.getSource());
 		time.restart();
 	}
 

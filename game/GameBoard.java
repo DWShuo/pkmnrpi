@@ -19,9 +19,10 @@ public class GameBoard extends JScrollPane implements KeyListener {
 	public static final int tilew = 25, tileh = 25, tsize = ImageLibrary.pixel_width[0];
 	public static final String default_map = "src/sample.map";
 	public static final Dimension area = new Dimension(ImageLibrary.pixel_width[0] * tilew, ImageLibrary.pixel_width[0] * tileh);
+	public static final int buffer = 7;
 
-	private LayeredPanel background;
-	private GamePanel foreground;
+	public LayeredPanel background;
+	public GamePanel foreground;
 	public TileMap map;
 	public Person player;
 
@@ -46,12 +47,12 @@ public class GameBoard extends JScrollPane implements KeyListener {
 		setMinimumSize(area);
 		setVisible(true);
 
-		load_map(default_map);
+		loadMap(default_map);
 		this.setViewportView(background);
-		initilize_player();
+		initilizePlayer();
 	}
 
-	public void load_map(String filename) {
+	public void loadMap(String filename) {
 		map = new TileMap(filename);
 		BufferedImage im = map.get_static_map();
 		foreground = new GamePanel();
@@ -61,45 +62,9 @@ public class GameBoard extends JScrollPane implements KeyListener {
 	}
 
 	public void keyPressed(KeyEvent e) {
-		String in = KeyEvent.getKeyText(e.getKeyCode());
-		if (GameState.clock.isAnimating())
-			return;
-		if (in == "Up") {
-			if(!can_move(Person.UP)) {
-				player.set_direction(Person.UP);
-				foreground.repaint();
-				return;
-			}
-			GameState.clock.animate_sprite(foreground, player, 0, -tsize, 6, Person.UP);
-			GameState.clock.animate_background(this, 0, -tsize, 6);
-		} else if (in == "Down") {
-			if(!can_move(Person.DOWN)) {
-				player.set_direction(Person.DOWN);
-				foreground.repaint();
-				return;
-			}
-			GameState.clock.animate_sprite(foreground, player, 0, tsize, 6, Person.DOWN);
-			GameState.clock.animate_background(this, 0, tsize, 6);
-		} else if (in == "Right") {
-			if(!can_move(Person.RIGHT)) {
-				player.set_direction(Person.RIGHT);
-				foreground.repaint();
-				return;
-			}
-			GameState.clock.animate_sprite(foreground, player, tsize, 0, 6, Person.RIGHT);
-			GameState.clock.animate_background(this, tsize, 0, 6);
-		} else if (in == "Left") {
-			if(!can_move(Person.LEFT)) {
-				player.set_direction(Person.LEFT);
-				foreground.repaint();
-				return;
-			}
-			GameState.clock.animate_sprite(foreground, player, -tsize, 0, 6, Person.LEFT);
-			GameState.clock.animate_background(this, -tsize, 0, 6);
-		}
 	}
-	
-	public boolean can_move(int direction) {
+
+	public boolean canMove(int direction) {
 		int x = player.x;
 		int y = player.y;
 		if (direction == Person.UP) {
@@ -114,9 +79,11 @@ public class GameBoard extends JScrollPane implements KeyListener {
 		return ImageLibrary.walk_tiles[map.mapdata[y][x]];
 	}
 
-	public void keyReleased(KeyEvent e) {}
+	public void keyReleased(KeyEvent e) {
+	}
 
-	public void keyTyped(KeyEvent e) {}
+	public void keyTyped(KeyEvent e) {
+	}
 
 	public static void main(String[] args) {
 		ImageLibrary.init();
@@ -129,7 +96,7 @@ public class GameBoard extends JScrollPane implements KeyListener {
 		f.setVisible(true);
 	}
 
-	private void initilize_player() {
+	private void initilizePlayer() {
 		player = new Person();
 		player.name = "Phonyx";
 		player.walk = new BufferedImage[10];

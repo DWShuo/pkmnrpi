@@ -8,6 +8,7 @@ import util.ImageLibrary;
 
 public interface PokedexUI {
 	public static final ImageIcon blank = ImageLibrary.getSolidColor(Color.white, 7, 14);
+	public static final ImageIcon black = ImageLibrary.getSolidColor(Color.black, 7, 14);
 	public static final String valid_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!?,.:$ ";
 	public static final String bad_chars = "";
 }

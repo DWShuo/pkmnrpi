@@ -1,32 +1,43 @@
 package Pokedex;
 
-import game.GameState;
+import game.GameEngine;
 
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 import util.ImageLibrary;
-import util.Searchable;
 import util.panels.PatternPanel;
 
-public class PokedexSearchBar extends JPanel implements KeyListener, PokedexUI {
+/**
+ * This class is in charge of listening to and animating the search bar of the
+ * pokedex.
+ */
+public class PokedexSearchBar extends JPanel implements KeyListener, PokedexUI, MouseListener, ActionListener {
 	public static final int pixel_height = 22;
+	public static final String default_message = "Click here to search";
 
 	private JLabel[] text;
 	private int max, idx;
-	private Searchable pokedex;
+	private Pokedex pokedex;
 	private String current = "";
 	public int color = ImageLibrary.black;
 	public PatternPanel background = new PatternPanel(0);
+	public Timer time;
+	public boolean flicker;
 
-	public PokedexSearchBar(int width, Searchable s) {
+	public PokedexSearchBar(int width, Pokedex s) {
 		super();
+		time = new Timer(300, this);
 		pokedex = s;
 		max = width / 7 - 4;
 		int gap = (width - 7 * max) / 2;
@@ -34,6 +45,7 @@ public class PokedexSearchBar extends JPanel implements KeyListener, PokedexUI {
 		assert (max > 0);
 		setLayout(null);
 		setPreferredSize(new Dimension(width, pixel_height));
+		addMouseListener(this);
 
 		JPanel center = new JPanel();
 		center.setLayout(new GridLayout(1, max, 0, 0));
@@ -49,6 +61,7 @@ public class PokedexSearchBar extends JPanel implements KeyListener, PokedexUI {
 		add(background);
 		background.setBounds(0, 0, width, pixel_height);
 		center.setBounds(gap, 3, width - 2 * gap, pixel_height - 6);
+		setDefaultText();
 	}
 
 	public void keyPressed(KeyEvent e) {
@@ -58,6 +71,7 @@ public class PokedexSearchBar extends JPanel implements KeyListener, PokedexUI {
 			if (pokedex == null)
 				return;
 			pokedex.search(current);
+			loseFocus();
 		}
 		// Catch backspace key
 		if (e.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
@@ -72,11 +86,48 @@ public class PokedexSearchBar extends JPanel implements KeyListener, PokedexUI {
 		int index = valid_chars.indexOf(c);
 		if (index == -1)
 			return;
-		if (idx >= max)
+		if (idx >= max - 1)
 			return;
 		// new TestFrame(ImageLibrary.text[color][index]);
 		text[idx++].setIcon(ImageLibrary.text[color][index]);
 		current += c;
+	}
+
+	// This replaces all text with blanks
+	public void clearText() {
+		current = "";
+		idx = 0;
+		for (JLabel l : text)
+			l.setIcon(blank);
+	}
+
+	// This gains the key focus from the game engine, as well
+	// as clearing text, and starting the flicker
+	public void setFocus() {
+		pokedex.engine.focusPokedex();
+		clearText();
+		flicker = true;
+		time.start();
+	}
+
+	// This returns key focus to the game board, stops the flicker, and
+	// sets the default text on the search bar.
+	public void loseFocus() {
+		time.stop();
+		addMouseListener(this);
+		pokedex.engine.focusBoard();
+		setDefaultText();
+	}
+
+	// This clears all current text, then writes the default message onto
+	// the search bar.
+	public void setDefaultText() {
+		clearText();
+		current = default_message;
+		for (char c : default_message.toCharArray()) {
+			int index = valid_chars.indexOf(c);
+			text[idx++].setIcon(ImageLibrary.text[color][index]);
+		}
 	}
 
 	public void keyReleased(KeyEvent e) {
@@ -85,19 +136,38 @@ public class PokedexSearchBar extends JPanel implements KeyListener, PokedexUI {
 	public void keyTyped(KeyEvent e) {
 	}
 
-	public static boolean is_valid_char(char c) {
-		return valid_chars.contains(c + "");
+	public static void main(String[] args) {
+		new GameEngine();
 	}
 
-	public static void main(String[] args) {
-		JFrame f = new JFrame("Test");
-		GameState.initilize_all();
-		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		f.setBounds(400, 200, 300, 100);
-		PokedexSearchBar b = new PokedexSearchBar(300, null);
-		f.add(b);
-		f.pack();
-		f.addKeyListener(b);
-		f.setVisible(true);
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		if (flicker)
+			text[idx].setIcon(black);
+		else
+			text[idx].setIcon(blank);
+		flicker = !flicker;
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		this.removeMouseListener(this);
+		setFocus();
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent arg0) {
+	}
+
+	@Override
+	public void mouseExited(MouseEvent arg0) {
+	}
+
+	@Override
+	public void mousePressed(MouseEvent arg0) {
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent arg0) {
 	}
 }

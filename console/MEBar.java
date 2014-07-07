@@ -11,6 +11,9 @@ import javax.swing.JMenuItem;
 
 import util.ImageLibrary;
 
+/**
+ * This is the menu bar class
+ */
 public class MEBar extends JMenuBar implements ActionListener {
 	private MapEditor editor;
 	private JMenuItem save, n, load, pen, bucket;
@@ -29,7 +32,7 @@ public class MEBar extends JMenuBar implements ActionListener {
 		bucket = new JMenuItem("Bucket");
 		pen = new JMenuItem("Pencil");
 		label = new JLabel(ImageLibrary.blank);
-		e.set_bar_label(label);
+		e.setBarLabel(label);
 
 		add(menu);
 		add(label);
@@ -56,7 +59,7 @@ public class MEBar extends JMenuBar implements ActionListener {
 				editor.save(filer.getSelectedFile());
 			}
 		} else if (e.getSource() == n) {
-			editor.clear_all();
+			editor.clearAll();
 		} else if (e.getSource() == load) {
 			if (filer.showSaveDialog(editor) == JFileChooser.APPROVE_OPTION) {
 				editor.load(filer.getSelectedFile());
