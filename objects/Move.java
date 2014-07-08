@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 
+import pokemon.Pokemon;
+
 //TODO: determine how to calculate status changes and special effects.
 public class Move {
 	public static final int PARALIZE = 0, BURN = 1, SLEEP = 2, CONFUSE = 3, POISON = 4, FREEZE = 5, HYPERBEAM = 6, SOLARBEAM = 7, WRAP = 8, FOCUS_PUNCH = 9, FLY = 10, DIG = 11,

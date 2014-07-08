@@ -1,4 +1,4 @@
-package objects;
+package animations;
 
 import java.awt.Graphics;
 import java.awt.Image;

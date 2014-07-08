@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
-import objects.Sprite;
+import animations.Sprite;
 
 public class GamePanel extends JPanel {
 	public ArrayList<Sprite> sprites;

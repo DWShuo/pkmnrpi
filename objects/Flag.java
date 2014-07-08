@@ -1,5 +1,7 @@
 package objects;
 
+import animations.Sprite;
+
 public class Flag {
 	public static final int ITEM_FLAG = 0, DOOR_FLAG = 1, NPC_FLAG = 2, VIEW_FLAG = 3;
 	private TileMap map;
@@ -53,7 +55,7 @@ public class Flag {
 	public Sprite get_sprite() {
 		if (thing == null)
 			return null;
-		return thing.getSprite();
+		return thing.sprite;
 	}
 
 	public boolean isAt(int x, int y) {

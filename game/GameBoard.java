@@ -9,9 +9,9 @@ import java.awt.image.BufferedImage;
 import javax.swing.*;
 import javax.swing.UIManager.LookAndFeelInfo;
 
-import objects.Person;
-import objects.Sprite;
+import animations.Sprite;
 import objects.TileMap;
+import trainers.Person;
 import util.ImageLibrary;
 import util.LayeredPanel;
 
@@ -86,14 +86,7 @@ public class GameBoard extends JScrollPane implements KeyListener {
 	}
 
 	public static void main(String[] args) {
-		ImageLibrary.init();
-		JFrame f = new JFrame("Pokemon RPI");
-		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		GameBoard b = new GameBoard();
-		f.add(b);
-		f.addKeyListener(b);
-		f.pack();
-		f.setVisible(true);
+		new GameEngine();
 	}
 
 	private void initilizePlayer() {

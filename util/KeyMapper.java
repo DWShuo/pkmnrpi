@@ -8,11 +8,12 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.HashMap;
 
-import objects.Person;
+import animations.BoardAnimation;
+import animations.WalkAnimation;
+import trainers.Person;
 
 /**
- * This class handles key events for the entire board. It should support key
- * re-mapping.
+ * This class handles key events for the entire board. It should support key re-mapping.
  */
 public class KeyMapper implements KeyListener {
 	public GameEngine engine;
@@ -47,59 +48,46 @@ public class KeyMapper implements KeyListener {
 		// Only listen for events when animations are done.
 		if (GameState.clock.isAnimating())
 			return;
+		boolean background_motion = false;
+		int direction = 0;
 		if (in == map.get(Person.UP)) {
-			// Check for obstruction
-			if (!board.canMove(Person.UP)) {
-				player.set_direction(Person.UP);
-				board.foreground.repaint();
-				return;
-			}
-			GameState.clock.animateSprite(board.foreground, player, 0, -GameBoard.tsize, 6, Person.UP);
+			direction = Person.UP;
 			// Dont move the board if you aren't in the middle.
 			if (player.y < board.map.mapdata.length - GameBoard.buffer)
-				GameState.clock.animateBackground(0, -GameBoard.tsize, 6);
+				background_motion = true;
 		} else if (in == map.get(Person.DOWN)) {
-			// Check for obstruction
-			if (!board.canMove(Person.DOWN)) {
-				player.set_direction(Person.DOWN);
-				board.foreground.repaint();
-				return;
-			}
-			GameState.clock.animateSprite(board.foreground, player, 0, GameBoard.tsize, 6, Person.DOWN);
+			direction = Person.DOWN;
 			// Dont move the board if you aren't in the middle.
 			if (player.y > GameBoard.buffer)
-				GameState.clock.animateBackground(0, GameBoard.tsize, 6);
+				background_motion = true;
 		} else if (in == map.get(Person.RIGHT)) {
-			// Check for obstruction
-			if (!board.canMove(Person.RIGHT)) {
-				player.set_direction(Person.RIGHT);
-				board.foreground.repaint();
-				return;
-			}
-			GameState.clock.animateSprite(board.foreground, player, GameBoard.tsize, 0, 6, Person.RIGHT);
+			direction = Person.RIGHT;
 			// Dont move the board if you aren't in the middle.
 			if (player.x > GameBoard.buffer)
-				GameState.clock.animateBackground(GameBoard.tsize, 0, 6);
+				background_motion = true;
 		} else if (in == map.get(Person.LEFT)) {
-			// Check for obstruction
-			if (!board.canMove(Person.LEFT)) {
-				player.set_direction(Person.LEFT);
-				board.foreground.repaint();
-				return;
-			}
-			GameState.clock.animateSprite(board.foreground, player, -GameBoard.tsize, 0, 6, Person.LEFT);
+			direction = Person.LEFT;
 			// Dont move the board if you aren't in the middle.
 			if (player.x < board.map.mapdata[0].length - GameBoard.buffer)
-				GameState.clock.animateBackground(-GameBoard.tsize, 0, 6);
+				background_motion = true;
+		} else
+			return;
+		player.set_direction(direction);
+		// Check for obstruction
+		if (!board.canMove(direction)) {
+			board.foreground.repaint();
+			return;
 		}
+		WalkAnimation ani = new WalkAnimation(board, player, 1);
+		GameState.clock.animate(ani);
+		if (background_motion)
+			GameState.clock.animate(new BoardAnimation(board, direction));
 	}
 
 	@Override
-	public void keyReleased(KeyEvent arg0) {
-	}
+	public void keyReleased(KeyEvent arg0) {}
 
 	@Override
-	public void keyTyped(KeyEvent arg0) {
-	}
+	public void keyTyped(KeyEvent arg0) {}
 
 }

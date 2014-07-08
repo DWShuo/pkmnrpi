@@ -6,8 +6,8 @@ import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import pokedex.Pokedex;
 import util.KeyMapper;
-import Pokedex.Pokedex;
 
 /**
  * This is the main class. Hurrah for the root of all things. Praise the sun!

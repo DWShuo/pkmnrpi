@@ -1,19 +1,17 @@
 //Author: Tommy Fang
-package Pokedex;
+package pokedex;
 
 import game.GameEngine;
-import game.GameState;
 
 import java.awt.Dimension;
 import java.util.HashMap;
 
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import objects.Pokemon;
+import pokemon.Pokemon;
 import util.ImageLibrary;
 import util.Searchable;
 

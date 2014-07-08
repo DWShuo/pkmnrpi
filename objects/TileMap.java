@@ -9,6 +9,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import animations.Sprite;
 import util.ImageLibrary;
 
 public class TileMap {

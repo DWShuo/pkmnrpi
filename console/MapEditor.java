@@ -7,6 +7,9 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.io.File;
 
 import javax.swing.ImageIcon;
@@ -25,7 +28,7 @@ import objects.Tile;
 import util.ImageLibrary;
 import util.Tileizer;
 
-public class MapEditor extends JPanel implements ActionListener {
+public class MapEditor extends JPanel implements ActionListener, MouseListener {
 	private JPanel creation;
 	private JPanel[] selections;
 	private JScrollPane viewer;
@@ -228,9 +231,10 @@ public class MapEditor extends JPanel implements ActionListener {
 		tiles[0] = new Tile[tmap.mapdata.length + 1][tmap.mapdata[0].length + 1];
 		for (int i = 0; i < tmap.mapdata.length; ++i) {
 			for (int j = 0; j < tmap.mapdata[0].length; ++j) {
-				Tile temp = new Tile(ImageLibrary.icons[tmap.mapdata[i][j]], j, i, i * tmap.mapdata[0].length + j);
+				Tile temp = new Tile(ImageLibrary.icons[tmap.mapdata[i][j]], j, i, tmap.mapdata[i][j]);
 				creation.add(temp);
 				tiles[0][i][j] = temp;
+				temp.addMouseListener(this);
 				temp.addMouseListener(l2);
 			}
 		}
@@ -322,5 +326,23 @@ public class MapEditor extends JPanel implements ActionListener {
 			repaint();
 		}
 	}
+
+	@Override
+	public void mouseClicked(MouseEvent arg0) {}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		Tile t = (Tile) e.getSource();
+		System.out.println(t.idx);
+	}
+
+	@Override
+	public void mouseExited(MouseEvent arg0) {}
+
+	@Override
+	public void mousePressed(MouseEvent arg0) {}
+
+	@Override
+	public void mouseReleased(MouseEvent arg0) {}
 
 }

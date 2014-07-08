@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 
-import Pokedex.PokedexUI;
+import pokedex.PokedexUI;
 
 /**
  * This is a database class designed specifically to hold the static sprite

@@ -1,4 +1,4 @@
-package Pokedex;
+package pokedex;
 
 import java.awt.Dimension;
 import java.awt.GridLayout;

@@ -1,12 +1,12 @@
-package objects;
+package pokemon;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import Pokedex.Pokedex;
-import Pokedex.PokedexUI;
+import pokedex.Pokedex;
+import pokedex.PokedexUI;
 
 public class Pokemon implements PokedexUI {
 	// TYPES

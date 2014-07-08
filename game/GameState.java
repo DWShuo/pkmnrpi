@@ -1,6 +1,8 @@
 package game;
 
+import animations.Clock;
 import objects.*;
+import pokemon.Pokemon;
 import util.ImageLibrary;
 
 /**
@@ -15,7 +17,7 @@ public class GameState {
 	// Initialize new game.
 	public GameState(GameEngine e) {
 		engine = e;
-		clock = new Clock(e.board);
+		clock = new Clock();
 	}
 
 	// Load save game
