@@ -28,53 +28,53 @@ public class Pokemon implements PokedexUI {
 	public Pokemon(ArrayList<String> info) {
 		int index = 0;
 
-		ID = Integer.parseInt(strip_label(info.get(index++)));
-		name = strip_label(info.get(index++));
-		String types = strip_label(info.get(index++));
+		ID = Integer.parseInt(strip_label(info.get(index++ )));
+		name = strip_label(info.get(index++ ));
+		String types = strip_label(info.get(index++ ));
 		if (types.contains("/")) {
 			String[] ar = types.split("/");
 			type = getType(ar[0]);
 			t2 = getType(ar[1]);
 		} else
 			type = getType(types);
-		species = strip_label(info.get(index++));
-		height = Double.parseDouble(strip_label(info.get(index++)));
-		weight = Double.parseDouble(strip_label(info.get(index++)));
+		species = strip_label(info.get(index++ ));
+		height = Double.parseDouble(strip_label(info.get(index++ )));
+		weight = Double.parseDouble(strip_label(info.get(index++ )));
 
 		evolutions = new HashMap<Integer, String>();
 		while (!info.get(index).equalsIgnoreCase("//Stats")) {
-			String[] ar = info.get(index++).split(" ");
+			String[] ar = info.get(index++ ).split(" ");
 			evolutions.put(Integer.parseInt(ar[0]), ar[1]);
 		}
-		index++;
-		max_health = Integer.parseInt(strip_label(info.get(index++)));
-		attack = Integer.parseInt(strip_label(info.get(index++)));
-		defense = Integer.parseInt(strip_label(info.get(index++)));
-		spec_attack = Integer.parseInt(strip_label(info.get(index++)));
-		spec_defense = Integer.parseInt(strip_label(info.get(index++)));
-		speed = Integer.parseInt(strip_label(info.get(index++)));
+		index++ ;
+		max_health = Integer.parseInt(strip_label(info.get(index++ )));
+		attack = Integer.parseInt(strip_label(info.get(index++ )));
+		defense = Integer.parseInt(strip_label(info.get(index++ )));
+		spec_attack = Integer.parseInt(strip_label(info.get(index++ )));
+		spec_defense = Integer.parseInt(strip_label(info.get(index++ )));
+		speed = Integer.parseInt(strip_label(info.get(index++ )));
 
 		while (!info.get(index).equalsIgnoreCase("//Training"))
-			index++;
-		index++;
-		catch_rate = Integer.parseInt(strip_label(info.get(index++)));
-		base_exp = Integer.parseInt(strip_label(info.get(index++)));
-		growth_rate = Integer.parseInt(strip_label(info.get(index++)));
+			index++ ;
+		index++ ;
+		catch_rate = Integer.parseInt(strip_label(info.get(index++ )));
+		base_exp = Integer.parseInt(strip_label(info.get(index++ )));
+		growth_rate = Integer.parseInt(strip_label(info.get(index++ )));
 		// Should remove quotes too
-		description = strip_label(info.get(index++)).replaceAll("^\"|\"$", "");
+		description = strip_label(info.get(index++ )).replaceAll("^\"|\"$", "");
 
 		while (!info.get(index).equalsIgnoreCase("//Learnset"))
-			index++;
-		index++;
+			index++ ;
+		index++ ;
 		learnset = new HashMap<Integer, String>();
 		while (!info.get(index).equalsIgnoreCase("//HM/TM")) {
-			String[] ar = info.get(index++).split(" ");
+			String[] ar = info.get(index++ ).split(" ");
 			learnset.put(Integer.parseInt(ar[0]), ar[1]);
 		}
-		index++;
+		index++ ;
 		tmset = new ArrayList<String>();
 		while (index < info.size())
-			tmset.add(info.get(index++));
+			tmset.add(info.get(index++ ));
 	}
 
 	public void generate_stats(int lvl) {

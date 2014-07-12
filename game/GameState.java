@@ -3,6 +3,7 @@ package game;
 import animations.Clock;
 import objects.*;
 import pokemon.Pokemon;
+import pokemon.moves.Move;
 import util.ImageLibrary;
 
 /**

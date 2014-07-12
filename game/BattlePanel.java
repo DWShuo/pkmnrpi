@@ -2,7 +2,7 @@ package game;
 
 import javax.swing.JPanel;
 
-import objects.Move;
+import pokemon.moves.Move;
 
 public class BattlePanel extends JPanel {
 	private BattleEngine engine;

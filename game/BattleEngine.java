@@ -1,7 +1,7 @@
 package game;
 
-import objects.Move;
 import pokemon.Pokemon;
+import pokemon.moves.Move;
 import trainers.Person;
 import trainers.Trainer;
 
