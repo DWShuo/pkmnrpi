@@ -34,13 +34,13 @@ public class Flag {
 		x = Integer.parseInt(ary[1]);
 		y = Integer.parseInt(ary[2]);
 		if (ary.length > 3)
-			;// TODO link to person
+			thing = Thing.loadFromID(ary[3]);
 	}
 
 	/**
 	 * IMPORTANT! SAVE FORMAT
 	 * 
-	 * [flag]:[x]:[y]:[name]
+	 * [flag]:[x]:[y]:[thingID]
 	 * 
 	 */
 

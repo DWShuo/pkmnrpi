@@ -23,7 +23,7 @@ public class Person extends Thing {
 		return name;
 	}
 
-	public void set_location(int x, int y) {
+	public void setLocation(int x, int y) {
 		this.x = x;
 		this.y = y;
 		sprite.x = x * GameBoard.tsize;

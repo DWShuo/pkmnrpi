@@ -1,0 +1,133 @@
+1,Master Ball,0
+2,Ultra Ball,0
+3,BrightPowder,1
+4,Great Ball,0
+5,Poké Ball,0
+6,Bicycle,2
+8,Moon Stone,1
+9,Antidote,1
+10,Burn Heal,1
+11,Ice Heal,1
+12,Awakening,1
+13,Parlyz Heal,1
+14,Full Restore,1
+15,Max Potion,1
+16,Hyper Potion,1
+17,Super Potion,1
+18,Potion,1
+19,Escape Rope,1
+20,Repel,1
+21,Max Elixer,1
+22,Fire Stone,1
+23,Thunder Stone,1
+24,Water Stone,1
+26,HP Up,1
+27,Protein,1
+28,Iron,1
+29,Carbos,1
+30,Lucky Punch,1
+31,Calcium,1
+32,Rare Candy,1
+33,X Accuracy,1
+34,Leaf Stone,1
+35,Metal Powder,1
+36,Nugget,1
+37,Poké Doll,1
+38,Full Heal,1
+39,Revive,1
+40,Max Revive,1
+41,Guard Spec.,1
+42,Super Repel,1
+43,Max Repel,1
+44,Dire Hit,1
+46,Fresh Water,1
+47,Soda Pop,1
+48,Lemonade,1
+49,X Attack,1
+51,X Defend,1
+52,X Speed,1
+53,X Special,1
+54,Coin Case,2
+55,Itemfinder,2
+57,Exp Share,1
+58,Old Rod,2
+59,Good Rod,2
+60,Silver Leaf,1
+61,Super Rod,2
+62,PP Up,1
+63,Ether,1
+64,Max Ether,1
+65,Elixer,1
+66,Red Scale,2
+67,SecretPotion,2
+68,S.S. Ticket,2
+69,Mystery Egg,2
+70,Clear Bell,2
+71,Silver Wing,2
+72,Moomoo Milk,1
+73,Quick Claw,1
+75,Gold Leaf,1
+76,Soft Sand,1
+77,Sharp Beak,1
+81,Poison Barb,1
+82,King's Rock,1
+86,TinyMushroom,1
+87,Big Mushroom,1
+88,SilverPowder,1
+91,Amulet Coin,1
+94,Cleanse Tag,1
+95,Mystic Water,1
+96,TwistedSpoon,1
+98,Black Belt,1
+102,BlackGlasses,1
+103,SlowpokeTail,1
+105,Stick,1
+106,Smoke Ball,1
+107,NeverMeltIce,1
+108,Magnet,1
+109,MiracleBerry,1
+110,Pearl,1
+111,Big Pearl,1
+112,Everstone,1
+113,Spell Tag,1
+114,RageCandyBar,1
+117,Miracle Seed,1
+118,Thick Club,1
+119,Focus Band,1
+121,EnergyPowder,1
+122,Energy Root,1
+123,Heal Powder,1
+124,Revival Herb,1
+125,Hard Stone,1
+126,Lucky Egg,1
+127,Card Key,2
+128,Machine Part,2
+130,Lost Item,2
+131,Stardust,1
+132,Star Piece,1
+133,Basement Key,2
+134,Pass,2
+138,Charcoal,1
+139,Berry Juice,1
+140,Scope Lens,1
+143,Metal Coat,1
+144,Dragon Fang,1
+150,MysteryBerry,1
+151,Dragon Scale,1
+152,Berserk Gene,1
+156,Sacred Ash,1
+157,Heavy Ball,0
+159,Level Ball,0
+160,Lure Ball,0
+161,Fast Ball,0
+163,Light Ball,1
+164,Friend Ball,0
+165,Moon Ball,0
+166,Love Ball,0
+169,Sun Stone,1
+172,Up-Grade,1
+173,Berry,1
+174,Gold Berry,1
+175,SquirtBottle,2
+177,Park Ball,0
+178,Rainbow Wing,2

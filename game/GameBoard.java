@@ -99,7 +99,7 @@ public class GameBoard extends JScrollPane implements KeyListener {
 		for (int i = 0; i < 10; ++i)
 			player.bike[i] = ImageLibrary.player[i + 10];
 		player.sprite = new Sprite(player.walk[0]);
-		player.set_location(5, 5);
+		player.setLocation(5, 5);
 		foreground.sprites.add(player.sprite);
 	}
 

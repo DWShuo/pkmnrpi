@@ -15,7 +15,6 @@ import util.ImageLibrary;
 public class TileMap {
 	public int fill = ImageLibrary.DEFAULT_ICON;
 	public int[][] mapdata;
-	public ArrayList<Flag> flags;
 
 	public TileMap() {
 		mapdata = new int[25][25];
@@ -27,15 +26,14 @@ public class TileMap {
 		clear_map();
 	}
 
-	public TileMap(int[][] map, ArrayList<Flag> f) {
+	public TileMap(int[][] map) {
 		mapdata = map;
-		flags = f;
 	}
 
 	public TileMap(String filename) {
 		load(new File(filename));
 	}
-	
+
 	public void fill_map(int tile) {
 		for (int i = 0; i < mapdata.length; ++i)
 			for (int k = 0; k < mapdata[0].length; ++k)
@@ -43,7 +41,6 @@ public class TileMap {
 	}
 
 	public void clear_map() {
-		flags = new ArrayList<Flag>();
 		for (int i = 0; i < mapdata.length; ++i)
 			for (int k = 0; k < mapdata[0].length; ++k)
 				mapdata[i][k] = ImageLibrary.DEFAULT_ICON;
@@ -67,8 +64,7 @@ public class TileMap {
 	/**
 	 * IMPORTANT: SAVE FILE FORMAT
 	 * 
-	 * \------map data------/\------flag data------/
-	 * [y]:[x]:[]:[].....:[]![flag-data]![flag-data]
+	 * [y]:[x]:[]:[].....:[]
 	 * 
 	 */
 
@@ -82,9 +78,6 @@ public class TileMap {
 				str += ":" + mapdata[i][j];
 			}
 		}
-		// Write flag info to str
-		for (Flag f : flags)
-			str += "!" + f.toString();
 		return str;
 	}
 
@@ -112,14 +105,9 @@ public class TileMap {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		// Remove all flag info
-		String[] ary = str.split("!");
-		flags = new ArrayList<Flag>();
-		for (int i = 1; i < ary.length; ++i)
-			flags.add(new Flag(this, ary[i]));
 
 		// Parse map data
-		ary = ary[0].split(":");
+		String[] ary = str.split(":");
 		int a = Integer.parseInt(ary[0]);
 		int b = Integer.parseInt(ary[1]);
 		mapdata = new int[a][b];

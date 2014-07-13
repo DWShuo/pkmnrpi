@@ -7,39 +7,61 @@ import java.util.HashMap;
 
 import pokedex.Pokedex;
 import pokedex.PokedexUI;
+import pokemon.moves.Move;
 
 public class Pokemon implements PokedexUI {
-	// TYPES
 	public static final int FIRE = 0, WATER = 1, GRASS = 2, GROUND = 3, ROCK = 4, DARK = 5, GHOST = 6, STEEL = 7, ELECTRIC = 8, FLYING = 9, DRAGON = 10, ICE = 11, PSYCHIC = 12,
 			POISON = 13, FIGHTING = 14, NORMAL = 15;
 	public static Pokemon[] all_pokemon;
+
 	public String name, species, description;
 	public boolean male = true;
 	public int type, t2 = -1;
 	public double height, weight;
 	public int ID;
-	public int max_health, attack, defense, speed, spec_attack, spec_defense;
-	public int current_health, level;
+	public Stats stats;
 	public int catch_rate, base_exp, growth_rate;
 	public HashMap<Integer, String> evolutions, learnset;
 	public ArrayList<String> tmset;
+	public ArrayList<Move> known_moves;
+
+	// Used when loading pokemon by name
+	public Pokemon(String name) {
+		Pokemon p = Pokedex.getPokemon(name);
+		name = p.name;
+		species = p.species;
+		description = p.description;
+		male = p.male;
+		type = p.type;
+		t2 = p.t2;
+		height = p.height;
+		weight = p.weight;
+		ID = p.ID;
+		stats = new Stats(p.stats);
+		catch_rate = p.catch_rate;
+		base_exp = p.base_exp;
+		growth_rate = p.growth_rate;
+		evolutions = p.evolutions;
+		learnset = p.learnset;
+		tmset = p.tmset;
+	}
 
 	// To be used with pokedex info only
 	public Pokemon(ArrayList<String> info) {
 		int index = 0;
 
-		ID = Integer.parseInt(strip_label(info.get(index++ )));
-		name = strip_label(info.get(index++ ));
-		String types = strip_label(info.get(index++ ));
+		ID = Integer.parseInt(stripLabel(info.get(index++ )));
+		name = stripLabel(info.get(index++ ));
+		String types = stripLabel(info.get(index++ ));
 		if (types.contains("/")) {
 			String[] ar = types.split("/");
 			type = getType(ar[0]);
 			t2 = getType(ar[1]);
 		} else
 			type = getType(types);
-		species = strip_label(info.get(index++ ));
-		height = Double.parseDouble(strip_label(info.get(index++ )));
-		weight = Double.parseDouble(strip_label(info.get(index++ )));
+		species = stripLabel(info.get(index++ ));
+		height = Double.parseDouble(stripLabel(info.get(index++ )));
+		weight = Double.parseDouble(stripLabel(info.get(index++ )));
 
 		evolutions = new HashMap<Integer, String>();
 		while (!info.get(index).equalsIgnoreCase("//Stats")) {
@@ -47,21 +69,22 @@ public class Pokemon implements PokedexUI {
 			evolutions.put(Integer.parseInt(ar[0]), ar[1]);
 		}
 		index++ ;
-		max_health = Integer.parseInt(strip_label(info.get(index++ )));
-		attack = Integer.parseInt(strip_label(info.get(index++ )));
-		defense = Integer.parseInt(strip_label(info.get(index++ )));
-		spec_attack = Integer.parseInt(strip_label(info.get(index++ )));
-		spec_defense = Integer.parseInt(strip_label(info.get(index++ )));
-		speed = Integer.parseInt(strip_label(info.get(index++ )));
+		stats = new Stats();
+		stats.max_health = Integer.parseInt(stripLabel(info.get(index++ )));
+		stats.attack = Integer.parseInt(stripLabel(info.get(index++ )));
+		stats.defense = Integer.parseInt(stripLabel(info.get(index++ )));
+		stats.special_attack = Integer.parseInt(stripLabel(info.get(index++ )));
+		stats.special_defense = Integer.parseInt(stripLabel(info.get(index++ )));
+		stats.speed = Integer.parseInt(stripLabel(info.get(index++ )));
 
 		while (!info.get(index).equalsIgnoreCase("//Training"))
 			index++ ;
 		index++ ;
-		catch_rate = Integer.parseInt(strip_label(info.get(index++ )));
-		base_exp = Integer.parseInt(strip_label(info.get(index++ )));
-		growth_rate = Integer.parseInt(strip_label(info.get(index++ )));
+		catch_rate = Integer.parseInt(stripLabel(info.get(index++ )));
+		base_exp = Integer.parseInt(stripLabel(info.get(index++ )));
+		growth_rate = Integer.parseInt(stripLabel(info.get(index++ )));
 		// Should remove quotes too
-		description = strip_label(info.get(index++ )).replaceAll("^\"|\"$", "");
+		description = stripLabel(info.get(index++ )).replaceAll("^\"|\"$", "");
 
 		while (!info.get(index).equalsIgnoreCase("//Learnset"))
 			index++ ;
@@ -77,7 +100,13 @@ public class Pokemon implements PokedexUI {
 			tmset.add(info.get(index++ ));
 	}
 
-	public void generate_stats(int lvl) {
+	public void loadMoveSet(ArrayList<String> data) {
+		known_moves = new ArrayList<Move>();
+		for (String str : data)
+			known_moves.add(Move.lookup(str));
+	}
+
+	public void generateStats(int lvl) {
 
 	}
 
@@ -89,7 +118,7 @@ public class Pokemon implements PokedexUI {
 			String line;
 			ArrayList<String> lst = new ArrayList<String>();
 			while ((line = br.readLine()) != null) {
-				if (is_uniform(line, '-')) {
+				if (isUniform(line, '-')) {
 					all.add(new Pokemon(lst));
 					lst = new ArrayList<String>();
 				} else
@@ -99,10 +128,10 @@ public class Pokemon implements PokedexUI {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		all_pokemon = order_pokemon(all);
+		all_pokemon = orderPokemon(all);
 	}
 
-	public static Pokemon[] order_pokemon(ArrayList<Pokemon> lst) {
+	public static Pokemon[] orderPokemon(ArrayList<Pokemon> lst) {
 		Pokemon[] all = new Pokemon[251];
 		Pokedex.pkmn_lookup = new HashMap<String, Integer>();
 		for (Pokemon p : lst) {
@@ -112,15 +141,45 @@ public class Pokemon implements PokedexUI {
 		return all;
 	}
 
-	public static boolean is_uniform(String str, char c) {
-		str.replace(' ', '-');
+	// Loads a list of Pokemon from save data.
+	public static ArrayList<Pokemon> loadPokemon(ArrayList<String> data) {
+		ArrayList<Pokemon> lst = new ArrayList<Pokemon>();
+		int count = 0;
+		while (count < data.size()) {
+			String name = data.get(count++ );
+			ArrayList<String> moveset = new ArrayList<String>();
+			String line;
+			boolean end;
+			do {
+				line = data.get(count++ );
+				end = isUniform(line, ':');
+				if (!end)
+					moveset.add(line);
+			} while (!end);
+			ArrayList<String> statlist = new ArrayList<String>();
+			do {
+				line = data.get(count++ );
+				end = isUniform(line, '*');
+				if (!end)
+					statlist.add(line);
+			} while (!end);
+			Pokemon p = new Pokemon(name);
+			p.loadMoveSet(moveset);
+			p.stats = new Stats(statlist);
+		}
+		return lst;
+	}
+
+	public static boolean isUniform(String str, char c) {
+		if (str.isEmpty())
+			return false;
 		for (char h : str.toCharArray())
 			if (c != h)
 				return false;
 		return true;
 	}
 
-	public static String strip_label(String str) {
+	public static String stripLabel(String str) {
 		if (str.indexOf(":") == str.length() - 1)
 			return "";
 		String temp = str.substring(str.indexOf(":") + 2);

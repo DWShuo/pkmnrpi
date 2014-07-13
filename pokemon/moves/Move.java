@@ -3,11 +3,12 @@ package pokemon.moves;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import pokemon.Pokemon;
 
 //TODO: determine how to calculate status changes and special effects.
-public class Move {
+public class Move implements Comparable<Move> {
 	public static Move[] all_moves;
 
 	public int type, damage, pp, pp_max, lvl_req;
@@ -16,14 +17,14 @@ public class Move {
 
 	public Move(ArrayList<String> data) {
 		System.out.println(name);
-		type = Pokemon.getType(Pokemon.strip_label(data.get(1)));
-		category = Pokemon.strip_label(data.get(2));
-		damage = Integer.parseInt(Pokemon.strip_label(data.get(3)));
-		hit_chance = Double.parseDouble(Pokemon.strip_label(data.get(4))) / 100.0;
+		type = Pokemon.getType(Pokemon.stripLabel(data.get(1)));
+		category = Pokemon.stripLabel(data.get(2));
+		damage = Integer.parseInt(Pokemon.stripLabel(data.get(3)));
+		hit_chance = Double.parseDouble(Pokemon.stripLabel(data.get(4))) / 100.0;
 		// TODO crit_chance = ?
-		pp = pp_max = Integer.parseInt(Pokemon.strip_label(data.get(5)));
-		description = Pokemon.strip_label(data.get(6));
-		effect = Pokemon.strip_label(data.get(7));
+		pp = pp_max = Integer.parseInt(Pokemon.stripLabel(data.get(5)));
+		description = Pokemon.stripLabel(data.get(6));
+		effect = Pokemon.stripLabel(data.get(7));
 	}
 
 	public static void init() {
@@ -34,7 +35,7 @@ public class Move {
 			String line;
 			ArrayList<String> lst = new ArrayList<String>();
 			while ((line = br.readLine()) != null) {
-				if (Pokemon.is_uniform(line, '-')) {
+				if (Pokemon.isUniform(line, '-')) {
 					if (lst.size() == 0)
 						continue;
 					all.add(new Move(lst));
@@ -50,6 +51,23 @@ public class Move {
 	}
 
 	private static Move[] order_moves(ArrayList<Move> all) {
+		Collections.sort(all);
+		Move[] mo = new Move[all.size()];
+		int index = 0;
+		for (Move m : all)
+			mo[index++ ] = m;
+		return mo;
+	}
+
+	public static Move lookup(String name) {
+		for (Move m : all_moves)
+			if (m.name.equalsIgnoreCase(name))
+				return m;
 		return null;
+	}
+
+	@Override
+	public int compareTo(Move a) {
+		return name.compareTo(a.name);
 	}
 }

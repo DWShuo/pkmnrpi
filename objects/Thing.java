@@ -9,4 +9,8 @@ public abstract class Thing {
 	public Sprite sprite;
 
 	public abstract String toString();
+
+	public static Thing loadFromID(String id) {
+		return null;
+	}
 }
