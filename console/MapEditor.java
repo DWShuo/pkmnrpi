@@ -55,7 +55,7 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener {
 		frame = f;
 		this.setBackground(Color.gray.darker());
 		ImageLibrary.init();
-		tmap = new TileMap(c_width, c_height);
+		tmap = new TileMap(c_width, c_height, "Editmap");
 		tmap.load(new File("src/sample.map"));
 		left = new JButton(new ImageIcon("src/left.png"));
 		left.addActionListener(this);
@@ -253,7 +253,7 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener {
 	}
 
 	public void clearAll() {
-		tmap = new TileMap(c_width, c_height);
+		tmap = new TileMap(c_width, c_height, "Editmap");
 		tmap.fill_map(paint_bucket);
 		init();
 		frame.pack();
@@ -331,10 +331,7 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener {
 	public void mouseClicked(MouseEvent arg0) {}
 
 	@Override
-	public void mouseEntered(MouseEvent e) {
-		Tile t = (Tile) e.getSource();
-		System.out.println(t.idx);
-	}
+	public void mouseEntered(MouseEvent e) {}
 
 	@Override
 	public void mouseExited(MouseEvent arg0) {}

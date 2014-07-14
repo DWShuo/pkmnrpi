@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.util.ArrayList;
 
 import objects.Backpack;
+import objects.TileMap;
 import animations.Clock;
 import pokemon.Pokemon;
 import pokemon.moves.Move;
@@ -18,6 +19,7 @@ public class GameState {
 	public static Clock clock;
 
 	public ArrayList<Pokemon> caught, equip;
+	public Pokemon enemy, defender;
 	public Backpack pack, items;
 	public GameEngine engine;
 
@@ -73,18 +75,19 @@ public class GameState {
 		list = data.get(index++ );
 		caught = Pokemon.loadPokemon(list);
 	}
-	
+
 	public void loadLocations(ArrayList<String> data) {
-		
+
 	}
 
 	public static void initilize_all() {
 		ImageLibrary.init();
+		TileMap.init();
 		Pokemon.init();
 		Move.init();
 		Backpack.init();
-		//signs
+		// signs
 		Trainer.init();
-		//npcs
+		// npcs
 	}
 }

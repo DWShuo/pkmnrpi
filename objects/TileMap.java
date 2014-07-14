@@ -8,30 +8,35 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import animations.Sprite;
 import util.ImageLibrary;
 
 public class TileMap {
+	public static HashMap<String, TileMap> MAPS = new HashMap<String, TileMap>();
+
 	public int fill = ImageLibrary.DEFAULT_ICON;
 	public int[][] mapdata;
+	public String name;
 
-	public TileMap() {
-		mapdata = new int[25][25];
-		clear_map();
-	}
-
-	public TileMap(int x, int y) {
+	public TileMap(int x, int y, String n) {
+		name = n;
 		mapdata = new int[y][x];
 		clear_map();
+		MAPS.put(name, this);
 	}
 
-	public TileMap(int[][] map) {
+	public TileMap(int[][] map, String n) {
+		name = n;
 		mapdata = map;
+		MAPS.put(name, this);
 	}
 
-	public TileMap(String filename) {
+	public TileMap(String filename, String n) {
+		name = n;
 		load(new File(filename));
+		MAPS.put(name, this);
 	}
 
 	public void fill_map(int tile) {
@@ -164,5 +169,9 @@ public class TileMap {
 			for (int k = 0; k < mapdata[0].length; ++k)
 				temp[i][k + n] = mapdata[i][k];
 		mapdata = temp;
+	}
+
+	public static void init() {
+		new TileMap("src/default.map", "default");
 	}
 }

@@ -1,4 +1,4 @@
-package util;
+package objects;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -11,14 +11,14 @@ import javax.swing.JPanel;
 public class LayeredPanel extends JPanel {
 	private static final ImageIcon def = new ImageIcon("src/bliss.jpg");
 	private Dimension pref = new Dimension(400, 300);
-	
+
 	private static class ClearPanel extends JPanel {
 		public ClearPanel() {
 			super();
 			setOpaque(false);
 		}
 	}
-	
+
 	public JLabel background;
 	public JPanel foreground;
 
@@ -61,6 +61,7 @@ public class LayeredPanel extends JPanel {
 
 	public void setForeground(JPanel p) {
 		foreground = p;
+		setBackground(Color.black);
 		setPreferredSize(pref);
 	}
 

@@ -1,5 +1,6 @@
 package game;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.event.KeyEvent;
@@ -10,10 +11,10 @@ import javax.swing.*;
 import javax.swing.UIManager.LookAndFeelInfo;
 
 import animations.Sprite;
+import objects.LayeredPanel;
 import objects.TileMap;
 import trainers.Person;
 import util.ImageLibrary;
-import util.LayeredPanel;
 
 public class GameBoard extends JScrollPane implements KeyListener {
 	public static final int tilew = 25, tileh = 25, tsize = ImageLibrary.pixel_width[0];
@@ -49,11 +50,12 @@ public class GameBoard extends JScrollPane implements KeyListener {
 
 		loadMap(default_map);
 		this.setViewportView(background);
+		this.setBackground(Color.black);
 		initilizePlayer();
 	}
 
 	public void loadMap(String filename) {
-		map = new TileMap(filename);
+		map = new TileMap(filename, "Default");
 		BufferedImage im = map.get_static_map();
 		foreground = new GamePanel();
 		foreground.sprites = map.get_sprites();
@@ -61,29 +63,26 @@ public class GameBoard extends JScrollPane implements KeyListener {
 		background.setPreferredSize(new Dimension(im.getWidth(), im.getHeight()));
 	}
 
-	public void keyPressed(KeyEvent e) {
-	}
+	public void keyPressed(KeyEvent e) {}
 
 	public boolean canMove(int direction) {
 		int x = player.x;
 		int y = player.y;
 		if (direction == Person.UP) {
-			y--;
+			y-- ;
 		} else if (direction == Person.DOWN) {
-			y++;
+			y++ ;
 		} else if (direction == Person.RIGHT) {
-			x++;
+			x++ ;
 		} else if (direction == Person.LEFT) {
-			x--;
+			x-- ;
 		}
 		return ImageLibrary.walk_tiles[map.mapdata[y][x]];
 	}
 
-	public void keyReleased(KeyEvent e) {
-	}
+	public void keyReleased(KeyEvent e) {}
 
-	public void keyTyped(KeyEvent e) {
-	}
+	public void keyTyped(KeyEvent e) {}
 
 	public static void main(String[] args) {
 		new GameEngine();
@@ -121,10 +120,10 @@ public class GameBoard extends JScrollPane implements KeyListener {
 		pt.x += xmove;
 		pt.y += ymove;
 
-		pt.x = Math.max(0, pt.x);
-		pt.x = Math.min(maxxextend, pt.x);
-		pt.y = Math.max(0, pt.y);
-		pt.y = Math.min(maxyextend, pt.y);
+		// pt.x = Math.max(0, pt.x);
+		// pt.x = Math.min(maxxextend, pt.x);
+		// pt.y = Math.max(0, pt.y);
+		// pt.y = Math.min(maxyextend, pt.y);
 
 		viewport.setViewPosition(pt);
 	}

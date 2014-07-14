@@ -1,7 +1,6 @@
 package game;
 
 import java.awt.Color;
-import java.util.ArrayList;
 
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;

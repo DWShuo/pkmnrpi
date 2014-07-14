@@ -11,17 +11,18 @@ import pokemon.Pokemon;
 public class Move implements Comparable<Move> {
 	public static Move[] all_moves;
 
-	public int type, damage, pp, pp_max, lvl_req;
+	public int type, damage, pp, pp_max, lvl_req, tm;
 	public String name, category, description, effect;
 	public double crit_chance, hit_chance;
 
 	public Move(ArrayList<String> data) {
-		System.out.println(name);
+		name = Pokemon.stripLabel(data.get(0));
 		type = Pokemon.getType(Pokemon.stripLabel(data.get(1)));
 		category = Pokemon.stripLabel(data.get(2));
 		damage = Integer.parseInt(Pokemon.stripLabel(data.get(3)));
 		hit_chance = Double.parseDouble(Pokemon.stripLabel(data.get(4))) / 100.0;
 		// TODO crit_chance = ?
+		// TODO TM#
 		pp = pp_max = Integer.parseInt(Pokemon.stripLabel(data.get(5)));
 		description = Pokemon.stripLabel(data.get(6));
 		effect = Pokemon.stripLabel(data.get(7));
@@ -57,6 +58,20 @@ public class Move implements Comparable<Move> {
 		for (Move m : all)
 			mo[index++ ] = m;
 		return mo;
+	}
+
+	public static ArrayList<Move> loadAll(ArrayList<String> data) {
+		ArrayList<Move> all = new ArrayList<Move>();
+		for (String str : data)
+			all.add(lookup(Integer.parseInt(str)));
+		return all;
+	}
+
+	public static Move lookup(int id) {
+		for (Move m : all_moves)
+			if (m.tm == id)
+				return m;
+		return null;
 	}
 
 	public static Move lookup(String name) {
