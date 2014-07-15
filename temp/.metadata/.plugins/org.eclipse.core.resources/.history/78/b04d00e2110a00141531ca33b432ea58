@@ -1,0 +1,9 @@
+package pokemon.moves;
+
+public class CrossChop {
+
+	public CrossChop() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

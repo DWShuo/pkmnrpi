@@ -1,0 +1,17 @@
+package trainers;
+
+import pokemon.Pokemon;
+
+public class Trainer extends Person {
+	private Pokemon[] pkmn;
+
+	public Pokemon get_first_pokemon() {
+		Pokemon pk = null;
+		for (Pokemon p : pkmn)
+			if (p.current_health > 0) {
+				pk = p;
+				break;
+			}
+		return pk;
+	}
+}

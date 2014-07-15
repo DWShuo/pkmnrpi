@@ -1,0 +1,21 @@
+package items;
+
+import java.util.ArrayList;
+
+public class EvoItems extends Item {
+
+	public EvoItems() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public EvoItems(ArrayList<String> data) {
+		super(data);
+		// TODO Auto-generated constructor stub
+	}
+
+	public EvoItems(String data) {
+		super(data);
+		// TODO Auto-generated constructor stub
+	}
+
+}

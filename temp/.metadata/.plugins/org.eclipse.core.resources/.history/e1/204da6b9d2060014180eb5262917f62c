@@ -1,0 +1,23 @@
+package animations;
+
+import java.awt.BufferedImage;
+
+import trainers.Person;
+
+public class WalkAnimation extends Animation {
+	public WalkAnimation(Person p) {
+		int offset = 0;
+		if(p.on_bike)
+			offset = 10;
+		if (p.direction == Person.UP) {
+			frames = new BufferedImage[3];
+		} else if (p.direction == Person.DOWN) {
+
+		} else if (p.direction == Person.LEFT) {
+
+		} else if (p.direction == Person.RIGHT) {
+
+		}
+	}
+
+}

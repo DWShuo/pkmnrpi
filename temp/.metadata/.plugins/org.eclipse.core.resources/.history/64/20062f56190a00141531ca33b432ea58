@@ -1,0 +1,9 @@
+package pokemon.moves;
+
+public class PetalDance {
+
+	public PetalDance() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

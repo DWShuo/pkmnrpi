@@ -1,0 +1,9 @@
+package pokemon.moves;
+
+public class DreamEater {
+
+	public DreamEater() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

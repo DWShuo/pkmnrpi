@@ -1,0 +1,9 @@
+package pokemon.moves;
+
+public class Curse {
+
+	public Curse() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

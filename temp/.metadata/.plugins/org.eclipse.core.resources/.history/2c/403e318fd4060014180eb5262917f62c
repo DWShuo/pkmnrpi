@@ -1,0 +1,58 @@
+package animations;
+
+import game.GameBoard;
+
+import java.awt.image.BufferedImage;
+
+import trainers.Person;
+import util.ImageLibrary;
+
+public class WalkAnimation extends Animation {
+	public WalkAnimation(GameBoard b, Person p, int distance) {
+		int offset = 0;
+		if (p.on_bike)
+			offset = 10;
+		if (p.direction == Person.UP) {
+			BufferedImage[] ary = { ImageLibrary.player[offset + 7], ImageLibrary.player[offset + 8], ImageLibrary.player[offset + 9] };
+			frames = ary;
+			final_frame = frames[0];
+			sprite = p.sprite;
+			board = b;
+			increment = 6 * distance;
+			int[] temp = { 0, -distance * GameBoard.tsize };
+			counts = temp;
+			delta = new int[counts.length];
+		} else if (p.direction == Person.DOWN) {
+			BufferedImage[] ary = { ImageLibrary.player[offset + 4], ImageLibrary.player[offset + 5], ImageLibrary.player[offset + 6] };
+			frames = ary;
+			final_frame = frames[0];
+			sprite = p.sprite;
+			board = b;
+			increment = 6 * distance;
+			int[] temp = { 0, distance * GameBoard.tsize };
+			counts = temp;
+			delta = new int[counts.length];
+		} else if (p.direction == Person.LEFT) {
+			BufferedImage[] ary = { ImageLibrary.player[offset + 2], ImageLibrary.player[offset + 3] };
+			frames = ary;
+			final_frame = frames[0];
+			sprite = p.sprite;
+			board = b;
+			increment = 6 * distance;
+			int[] temp = { -distance * GameBoard.tsize, 0 };
+			counts = temp;
+			delta = new int[counts.length];
+		} else if (p.direction == Person.RIGHT) {
+			BufferedImage[] ary = { ImageLibrary.player[offset], ImageLibrary.player[offset + 1] };
+			frames = ary;
+			final_frame = frames[0];
+			sprite = p.sprite;
+			board = b;
+			increment = 6 * distance;
+			int[] temp = { distance * GameBoard.tsize, 0 };
+			counts = temp;
+			delta = new int[counts.length];
+		}
+	}
+
+}

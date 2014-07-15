@@ -1,0 +1,26 @@
+package items;
+
+import java.util.ArrayList;
+
+public class MiscItem extends Item {
+
+	public MiscItem() {}
+
+	public MiscItem(ArrayList<String> data) {
+		super(data);
+	}
+
+	public MiscItem(String data) {
+		super(data);
+	}
+
+	@Override
+	public String toString() {
+		return null;
+	}
+
+	@Override
+	public ArrayList<? extends Item> loadAll(ArrayList<String> data) {
+		return null;
+	}
+}

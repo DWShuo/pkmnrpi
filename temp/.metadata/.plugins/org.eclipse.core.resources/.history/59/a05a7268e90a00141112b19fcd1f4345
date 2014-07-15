@@ -1,0 +1,9 @@
+package items;
+
+public class EvoItem {
+
+	public EvoItem() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

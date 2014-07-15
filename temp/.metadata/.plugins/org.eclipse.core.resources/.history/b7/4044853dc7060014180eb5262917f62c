@@ -1,0 +1,8 @@
+package trainers;
+
+import pokemon.Pokemon;
+
+public class Trainer extends Person {
+	private Pokemon[] pkmn;
+
+}

@@ -1,0 +1,45 @@
+package items;
+
+import java.util.ArrayList;
+
+import objects.Thing;
+import pokemon.Pokemon;
+
+public class Item extends Thing implements Comparable<Item> {
+	public static int POKEBALL = 0, ITEM = 1, KEY = 2;
+	public String name;
+	public int ID;
+	public int type = 1;
+	public int count = 1;
+
+	public Item() {}
+
+	public Item(String data) {
+		String[] ary = data.split(",");
+		ID = Integer.parseInt(ary[0]);
+		name = ary[1];
+		type = Integer.parseInt(ary[2]);
+	}
+
+	@Override
+	public String toString() {
+		return ID + "," + name + "," + type;
+	}
+
+	@Override
+	public int compareTo(Item o) {
+		return name.compareTo(o.name);
+	}
+
+	public static ArrayList<? extends Item> loadAll(ArrayList<String> data) {
+		ArrayList<Item> b = new ArrayList<Item>();
+		int count = 0;
+		while (count < data.size()) {
+			ArrayList<String> temp = new ArrayList<String>();
+			while (!Pokemon.isUniform(data.get(count), '-'))
+				temp.add(data.get(count++ ));
+			b.add(new Item(temp));
+		}
+		return b;
+	}
+}

@@ -1,0 +1,26 @@
+package items;
+
+import java.util.ArrayList;
+
+public class Ball extends Item {
+
+	public Ball(String data) {
+		super(data);
+	}
+
+	public Ball(ArrayList<String> data) {
+		super(data);
+	}
+
+	public ArrayList<Ball> loadAll(ArrayList<String> data) {
+		ArrayList<Ball> b = new ArrayList<Ball>();
+		int count = 0;
+		while (count < data.size()) {
+			ArrayList<String> temp = new ArrayList<String>();
+			temp.add(data.get(count++ ));
+			temp.add(data.get(count++ ));
+			b.add(new Ball(temp));
+		}
+		return b;
+	}
+}

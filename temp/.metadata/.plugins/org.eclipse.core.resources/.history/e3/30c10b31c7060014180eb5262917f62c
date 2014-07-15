@@ -1,0 +1,5 @@
+package trainers;
+
+public class Trainer extends Person {
+
+}

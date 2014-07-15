@@ -1,0 +1,14 @@
+package items;
+
+import java.util.ArrayList;
+
+public class Ball extends Item {
+
+	public Ball(String data) {
+		super(data);
+	}
+
+	public static ArrayList<Ball> loadAll(ArrayList<String> data) {
+		return null;
+	}
+}

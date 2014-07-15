@@ -1,0 +1,10 @@
+package items;
+
+public class Ball extends Item {
+
+	public Ball(String data) {
+		super(data);
+		// TODO Auto-generated constructor stub
+	}
+
+}

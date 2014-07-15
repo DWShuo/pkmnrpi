@@ -1,0 +1,60 @@
+package objects;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.Collections;
+
+import pokemon.Pokemon;
+
+public class Backpack {
+	public static Item[] all_items;
+
+	public Backpack(ArrayList<String> data) {
+		ArrayList<String> moveset = new ArrayList<String>();
+		ArrayList<String> ballset = new ArrayList<String>();
+		ArrayList<String> itemset = new ArrayList<String>();
+		int count = 0;
+		String line = data.get(count++ );
+		while (!Pokemon.isUniform(line, '+')) {
+			moveset.add(line);
+			line = data.get(count++ );
+		}
+		line = data.get(count++ );
+		while (!Pokemon.isUniform(line, '+')) {
+			ballset.add(line);
+			line = data.get(count++ );
+		}
+		line = data.get(count++ );
+		while (!Pokemon.isUniform(line, '+')) {
+			itemset.add(line);
+			line = data.get(count++ );
+		}
+
+	}
+
+	public static void init() {
+		String filename = "src/data/Item_Data.txt";
+		ArrayList<Item> all = new ArrayList<Item>();
+		try {
+			BufferedReader br = new BufferedReader(new FileReader(filename));
+			String line;
+			while ((line = br.readLine()) != null) {
+				all.add(new Item(line));
+			}
+			br.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		all_items = orderItems(all);
+	}
+
+	public static Item[] orderItems(ArrayList<Item> lst) {
+		Collections.sort(lst);
+		Item[] items = new Item[lst.size()];
+		int index = 0;
+		for (Item i : lst)
+			items[index++ ] = i;
+		return items;
+	}
+}

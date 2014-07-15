@@ -1,0 +1,22 @@
+package objects;
+
+import java.util.ArrayList;
+
+public class Item extends Thing implements Comparable<Item> {
+	public String name;
+
+	public Item(ArrayList<String> data) {
+
+	}
+
+	@Override
+	public String toString() {
+		return null;
+	}
+
+	@Override
+	public int compareTo(Item o) {
+		return name.compareTo(o.name);
+	}
+
+}

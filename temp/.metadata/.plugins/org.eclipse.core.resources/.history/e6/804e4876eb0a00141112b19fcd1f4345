@@ -1,0 +1,21 @@
+package items;
+
+import java.util.ArrayList;
+
+public class RecoveryItem extends Item {
+
+	public RecoveryItem() {}
+
+	public RecoveryItem(ArrayList<String> data) {
+		super(data);
+	}
+
+	public RecoveryItem(String data) {
+		super(data);
+	}
+
+	@Override
+	public String toString() {
+		return null;
+	}
+}

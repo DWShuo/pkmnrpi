@@ -1,0 +1,9 @@
+package pokemon.moves;
+
+public class Snore {
+
+	public Snore() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

@@ -1,0 +1,27 @@
+package items;
+
+import java.util.ArrayList;
+
+public class HoldItem extends Item {
+
+	public HoldItem() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public HoldItem(ArrayList<String> data) {
+		super(data);
+		// TODO Auto-generated constructor stub
+	}
+
+	public HoldItem(String data) {
+		super(data);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

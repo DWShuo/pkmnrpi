@@ -1,0 +1,27 @@
+package items;
+
+import java.util.ArrayList;
+
+public class Vitamin extends Item {
+
+	public Vitamin() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Vitamin(ArrayList<String> data) {
+		super(data);
+		// TODO Auto-generated constructor stub
+	}
+
+	public Vitamin(String data) {
+		super(data);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

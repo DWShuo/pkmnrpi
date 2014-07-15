@@ -1,0 +1,16 @@
+package animations;
+
+import game.GameBoard;
+
+public class BoardAnimation extends Animation {
+	public BoardAnimation(GameBoard b, int direction) {
+		board = b;
+		counts = new int[2];
+		delta = new int[2];
+		increment = 6;
+	}
+
+	public void animate() {
+		board.movePanel(delta[0], delta[1]);
+	}
+}

@@ -1,0 +1,9 @@
+package pokemon.moves;
+
+public class FeintAttack {
+
+	public FeintAttack() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

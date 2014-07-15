@@ -1,0 +1,8 @@
+package pokemon;
+
+// Data holder class for Pokemon
+public class Stats {
+	public int max_health, current_health, attack, defense, special_attack, special_defense, speed, level, exp, total_exp, happiness;
+
+	public Stats() {}
+}
