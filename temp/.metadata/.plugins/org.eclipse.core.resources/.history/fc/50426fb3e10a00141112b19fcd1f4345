@@ -1,0 +1,8 @@
+package items;
+
+public class Ball extends Item {
+
+	public Ball(String data) {
+		super(data);
+	}
+}

@@ -1,0 +1,12 @@
+{
+  "C:\\Program Files (x86)\\Java\\jre7\\lib\\rt.jar": {
+    "coordinate": "jre:jre:zip:ovrm:1.0.0",
+    "location": "C:\\Program Files (x86)\\Java\\jre7\\lib\\rt.jar",
+    "status": "RESOLVED"
+  },
+  "D:\\workspace\\PokemonRPI\\src": {
+    "location": "D:\\workspace\\PokemonRPI\\src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027D:\\workspace\\PokemonRPI\\src\u0027. Skipped."
+  }
+}

@@ -1,0 +1,66 @@
+// If there is a space in a move with double names use the underscore Attack_Name
+// Use flags for Growth rate under Training
+//0 Fast
+//1 Medium Fast
+//2 Medium Slow
+//3 Slow
+-----------------------
+Pokemon Template File
+-----------------------
+ID#: ###
+Name: Name
+Species: Species
+Height: ##
+Weight: ##
+Level | Evolution
+# First Evolution
+# Second Evolution
+//^ # = level required for evolution
+Description: "<insert Ashe's pokedex's description here>"
+-----------------------
+Stats
+-----------------------
+//Max and Curr HP for generic pokemon are the same thing, only matters
+//for saved pokemon
+Level: ##
+Max_HP: ###
+Curr_HP: ###
+Attack: ##
+Defense: ##
+Sp. Attack: ##
+Sp. Defense: ##
+Speed: ##
+Total: ###
+Average: ##
+-----------------------
+Training
+-----------------------
+Catch_Rate: ##
+Base_EXP: ##
+Growth_Rate: # 
+//0 = Fast, 1 = Medium Fast, 2 = Medium Slow, 3 = Slow
+
+-----------------------
+Activeset
+-----------------------
+//List of all the moves the pokemon currently has equipped
+Attack_Name
+
+-----------------------
+Learnset	
+-----------------------
+//List of all the learnable moves and required level for each that the pokemon can acquire
+Level # | Attack Name
+
+# Attack_Name
+-----------------------
+TM Move
+-----------------------
+##	Type
+-----------------------
+HM Move
+-----------------------
+## Type
+
+
+

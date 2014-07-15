@@ -1,0 +1,62 @@
+//Pokedex
+ID#: 152
+Name: Chikorita
+Type: Grass
+Species: Leaf
+Height: .9
+Weight: 6.4
+16 Bayleef
+32 Meganium
+Description: "Chikorita, the Leaf Pokémon. Chikorita emits pleasant aromas from the leaves on their heads and they love to sunbathe."
+//Stats
+Max_HP: 45
+Attack: 49
+Defense: 65
+Sp.Attack: 49
+Sp.Defense: 65
+Speed: 45
+Total: 318
+Average: 53
+//Training
+Catch_Rate: 5.9
+Base_EXP: 64
+Growth: 2
+//Learnset
+1 Tackle
+1 Growl
+8 Razor_Leaf
+12 Reflect
+15 Poison_Powder
+22 Synthesis
+29 Body_Slam
+36 Light_Screen
+43 Safeguard
+50 Solarbeam
+//Learnable_TM
+06 Toxic
+10 Hidden_Power
+11 Sunny_Day
+16 Light_Screen
+17 Protect
+20 Safeguard
+21 Frustration
+22 Solar_Beam
+27 Return
+32 Double_Team
+33 Reflect
+42 Facade
+44 Rest
+45 Attract
+48 Round
+49 Echoed_Voice
+53 Energy_Ball
+70 Flash
+75 Swords_Dance
+86 Grass_Knot
+87 Swagger
+88 Sleep_Talk
+90 Substitute
+96 Nature_Power
+100 Confide
+//Learnable_HM
+01 Cut
