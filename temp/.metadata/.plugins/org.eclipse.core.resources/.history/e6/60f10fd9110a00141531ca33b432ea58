@@ -1,9 +1,0 @@
-package pokemon.moves;
-
-public class Crunch {
-
-	public Crunch() {
-		// TODO Auto-generated constructor stub
-	}
-
-}

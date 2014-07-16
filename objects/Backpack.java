@@ -11,8 +11,6 @@ import pokemon.Pokemon;
 import pokemon.moves.Move;
 
 public class Backpack {
-	public static Item[] all_items;
-
 	public ArrayList<Ball> balls = new ArrayList<Ball>();
 	public ArrayList<Move> moves = new ArrayList<Move>();
 	public ArrayList<MiscItem> misc = new ArrayList<MiscItem>();
@@ -113,67 +111,6 @@ public class Backpack {
 				return;
 			}
 		((ArrayList<Item>) items).add(i);
-	}
-
-	public static void init() {
-		String filename = "src/data/Item_Data.txt";
-		ArrayList<String> a = new ArrayList<String>();
-		try {
-			BufferedReader br = new BufferedReader(new FileReader(filename));
-			String line;
-			while ((line = br.readLine()) != null) {
-				a.add(line);
-			}
-			br.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		ArrayList<Item> all = new ArrayList<Item>();
-		int count = 0;
-		String line = a.get(count++ );
-		while (!Pokemon.isUniform(line, '=')) {
-			all.add(new Ball(line));
-			line = a.get(count++ );
-		}
-		line = a.get(count++ );
-		while (!Pokemon.isUniform(line, '=')) {
-			all.add(new EvoItem(line));
-			line = a.get(count++ );
-		}
-		line = a.get(count++ );
-		while (!Pokemon.isUniform(line, '=')) {
-			all.add(new KeyItem(line));
-			line = a.get(count++ );
-		}
-		line = a.get(count++ );
-		while (!Pokemon.isUniform(line, '=')) {
-			all.add(new Vitamin(line));
-			line = a.get(count++ );
-		}
-		line = a.get(count++ );
-		while (!Pokemon.isUniform(line, '=')) {
-			all.add(new MiscItem(line));
-			line = a.get(count++ );
-		}
-		line = a.get(count++ );
-		while (!Pokemon.isUniform(line, '=')) {
-			all.add(new RecoveryItem(line));
-			line = a.get(count++ );
-		}
-		line = a.get(count++ );
-		while (!Pokemon.isUniform(line, '=')) {
-			all.add(new HoldItem(line));
-			line = a.get(count++ );
-		}
-		int max = 0;
-		for (Item i : all)
-			if (i.ID > max)
-				max = i.ID;
-		all_items = new Item[max+1];
-		for (int i = 0; i < max; ++i)
-			all_items[i] = new MiscItem();
-		for (Item i : all)
-			all_items[i.ID] = i;
 	}
 
 	public static Item[] orderItems(ArrayList<Item> lst) {

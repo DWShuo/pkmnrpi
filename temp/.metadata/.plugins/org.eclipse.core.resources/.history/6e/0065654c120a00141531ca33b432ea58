@@ -1,9 +1,0 @@
-package pokemon.moves;
-
-public class FalseSwipe {
-
-	public FalseSwipe() {
-		// TODO Auto-generated constructor stub
-	}
-
-}

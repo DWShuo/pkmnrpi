@@ -1,9 +1,0 @@
-package pokemon.moves;
-
-public class PainSplit {
-
-	public PainSplit() {
-		// TODO Auto-generated constructor stub
-	}
-
-}

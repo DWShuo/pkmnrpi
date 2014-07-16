@@ -1,9 +1,0 @@
-package animations;
-
-import game.GameBoard;
-
-public class BoardAnimation extends Animation {
-	public BoardAnimation(GameBoard b, int direction) {
-		
-	}
-}

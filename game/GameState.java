@@ -85,7 +85,6 @@ public class GameState {
 		TileMap.init();
 		Pokemon.init();
 		Move.init();
-		Backpack.init();
 		// signs
 		Trainer.init();
 		// npcs

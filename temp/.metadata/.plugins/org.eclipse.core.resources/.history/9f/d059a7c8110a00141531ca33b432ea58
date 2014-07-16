@@ -1,9 +1,0 @@
-package pokemon.moves;
-
-public class DestinyBond {
-
-	public DestinyBond() {
-		// TODO Auto-generated constructor stub
-	}
-
-}
