@@ -4,7 +4,8 @@ import java.util.ArrayList;
 
 // Data holder class for Pokemon
 public class Stats {
-	public int max_health, current_health, attack, defense, special_attack, special_defense, speed, level, exp, total_exp, happiness;
+	public int max_health, current_health, attack, defense, special_attack, special_defense;
+	public int speed, level, exp, total_exp, happiness, state;
 
 	public Stats() {}
 
@@ -20,6 +21,7 @@ public class Stats {
 		exp = s.exp;
 		total_exp = s.total_exp;
 		happiness = s.happiness;
+		state = s.state;
 	}
 
 	public Stats(int[] data) {
@@ -35,6 +37,7 @@ public class Stats {
 		exp = data[index++ ];
 		total_exp = data[index++ ];
 		happiness = data[index++ ];
+		state = data[index++ ];
 	}
 
 	public Stats(ArrayList<String> data) {
@@ -50,6 +53,7 @@ public class Stats {
 		exp = Integer.parseInt(data.get(index++ ));
 		total_exp = Integer.parseInt(data.get(index++ ));
 		happiness = Integer.parseInt(data.get(index++ ));
+		state = Integer.parseInt(data.get(index++ ));
 	}
 
 	public int getTotalStatValue() {
@@ -59,6 +63,6 @@ public class Stats {
 	public String toString() {
 		String str = "\n";
 		return max_health + str + current_health + str + attack + str + defense + str + special_attack + str + special_defense + str + speed + str + level + str + exp + str
-				+ total_exp + str + happiness + str;
+				+ total_exp + str + happiness + str + state + str;
 	}
 }

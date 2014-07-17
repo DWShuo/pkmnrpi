@@ -9,7 +9,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
 import java.io.File;
 
 import javax.swing.ImageIcon;
@@ -25,6 +24,8 @@ import javax.swing.UIManager.LookAndFeelInfo;
 
 import objects.TileMap;
 import objects.Tile;
+import util.DoorFlag;
+import util.Flag;
 import util.ImageLibrary;
 import util.Tileizer;
 
@@ -33,13 +34,14 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener {
 	private JPanel[] selections;
 	private JScrollPane viewer;
 	private Tile[][][] tiles;
-	public int s_width = 10, c_width = 50, c_height = 25;
+	public int s_width = 10, c_width = 50, c_height = 25, flagged = 0;
 	public int paint_bucket = ImageLibrary.DEFAULT_ICON;
 	private TileMap tmap;
 	private JFrame frame;
 	private JButton left, right, up, down;
 	private JLabel bar_label;
 	public boolean bucketfill = false;
+	public String clipboard;
 
 	public MapEditor(JFrame f) {
 		try {
@@ -55,7 +57,8 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener {
 		frame = f;
 		this.setBackground(Color.gray.darker());
 		ImageLibrary.init();
-		tmap = new TileMap(c_width, c_height, "Editmap");
+		Flag.init();
+		tmap = new TileMap(c_width, c_height, "DEFAULT");
 		tmap.load(new File("src/sample.map"));
 		left = new JButton(new ImageIcon("src/left.png"));
 		left.addActionListener(this);
@@ -243,6 +246,7 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener {
 
 	public void save(File file) {
 		tmap.save(file);
+		Flag.save();
 	}
 
 	public void load(File file) {
@@ -265,16 +269,37 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener {
 		paint_bucket = t.idx;
 		bar_label.setIcon(ImageLibrary.icons[paint_bucket]);
 		tmap.fill = paint_bucket;
+		System.out.println(paint_bucket);
 	}
 
 	public void applyTo(Object o) {
 		Tile t = (Tile) o;
-		t.setIcon(ImageLibrary.icons[paint_bucket]);
-		if (bucketfill) {
-			fillTo(t.x, t.y, tmap.mapdata[t.y][t.x]);
+		int x = t.x - tmap.centerx;
+		int y = t.y - tmap.centery;
+		if (flagged > 0) {
+			if (flagged == 1) {
+				// DOOR FLAG
+				new DoorFlag(tmap.name + "," + x + "," + y + "," + Flag.DOOR + ",0:0:DEFAULT");
+			} else if (flagged == 2) {
+				// TEXT FLAG
+				new Flag(tmap.name + "," + x + "," + y + "," + Flag.TEXT + "," + clipboard);
+			} else if (flagged == 3) {
+				// CENTER FLAG
+				tmap.centerx = t.x;
+				tmap.centery = t.y;
+			} else {
+				System.out.println("ERROR");
+			}
+			return;
+		} else {
+			t.setIcon(ImageLibrary.icons[paint_bucket]);
+			if (bucketfill) {
+				fillTo(t.x, t.y, tmap.mapdata[t.y][t.x]);
+			}
+			tmap.mapdata[t.y][t.x] = paint_bucket;
+			t.idx = paint_bucket;
 		}
-		tmap.mapdata[t.y][t.x] = paint_bucket;
-		t.idx = paint_bucket;
+		flagged = 0;
 		repaint();
 	}
 
@@ -296,6 +321,7 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener {
 	}
 
 	public static void main(String[] args) {
+
 		JFrame f = new JFrame("Map Editor");
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		MapEditor m = new MapEditor(f);

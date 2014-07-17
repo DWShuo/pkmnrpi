@@ -12,8 +12,8 @@ public class WalkAnimation extends Animation {
 
 	public WalkAnimation(GameBoard b, Person p, int distance) {
 		int offset = 0;
-		if (p.on_bike)
-			offset = 10;
+		//if (p.on_bike)
+		//	offset = 10;
 		if (p.direction == Person.UP) {
 			BufferedImage[] ary = { ImageLibrary.player[offset + 7], ImageLibrary.player[offset + 8], ImageLibrary.player[offset + 9] };
 			frames = ary;

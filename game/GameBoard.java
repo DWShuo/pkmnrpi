@@ -26,9 +26,11 @@ public class GameBoard extends JScrollPane implements KeyListener {
 	public GamePanel foreground;
 	public TileMap map;
 	public Person player;
+	public GameEngine engine;
 
-	public GameBoard() {
+	public GameBoard(GameEngine en) {
 		super();
+		engine = en;
 		// Set the look and feel to Nimbus
 		try {
 			for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
@@ -89,8 +91,7 @@ public class GameBoard extends JScrollPane implements KeyListener {
 	}
 
 	private void initilizePlayer() {
-		player = new Person();
-		player.name = "Phonyx";
+		player = engine.state.self;
 		player.walk = new BufferedImage[10];
 		for (int i = 0; i < 10; ++i)
 			player.walk[i] = ImageLibrary.player[i];
@@ -98,7 +99,7 @@ public class GameBoard extends JScrollPane implements KeyListener {
 		for (int i = 0; i < 10; ++i)
 			player.bike[i] = ImageLibrary.player[i + 10];
 		player.sprite = new Sprite(player.walk[0]);
-		player.setLocation(5, 5);
+		player.setLocation(player.x, player.y);
 		foreground.sprites.add(player.sprite);
 	}
 
@@ -116,7 +117,7 @@ public class GameBoard extends JScrollPane implements KeyListener {
 
 	public void movePanel(int xmove, int ymove) {
 		Point pt = viewport.getViewPosition();
-		int maxxextend = map.mapdata[0].length * tsize - tilew * tsize, maxyextend = map.mapdata.length * tsize - tileh * tsize;
+		// int maxxextend = map.mapdata[0].length * tsize - tilew * tsize, maxyextend = map.mapdata.length * tsize - tileh * tsize;
 		pt.x += xmove;
 		pt.y += ymove;
 

@@ -22,8 +22,8 @@ public class GameEngine {
 	public GameEngine() {
 		// This MUST be the first line. Initializes static data.
 		GameState.initilize_all();
-		board = new GameBoard();
 		state = new GameState(this);
+		board = new GameBoard(this);
 		dex = new Pokedex(this);
 		frame = new JFrame("Pokemon RPI");
 		keymap = new KeyMapper(this);

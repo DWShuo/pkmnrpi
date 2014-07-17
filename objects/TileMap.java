@@ -18,6 +18,7 @@ public class TileMap {
 
 	public int fill = ImageLibrary.DEFAULT_ICON;
 	public int[][] mapdata;
+	public int centerx, centery;
 	public String name;
 
 	public TileMap(int x, int y, String n) {
@@ -69,7 +70,7 @@ public class TileMap {
 	/**
 	 * IMPORTANT: SAVE FILE FORMAT
 	 * 
-	 * [y]:[x]:[]:[].....:[]
+	 * [y]:[x]:[]:[].....:[]|x|y
 	 * 
 	 */
 
@@ -83,7 +84,7 @@ public class TileMap {
 				str += ":" + mapdata[i][j];
 			}
 		}
-		return str;
+		return str + "|" + centerx + "|" + centery + "|" + name;
 	}
 
 	public void save(File file) {
@@ -109,6 +110,13 @@ public class TileMap {
 			in.close();
 		} catch (IOException e) {
 			e.printStackTrace();
+		}
+		if (str.contains("|")) {
+			String[] r = str.split("\\|");
+			centerx = Integer.parseInt(r[1]);
+			centery = Integer.parseInt(r[2]);
+			name = r[3];
+			str = r[0];
 		}
 
 		// Parse map data
@@ -137,6 +145,7 @@ public class TileMap {
 
 	public void buffer_top_rows(int n) {
 		assert n > 0;
+		centery += n;
 		int[][] temp = new int[mapdata.length + n][mapdata[0].length];
 		for (int i = 0; i < temp.length; ++i)
 			for (int k = 0; k < temp[0].length; ++k)
@@ -161,6 +170,7 @@ public class TileMap {
 
 	public void buffer_left_cols(int n) {
 		assert n > 0;
+		centerx += n;
 		int[][] temp = new int[mapdata.length][mapdata[0].length + n];
 		for (int i = 0; i < temp.length; ++i)
 			for (int k = 0; k < temp[0].length; ++k)

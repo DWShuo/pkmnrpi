@@ -57,17 +57,14 @@ public class KeyMapper implements KeyListener {
 				background_motion = true;
 		} else if (in == map.get(Person.DOWN)) {
 			direction = Person.DOWN;
-			// Dont move the board if you aren't in the middle.
 			if (player.y > GameBoard.buffer)
 				background_motion = true;
 		} else if (in == map.get(Person.RIGHT)) {
 			direction = Person.RIGHT;
-			// Dont move the board if you aren't in the middle.
 			if (player.x > GameBoard.buffer)
 				background_motion = true;
 		} else if (in == map.get(Person.LEFT)) {
 			direction = Person.LEFT;
-			// Dont move the board if you aren't in the middle.
 			if (player.x < board.map.mapdata[0].length - GameBoard.buffer)
 				background_motion = true;
 		} else

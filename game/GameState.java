@@ -1,7 +1,5 @@
 package game;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.util.ArrayList;
 
 import objects.Backpack;
@@ -10,6 +8,8 @@ import animations.Clock;
 import pokemon.Pokemon;
 import pokemon.moves.Move;
 import trainers.Trainer;
+import util.FileParser;
+import util.Flag;
 import util.ImageLibrary;
 
 /**
@@ -18,15 +18,19 @@ import util.ImageLibrary;
 public class GameState {
 	public static Clock clock;
 
-	public ArrayList<Pokemon> caught, equip;
+	public ArrayList<Pokemon> stored = new ArrayList<Pokemon>(), team = new ArrayList<Pokemon>();
+	public ArrayList<Trainer> opponents = new ArrayList<Trainer>();
 	public Pokemon enemy, defender;
-	public Backpack pack, items;
+	public Backpack pack;
 	public GameEngine engine;
+	public ScoreCard card;
+	public Trainer self;
 
 	// Initialize new game.
 	public GameState(GameEngine e) {
 		engine = e;
 		clock = new Clock();
+		load("src/saves/default.save");
 	}
 
 	// Load save game
@@ -37,52 +41,96 @@ public class GameState {
 
 	// load save from file.
 	public void load(String filename) {
-		ArrayList<ArrayList<String>> data = new ArrayList<ArrayList<String>>();
-		try {
-			BufferedReader br = new BufferedReader(new FileReader(filename));
-			String line;
-			ArrayList<String> lst = new ArrayList<String>();
-			while ((line = br.readLine()) != null) {
-				if (Pokemon.isUniform(line, '=')) {
-					data.add(lst);
-					lst = new ArrayList<String>();
-				} else
-					lst.add(line);
-			}
-			br.close();
-			loadData(data);
-		} catch (Exception e) {
-			e.printStackTrace();
+		ArrayList<String> data = FileParser.parseFile(filename);
+		int index = 0;
+		String line = data.get(index++ );
+		ArrayList<String> ary = new ArrayList<String>();
+		while (!Pokemon.isUniform(line, '=')) {
+			ary.add(line);
+			line = data.get(index++ );
 		}
+		opponents = Trainer.loadTrainers(ary);
+		line = data.get(index++ );
+		ary = new ArrayList<String>();
+		while (!Pokemon.isUniform(line, '=')) {
+			ary.add(line);
+			line = data.get(index++ );
+		}
+		loadLocations(ary);
+		line = data.get(index++ );
+		ary = new ArrayList<String>();
+		while (!Pokemon.isUniform(line, '=')) {
+			ary.add(line);
+			line = data.get(index++ );
+		}
+		pack = new Backpack(ary);
+		line = data.get(index++ );
+		ary = new ArrayList<String>();
+		while (!Pokemon.isUniform(line, '=')) {
+			ary.add(line);
+			line = data.get(index++ );
+		}
+		team = Pokemon.loadPokemon(ary);
+		line = data.get(index++ );
+		ary = new ArrayList<String>();
+		while (!Pokemon.isUniform(line, '=')) {
+			ary.add(line);
+			line = data.get(index++ );
+		}
+		stored = Pokemon.loadPokemon(ary);
+		line = data.get(index++ );
+		ary = new ArrayList<String>();
+		while (!Pokemon.isUniform(line, '=')) {
+			ary.add(line);
+			line = data.get(index++ );
+		}
+		card = new ScoreCard(ary);
+		;
+		line = data.get(index++ );
+		ary = new ArrayList<String>();
+		while (!Pokemon.isUniform(line, '=')) {
+			ary.add(line);
+			line = data.get(index++ );
+		}
+		initPlayer(ary);
 	}
 
-	// Parse the string save data into a save game
-	public void loadData(ArrayList<ArrayList<String>> data) throws IndexOutOfBoundsException {
-		int index = 0;
-		// Load Trainer Locations
-		ArrayList<String> list = data.get(index++ );
-		loadLocations(list);
-		// Load Item Set
-		list = data.get(index++ );
-		items = new Backpack(list);
-		// Load Your Items
-		list = data.get(index++ );
-		pack = new Backpack(list);
-		// Load Equip Pokemon
-		list = data.get(index++ );
-		equip = Pokemon.loadPokemon(list);
-		// Load Caught Pokemon
-		list = data.get(index++ );
-		caught = Pokemon.loadPokemon(list);
+	public String toString() {
+		String space = "==============\n", all = "";
+		for (Trainer t : opponents)
+			all += t;
+		all += space;
+		for (Flag f : Flag.all_flags)
+			if (f.type == Flag.ITEM)
+				all += f;
+		all += space;
+		all += pack;
+		all += space;
+		for (Pokemon p : team)
+			all += p;
+		all += space;
+		for (Pokemon p : stored)
+			all += p;
+		all += space + card + space;
+		all += self.staticToString();
+		all += space;
+		return all;
+	}
+
+	public void initPlayer(ArrayList<String> info) {
+		self = Trainer.loadTrainers(info).get(0);
+		self.team = team;
 	}
 
 	public void loadLocations(ArrayList<String> data) {
-
+		for (String str : data)
+			new Flag(str);
 	}
 
 	public static void initilize_all() {
 		ImageLibrary.init();
 		TileMap.init();
+		Flag.init();
 		Pokemon.init();
 		Move.init();
 		// signs
