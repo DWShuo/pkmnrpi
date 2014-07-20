@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import objects.Backpack;
 import objects.TileMap;
 import animations.Clock;
+import pokedex.Pokedex;
 import pokemon.Pokemon;
 import pokemon.moves.Move;
 import trainers.Trainer;
@@ -131,10 +132,12 @@ public class GameState {
 		ImageLibrary.init();
 		TileMap.init();
 		Flag.init();
-		Pokemon.init();
 		Move.init();
-		// signs
 		Trainer.init();
+		Pokemon.init();
+		// signs
 		// npcs
+		for (Trainer t : Trainer.all_trainers)
+			t.reloadPokemon();
 	}
 }

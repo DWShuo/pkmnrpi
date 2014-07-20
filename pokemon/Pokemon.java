@@ -16,11 +16,11 @@ public class Pokemon implements PokedexUI {
 	public String name, species, growth_rate, description;
 	public boolean male = true;
 	public int type, t2 = -1;
-	public double height, weight;
+	public double height = 1, weight = 10;
 	public int ID;
-	public Stats stats;
+	public Stats stats = new Stats();
 	public int catch_rate, base_exp, base_happiness;
-	public HashMap<Integer, String> evolutions = new HashMap<Integer, String>();
+	public HashMap<String, String> evolutions = new HashMap<String, String>();
 	public HashMap<Integer, Move> learnset = new HashMap<Integer, Move>();
 	public ArrayList<Move> known_moves = new ArrayList<Move>(), tmset = new ArrayList<Move>();
 
@@ -61,7 +61,7 @@ public class Pokemon implements PokedexUI {
 
 	// Loads all static pokemon info
 	public static void init() {
-		ArrayList<String> info = FileParser.parseFile("src/data/Pokemon_Data.txt");
+		ArrayList<String> info = FileParser.parseFile("src/data/pokemon data.txt");
 		int index = 0;
 		all_pokemon = new Pokemon[251];
 		Pokemon p;
@@ -77,32 +77,60 @@ public class Pokemon implements PokedexUI {
 			} else
 				p.type = getType(types);
 			p.species = info.get(index++ );
-			p.height = Double.parseDouble(info.get(index++ ));
-			p.weight = Double.parseDouble(info.get(index++ ));
-			p.catch_rate = Integer.parseInt(info.get(index++ ));
-			p.base_exp = Integer.parseInt(info.get(index++ ));
+			String str = info.get(index++ );
+			if (isDouble(str))
+				p.height = Double.parseDouble(str);
+			str = info.get(index++ );
+			if (isDouble(str))
+				p.weight = Double.parseDouble(str);
+			str = info.get(index++ );
+			if (isDouble(str))
+				p.catch_rate = Integer.parseInt(str);
+			str = info.get(index++ );
+			if (isDouble(str))
+				p.base_exp = Integer.parseInt(str);
 			p.base_happiness = Integer.parseInt(info.get(index++ ));
 			p.growth_rate = info.get(index++ );
 			p.description = info.get(index++ );
 
-			p.evolutions = new HashMap<Integer, String>();
-			while (!isUniform(info.get(index), '*')) {
-				String[] ar = info.get(index++ ).split(",");
-				p.evolutions.put(Integer.parseInt(ar[0]), ar[1]);
+			p.evolutions = new HashMap<String, String>();
+			str = info.get(index++ );
+			while (!isUniform(str, '*')) {
+				if (str.contains(",")) {
+					String[] ar = str.split(",");
+					p.evolutions.put(ar[1], ar[0]);
+				}
+				str = info.get(index++ );
 			}
 			index++ ;
 			p.learnset = new HashMap<Integer, Move>();
-			while (!isUniform(info.get(index), '*')) {
-				String[] ar = info.get(index++ ).split(",");
-				p.learnset.put(Integer.parseInt(ar[0]), Move.lookup(ar[1]));
+			str = info.get(index++ );
+			while (!isUniform(str, '*')) {
+				if (str.contains(",")) {
+					String[] ar = str.split(",");
+					p.learnset.put(Integer.parseInt(ar[1]), Move.lookup(ar[0]));
+				}
+				str = info.get(index++ );
 			}
 			index++ ;
 			p.tmset = new ArrayList<Move>();
-			while (!isUniform(info.get(index), '*'))
-				p.tmset.add(Move.lookup(info.get(index++ )));
+			str = info.get(index++ );
+			while (!isUniform(str, '*')) {
+				p.tmset.add(Move.lookup(str));
+				str = info.get(index++ );
+			}
 
 			all_pokemon[p.ID - 1] = p;
+			Pokedex.pkmn_lookup.put(p.name.toLowerCase(), p.ID);
 		}
+	}
+
+	private static boolean isDouble(String str) {
+		String good = "1234567890.";
+		for (char c : str.toCharArray())
+			if (!good.contains(c + ""))
+				return false;
+		return true;
 	}
 
 	public void loadMoveSet(ArrayList<String> data) {
@@ -159,6 +187,7 @@ public class Pokemon implements PokedexUI {
 
 	public String toString() {
 		String str = "\n", all = name + str;
+		all += ID + str;
 		for (Move m : known_moves)
 			all += m.name + str;
 		all += "*************\n";
@@ -166,38 +195,76 @@ public class Pokemon implements PokedexUI {
 		return all + "*************\n";
 	}
 
+	public static String getType(int i) {
+		if (i == 0) {
+			return "FIRE";
+		} else if (i == 1) {
+			return "WATER";
+		} else if (i == 2) {
+			return "GRASS";
+		} else if (i == 3) {
+			return "GROUND";
+		} else if (i == 4) {
+			return "ROCK";
+		} else if (i == 5) {
+			return "DARK";
+		} else if (i == 6) {
+			return "GHOST";
+		} else if (i == 7) {
+			return "STEEL";
+		} else if (i == 8) {
+			return "ELECTRIC";
+		} else if (i == 9) {
+			return "FLYING";
+		} else if (i == 10) {
+			return "DRAGON";
+		} else if (i == 11) {
+			return "ICE";
+		} else if (i == 12) {
+			return "PSYCHIC";
+		} else if (i == 13) {
+			return "POISON";
+		} else if (i == 14) {
+			return "FIGHTING";
+		} else if (i == 15) {
+			return "NORMAL";
+		}
+		return "NORMAL";
+	}
+
 	public static int getType(String str) {
-		if (str == "FIRE") {
+		str = str.toUpperCase();
+		if (str.equals("FIRE")) {
 			return 0;
-		} else if (str == "WATER") {
+		} else if (str.equals("WATER")) {
 			return 1;
-		} else if (str == "GRASS") {
+		} else if (str.equals("GRASS")) {
 			return 2;
-		} else if (str == "GROUND") {
+		} else if (str.equals("GROUND")) {
 			return 3;
-		} else if (str == "ROCK") {
+		} else if (str.equals("ROCK")) {
 			return 4;
-		} else if (str == "DARK") {
+		} else if (str.equals("DARK")) {
 			return 5;
-		} else if (str == "GHOST") {
+		} else if (str.equals("GHOST")) {
 			return 6;
-		} else if (str == "STEEL") {
+		} else if (str.equals("STEEL")) {
 			return 7;
-		} else if (str == "ELECTRIC") {
+		} else if (str.equals("ELECTRIC")) {
 			return 8;
-		} else if (str == "FLYING") {
+		} else if (str.equals("FLYING")) {
 			return 9;
-		} else if (str == "DRAGON") {
+		} else if (str.equals("DRAGON")) {
 			return 10;
-		} else if (str == "ICE") {
+		} else if (str.equals("ICE")) {
 			return 11;
-		} else if (str == "PSYCHIC") {
+		} else if (str.equals("PSYCHIC")) {
 			return 12;
-		} else if (str == "POISON") {
+		} else if (str.equals("POISON")) {
 			return 13;
-		} else if (str == "FIGHTING") {
+		} else if (str.equals("FIGHTING")) {
 			return 14;
-		} else if (str == "NORMAL") {
+		} else if (str.equals("NORMAL")) {
 			return 15;
 		}
 		return 15;

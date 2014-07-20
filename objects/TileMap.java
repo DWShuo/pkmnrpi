@@ -182,6 +182,6 @@ public class TileMap {
 	}
 
 	public static void init() {
-		new TileMap("src/default.map", "default");
+		new TileMap("src/default.map", "Pallet Town");
 	}
 }

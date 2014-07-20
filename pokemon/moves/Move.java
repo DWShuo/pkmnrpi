@@ -63,7 +63,7 @@ public class Move implements Comparable<Move> {
 	public static ArrayList<Move> loadAll(ArrayList<String> data) {
 		ArrayList<Move> all = new ArrayList<Move>();
 		for (String str : data)
-			all.add(lookup(Integer.parseInt(str)));
+			all.add(lookup(str));
 		return all;
 	}
 

@@ -38,7 +38,6 @@ public class ScoreCard {
 			badges.add(line);
 			line = data.get(index++ );
 		}
-		line = data.get(index++ );
 	}
 
 	public String toString() {

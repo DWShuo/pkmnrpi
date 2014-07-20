@@ -1,28 +1,6 @@
-Juggler
-Pallet Town
--15,23
-East
--14,23
--13,23
--12,23
-+++++++++++
-Juggler
-Pallet Town
--15,23
-East
--14,23
--13,23
--12,23
-+++++++++++
 ===========
-Potion
-Pallet Town
-10,20
-++++++++++++
-Super Potion
-Pallet Town
-11,21
-++++++++++++
+Pallet Town,10,20,2,Potion
+Super Potion,11,21,2,Pallet Town
 ============
 Flamethrower
 ++++++++++++
@@ -41,7 +19,7 @@ Charcoal,1
 Key Card,1
 ++++++++++++
 ============
-Charzard
+Charizard
 Flamethrower
 Steel Wing
 Earthquake
@@ -57,6 +35,7 @@ Dragon Rage
 420
 133160
 80
+0
 0
 *******************
 ============
@@ -75,6 +54,7 @@ Hyper Fang
 420
 133160
 80
+0
 0
 *******************
 ============
@@ -95,8 +75,9 @@ Youngster
 Water
 ++++++++++
 =============
+Default
 Pallet Town
-0,0
+2,2
 South
 ++++++++++
 =============

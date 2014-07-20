@@ -69,7 +69,7 @@ public class KeyMapper implements KeyListener {
 				background_motion = true;
 		} else
 			return;
-		player.set_direction(direction);
+		player.setDirection(direction);
 		// Check for obstruction
 		if (!board.canMove(direction)) {
 			board.foreground.repaint();

@@ -23,9 +23,10 @@ public class Ball extends Item {
 		ArrayList<Ball> b = new ArrayList<Ball>();
 		int count = 0;
 		while (count < data.size()) {
+			String[] ary = data.get(count++ ).split(",");
 			ArrayList<String> temp = new ArrayList<String>();
-			temp.add(data.get(count++ ));
-			temp.add(data.get(count++ ));
+			temp.add(ary[0]);
+			temp.add(ary[1]);
 			b.add(new Ball(temp));
 		}
 		return b;

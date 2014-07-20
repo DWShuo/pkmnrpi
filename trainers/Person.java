@@ -7,12 +7,14 @@ import java.util.ArrayList;
 
 import animations.Sprite;
 import objects.Thing;
+import objects.TileMap;
 
 public class Person extends Thing {
 	public static final int UP = 0, DOWN = 1, RIGHT = 2, LEFT = 3;
 	public String name, intro;
-	public ArrayList<String> dialog;
+	public ArrayList<String> dialog = new ArrayList<String>();
 	public Sprite sprite;
+	public TileMap map;
 	public BufferedImage[] walk, bike;
 	public int animation_flag, cash;
 	public boolean male;
@@ -26,13 +28,31 @@ public class Person extends Thing {
 	public void setLocation(int x, int y) {
 		this.x = x;
 		this.y = y;
-		sprite.x = x * GameBoard.tsize;
-		sprite.y = y * GameBoard.tsize;
+		int offx = 0, offy = 0;
+		if (map != null) {
+			offx = map.centerx;
+			offy = map.centery;
+		}
+		sprite.x = (x + offx) * GameBoard.tsize;
+		sprite.y = (y + offy) * GameBoard.tsize;
 	}
 
-	public void set_direction(int d) {
+	public void setDirection(int d) {
 		direction = d;
 		int[] lookup = { 7, 4, 0, 2 };
 		sprite.setImage(walk[lookup[direction]]);
+	}
+
+	public void setDirection(String str) {
+		str = str.toUpperCase();
+		if (str.equals("NORTH")) {
+			direction = UP;
+		} else if (str.equals("SOUTH")) {
+			direction = DOWN;
+		} else if (str.equals("EAST")) {
+			direction = RIGHT;
+		} else if (str.equals("WEST")) {
+			direction = LEFT;
+		}
 	}
 }

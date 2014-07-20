@@ -1,0 +1,43 @@
+Default
+Male
+100
+Hi
+Bye
+Bye
+Pallet Town
+0,0
+South
++++++++++++
++++++++++++
+Juggler
+Male
+500
+Victory shall be mine!
+Victory was inevitable.
+You have won this time…
+Pallet Town
+-15,23
+East
+Oh, it is you again.
+You can’t escape me!
++++++++++++
+Charizard
+Flamethrower
+Steel Wing
+Earthquake
+Dragon Rage
+****************
+134
+34
+120
+100
+145
+90
+110
+420
+133160
+80
+0
+0
+*******************
++++++++++++

@@ -3,15 +3,17 @@ package trainers;
 import java.util.ArrayList;
 
 import objects.Point;
+import objects.TileMap;
 import pokemon.Pokemon;
 import util.FileParser;
 
 public class Trainer extends Person {
-	public static ArrayList<Trainer> all_trainers;
+	public static ArrayList<Trainer> all_trainers = new ArrayList<Trainer>();
 
 	public String victory_outro, defeat_outro;
-	public ArrayList<Point> vision = new ArrayList<Point>();;
+	public ArrayList<Point> vision = new ArrayList<Point>();
 	public ArrayList<Pokemon> team = new ArrayList<Pokemon>();
+	private ArrayList<String> team_data = new ArrayList<String>();
 
 	public Trainer() {}
 
@@ -49,10 +51,11 @@ public class Trainer extends Person {
 		while (index < data.size()) {
 			Trainer t = new Trainer(data.get(index++ ));
 			t.mapname = data.get(index++ );
+			t.map = TileMap.MAPS.get(t.mapname);
 			String[] ary = data.get(index++ ).split(",");
 			t.x = Integer.parseInt(ary[0]);
 			t.y = Integer.parseInt(ary[1]);
-			t.direction = Integer.parseInt(data.get(index++ ));
+			t.setDirection(data.get(index++ ));
 			String line = data.get(index++ );
 			while (!Pokemon.isUniform(line, '+')) {
 				String[] a = line.split(",");
@@ -103,21 +106,22 @@ public class Trainer extends Person {
 			String[] ary = data.get(index++ ).split(",");
 			t.x = Integer.parseInt(ary[0]);
 			t.y = Integer.parseInt(ary[1]);
-			t.direction = Integer.parseInt(data.get(index++ ));
+			t.setDirection(data.get(index++ ));
 			String line = data.get(index++ );
 			while (!Pokemon.isUniform(line, '+')) {
 				t.dialog.add(line);
 				line = data.get(index++ );
 			}
 			line = data.get(index++ );
-			ArrayList<String> all = new ArrayList<String>();
 			while (!Pokemon.isUniform(line, '+')) {
-				all.add(line);
+				t.team_data.add(line);
 				line = data.get(index++ );
 			}
-			t.team = Pokemon.loadPokemon(all);
-			index++ ;
 			all_trainers.add(t);
 		}
+	}
+
+	public void reloadPokemon() {
+		team = Pokemon.loadPokemon(team_data);
 	}
 }

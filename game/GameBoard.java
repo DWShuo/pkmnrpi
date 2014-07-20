@@ -70,6 +70,10 @@ public class GameBoard extends JScrollPane implements KeyListener {
 	public boolean canMove(int direction) {
 		int x = player.x;
 		int y = player.y;
+		if (x < 0 || y < 0)
+			return false;
+		if (x > map.mapdata[0].length || y > map.mapdata.length)
+			return false;
 		if (direction == Person.UP) {
 			y-- ;
 		} else if (direction == Person.DOWN) {
@@ -117,14 +121,14 @@ public class GameBoard extends JScrollPane implements KeyListener {
 
 	public void movePanel(int xmove, int ymove) {
 		Point pt = viewport.getViewPosition();
-		// int maxxextend = map.mapdata[0].length * tsize - tilew * tsize, maxyextend = map.mapdata.length * tsize - tileh * tsize;
+		int maxxextend = map.mapdata[0].length * tsize - tilew * tsize, maxyextend = map.mapdata.length * tsize - tileh * tsize;
 		pt.x += xmove;
 		pt.y += ymove;
 
-		// pt.x = Math.max(0, pt.x);
-		// pt.x = Math.min(maxxextend, pt.x);
-		// pt.y = Math.max(0, pt.y);
-		// pt.y = Math.min(maxyextend, pt.y);
+		pt.x = Math.max(0, pt.x);
+		pt.x = Math.min(maxxextend, pt.x);
+		pt.y = Math.max(0, pt.y);
+		pt.y = Math.min(maxyextend, pt.y);
 
 		viewport.setViewPosition(pt);
 	}
