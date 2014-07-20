@@ -89,11 +89,11 @@ public class Pokedex extends JPanel implements Searchable {
 		else
 			id-- ;
 		portrait.setIcon(new ImageIcon("src/tilesets/pokemon_sprites/" + next.name.toLowerCase() + ".jpg"));
-		name.set_text(str);
+		name.labels.setText(next.name);
 		String type = Pokemon.getType(next.type) + (next.t2 >= 0 ? "/" + Pokemon.getType(next.t2) : "");
 		String[] data = { next.ID + "", type, next.height + "", next.weight + "", next.catch_rate + "" };
-		info.set_all_text(data);
-		maintext.set_text(next.description, 50);
+		info.setText(data);
+		maintext.text.setText(next.description, 50);
 	}
 
 	// Returns the instance of the pokemon that the text names.
@@ -102,6 +102,6 @@ public class Pokedex extends JPanel implements Searchable {
 		// System.out.println(name + " " + result);
 		if (result == null)
 			return null;
-		return Pokemon.all_pokemon[result];
+		return Pokemon.all_pokemon[result - 1];
 	}
 }

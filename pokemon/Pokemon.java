@@ -125,6 +125,16 @@ public class Pokemon implements PokedexUI {
 		}
 	}
 
+	public String staticToString() {
+		String all = "", str = "\n";
+		all += ID + str + name + str + getType(type);
+		if (t2 > 0)
+			all += "/" + getType(t2);
+		all += str + species + str + height + str + weight + str + catch_rate + str;
+		all += base_happiness + str + growth_rate + str + description + str;
+		return all;
+	}
+
 	private static boolean isDouble(String str) {
 		String good = "1234567890.";
 		for (char c : str.toCharArray())

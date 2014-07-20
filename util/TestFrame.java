@@ -53,7 +53,7 @@ public class TestFrame extends JFrame {
 	}
 	
 	public static void main(String[] args) {
-		Image i = new ImageIcon("src/green.png").getImage();
+		Image i = new ImageIcon("src/tilesets/pokedex_background.png").getImage();
 		int w = i.getWidth(null);
 		int h = i.getHeight(null);
 		BufferedImage im = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);

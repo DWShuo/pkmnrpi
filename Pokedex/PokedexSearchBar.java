@@ -19,18 +19,17 @@ import util.ImageLibrary;
 import util.panels.PatternPanel;
 
 /**
- * This class is in charge of listening to and animating the search bar of the
- * pokedex.
+ * This class is in charge of listening to and animating the search bar of the pokedex.
  */
 public class PokedexSearchBar extends JPanel implements KeyListener, PokedexUI, MouseListener, ActionListener {
-	public static final int pixel_height = 22;
+	public static final int pixel_height = TSIZE.height + 8;
 	public static final String default_message = "Click here to search";
 
 	private JLabel[] text;
 	private int max, idx;
 	private Pokedex pokedex;
 	private String current = "";
-	public int color = ImageLibrary.black;
+	public int color = ImageLibrary.BLACK;
 	public PatternPanel background = new PatternPanel(0);
 	public Timer time;
 	public boolean flicker;
@@ -39,8 +38,8 @@ public class PokedexSearchBar extends JPanel implements KeyListener, PokedexUI, 
 		super();
 		time = new Timer(300, this);
 		pokedex = s;
-		max = width / 7 - 4;
-		int gap = (width - 7 * max) / 2;
+		max = width / TSIZE.width - 4;
+		int gap = (width - TSIZE.width * max) / 2;
 		// Count is the number of digets that can be displayed.
 		assert (max > 0);
 		setLayout(null);
@@ -54,7 +53,7 @@ public class PokedexSearchBar extends JPanel implements KeyListener, PokedexUI, 
 
 		text = new JLabel[max];
 		for (int i = 0; i < max; ++i) {
-			text[i] = new JLabel(blank);
+			text[i] = new JLabel(ImageLibrary.blank);
 			center.add(text[i]);
 		}
 		add(center);
@@ -78,7 +77,9 @@ public class PokedexSearchBar extends JPanel implements KeyListener, PokedexUI, 
 			// System.out.println("BACKSPACE");
 			if (idx <= 0)
 				return;
-			text[--idx].setIcon(blank);
+			text[ --idx].setIcon(ImageLibrary.blank);
+			if (idx + 1 < text.length)
+				text[idx + 1].setIcon(ImageLibrary.blank);
 			current = current.substring(0, current.length() - 1);
 		}
 		char c = e.getKeyChar();
@@ -89,7 +90,7 @@ public class PokedexSearchBar extends JPanel implements KeyListener, PokedexUI, 
 		if (idx >= max - 1)
 			return;
 		// new TestFrame(ImageLibrary.text[color][index]);
-		text[idx++].setIcon(ImageLibrary.text[color][index]);
+		text[idx++ ].setIcon(ImageLibrary.text[color][index]);
 		current += c;
 	}
 
@@ -98,7 +99,7 @@ public class PokedexSearchBar extends JPanel implements KeyListener, PokedexUI, 
 		current = "";
 		idx = 0;
 		for (JLabel l : text)
-			l.setIcon(blank);
+			l.setIcon(ImageLibrary.blank);
 	}
 
 	// This gains the key focus from the game engine, as well
@@ -126,15 +127,13 @@ public class PokedexSearchBar extends JPanel implements KeyListener, PokedexUI, 
 		current = default_message;
 		for (char c : default_message.toCharArray()) {
 			int index = valid_chars.indexOf(c);
-			text[idx++].setIcon(ImageLibrary.text[color][index]);
+			text[idx++ ].setIcon(ImageLibrary.text[color][index]);
 		}
 	}
 
-	public void keyReleased(KeyEvent e) {
-	}
+	public void keyReleased(KeyEvent e) {}
 
-	public void keyTyped(KeyEvent e) {
-	}
+	public void keyTyped(KeyEvent e) {}
 
 	public static void main(String[] args) {
 		new GameEngine();
@@ -143,9 +142,9 @@ public class PokedexSearchBar extends JPanel implements KeyListener, PokedexUI, 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		if (flicker)
-			text[idx].setIcon(black);
+			text[idx].setIcon(ImageLibrary.black);
 		else
-			text[idx].setIcon(blank);
+			text[idx].setIcon(ImageLibrary.blank);
 		flicker = !flicker;
 	}
 
@@ -156,18 +155,14 @@ public class PokedexSearchBar extends JPanel implements KeyListener, PokedexUI, 
 	}
 
 	@Override
-	public void mouseEntered(MouseEvent arg0) {
-	}
+	public void mouseEntered(MouseEvent arg0) {}
 
 	@Override
-	public void mouseExited(MouseEvent arg0) {
-	}
+	public void mouseExited(MouseEvent arg0) {}
 
 	@Override
-	public void mousePressed(MouseEvent arg0) {
-	}
+	public void mousePressed(MouseEvent arg0) {}
 
 	@Override
-	public void mouseReleased(MouseEvent arg0) {
-	}
+	public void mouseReleased(MouseEvent arg0) {}
 }

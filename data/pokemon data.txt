@@ -1921,7 +1921,7 @@ Dopey Pokemon
 99
 70
 Medium Fast
-It lazes vacantly near water. If something bites its tail, it won't even notice for a whole day.
+It lazes vacantly near water. If something bites its tail, it will not even notice for a whole day.
 Slowpoke,0
 Slowbro,37
 Slowking,Kingsrock

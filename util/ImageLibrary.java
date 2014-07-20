@@ -1,6 +1,7 @@
 package util;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -16,6 +17,8 @@ import pokedex.PokedexUI;
 public class ImageLibrary extends Library {
 	public static ImageIcon[] icons, front_sprites, back_sprites, small_sprites;
 	public static ImageIcon[][] text;
+	public static ImageIcon blank = ImageLibrary.getSolidColor(Color.white, 7, 14);
+	public static ImageIcon black = ImageLibrary.getSolidColor(Color.black, 7, 14);
 	public static int[] pixel_width = { 16, 16, 16, 16, 56, 56 };
 	public static int[] start_counts = { 0, 700, 1137, 1304 };
 	public static int[] icon_counts = { 699, 437, 167, 290, 250, 250 };
@@ -37,6 +40,20 @@ public class ImageLibrary extends Library {
 
 	public static ImageIcon getSolidColor(Color c, int w, int h) {
 		return new ImageIcon(bufferSolidColor(c, w, h));
+	}
+
+	public static ImageIcon getScaledIcon(ImageIcon i, int w, int h) {
+		return new ImageIcon(i.getImage().getScaledInstance(w, h, Image.SCALE_SMOOTH));
+	}
+
+	public static void scaleText(int w, int h) {
+		PokedexUI.TSIZE.width = w;
+		PokedexUI.TSIZE.height = h;
+		blank = getSolidColor(Color.white, w, h);
+		black = getSolidColor(Color.black, w, h);
+		for (ImageIcon[] ar : text)
+			for (int i = 0; i < ar.length; ++i)
+				ar[i] = getScaledIcon(ar[i], w, h);
 	}
 
 	// This method is used to ensure transparency for sprites and animations.
@@ -150,8 +167,10 @@ public class ImageLibrary extends Library {
 			for (int j = 64; j < 68; ++j) {
 				text[i][c++ ] = new ImageIcon(font[j]);
 			}
-			text[i][68] = PokedexUI.blank;
+			text[i][68] = blank;
 		}
+
+		scaleText(8, 16);
 
 		// Load player sprites
 		im = (new ImageIcon("src/tilesets/player_motion.png")).getImage();

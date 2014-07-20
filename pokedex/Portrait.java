@@ -1,42 +1,42 @@
 package pokedex;
 
 import java.awt.Dimension;
-import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.image.BufferedImage;
 
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import objects.LayeredPanel;
 
 public class Portrait extends JPanel {
 	private static final ImageIcon icon = new ImageIcon("src/tilesets/pokedex_background.png");
-	public BufferedImage image;
+	public LayeredPanel pan;
+	private JPanel panel;
+	private JLabel label;
 	public int width, height;
 
 	public Portrait(int x, int y) {
 		width = x;
 		height = y;
-		image = new BufferedImage(x, y, BufferedImage.TYPE_INT_ARGB);
 		Dimension d = new Dimension(x, y);
 		setSize(d);
 		setPreferredSize(d);
 		setMaximumSize(d);
 		setMinimumSize(d);
-		setImage(icon.getImage());
-	}
-
-	public void paint(Graphics g) {
-		super.paintComponents(g);
-		g.drawImage(image, 0, 0, null);
+		panel = new JPanel();
+		panel.setOpaque(false);
+		pan = new LayeredPanel(new ImageIcon(icon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH)), panel);
+		add(pan);
+		setIcon(icon);
 	}
 
 	public void setIcon(ImageIcon i) {
-		setImage(i.getImage());
-	}
-
-	public void setImage(Image i) {
-		i = i.getScaledInstance(width, height, Image.SCALE_SMOOTH);
-		image.getGraphics().drawImage(i, 0, 0, null);
-		repaint();
+		Image image = i.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
+		label = new JLabel(new ImageIcon(image));
+		label.setAlignmentX(JLabel.CENTER_ALIGNMENT);
+		label.setAlignmentY(JLabel.CENTER_ALIGNMENT);
+		panel.removeAll();
+		panel.add(label);
 	}
 }
