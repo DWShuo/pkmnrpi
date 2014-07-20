@@ -449,7 +449,7 @@ Tiny Bird Pokemon
 255
 55
 Medium Slow
-Growth Rate
+Medium Slow
 A common sight in forests and woods. It flaps its wings at ground level to kick up blinding sand.
 Pidgey,0
 Pidgeotto,18
@@ -738,3 +738,4138 @@ Swagger
 Sleep Talk
 Substitute
 **************
+17
+Rattata
+Normal
+Mouse Pokemon
+.3
+3.5
+255
+57
+70
+Medium Fast
+Bites anything when it attacks. Small and very quick, it is a common sight in many places.
+Rattata,0
+Raticate,20
+*************
+Tackle,1
+*************
+Return
+*************
+18
+Raticate
+Normal
+Mouse Pokemon
+.71
+18.5
+127
+116
+70
+Medium Fast
+Gnaws on anything with its tough fangs. It can even topple concrete buildings by gnawing on them.
+Rattata,0
+Raticate,20
+*************
+Tackle,1
+*************
+Return
+*************
+19
+Sentret
+Normal
+Scout Pokemon
+.79
+6
+255
+57
+70
+Medium Fast
+It stands on its tail so it can see a long way. If it spots an enemy, it cries loudly to warn its kind.
+Sentret,0
+Furret,15
+*************
+Tackle,1
+*************
+Return
+*************
+20
+Furret
+Normal
+Long Body Pokemon
+1.8
+32.5
+90
+116
+70
+Medium Fast
+It lives in narrow burrows that fit its slim body. The deeper the nests go, the more mazelike they become.
+Sentret,0
+Furret,15
+*************
+Tackle,1
+*************
+Return
+*************
+21
+Pichu
+Electric
+Tiny Mouse Pokemon
+.3
+2
+190
+80
+80
+Medium Fast
+It is unskilled at storing electric power. Any kind of shock causes it to discharge energy spontaneously.
+Pichu,0
+Pikachu,20
+Raichu,Thunderstone
+*************
+Tackle,1
+*************
+Return
+*************
+22
+Pikachu
+Electric
+Mouse Pokemon
+.41
+6
+190
+85
+70
+Medium Fast
+When it is angered, it immediately discharges the energy stored in the pouches in its cheeks.
+Pichu,0
+Pikachu,20
+Raichu,Thunderstone
+*************
+Tackle,1
+*************
+Return
+*************
+23
+Raichu
+Electric
+Mouse Pokemon
+.79
+30
+75
+122
+70
+Medium Fast
+Its long tail serves as a ground to protect itself from its own high voltage power.
+Pichu,0
+Pikachu,20
+Raichu,Thunderstone
+*************
+Tackle,1
+*************
+Return
+*************
+24
+Caterpie
+Bug
+Worm Pokemon
+.3
+2.9
+255
+53
+70
+Medium Fast
+Its short feet are tipped with suction pads that enable it to tirelessly climb slopes and walls.
+Caterpie,0
+Metapod,7
+Butterfree,10
+*************
+Tackle,1
+*************
+Return
+*************
+25
+Metapod
+Bug
+Cocoon Pokemon
+.71
+9.9
+120
+72
+70
+Medium Fast
+Inside the shell, it is soft and weak as it prepares to evolve. It stays motionless in the shell.
+Caterpie,0
+Metapod,7
+Butterfree,10
+*************
+Tackle,1
+*************
+Return
+*************
+26
+Butterfree
+Bug/Flying
+Butterfly Pokemon
+1.09
+32
+45
+160
+70
+Medium Fast
+In battle, it flaps its wings at high speed to release highly toxic dust into the air.
+Caterpie,0
+Metapod,7
+Butterfree,10
+*************
+Tackle,1
+*************
+Return
+*************
+27
+Weedle
+Bug/Poison
+Hairy Bug Pokemon
+.3
+3.2
+255
+52
+70
+Medium Fast
+Beware of the sharp stinger on its head. It hides in grass and bushes where it eats leaves.
+Weedle,0
+Kakuna,7
+Beedrill,10
+*************
+Tackle,1
+*************
+Return
+*************
+28
+Kakuna
+Bug/Poison
+Cocoon Pokemon
+.61
+10
+120
+71
+70
+Medium Fast
+Able to move only slightly. When endangered, it may stick out its stinger and poison its enemy.
+Weedle,0
+Kakuna,7
+Beedrill,10
+*************
+Tackle,1
+*************
+Return
+*************
+29
+Beedrill
+Bug/Poison
+Poison Bee Pokemon
+.99
+29.5
+45
+159
+70
+Medium Fast
+It can take down any opponent with its powerful poison stingers. It sometimes attacks in swarms.
+Weedle,0
+Kakuna,7
+Beedrill,10
+*************
+Tackle,1
+*************
+Return
+*************
+30
+Ledyba
+Bug/Flying
+Five Star Pokemon
+.99
+10.8
+255
+54
+70
+Fast
+It is very timid. It will be afraid to move if it is alone. But it will be active if it is in a group.
+Ledyba,0
+Ledian,18
+*************
+Tackle,1
+*************
+Return
+*************
+31
+Ledian
+Bug/Flying
+Five Star Pokemon
+1.4
+35.6
+90
+134
+70
+Fast
+When the stars flicker in the night sky, it flutters about, scattering a glowing powder.
+Ledyba,0
+Ledian,18
+*************
+Tackle,1
+*************
+Return
+*************
+32
+Spinarak
+Bug/Poison
+String Spit Pokemon
+.51
+8.5
+255
+54
+70
+Fast
+It lies still in the same pose for days in its web, waiting for its unsuspecting prey to wander close.
+Spinarak,0
+Ariados,22
+*************
+Tackle,1
+*************
+Return
+*************
+33
+Ariados
+Bug/Poison
+Long Leg Pokemon
+1.09
+33.5
+90
+134
+70
+Fast
+It spins string not only from its rear but also from its mouth. It is hard to tell which end is which.
+Spinarak,0
+Ariados,22
+*************
+Tackle,1
+*************
+Return
+*************
+34
+Geodude
+Rock/Ground
+Rock Pokemon
+.41
+20
+255
+73
+70
+Medium Slow
+It uses its arms to steadily climb steep mountain paths. It swings its fists around if angered.
+Geodude,0
+Graveler,25
+Golem,45
+*************
+Tackle,1
+*************
+Return
+*************
+35
+Graveler
+Rock/Ground
+Rock Pokemon
+1.99
+305
+120
+134
+70
+Medium Slow
+With a free and uncaring nature, it doesn't mind if pieces break off while it rolls down mountains.
+Geodude,0
+Graveler,25
+Golem,45
+*************
+Tackle,1
+*************
+Return
+*************
+36
+Golem
+Rock/Ground
+Megaton Pokemon
+2.4
+450
+45
+187
+70
+Medium Slow
+It is capable of blowing itself up. It uses this explosive force to jump from mountain to mountain.
+Geodude,0
+Graveler,25
+Golem,45
+*************
+Tackle,1
+*************
+Return
+*************
+37
+Zubat
+Poison/Flying
+Bat Pokemon
+.79
+7.5
+255
+54
+70
+Medium Fast
+While flying, it constantly emits ultrasonic waves from its mouth to check its surroundings.
+Zubat,0
+Golbat,22
+Crobat,38
+*************
+Tackle,1
+*************
+Return
+*************
+38
+Golbat
+Poison/Flying
+Bat Pokemon
+1.6
+55
+90
+171
+70
+Medium Fast
+However hard its victim's hide may be, it punctures with sharp fangs and gorges itself with blood.
+Zubat,0
+Golbat,22
+Crobat,38
+*************
+Tackle,1
+*************
+Return
+*************
+39
+Crobat
+Poison/Flying
+Bat Pokemon
+1.8
+75
+90
+204
+70
+Medium Fast
+t flies so silently through the dark on its four wings that it may not be noticed even when nearby.
+Zubat,0
+Golbat,22
+Crobat,38
+*************
+Tackle,1
+*************
+Return
+*************
+40
+Cleffa
+Normal
+Star Shape Pokemon
+.3
+3
+150
+37
+140
+Fast
+Because of its unusual, star like silhouette, people believe that it came here on a meteor.
+Cleffa,0
+Clefairy,16
+Clefable,Moonstone
+*************
+Tackle,1
+*************
+Return
+*************
+41
+Clefairy
+Normal
+Fairy Pokemon
+.61
+7.5
+150
+68
+140
+Fast
+The moonlight that it stores in the wings on its back apparently gives it the ability to float in midair.
+Cleffa,0
+Clefairy,16
+Clefable,Moonstone
+*************
+Tackle,1
+*************
+Return
+*************
+42
+Clefable
+Normal
+Fairy Pokemon
+1.3
+40
+25
+129
+140
+Fast
+With its acute hearing, it can pick up sounds from far away. It usually hides in quiet places.
+Cleffa,0
+Clefairy,16
+Clefable,Moonstone
+*************
+Tackle,1
+*************
+Return
+*************
+43
+Igglybuff
+Normal
+Balloon Pokemon
+.3
+1
+170
+39
+70
+Fast
+It has a very soft body. If it starts to roll, it will bounce all over and be impossible to stop.
+Igglybuff,0
+Jigglypuff,18
+Wigglytuf,Moonstone
+*************
+Tackle,1
+*************
+Return
+*************
+44
+Jigglypuff
+Normal
+Balloon Pokemon
+.51
+5.5
+170
+76
+70
+Fast
+Uses its alluring eyes to enrapture its foe. It then sings a pleasing melody that lulls the foe to sleep.
+Igglybuff,0
+Jigglypuff,18
+Wigglytuf,Moonstone
+*************
+Tackle,1
+*************
+Return
+*************
+45
+Wigglytuff
+Normal
+Balloon Pokemon
+.99
+12
+50
+109
+70
+Fast
+Their fur feels so good that if two of them snuggle together, they won't want to be separated.
+Igglybuff,0
+Jigglypuff,18
+Wigglytuf,Moonstone
+*************
+Tackle,1
+*************
+Return
+*************
+46
+Togepi
+Normal
+Spike Ball Pokemon
+.3
+1.5
+190
+74
+70
+Fast
+The shell seems to be filled with joy. It is said that it will share good luck when treated kindly.
+Togepi,0
+Togetic,25
+*************
+Tackle,1
+*************
+Return
+*************
+47
+Togetic
+Normal/Flying
+Happiness Pokemon
+.61
+3.2
+75
+114
+70
+Fast
+They say that it will appear before kindhearted, caring people and shower them with happiness.
+Togepi,0
+Togetic,25
+*************
+Tackle,1
+*************
+Return
+*************
+48
+Sandshrew
+Ground
+Mouse Pokemon
+.61
+12
+255
+93
+70
+Medium Fast
+Its body is dry. When it gets cold at night, its hide is said to become coated with a fine dew.
+Sandshrew,0
+Sandslash,22
+*************
+Tackle,1
+*************
+Return
+*************
+49
+Sandslash
+Ground
+Mouse Pokemon
+.99
+29.5
+90
+163
+70
+Medium Fast
+In an attempt to hide itself, it will run around at top speed to kick up a blinding dust storm.
+Sandshrew,0
+Sandslash,22
+*************
+Tackle,1
+*************
+Return
+*************
+50
+Ekans
+Poison
+Snake Pokemon
+2.01
+6.9
+255
+62
+70
+Medium Fast
+It can freely detach its jaw to swallow large prey whole. It can become too heavy to move, however.
+Ekans,0
+Arbok,22
+*************
+Tackle,1
+*************
+Return
+*************
+51
+Arbok
+Poison
+Cobra Pokemon
+3.51
+65
+90
+147
+70
+Medium Fast
+Transfixing prey with the face-like pattern on its belly, it binds and poisons the frightened victim.
+Ekans,0
+Arbok,22
+*************
+Tackle,1
+*************
+Return
+*************
+52
+Dunsparce
+Normal
+Land Snake Pokemon
+1.5
+14
+190
+125
+70
+Medium Fast
+f spotted, it escapes by burrowing with its tail. It can float just slightly using its wings.
+Dunsparce,0
+*************
+Tackle,1
+*************
+Return
+*************
+53
+Mareep
+Electric
+Wool Pokemon
+.61
+7.8
+235
+59
+70
+Medium Slow
+If static electricity builds in its body, its fleece doubles in volume. Touching it will shock you.
+Mareep,0
+Flaaffy,15
+Ampharos,30
+*************
+Tackle,1
+*************
+Return
+*************
+54
+FLaaffy
+Electric
+Wool Pokemon
+.79
+13.3
+120
+117
+70
+Medium Slow
+As a result of storing too much electricity, it developed patches where even downy wool won't grow.
+Mareep,0
+Flaaffy,15
+Ampharos,30
+*************
+Tackle,1
+*************
+Return
+*************
+55
+Ampharos
+Electric/Fighting
+Light Pokemon
+1.4
+61.5
+45
+194
+70
+Medium Slow
+The tail's tip shines brightly and can be seen from far away. It acts as a beacon for lost people.
+Mareep,0
+Flaaffy,15
+Ampharos,30
+*************
+Tackle,1
+*************
+Return
+*************
+56
+Wooper
+Water/Ground
+Water Fish Pokemon
+.41
+8.5
+255
+52
+70
+Medium Fast
+When it walks around on the ground, it coats its body with a slimy, poisonous film.
+Wooper,0
+Quagsire,20
+*************
+Tackle,1
+*************
+Return
+*************
+57
+Quagsire
+Water/Ground
+Water Fish Pokemon
+1.4
+75
+90
+137
+70
+Medium Fast
+Due to its relaxed and carefree attitude, it often bumps its head on boulders and boat hulls as it swims.
+Wooper,0
+Quagsire,20
+*************
+Tackle,1
+*************
+Return
+*************
+58
+Gastly
+Ghost/Poison
+Gas Pokemon
+1.3
+.1
+190
+95
+70
+Medium Slow
+Its thin body is made of gas. It can envelop an opponent of any size and cause suffocation.
+Gastly,0
+Haunter,25
+Gengar,43
+*************
+Tackle,1
+*************
+Return
+*************
+59
+Haunter
+Ghost/Poison
+Gas Pokemon
+1.6
+.1
+90
+126
+70
+By licking, it saps the victim's life. It causes shaking that won't stop until the victim's demise.
+Gastly,0
+Haunter,25
+Gengar,43
+*************
+Tackle,1
+*************
+Return
+*************
+60
+Gengar
+Ghost/Poison
+Shadow Pokemon
+1.5
+40.5
+45
+190
+70
+Medium Slow
+To steal the life of its target, it slips into the prey's shadow and silently waits for an opportunity.
+Gastly,0
+Haunter,25
+Gengar,43
+*************
+Tackle,1
+*************
+Return
+*************
+61
+Unown
+Psychic
+Symbol Pokemon
+.51
+5
+225
+61
+70
+Medium Fast
+Hands down the least interesting, least apealing Pokemon ever. Literally the alphabet soup of mediocrity.
+Unown,0
+*************
+Tackle,1
+*************
+Return
+*************
+62
+Onix
+Rock/Ground
+Rock Snake Pokemon
+8.79
+210
+45
+108
+70
+Medium Fast
+It twists and squirms through the ground. The thunderous roar of its tunneling echoes a long way.
+Onix,0
+Steelix,Metalcoat
+*************
+Tackle,1
+*************
+Return
+*************
+63
+Steelix
+Steel/Ground
+Iron Snake Pokemon
+9.19
+400
+25
+196
+70
+Medium Fast
+Its body has been compressed deep under the ground. As a result, it is even harder than a diamond.
+Onix,0
+Steelix,Metalcoat
+*************
+Tackle,1
+*************
+Return
+*************
+64
+Bellsprout
+Grass/Poison
+Flower Pokemon
+.71
+4
+255
+84
+70
+Medium Slow
+Even though its body is extremely skinny, it is blindingly fast when catching its prey.
+Bellsprout,0
+Weepinbell,21
+Victreebel,Leafstone
+*************
+Tackle,1
+*************
+Return
+*************
+65
+Weepinbell
+Grass/Poison
+Flycatcher Pokemon
+.99
+6.4
+120
+151
+70
+Medium Slow
+When hungry, it swallows anything that moves. Its hapless prey is melted inside by strong acids.
+Bellsprout,0
+Weepinbell,21
+Victreebel,Leafstone
+*************
+Tackle,1
+*************
+Return
+*************
+66
+Victreebel
+Grass/Poison
+Flycatcher Pokemon
+1.7
+15.5
+45
+191
+70
+Medium Slow
+ures prey with the sweet aroma of honey. Swallowed whole, the prey is melted in a day, bones and all.
+Bellsprout,0
+Weepinbell,21
+Victreebel,Leafstone
+*************
+Tackle,1
+*************
+Return
+*************
+67
+Hoppip
+Grass/Flying
+Cottonweed Pokemon
+.41
+.5
+255
+74
+70
+Medium Slow
+To keep from being blown away by the wind, they gather in clusters. They do enjoy gentle breezes, though.
+Hoppip,0
+Skiploom,18
+Jumpluff,27
+*************
+Tackle,1
+*************
+Return
+*************
+68
+Skiploom
+Grass/Flying
+Cottonweed Pokemon
+.61
+1
+120
+136
+70
+Medium Slow
+he bloom on top of its head opens and closes as the temperature fluctuates up and down.
+Hoppip,0
+Skiploom,18
+Jumpluff,27
+*************
+Tackle,1
+*************
+Return
+*************
+69
+Jumpluff
+Grass/Flying
+Cottonweed Pokemon
+.79
+3
+45
+176
+70
+Medium Slow
+Once it catches the wind, it deftly controls its cotton-puff spores to float, even around the world.
+Hoppip,0
+Skiploom,18
+Jumpluff,27
+*************
+Tackle,1
+*************
+Return
+*************
+70
+Paras
+Bug/Grass
+Mushroom Pokemon
+.3
+5.4
+190
+70
+70
+Medium Fast
+t is doused with mushroom spores when it is born. As its body grows, mushrooms sprout from its back.
+Paras,0
+Parasect,24
+*************
+Tackle,1
+*************
+Return
+*************
+71
+Parasect
+Bug/Grass
+Mushroom Pokemon
+.99
+29.5
+75
+128
+70
+Medium Fast
+It stays mostly in dark, damp places, the preference not of the bug, but of the big mushrooms on its back.
+Paras,0
+Parasect,24
+*************
+Tackle,1
+*************
+Return
+*************
+72
+Poliwag
+Water
+Tadpole Pokemon
+.61
+12.4
+255
+70
+Medium Slow
+Because it is inept at walking on its newly grown legs, it always swims around in water.
+Poliwag,0
+Poliwhirl,25
+Poliwrath,Waterstone
+Politoad,Kingsrock
+*************
+Tackle,1
+*************
+Return
+*************
+73
+Poliwhirl
+Water
+Tadpole Pokemon
+.99
+20
+120
+130
+70
+Medium Slow
+The swirl on its belly subtly undulates. Staring at it may gradually cause drowsiness.
+Poliwag,0
+Poliwhirl,25
+Poliwrath,Waterstone
+Politoad,Kingsrock
+*************
+Tackle,1
+*************
+Return
+*************
+74
+Poliwrath
+Water/Fighting
+Tadpole Pokemon
+1.3
+54
+45
+185
+70
+Medium Slow
+This strong and skilled swimmer is even capable of crossing the Pacific Ocean just by kicking.
+Poliwag,0
+Poliwhirl,25
+Poliwrath,Waterstone
+Politoad,Kingsrock
+*************
+Tackle,1
+*************
+Return
+*************
+75
+Politoed
+Water
+Frog Pokemon
+1.09
+33.9
+45
+185
+70
+Medium Slow
+Whenever three or more of these get together, they sing in a loud voice that sounds like bellowing.
+Poliwag,0
+Poliwhirl,25
+Poliwrath,Waterstone
+Politoad,Kingsrock
+*************
+Tackle,1
+*************
+Return
+*************
+76
+Magikarp
+Water
+Fish Pokemon
+.89
+10
+255
+20
+70
+Slow
+Famous for being very unreliable. It can be found swimming in seas, lakes, rivers and shallow puddles.
+Magikarp,0
+Gyarados,20
+*************
+Tackle,1
+*************
+Return
+*************
+77
+Gyarados
+Water/Flying
+Atrocious Pokemon
+6.5
+235
+45
+214
+70
+Slow
+Once it appears, it goes on a rampage. It remains enraged until it demolishes everything around it.
+Magikarp,0
+Gyarados,20
+*************
+Tackle,1
+*************
+Return
+*************
+78
+Goldeen
+Water
+Goldfish Pokemon
+.61
+15
+225
+111
+70
+Medium Fast
+Its dorsal, pectoral and tail fins wave elegantly in water. That is why it is known as the water dancer.
+Goldeen,0
+Seaking,33
+*************
+Tackle,1
+*************
+Return
+*************
+79
+Seaking
+Water
+Goldfish Pokemon
+1.3
+39
+60
+170
+70
+Medium Fast
+Using its horn, it bores holes in riverbed boulders, making nests to prevent its eggs from washing away.
+Goldeen,0
+Seaking,33
+*************
+Tackle,1
+*************
+Return
+*************
+80
+Slowpoke
+Water/Psychic
+Dopey Pokemon
+1.19
+36
+190
+99
+70
+Medium Fast
+It lazes vacantly near water. If something bites its tail, it won't even notice for a whole day.
+Slowpoke,0
+Slowbro,37
+Slowking,Kingsrock
+*************
+Tackle,1
+*************
+Return
+*************
+81
+Slowbro
+Water/Psychic
+Hermit Crab Pokemon
+1.6
+78.5
+75
+164
+70
+Medium Fast
+Lives lazily by the sea. If the SHELLDER on its tail comes off, it becomes a SLOWPOKE again.
+Slowpoke,0
+Slowbro,37
+Slowking,Kingsrock
+*************
+Tackle,1
+*************
+Return
+*************
+82
+Slowking
+Water/Psychic
+Royal Pokemon
+2.01
+79.5
+70
+164
+70
+Medium Fast
+It has incredible intellect and intuition. Whatever the situation, it remains calm and collected.
+Slowpoke,0
+Slowbro,37
+Slowking,Kingsrock
+*************
+Tackle,1
+*************
+Return
+*************
+83
+Oddish
+Grass/Poison
+Weed Pokemon
+.51
+5.4
+255
+78
+70
+Medium Slow
+Awakened by moonlight, it roams actively at night. In the day, it stays quietly underground.
+Oddish,0
+Gloom,21
+Vileplume,Leafstone
+Bellossom,Sunstone
+*************
+Tackle,1
+*************
+Return
+*************
+84
+Gloom
+Grass/Poison
+Weed Pokemon
+.79
+8.6
+120
+132
+70
+Medium Slow
+What appears to be drool is actually sweet honey. It is very sticky and clings stubbornly if touched.
+Oddish,0
+Gloom,21
+Vileplume,Leafstone
+Bellossom,Sunstone
+*************
+Tackle,1
+*************
+Return
+*************
+85
+Vileplume
+Grass/Poison
+Flower Pokemon
+1.19
+18.6
+45
+184
+70
+Medium Slow
+It has the world's largest petals. With every step, the petals shake out heavy clouds of toxic pollen.
+Oddish,0
+Gloom,21
+Vileplume,Leafstone
+Bellossom,Sunstone
+*************
+Tackle,1
+*************
+Return
+*************
+86
+Bellossom
+Grass
+Flower Pokemon
+.41
+5.8
+45
+184
+70
+Medium Slow
+When these dance together, their petals rub against each other, making pretty, relaxing sounds.
+Oddish,0
+Gloom,21
+Vileplume,Leafstone
+Bellossom,Sunstone
+*************
+Tackle,1
+*************
+Return
+*************
+87
+Drowzee
+Psychic
+Hypnosis Pokemon
+.99
+32.4
+190
+102
+70
+Medium Fast
+If you sleep by it all the time, it will sometimes show you dreams it has eaten in the past.
+Drowzee,0
+Hypno,26
+*************
+Tackle,1
+*************
+Return
+*************
+88
+Hypno
+Psychic
+Hypnosis Pokemon
+1.6
+75.6
+75
+165
+70
+Medium Fast
+When it is very hungry, it puts humans it meets to sleep, then it feasts on their dreams.
+Drowzee,0
+Hypno,26
+*************
+Tackle,1
+*************
+Return
+*************
+89
+Abra
+Psychic
+Psi Pokemon
+.89
+19.5
+200
+75
+70
+Medium Slow
+Sleeps 18 hours a day. If it senses danger, it will teleport itself to safety even as it sleeps.
+Abra,0
+Kadabra,16
+Alakazam,39
+*************
+Tackle,1
+*************
+Return
+*************
+90
+Kadabra
+Psychic
+Psi Pokemon
+1.3
+56.5
+100
+145
+70
+Medium Slow
+It possesses strong spiritual power. The more danger it faces, the stronger its psychic power.
+Abra,0
+Kadabra,16
+Alakazam,39
+*************
+Tackle,1
+*************
+Return
+*************
+91
+Alakazam
+Psychic
+Psi Pokemon
+1.5
+48
+50
+186
+70
+Medium Slow
+Closing both its eyes heightens all its other senses. This enables it to use its abilities to their extremes.
+Abra,0
+Kadabra,16
+Alakazam,39
+*************
+Tackle,1
+*************
+Return
+*************
+92
+Ditto
+Normal
+Transform Pokemon
+.3
+4
+35
+61
+70
+Medium Fast
+It can transform into anything. When it sleeps, it changes into a stone to avoid being attacked.
+Ditto,0
+*************
+Tackle,1
+*************
+Return
+*************
+93
+Pineco
+Bug
+Bagworm Pokemon
+.61
+7.2
+190
+60
+70
+Medium Fast
+It likes to make its shell thicker by adding layers of tree bark. The additional weight doesn't bother it.
+Pineco,0
+Forretress,31
+*************
+Tackle,1
+*************
+Return
+*************
+94
+Forretress
+Bug/Steel
+Bagworm Pokemon
+1.19
+125.8
+75
+118
+70
+Medium Slow
+ts entire body is shielded by a steel-hard shell. What lurks inside the armor is a total mystery.
+Pineco,0
+Forretress,31
+*************
+Tackle,1
+*************
+Return
+*************
+95
+Nitorana
+Poison
+Poison Pin Pokemon
+.41
+7
+235
+59
+70
+Medium Slow
+The poison hidden in its small horn is extremely potent. Even a tiny scratch can have fatal results.
+Nidorana,0
+Nidorina,16
+Nidoqueen,Moonstone
+*************
+Tackle,1
+*************
+Return
+*************
+96
+Nitorina
+Poison
+Poison Pin Pokemon
+.79
+20
+120
+117
+70
+Medium Slow
+When feeding its young, it first chews and tenderizes the food, then spits it out for the offspring.
+Nidorana,0
+Nidorina,16
+Nidoqueen,Moonstone
+*************
+Tackle,1
+*************
+Return
+*************
+97
+Nidoqueen
+Poison/Ground
+Drill Pokemon
+1.3
+60
+45
+194
+70
+Medium Slow
+Its hard scales provide strong protection. It uses its hefty bulk to execute powerful moves.
+Nidorana,0
+Nidorina,16
+Nidoqueen,Moonstone
+*************
+Tackle,1
+*************
+Return
+*************
+98
+Nidorano
+Poison
+Poison Pin Pokemon
+.51
+9
+235
+60
+70
+Medium Slow
+It is small, but its horn is filled with poison. It charges then stabs with the horn to inject poison.
+Nidorano,0
+Nidorino,16
+Nidoking,Moonstone
+*************
+Tackle,1
+*************
+Return
+*************
+99
+Nidorino
+Poison
+Poison Pin Pokemon
+.89
+19.5
+120
+118
+70
+Medium Slow
+It raises its big ears to check its surroundings. If it senses anything, it attacks immediately.
+Nidorano,0
+Nidorino,16
+Nidoking,Moonstone
+*************
+Tackle,1
+*************
+Return
+*************
+100
+Nidoking
+Poison/Ground
+Drill Pokemon
+1.4
+62
+45
+195
+70
+Medium Slow
+It swings its big tail around during battle. If its foe flinches, it will charge with its sturdy body.
+Nidorano,0
+Nidorino,16
+Nidoking,Moonstone
+*************
+Tackle,1
+*************
+Return
+*************
+101
+Yanma
+Bug/Flying
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+102
+Sunkern
+Grass
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+103
+Sunflora
+Grass
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+104
+Exeggcute
+Grass/Psychic
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+105
+Exeggutor
+Grass/Psychic
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+106
+Sudowoodo
+Rock
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+107
+Wobbuffet
+Psychic
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+108
+Venonat
+Bug/Psychic
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+109
+Venomoth
+Bug/Poison
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+110
+Scyther
+Bug/Flying
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+111
+Scizor
+Bug/Steel
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+112
+Pinsir
+Bug/Fighting
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+113
+Heracross
+Bug/Fighting
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+114
+Koffing
+Poison
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+115
+Weezing
+Poison
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+116
+Grimer
+Poison
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+117
+Muk
+Poison/Ground
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+118
+Magnemite
+Electric/Steel
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+119
+Magneton
+Electric/Steel
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+120
+Voltorb
+Electric
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+121
+Electrode
+Electric
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+122
+Aipom
+Normal
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+123
+Snubbull
+Normal
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+124
+Granbull
+Normal
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+125
+Vulpix
+Fire
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+126
+Ninetales
+Fire
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+127
+Growlithe
+Fire
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+128
+Arcanine
+Fire
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+129
+Stantler
+Normal
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+130
+Marill
+Water/Normal
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+131
+Azumarill
+Water/Normal
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+132
+Diglett
+Ground
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+133
+Dugtrio
+Ground
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+134
+Mankey
+Fighting
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+135
+Primeape
+Fighting
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+136
+Meowth
+Normal
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+137
+Persian
+Normal
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+138
+Psyduck
+Water
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+139
+Golduck
+Water
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+140
+Machop
+Fighting
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+141
+Machoke
+Fighting
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+142
+Machamp
+Fighting
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+143
+Tyrogue
+Fighting
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+144
+Hitmonlee
+Fighting
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+145
+Hitmonchan
+Fighting
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+146
+Hitmontop
+Fighting
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+147
+Girafarig
+Normal/Psychic
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+148
+Tauros
+Normal
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+149
+Miltank
+Normal
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+150
+Magby
+Fire
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+151
+Magmar
+Fire/Ground
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+152
+Smoochum
+Ice/Psychic
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+153
+Jynx
+Ice/Psychic
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+154
+Elekid
+Electric/Normal
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+155
+Electabuzz
+Electric/Fighting
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+156
+Mr.Mime
+Psychic/Normal
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+157
+Smeargle
+Normal
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+158
+Farfetch
+Normal/Flying
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+159
+Natu
+Psychic/Flying
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+160
+Xatu
+Psychic/Flying
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+161
+Qwilfish
+Water/Poison
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+162
+Tentacool
+Water/Poison
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+163
+Tentacreul
+Water/Poison
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+164
+Krabby
+Water
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+165
+Kingler
+Water
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+166
+Shuckle
+Bug/Rock
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+167
+Staryu
+Water
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+168
+Starmie
+Water/Psychic
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+169
+Shellder
+Water
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+170
+Cloyster
+Water/Steel
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+171
+Corsola
+Water/Rock
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+172
+Remoraid
+Water
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+173
+Octillery
+Water
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+174
+Chinchou
+Water/Electric
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+175
+Lanturn
+Water/Electric
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+176
+Seel
+Water
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+177
+Dewgong
+Water/Ice
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+178
+Lickitung
+Normal
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+179
+Tangela
+Grass/Normal
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+180
+Eevee
+Normal
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+181
+Vaporeon
+Water
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+182
+Jolteon
+Electric
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+183
+Flareon
+Fire
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+184
+Espeon
+Psychic
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+185
+Umbreon
+Dark
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+186
+Horsea
+Water
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+187
+Seadra
+Water
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+188
+Kingdra
+Water/Dragon
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+189
+Gligar
+Ground/Flying
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+190
+Delibird
+Ice/Flying
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+191
+Swinub
+Ice/Ground
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+192
+Piloswine
+Ice/Ground
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+193
+Teddiursa
+Normal
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+194
+Ursaring
+Normal
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+195
+Phanpy
+Ground
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+196
+Donphan
+Mantine
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+197
+Mantine
+Water/Flying
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+198
+Skarmory
+Steel/Flying
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+199
+Doduo
+Normal/Flying
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+200
+Dodrio
+Fighting/Flying
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+201
+Ponyta
+Fire
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+202
+Rapidash
+Fire
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+203
+Cubone
+Ground
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+204
+Marowak
+Ground
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+205
+Kangaskhan
+Normal
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+206
+Rhyhorn
+Ground/Rock
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+207
+Rhydon
+Rock/Ground
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+208
+Murkrow
+Dark/Flying
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+209
+Houndour
+Dark/Fire
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+210
+Houndoom
+Dark/Fire
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+211
+Slugma
+Fire
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+212
+Magcargo
+Fire/Rock
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+213
+Sneasel
+Dark/Ice
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+214
+Misdreavus
+Ghost
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+215
+Porygon
+Normal
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+216
+Porygon2
+Normal
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+217
+Chansey
+Normal
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+218
+Blissey
+Normal
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+219
+Lapras
+Water/Ice
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+220
+Omanyte
+Rock/Water
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+221
+Omastar
+Rock/Water
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+222
+Kabuto
+Rock/Water
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+223
+Kabutops
+Rock/Water
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+224
+Aerodactyl
+Rock/Flying
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+225
+Snorlax
+Normal
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+226
+Bulbasaur
+Grass/Poison
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+227
+Ivysaur
+Grass/Poison
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+228
+Venusaur
+Grass/Poison
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+229
+Charmander
+Type
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+230
+Charmeleon
+Fire
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+231
+Charizard
+Fire/Flying
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+232
+Squirtle
+Water
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+233
+Wartortle
+Water
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+234
+Blastoise
+Water/Steel
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+235
+Articuno
+Ice/Flying
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+236
+Zapdos
+Electric/Flying
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+237
+Moltres
+Fire/Flying
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+238
+Raikou
+Electric
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+239
+Entei
+Fire
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+240
+Suicune
+Water
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+241
+Dratini
+Dragon
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+242
+Dragonair
+Dragon
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+243
+Dragonite
+Dragon
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+244
+Larvitar
+Rock/Ground
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+245
+Pupitar
+Rock/Ground
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+246
+Tyranitar
+Dark/Rock
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+247
+Lugia
+Psychic/Flying
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+248
+Ho oh
+Fire/Flying
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+249
+Mewtwo
+Psychic
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+250
+Mew
+Psychic
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************
+251
+Celebi
+Psychic/Grass
+Species
+Height
+Weight
+Catch Rate
+Base Exp
+70
+Medium Slow
+Description
+Evos
+*************
+Tackle,1
+*************
+Return
+*************

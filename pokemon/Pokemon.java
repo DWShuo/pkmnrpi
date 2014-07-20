@@ -67,23 +67,23 @@ public class Pokemon implements PokedexUI {
 		Pokemon p;
 		while (index < info.size()) {
 			p = new Pokemon();
-			p.ID = Integer.parseInt(stripLabel(info.get(index++ )));
-			p.name = stripLabel(info.get(index++ ));
-			String types = stripLabel(info.get(index++ ));
+			p.ID = Integer.parseInt(info.get(index++ ));
+			p.name = info.get(index++ );
+			String types = info.get(index++ );
 			if (types.contains("/")) {
 				String[] ar = types.split("/");
 				p.type = getType(ar[0]);
 				p.t2 = getType(ar[1]);
 			} else
 				p.type = getType(types);
-			p.species = stripLabel(info.get(index++ ));
-			p.height = Double.parseDouble(stripLabel(info.get(index++ )));
-			p.weight = Double.parseDouble(stripLabel(info.get(index++ )));
-			p.catch_rate = Integer.parseInt(stripLabel(info.get(index++ )));
-			p.base_exp = Integer.parseInt(stripLabel(info.get(index++ )));
-			p.base_happiness = Integer.parseInt(stripLabel(info.get(index++ )));
-			p.growth_rate = stripLabel(info.get(index++ ));
-			p.description = stripLabel(info.get(index++ ));
+			p.species = info.get(index++ );
+			p.height = Double.parseDouble(info.get(index++ ));
+			p.weight = Double.parseDouble(info.get(index++ ));
+			p.catch_rate = Integer.parseInt(info.get(index++ ));
+			p.base_exp = Integer.parseInt(info.get(index++ ));
+			p.base_happiness = Integer.parseInt(info.get(index++ ));
+			p.growth_rate = info.get(index++ );
+			p.description = info.get(index++ );
 
 			p.evolutions = new HashMap<Integer, String>();
 			while (!isUniform(info.get(index), '*')) {
