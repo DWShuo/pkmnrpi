@@ -1,0 +1,740 @@
+1
+Chikorita
+Grass
+Leaf Pokemon
+0.89
+6.4
+45
+64
+70
+Medium Slow
+A sweet aroma gently wafts from the leaf on its head. It is docile and loves to soak up the sun's rays.
+Chikorita,0
+Bayleef,16
+Meganium,32
+**************
+Tackle,1
+Growl,1
+Razor Leaf,6
+Poison Powder,9
+Synthesis,12
+Reflect,17
+Sweet Scent,28
+Light Screen,31
+Body Slam,34
+Safeguard,39
+Aromatherapy,42
+Solar Beam,45
+*************
+Cut
+Toxic
+Sunny Day
+Protect
+Frustration
+Return
+Double Team
+Rest
+Attract
+Flash
+Swords Dance
+Swagger
+Sleep Talk
+Substitute
+**************
+2
+Bayleef
+Grass
+Leaf Pokemon
+1.16
+15.8
+45
+141
+70
+Medium Slow
+The scent of spices comes from around its neck. Somehow, sniffing it makes you want to fight.
+Chikorita,0
+Bayleef,16
+Meganium,32
+**************
+Aromatherapy,50
+Body Slam,40
+Growl,1
+Light Screen,36
+Poison Powder,1
+Razor Leaf,1
+Reflect,18
+Safeguard,46
+Solar Beam,54
+Sweet Scent,32
+Synthesis,12
+Tackle,1
+**************
+Cut
+Attract
+Double Team
+Flash
+Frustration
+Light Screen
+Protect
+Reflect
+Rest
+Return
+Rock Smash
+Safeguard
+Sleep Talk
+Solar Beam
+Substitute
+Sunny Day
+Swagger
+Swords Dance
+Toxic
+**************
+3
+Meganium
+Grass
+Herb Pokemon
+1.8
+100.5
+45
+208
+70
+Medium Slow
+Anyone who stands beside it becomes refreshed, just as if they were relaxing in a sunny forest.
+Chikorita,0
+Bayleef,16
+Meganium,32
+**************
+Tackle,1
+Growl,1
+Razor Leaf,1
+Poison Powder,1
+Synthesis,12
+Reflect,18
+Petal Dance,32
+Sweet Scent,34
+Light Screen,40
+Body Slam,46
+Safeguard,56
+Solar Beam,66
+**************
+Cut
+Strength
+Toxic
+Sunny Day
+Hyper Beam
+Light Screen
+Protect
+Safeguard
+Frustration
+Solar Beam
+Earthquake
+Return
+Double Team
+Reflect
+Rest
+Attract
+Flash
+Swords Dance
+Swagger
+Sleep Talk
+Substitute
+Rock Smash
+**************
+4
+Cyndaquil
+Fire
+Fire Mouse Pokemon
+.51
+7.9
+45
+65
+70
+Medium Slow
+It is timid, and always curls itself up in a ball. If attacked, it flares up its back for protection.
+Cyndaquil,0
+Quilava,14
+Typhlosion,36
+**************
+Tackle,1
+Leer,1
+Smokescreen,6
+Ember,10
+Quick Attack,13
+Flame Wheel,19
+Defense Curl,22
+Swift,31
+Flamethrower,40
+Rollout,49
+Double Edge,55
+**************
+Cut
+Toxic
+Sunny Day
+Protect
+Frustration
+Return
+Dig
+Double Team
+Flamethrower
+Fire Blast
+Rest
+Attract
+Will O Wisp
+Swagger
+Sleep Talk
+Substitute
+**************
+5
+Quilava
+Fire
+Volcano Pokemon
+.89
+19
+45
+142
+70
+Medium Slow
+Before battle, it turns its back on its opponent to demonstrate how ferociously its fire blazes.
+Cyndaquil,0
+Quilava,14
+Typhlosion,36
+**************
+Tackle,1
+Leer,1
+Smokescreen,1
+Ember,10
+Quick Attack,13
+Flame Wheel,20
+Defense Curl,24
+Swift,31
+Flamethrower,46
+Rollout,57
+Double Edge,64
+**************
+Cut
+Strength
+Roar
+Toxic
+Sunny Day
+Protect
+Frustration
+Return
+Dig
+Brick Break
+Double Team
+Flamethrower
+Fire Blast
+Rest
+Attract
+Will O Wisp
+Swagger
+Sleep Talk
+Substitute
+Rock Smash
+**************
+6
+Typhlosion
+Fire
+Volcano Pokemon
+1.7
+79.5
+45
+209
+70
+Medium Slow
+If its rage peaks, it becomes so hot that anything that touches it will instantly go up in flames.
+Cyndaquil,0
+Quilava,14
+Typhlosion,36
+**************
+Tackle,1
+Double Edge,1
+Leer,1
+Ember,1
+Smokescreen,1
+Quick Attack,13
+Flame Wheel,20
+Defense Curl,24
+Swift,31
+Flamethrower,48
+Rollout,61
+Double Edge,69
+**************
+Cut
+Strength
+Roar
+Toxic
+Sunny Day
+Hyper Beam
+Protect
+Frustration
+Solar Beam
+Earthquake
+Return
+Dig
+Brick Break
+Double Team
+Flamethrower
+Fire Blast
+Rest
+Attract
+Will O Wisp
+Rock Slide
+Swagger
+Sleep Talk
+Substitute
+Rock Smash
+**************
+7
+Totadile
+Water
+Big Jaw Pokemon
+.61
+9.5
+45
+66
+70
+Medium Slow
+Its well-developed jaws are powerful and capable of crushing anything. Even its trainer must be careful.
+Totadile,0
+Croconaw,18
+Feraligatr,30
+**************
+Scratch,1
+Leer,1
+Water Gun,6
+Rage,8
+Bite,13
+Scary Face,15
+Flail,22
+Cunch,27
+Slash,34
+Screech,36
+Thrash,41
+Hydro Pump,50
+**************
+Cut
+Surf
+Waterfall
+Toxic
+Ice Beam
+Blizzard
+Protect
+Rain Dance
+Frustration
+Return
+Dig
+Brick Break
+Double Team
+Rest
+Attract
+Swords Dance
+Rock Slide
+Swagger
+Sleep Talk
+Substitute
+**************
+8
+Croconaw
+Water
+Big Jaw Pokemon
+1.09
+25
+45
+143
+70
+Medium Slow
+If it loses a fang, a new one grows back in its place. There are always 48 fangs lining its mouth.
+Totadile,0
+Croconaw,18
+Feraligatr,30
+**************
+Scratch,1
+Leer,1
+Water Gun,1
+Rage,8
+Bite,13
+Scary Face,15
+Flail,24
+Crunch,30
+Slash,39
+Screech,42
+Thrash,48
+Hydro Pump,60
+**************
+Cut
+Surf
+Strength
+Waterfall
+Roar
+Toxic
+Ice Beam
+Blizzard
+Protect
+Rain Dance
+Frustration
+Return
+Dig
+Brick Break
+Double Team
+Rest
+Attract
+Swords Dance
+Rock Slide
+Swagger
+Sleep Talk
+Substitute
+Rock Smash
+**************
+9
+Feraligatr
+Water
+Big Jaw Pokemon
+2.31
+88.8
+45
+210
+70
+Medium Slow
+When it bites with its massive and powerful jaws, it shakes its head and savagely tears its victim up.
+Totadile,0
+Croconaw,18
+Feraligatr,30
+**************
+Scratch,1
+Leer,1
+Water Gun,1
+Rage,1
+Bite,13
+Scary Face,15
+Flail,24
+Agility,30
+Crunch,32
+Slash,45
+Screech,50
+Thrash,58
+Hydro Pump,76
+**************
+Cut
+Surf
+Strength
+Waterfall
+Roar
+Ice Beam
+Blizzard
+Hyper Beam
+Protect
+Rain Dance
+Frustration
+Earthquake
+Return
+Dig
+Brick Break
+Double Team
+Rest
+Attract
+Swords Dance
+Rock Slide
+Swagger
+Sleep Talk
+Substitute
+Rock Smash
+**************
+10
+Pidgey
+Normal/Flying
+Tiny Bird Pokemon
+.3
+1.8
+255
+55
+Medium Slow
+Growth Rate
+A common sight in forests and woods. It flaps its wings at ground level to kick up blinding sand.
+Pidgey,0
+Pidgeotto,18
+Pidgeot,36
+**************
+Tackle,1
+Sand Attack,5
+Gust,9
+Quick Attack,13
+Whirlwind,17
+Twister,21
+Agility,29
+Wing Attack,33
+Mirror Move,45
+**************
+Fly
+Toxic
+Sunny Day
+Protect
+Rain Dance
+Frustration
+Return
+Double Team
+Rest
+Attract
+Thief
+Steel Wing
+Swagger
+Sleep Talk
+Substitute
+**************
+11
+Pidgeotto
+Normal/Flying
+Bird Pokemon
+1.09
+30
+120
+113
+70
+Medium Slow
+It has outstanding vision. However high it flies, it is able to distinguish the movements of its prey.
+Pidgey,0
+Pidgeotto,18
+Pidgeot,36
+**************
+Gust,1
+Sand Attack,1
+Tackle,1
+Quick Atack,13
+Whirlwind,17
+Twister,22
+Agility,32
+Wing Attack,37
+Mirror Move,52
+**************
+Fly
+Toxic
+Sunny Day
+Protect
+Rain Dance
+Frustration
+Return
+Double Team
+Rest
+Attract
+Theif
+Steel Wing
+Swagger
+Sleep Talk
+Substitute
+**************
+12
+Pidgeot
+Normal/Flying
+Bird Pokemon
+1.5
+39.5
+45
+172
+70
+Medium Slow
+It spreads its beautiful wings wide to frighten its enemies. It can fly at Mach 2 speed.
+Pidgey,0
+Pidgeotto,18
+Pidgeot,36
+**************
+Gust,1
+Sand Attack,1
+Tackle,1
+Quick Attack,1
+Whirlwind,17
+Twister,22
+Agility,32
+Wing Attack,38
+Mirror Move,56
+**************
+Fly
+Toxic
+Sunny Day
+Hyper Beam
+Protect
+Rain Dance
+Frustration
+Return
+Double Team
+Rest
+Attract
+Thief
+Steel Wing
+Swagger
+Sleep Talk
+Substitute
+**************
+13
+Spearow
+Normal/Flying
+Tiny Bird Pokemon
+.3
+2
+255
+58
+70
+Medium Fast
+Very protective of its territory, it flaps its short wings busily to dart around at high speed.
+Spearow,0
+Fearow,20
+**************
+Growl,1
+Peck,1
+Leer,5
+Fury Attack,9
+Pursuit,13
+Mirror Move,21
+Agility,25
+Drill Peck,37
+**************
+Fly
+Toxic
+Sunny Day
+Protect
+Rain Dance
+Frustration
+Return
+Double Team
+Rest
+Attract
+Thief
+Steel Wing
+False Swipe
+Swagger
+Sleep Talk
+Substitute
+**************
+14
+Fearow
+Normal/Flying
+Beak Pokemon
+1.19
+38
+90
+162
+70
+Medium Fast
+With its huge and magnificent wings, it can keep aloft without ever having to land for rest.
+Spearow,0
+Fearow,20
+**************
+Fury Attack,1
+Leer,1
+Growl,1
+Peck,1
+Pursuit,13
+Mirror Move,23
+Agility,29
+Drill Peck,47
+**************
+Fly
+Tri Attack
+Toxic
+Sunny Day
+Hyper Beam
+Protect
+Rain Dance
+Frustration
+Return
+Double Team
+Rest
+Attract
+Thief
+Steel Wing
+False Swipe
+Swagger
+Sleep Talk
+Substitute
+**************
+15
+Hoothoot
+Normal/Flying
+Owl Pokemon
+.71
+21.2
+255
+70
+Medium Fast
+It always stands on one foot. It changes feet so fast, the movement can rarely be seen.
+Hoothoot,0
+Noctowl,20
+**************
+Tackle,1
+Growl,1
+Foresight,1
+Hypnosis,5
+Peck,9
+Reflect,17
+Confusion,21
+Take Down,29
+Dream Eater,57
+**************
+Fly
+Toxic
+Sunny Day
+Protect
+Rain Dance
+Frustration
+Return
+Psychic
+Shadow Ball
+Double Team
+Reflect
+Rest
+Attract
+Thief
+Steel Wing
+Dream Eater
+Swagger
+Sleep talk
+Substitute
+**************
+16
+Noctowl
+Normal/Flying
+Owl Pokemon
+1.6
+40.8
+90
+162
+70
+Medium Fast
+Its extremely soft feathers make no sound in flight. It silently sneaks up on prey without being detected.
+Hoothoot,0
+Noctowl,20
+**************
+Tackle,1
+Growl,1
+Hypnosis,1
+Dream Eater,1
+Sky Attack,1
+Foresight,1
+Peck,9
+Reflect,17
+Confusion,22
+Take Down,32
+Dream Eater,67
+Sky Attack,72
+Tri Attack,95
+**************
+Fly
+Toxic
+Sunny Day
+Hyper Beam
+Protect
+Rain Dance
+Frustration
+Return
+Psychic
+Shadow Ball
+Double Team
+Reflect
+Rest
+Attract
+Thief
+Steel Wing
+Dream Eater
+Swagger
+Sleep Talk
+Substitute
+**************
