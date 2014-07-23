@@ -14,18 +14,19 @@ import animations.Sprite;
 import objects.LayeredPanel;
 import objects.TileMap;
 import trainers.Person;
+import trainers.Trainer;
 import util.ImageLibrary;
 
 public class GameBoard extends JScrollPane implements KeyListener {
 	public static final int tilew = 25, tileh = 25, tsize = ImageLibrary.pixel_width[0];
-	public static final String default_map = "src/sample.map";
+	public static final String default_map = "src/default.map";
 	public static final Dimension area = new Dimension(ImageLibrary.pixel_width[0] * tilew, ImageLibrary.pixel_width[0] * tileh);
 	public static final int buffer = 7;
 
 	public LayeredPanel background;
 	public GamePanel foreground;
 	public TileMap map;
-	public Person player;
+	public Trainer player;
 	public GameEngine engine;
 
 	public GameBoard(GameEngine en) {
@@ -33,12 +34,7 @@ public class GameBoard extends JScrollPane implements KeyListener {
 		engine = en;
 		// Set the look and feel to Nimbus
 		try {
-			for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-				if ("Nimbus".equals(info.getName())) {
-					UIManager.setLookAndFeel(info.getClassName());
-					break;
-				}
-			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -68,8 +64,8 @@ public class GameBoard extends JScrollPane implements KeyListener {
 	public void keyPressed(KeyEvent e) {}
 
 	public boolean canMove(int direction) {
-		int x = player.x;
-		int y = player.y;
+		int x = player.x + map.centerx;
+		int y = player.y + map.centery;
 		if (x < 0 || y < 0)
 			return false;
 		if (x > map.mapdata[0].length || y > map.mapdata.length)
@@ -96,6 +92,7 @@ public class GameBoard extends JScrollPane implements KeyListener {
 
 	private void initilizePlayer() {
 		player = engine.state.self;
+		player.map = map;
 		player.walk = new BufferedImage[10];
 		for (int i = 0; i < 10; ++i)
 			player.walk[i] = ImageLibrary.player[i];

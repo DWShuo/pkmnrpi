@@ -1,5 +1,6 @@
 package util.panels;
 
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ComponentEvent;
@@ -11,10 +12,13 @@ import javax.swing.JPanel;
 
 public class ScalePanel extends JPanel implements ComponentListener {
 	private int w, h;
-	private Image image;
+	public Image image;
 
-	public ScalePanel(Image i) {
+	public ScalePanel(Image i, int x, int y) {
 		super();
+		w = x;
+		h = y;
+		setPreferredSize(new Dimension(x, y));
 		addComponentListener(this);
 		image = i;
 		repaint();
@@ -32,6 +36,7 @@ public class ScalePanel extends JPanel implements ComponentListener {
 	public void componentResized(ComponentEvent e) {
 		w = getWidth();
 		h = getHeight();
+		setPreferredSize(new Dimension(w, h));
 		repaint();
 	}
 
@@ -41,7 +46,7 @@ public class ScalePanel extends JPanel implements ComponentListener {
 		JFrame f = new JFrame();
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setBounds(300, 200, 400, 400);
-		f.add(new ScalePanel((new ImageIcon("src/bliss.jpg")).getImage()));
+		f.add(new ScalePanel((new ImageIcon("src/bliss.jpg")).getImage(), 400, 400));
 		f.setVisible(true);
 	}
 }

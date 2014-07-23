@@ -1,9 +1,11 @@
-package game;
+package battle;
 
+import game.GameEngine;
 import pokemon.Pokemon;
 import pokemon.moves.Move;
 import trainers.Person;
 import trainers.Trainer;
+import util.TestFrame;
 
 public class BattleEngine {
 	public BattlePanel panel;
@@ -14,13 +16,11 @@ public class BattleEngine {
 	// Start a wild encounter with a pokemon
 	public BattleEngine(GameEngine e, Pokemon p) {
 		engine = e;
-		self = (Trainer) engine.board.player;
+		self = engine.board.player;
 		friend = self.get_first_pokemon();
 		enemy = p;
 		panel = new BattlePanel(this);
-		panel.animate_walkon_self();
-		panel.animate_walkon_pkmn_left();
-		panel.display_moves();
+		new TestFrame(panel);
 	}
 
 	// Start a trainer battle
@@ -32,9 +32,6 @@ public class BattleEngine {
 		enemy = opponent.get_first_pokemon();
 		panel = new BattlePanel(this);
 		panel = new BattlePanel(this);
-		panel.animate_walkon_self();
-		panel.animate_walkon_opponent();
-		panel.display_moves();
 	}
 
 	// Called by BattlePanel when a player selects what move to use.

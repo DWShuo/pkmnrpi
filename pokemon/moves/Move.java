@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import pokemon.Pokemon;
+import util.FileParser;
 
 //TODO: determine how to calculate status changes and special effects.
 public class Move implements Comparable<Move> {
@@ -14,6 +15,8 @@ public class Move implements Comparable<Move> {
 	public int type, damage, pp, pp_max, lvl_req, tm;
 	public String name, category, description, effect;
 	public double crit_chance, hit_chance;
+
+	public Move() {}
 
 	public Move(ArrayList<String> data) {
 		name = Pokemon.stripLabel(data.get(0));
@@ -29,24 +32,19 @@ public class Move implements Comparable<Move> {
 	}
 
 	public static void init() {
-		String filename = "src/data/Move_Data.txt";
+		ArrayList<String> data = FileParser.parseFile("src/data/moves.txt");
 		ArrayList<Move> all = new ArrayList<Move>();
-		try {
-			BufferedReader br = new BufferedReader(new FileReader(filename));
-			String line;
-			ArrayList<String> lst = new ArrayList<String>();
-			while ((line = br.readLine()) != null) {
-				if (Pokemon.isUniform(line, '-')) {
-					if (lst.size() == 0)
-						continue;
-					all.add(new Move(lst));
-					lst = new ArrayList<String>();
-				} else
-					lst.add(line);
-			}
-			br.close();
-		} catch (Exception e) {
-			e.printStackTrace();
+		for (String line : data) {
+			String[] ary = line.split(",");
+			Move m = new Move();
+			m.name = ary[0];
+			m.description = ary[1];
+			m.type = Pokemon.getType(ary[2].toUpperCase());
+			m.pp = m.pp_max = Integer.parseInt(ary[3]);
+			m.damage = Integer.parseInt(ary[4]);
+			double acc = Double.parseDouble(ary[5]);
+			m.hit_chance = acc == 0 ? 0 : 100.0 / acc;
+			all.add(m);
 		}
 		all_moves = order_moves(all);
 	}
@@ -78,6 +76,9 @@ public class Move implements Comparable<Move> {
 		for (Move m : all_moves)
 			if (m.name.equalsIgnoreCase(name))
 				return m;
+		String str = "";
+		for (Move m : all_moves)
+			str += m.name + ", ";
 		return null;
 	}
 

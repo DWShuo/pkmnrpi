@@ -13,7 +13,7 @@ public class Pokemon implements PokedexUI {
 			POISON = 13, FIGHTING = 14, NORMAL = 15;
 	public static Pokemon[] all_pokemon;
 
-	public String name, species, growth_rate, description;
+	public String name, species, description;
 	public boolean male = true;
 	public int type, t2 = -1;
 	public double height = 1, weight = 10;
@@ -33,13 +33,24 @@ public class Pokemon implements PokedexUI {
 		weight = 1.8;
 		catch_rate = 225;
 		base_exp = 55;
-		growth_rate = "Medium Slow";
 		base_happiness = 70;
 		description = "This is a bird.";
 	}
 
+	// Generates wild pokemon
+	public Pokemon(String name, int level) {
+		deepCopy(name);
+		stats.initIV();
+		stats.calibrate(level);
+		stats.current_health = stats.max_health;
+	}
+
 	// Used when loading pokemon by name
 	public Pokemon(String name) {
+		deepCopy(name);
+	}
+
+	private void deepCopy(String name) {
 		Pokemon p = Pokedex.getPokemon(name);
 		this.name = p.name;
 		species = p.species;
@@ -51,12 +62,12 @@ public class Pokemon implements PokedexUI {
 		ID = p.ID;
 		catch_rate = p.catch_rate;
 		base_exp = p.base_exp;
-		growth_rate = p.growth_rate;
 		base_happiness = p.base_happiness;
 		evolutions = p.evolutions;
 		learnset = p.learnset;
 		tmset = p.tmset;
 		description = p.description;
+		stats = new Stats(p.stats);
 	}
 
 	// Loads all static pokemon info
@@ -90,7 +101,7 @@ public class Pokemon implements PokedexUI {
 			if (isDouble(str))
 				p.base_exp = Integer.parseInt(str);
 			p.base_happiness = Integer.parseInt(info.get(index++ ));
-			p.growth_rate = info.get(index++ );
+			p.stats.growth_rate = info.get(index++ );
 			p.description = info.get(index++ );
 
 			p.evolutions = new HashMap<String, String>();
@@ -123,6 +134,7 @@ public class Pokemon implements PokedexUI {
 			all_pokemon[p.ID - 1] = p;
 			Pokedex.pkmn_lookup.put(p.name.toLowerCase(), p.ID);
 		}
+		Stats.init();
 	}
 
 	public String staticToString() {
@@ -131,7 +143,7 @@ public class Pokemon implements PokedexUI {
 		if (t2 > 0)
 			all += "/" + getType(t2);
 		all += str + species + str + height + str + weight + str + catch_rate + str;
-		all += base_happiness + str + growth_rate + str + description + str;
+		all += base_happiness + str + description + str;
 		return all;
 	}
 
@@ -149,8 +161,47 @@ public class Pokemon implements PokedexUI {
 			known_moves.add(Move.lookup(str));
 	}
 
-	public void generateStats(int lvl) {
+	public int expToNextLevel() {
+		return levelToEXP(stats.level + 1, stats.growth_rate);
+	}
 
+	public static int levelToEXP(int n, String growth_rate) {
+		if (growth_rate.equalsIgnoreCase("Medium Slow")) {
+			return ((6 * n * n * n) / 5) - 15 * n * n + 100 * n - 140;
+		} else if (growth_rate.equalsIgnoreCase("Medium Fast")) {
+			return n * n * n;
+		} else if (growth_rate.equalsIgnoreCase("Slow")) {
+			return 5 * n * n * n / 4;
+		} else if (growth_rate.equalsIgnoreCase("Fast")) {
+			return 4 * n * n * n / 5;
+		} else if (growth_rate.equalsIgnoreCase("Fluctuating")) {
+			int k = 1;
+			if (n <= 15)
+				k = (n + 1) / 3 + 24;
+			else if (n <= 36)
+				k = n + 14;
+			else
+				k = n / 2 + 32;
+			return n * n * n * k / 50;
+		} else if (growth_rate.equalsIgnoreCase("Erratic")) {
+			int k = 1;
+			int r = 100;
+			if (n <= 50)
+				k = 100 - n;
+			else if (n <= 68)
+				k = 150 - n;
+			else if (n <= 98) {
+				k = (1911 - 10 * n) / 3;
+				r = 500;
+			}
+			return n * n * n * k / r;
+		}
+		return n * n * n;
+	}
+
+	public void generateStats(int lvl) {
+		stats.level = lvl;
+		stats.total_exp = levelToEXP(lvl, stats.growth_rate);
 	}
 
 	// Loads a list of non static Pokemon from save data.
@@ -170,7 +221,8 @@ public class Pokemon implements PokedexUI {
 				info.add(line);
 				line = data.get(count++ );
 			}
-			p.stats = new Stats(info);
+			p.stats.merge(info);
+			lst.add(p);
 		}
 		return lst;
 	}

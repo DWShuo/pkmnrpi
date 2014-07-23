@@ -1,10 +1,12 @@
 package util;
 
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.swing.ImageIcon;
 
-public abstract class Library {
+public class Library {
 	public static final ImageIcon blank = new ImageIcon("src/blank.png");
 	public static final Color background_color = new Color(34, 134, 34);
 	public static final int bitwise_background_color = background_color.getRGB();
@@ -18,6 +20,15 @@ public abstract class Library {
 			422, 423, 424, 428, 418, 429, 455, 454, 460, 470, 480, 481, 471, 461, 451, 472, 482, 493, 494, 484, 495, 496, 477, 478, 488, 489, 479, 469, 468, 503, 504, 505, 506,
 			509, 537, 546, 545, 544, 543, 542, 523, 533, 522, 544, 545, 566, 567, 609, 629, 618, 628, 639, 649, 642, 652, 651, 650, 695, 698, 625, 615 };
 	public static final int GRAY = 0, GREEN = 1, BLACK = 2, VIOLET = 3, YELLOW = 4, BROWN = 5, RED = 6, LAVENDER = 7, PURPLE = 8, LIME = 9, GOLD = 10, ICE = 11, BEIGE = 12,
-			MAGENTA = 13, PINK = 14, SAND = 15, WHITE = 16, SKY = 17, gray = GRAY, green = GREEN, violet = VIOLET, yellow = YELLOW, brown = BROWN, red = RED,
-			lavender = LAVENDER, purple = PURPLE, lime = LIME, gold = GOLD, ice = ICE, beige = BEIGE, magenta = MAGENTA, pink = PINK, sand = SAND, white = WHITE, sky = SKY;
+			MAGENTA = 13, PINK = 14, SAND = 15, WHITE = 16, SKY = 17, gray = GRAY, green = GREEN, violet = VIOLET, yellow = YELLOW, brown = BROWN, red = RED, lavender = LAVENDER,
+			purple = PURPLE, lime = LIME, gold = GOLD, ice = ICE, beige = BEIGE, magenta = MAGENTA, pink = PINK, sand = SAND, white = WHITE, sky = SKY;
+	public static HashMap<Integer, Integer> national_numbers = new HashMap<Integer, Integer>();
+
+	public static void init() {
+		ArrayList<String> data = FileParser.parseFile("src/data/number map.txt");
+		for (String line : data) {
+			String[] a = line.split(",");
+			national_numbers.put(Integer.parseInt(a[0]), Integer.parseInt(a[1]));
+		}
+	}
 }

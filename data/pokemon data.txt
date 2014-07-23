@@ -16,15 +16,14 @@ Meganium,32
 Tackle,1
 Growl,1
 Razor Leaf,6
-Poison Powder,9
+Poisonpowder,9
 Synthesis,12
 Reflect,17
 Sweet Scent,28
 Light Screen,31
 Body Slam,34
 Safeguard,39
-Aromatherapy,42
-Solar Beam,45
+Solarbeam,45
 *************
 Cut
 Toxic
@@ -56,15 +55,14 @@ Chikorita,0
 Bayleef,16
 Meganium,32
 **************
-Aromatherapy,50
 Body Slam,40
 Growl,1
 Light Screen,36
-Poison Powder,1
+Poisonpowder,1
 Razor Leaf,1
 Reflect,18
 Safeguard,46
-Solar Beam,54
+Solarbeam,54
 Sweet Scent,32
 Synthesis,12
 Tackle,1
@@ -82,7 +80,7 @@ Return
 Rock Smash
 Safeguard
 Sleep Talk
-Solar Beam
+Solarbeam
 Substitute
 Sunny Day
 Swagger
@@ -107,7 +105,7 @@ Meganium,32
 Tackle,1
 Growl,1
 Razor Leaf,1
-Poison Powder,1
+Poisonpowder,1
 Synthesis,12
 Reflect,18
 Petal Dance,32
@@ -115,7 +113,7 @@ Sweet Scent,34
 Light Screen,40
 Body Slam,46
 Safeguard,56
-Solar Beam,66
+Solarbeam,66
 **************
 Cut
 Strength
@@ -126,7 +124,7 @@ Light Screen
 Protect
 Safeguard
 Frustration
-Solar Beam
+Solarbeam
 Earthquake
 Return
 Double Team
@@ -179,7 +177,6 @@ Flamethrower
 Fire Blast
 Rest
 Attract
-Will O Wisp
 Swagger
 Sleep Talk
 Substitute
@@ -220,13 +217,11 @@ Protect
 Frustration
 Return
 Dig
-Brick Break
 Double Team
 Flamethrower
 Fire Blast
 Rest
 Attract
-Will O Wisp
 Swagger
 Sleep Talk
 Substitute
@@ -268,17 +263,15 @@ Sunny Day
 Hyper Beam
 Protect
 Frustration
-Solar Beam
+Solarbeam
 Earthquake
 Return
 Dig
-Brick Break
 Double Team
 Flamethrower
 Fire Blast
 Rest
 Attract
-Will O Wisp
 Rock Slide
 Swagger
 Sleep Talk
@@ -286,7 +279,7 @@ Substitute
 Rock Smash
 **************
 7
-Totadile
+Totodile
 Water
 Big Jaw Pokemon
 .61
@@ -307,7 +300,7 @@ Rage,8
 Bite,13
 Scary Face,15
 Flail,22
-Cunch,27
+Crunch,27
 Slash,34
 Screech,36
 Thrash,41
@@ -324,7 +317,6 @@ Rain Dance
 Frustration
 Return
 Dig
-Brick Break
 Double Team
 Rest
 Attract
@@ -375,7 +367,6 @@ Rain Dance
 Frustration
 Return
 Dig
-Brick Break
 Double Team
 Rest
 Attract
@@ -429,7 +420,6 @@ Frustration
 Earthquake
 Return
 Dig
-Brick Break
 Double Team
 Rest
 Attract
@@ -499,7 +489,7 @@ Pidgeot,36
 Gust,1
 Sand Attack,1
 Tackle,1
-Quick Atack,13
+Quick Attack,13
 Whirlwind,17
 Twister,22
 Agility,32
@@ -516,7 +506,7 @@ Return
 Double Team
 Rest
 Attract
-Theif
+Thief
 Steel Wing
 Swagger
 Sleep Talk
@@ -2195,7 +2185,7 @@ Tackle,1
 Return
 *************
 95
-Nitorana
+Nidorana
 Poison
 Poison Pin Pokemon
 .41
@@ -2214,7 +2204,7 @@ Tackle,1
 Return
 *************
 96
-Nitorina
+Nidorina
 Poison
 Poison Pin Pokemon
 .79
@@ -3244,7 +3234,7 @@ Tackle,1
 Return
 *************
 156
-Mr.Mime
+Mr. Mime
 Psychic/Normal
 Species
 Height
@@ -3363,7 +3353,7 @@ Tackle,1
 Return
 *************
 163
-Tentacreul
+Tentacruel
 Water/Poison
 Species
 Height

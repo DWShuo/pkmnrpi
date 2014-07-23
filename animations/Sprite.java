@@ -10,7 +10,7 @@ public class Sprite {
 	private Image image;
 
 	public Sprite(Image i) {
-		image = i;
+		setImage(i);
 	}
 
 	public void setImage(Image i) {
@@ -24,10 +24,10 @@ public class Sprite {
 	}
 
 	public Sprite(String filename) {
-		image = new ImageIcon(filename).getImage();
+		setImage(new ImageIcon(filename).getImage());
 	}
 
 	public void paint(Graphics g) {
-		g.drawImage(image, x, y, null);
+		g.drawImage(image, x, y, width, height, null);
 	}
 }

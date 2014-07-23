@@ -6,7 +6,9 @@ import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import battle.BattleEngine;
 import pokedex.Pokedex;
+import pokemon.Pokemon;
 import util.KeyMapper;
 
 /**
@@ -42,6 +44,8 @@ public class GameEngine {
 		frame.add(contents);
 		frame.pack();
 		frame.setVisible(true);
+
+		new BattleEngine(this, new Pokemon("Pidgey", 10));
 
 		// TODO: Play intro credits
 		// TODO: select save file or start new game

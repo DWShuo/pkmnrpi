@@ -5,6 +5,7 @@ import java.awt.Dimension;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -19,14 +20,14 @@ public class LayeredPanel extends JPanel {
 		}
 	}
 
-	public JLabel background;
+	public JComponent background;
 	public JPanel foreground;
 
 	public LayeredPanel() {
 		setLayout(null);
 		background = new JLabel(def);
-		background.setVerticalAlignment(JLabel.TOP);
-		background.setHorizontalAlignment(JLabel.LEFT);
+		((JLabel) background).setVerticalAlignment(JLabel.TOP);
+		((JLabel) background).setHorizontalAlignment(JLabel.LEFT);
 		setForeground(new ClearPanel());
 	}
 
@@ -34,34 +35,39 @@ public class LayeredPanel extends JPanel {
 		setLayout(null);
 		setBackground(Color.red);
 		background = new JLabel(def);
-		background.setVerticalAlignment(JLabel.TOP);
-		background.setHorizontalAlignment(JLabel.LEFT);
+		((JLabel) background).setVerticalAlignment(JLabel.TOP);
+		((JLabel) background).setHorizontalAlignment(JLabel.LEFT);
 		setForeground(p);
 	}
 
 	public LayeredPanel(Icon i) {
 		setLayout(null);
 		background = new JLabel(i);
-		background.setVerticalAlignment(JLabel.TOP);
-		background.setHorizontalAlignment(JLabel.LEFT);
+		((JLabel) background).setVerticalAlignment(JLabel.TOP);
+		((JLabel) background).setHorizontalAlignment(JLabel.LEFT);
 		setForeground(new ClearPanel());
 	}
 
 	public LayeredPanel(Icon i, JPanel p) {
 		setLayout(null);
 		background = new JLabel(i);
-		background.setVerticalAlignment(JLabel.TOP);
-		background.setHorizontalAlignment(JLabel.LEFT);
+		((JLabel) background).setVerticalAlignment(JLabel.TOP);
+		((JLabel) background).setHorizontalAlignment(JLabel.LEFT);
 		setForeground(p);
 	}
 
+	public LayeredPanel(Dimension d) {
+		setLayout(null);
+		pref = d;
+	}
+
 	public void setBackground(Icon i) {
-		background.setIcon(i);
+		if (background instanceof JLabel)
+			((JLabel) background).setIcon(i);
 	}
 
 	public void setForeground(JPanel p) {
 		foreground = p;
-		setBackground(Color.black);
 		setPreferredSize(pref);
 	}
 

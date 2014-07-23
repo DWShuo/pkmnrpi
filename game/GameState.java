@@ -1,6 +1,12 @@
 package game;
 
+import java.awt.Font;
+import java.awt.GraphicsEnvironment;
+import java.io.File;
 import java.util.ArrayList;
+
+import javax.swing.UIManager;
+import javax.swing.UIManager.LookAndFeelInfo;
 
 import objects.Backpack;
 import objects.TileMap;
@@ -12,6 +18,7 @@ import trainers.Trainer;
 import util.FileParser;
 import util.Flag;
 import util.ImageLibrary;
+import util.Library;
 
 /**
  * This class will initialize all static data, as well as load, hold, and save temporary data.
@@ -129,6 +136,19 @@ public class GameState {
 	}
 
 	public static void initilize_all() {
+		try {
+			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("src/data/pfont.ttf")));
+			for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+				if ("Nimbus".equals(info.getName())) {
+					UIManager.setLookAndFeel(info.getClassName());
+					break;
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		Library.init();
 		ImageLibrary.init();
 		TileMap.init();
 		Flag.init();

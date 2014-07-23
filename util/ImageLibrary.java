@@ -21,7 +21,7 @@ public class ImageLibrary extends Library {
 	public static ImageIcon black = ImageLibrary.getSolidColor(Color.black, 7, 14);
 	public static int[] pixel_width = { 16, 16, 16, 16, 56, 56 };
 	public static int[] start_counts = { 0, 700, 1137, 1304 };
-	public static int[] icon_counts = { 699, 437, 167, 290, 250, 250 };
+	public static int[] icon_counts = { 699, 437, 167, 290, 251, 251 };
 	public static String[] image_sheet_names = { "src/tilesets/misc_tiles.png", "src/tilesets/day_roofs.png", "src/tilesets/day_buildings.png", "src/tilesets/day_landscape.png",
 			"src/tilesets/front_sprites.png", "src/tilesets/back_sprites.png" };
 	public static BufferedImage[] image_sheets, player;
@@ -170,7 +170,7 @@ public class ImageLibrary extends Library {
 			text[i][68] = blank;
 		}
 
-		scaleText(8, 16);
+		// scaleText(8, 16);
 
 		// Load player sprites
 		im = (new ImageIcon("src/tilesets/player_motion.png")).getImage();
