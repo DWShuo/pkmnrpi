@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class RockThrow extends Move {
 
 	public RockThrow(ArrayList<String> data) {

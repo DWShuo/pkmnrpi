@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class PerishSong extends Move {
 
 	public PerishSong(ArrayList<String> data) {

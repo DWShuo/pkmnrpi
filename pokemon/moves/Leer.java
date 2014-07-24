@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class Leer extends Move {
 
 	public Leer(ArrayList<String> data) {

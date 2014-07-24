@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class Surf extends Move {
 
 	public Surf(ArrayList<String> data) {

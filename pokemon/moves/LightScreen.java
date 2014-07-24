@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class LightScreen extends Move {
 
 	public LightScreen(ArrayList<String> data) {

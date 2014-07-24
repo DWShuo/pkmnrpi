@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class FireSpin extends Move {
 
 	public FireSpin(ArrayList<String> data) {

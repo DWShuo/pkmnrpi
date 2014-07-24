@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class LowKick extends Move {
 
 	public LowKick(ArrayList<String> data) {

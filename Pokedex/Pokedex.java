@@ -40,7 +40,6 @@ public class Pokedex extends JPanel implements Searchable, PokedexUI {
 		engine = e;
 		int picwidth = 210, bar = PokedexSearchBar.pixel_height;
 		int pichieght = (height / 4) * 3;
-		String[] titles = { "ID No: ", "Type: ", "Height: ", "Weight: ", "Catch Rate: " };// Find something prettier...
 
 		// INITILIZATIONS!!!!
 		contents = new JPanel();
@@ -49,7 +48,7 @@ public class Pokedex extends JPanel implements Searchable, PokedexUI {
 		JPanel left = new JPanel();
 		maintext = new PokedexTextArea(width, height - pichieght);
 		name = new PokedexNameArea(width - picwidth, 30);
-		info = new PokedexFieldArea(width - picwidth, pichieght - 30, titles);
+		info = new PokedexFieldArea(width - picwidth, pichieght - 30);
 		search = new PokedexSearchBar(width, this);
 
 		// Set all preferred sizes
@@ -77,7 +76,7 @@ public class Pokedex extends JPanel implements Searchable, PokedexUI {
 		add(search);
 		add(contents);
 
-		search("Charizard");
+		//search("Charizard");
 	}
 
 	// Loads a specific pokemon's info onto the pokedex page
@@ -85,18 +84,12 @@ public class Pokedex extends JPanel implements Searchable, PokedexUI {
 		Pokemon next = getPokemon(str);
 		if (next == null)
 			return;
-		int id = next.ID;
-		if (id > 200)
-			id -= 2;
-		else
-			id-- ;
 		portrait.image = new ImageIcon("src/tilesets/pokemon_sprites/" + next.name.toLowerCase() + ".jpg").getImage();
 		portrait.repaint();
-		name.labels.setText(next.name);
-		String type = Pokemon.getType(next.type) + (next.t2 >= 0 ? "/" + Pokemon.getType(next.t2) : "");
-		String[] data = { next.ID + "", type, next.height + "", next.weight + "", next.catch_rate + "" };
-		info.setText(data);
-		maintext.text.setText(next.description, 50);
+		name.setNumber(next.ID + "");
+		info.update(next);
+		maintext.text = next.description;
+		maintext.repaint();
 	}
 
 	// Returns the instance of the pokemon that the text names.

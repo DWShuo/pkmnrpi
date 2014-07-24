@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class CottonSpore extends Move {
 
 	public CottonSpore(ArrayList<String> data) {

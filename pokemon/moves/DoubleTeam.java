@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class DoubleTeam extends Move {
 
 	public DoubleTeam(ArrayList<String> data) {

@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class Barrier extends Move {
 
 	public Barrier(ArrayList<String> data) {

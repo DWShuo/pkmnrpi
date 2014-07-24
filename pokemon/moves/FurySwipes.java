@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class FurySwipes extends Move {
 
 	public FurySwipes(ArrayList<String> data) {

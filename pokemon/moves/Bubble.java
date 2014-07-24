@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class Bubble extends Move {
 
 	public Bubble(ArrayList<String> data) {

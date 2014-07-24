@@ -13,6 +13,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import battle.BattlePanel;
+
 // This class only displays a buffered image in a window.
 public class TestFrame extends JFrame {
 	public TestFrame(BufferedImage i) {
@@ -66,6 +68,16 @@ public class TestFrame extends JFrame {
 		setBounds(200, 400, 300, 300);
 		pack();
 		setVisible(true);
+	}
+
+	public TestFrame(BattlePanel p) {
+		super("Test Frame");
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		add(p);
+		setBounds(200, 400, p.width, p.height);
+		pack();
+		setVisible(true);
+
 	}
 
 	public TestFrame(JPanel p) {

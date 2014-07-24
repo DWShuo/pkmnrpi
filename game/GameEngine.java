@@ -1,15 +1,18 @@
 package game;
 
 import java.awt.Color;
+import java.awt.Dimension;
 
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
+import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
 import battle.BattleEngine;
 import pokedex.Pokedex;
 import pokemon.Pokemon;
 import util.KeyMapper;
+import util.TestFrame;
 
 /**
  * This is the main class. Hurrah for the root of all things. Praise the sun!
@@ -20,6 +23,9 @@ public class GameEngine {
 	public KeyMapper keymap;
 	public Pokedex dex;
 	public JFrame frame;
+	public JPanel contents;
+	public BattleEngine battle;
+	public JLayeredPane window;
 
 	public GameEngine() {
 		// This MUST be the first line. Initializes static data.
@@ -29,7 +35,12 @@ public class GameEngine {
 		dex = new Pokedex(this);
 		frame = new JFrame("Pokemon RPI");
 		keymap = new KeyMapper(this);
-		JPanel contents = new JPanel();
+		contents = new JPanel();
+		window = new JLayeredPane();
+		window.setPreferredSize(new Dimension(400, 400));
+		window.setLayout(null);
+		window.add(board, 1);
+		board.setBounds(0, 0, 400, 400);
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLocation(400, 200);
@@ -39,16 +50,23 @@ public class GameEngine {
 		contents.setBackground(Color.gray.darker().darker());
 
 		contents.add(dex);
-		contents.add(board);
+		contents.add(window);
 
 		frame.add(contents);
 		frame.pack();
 		frame.setVisible(true);
 
-		new BattleEngine(this, new Pokemon("Pidgey", 10));
-
+		battle = new BattleEngine(this, new Pokemon("Pidgey", 10));
+		startBattle();
 		// TODO: Play intro credits
 		// TODO: select save file or start new game
+	}
+
+	public void startBattle() {
+		// TODO: transition animation
+		window.add(battle.panel, 0);
+		battle.panel.setBounds(0, 0, 400, 400);
+		dex.search(battle.enemy.name);
 	}
 
 	public void focusPokedex() {

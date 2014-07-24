@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class PainSplit extends Move {
 
 	public PainSplit(ArrayList<String> data) {

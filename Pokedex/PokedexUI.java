@@ -1,12 +1,13 @@
 package pokedex;
 
-import java.awt.Dimension;
+import java.awt.Font;
 
 import javax.swing.ImageIcon;
 
 public interface PokedexUI {
-	public static final String valid_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!?,.:$ ";
 	public static final String bad_chars = "/";
 	public static final ImageIcon portrait_icon = new ImageIcon("src/tilesets/pokedex_background.png");
-	public static Dimension TSIZE = new Dimension(7, 14);
+	public static Font font = new Font("Pokemon GB", Font.TRUETYPE_FONT, 12);
+	public static Font largefont = new Font("Pokemon GB", Font.TRUETYPE_FONT, 16);
+	public static Font smallfont = new Font("Pokemon GB", Font.TRUETYPE_FONT, 9);
 }

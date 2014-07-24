@@ -5,8 +5,8 @@ import items.*;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import pokemon.Move;
 import pokemon.Pokemon;
-import pokemon.moves.Move;
 
 public class Backpack {
 	public ArrayList<Ball> balls = new ArrayList<Ball>();

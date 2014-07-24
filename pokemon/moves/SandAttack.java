@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class SandAttack extends Move {
 
 	public SandAttack(ArrayList<String> data) {

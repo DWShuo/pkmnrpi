@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class Nightmare extends Move {
 
 	public Nightmare(ArrayList<String> data) {

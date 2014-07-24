@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class SkyAttack extends Move {
 
 	public SkyAttack(ArrayList<String> data) {

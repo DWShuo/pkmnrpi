@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class RainDance extends Move {
 
 	public RainDance(ArrayList<String> data) {

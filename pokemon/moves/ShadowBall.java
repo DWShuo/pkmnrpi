@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class ShadowBall extends Move {
 
 	public ShadowBall(ArrayList<String> data) {

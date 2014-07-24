@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class Octazooka extends Move {
 
 	public Octazooka(ArrayList<String> data) {

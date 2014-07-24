@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class Thunder extends Move {
 
 	public Thunder(ArrayList<String> data) {

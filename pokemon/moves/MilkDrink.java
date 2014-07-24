@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class MilkDrink extends Move {
 
 	public MilkDrink(ArrayList<String> data) {

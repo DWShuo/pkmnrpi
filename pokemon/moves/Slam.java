@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class Slam extends Move {
 
 	public Slam(ArrayList<String> data) {

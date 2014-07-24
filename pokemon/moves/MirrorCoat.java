@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class MirrorCoat extends Move {
 
 	public MirrorCoat(ArrayList<String> data) {

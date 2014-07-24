@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class Dig extends Move {
 
 	public Dig(ArrayList<String> data) {

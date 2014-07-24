@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class Snore extends Move{
 
 	public Snore(ArrayList<String> data) {

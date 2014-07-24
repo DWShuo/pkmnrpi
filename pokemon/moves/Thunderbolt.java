@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class Thunderbolt extends Move {
 
 	public Thunderbolt(ArrayList<String> data) {

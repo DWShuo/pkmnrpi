@@ -4,36 +4,39 @@ import game.GamePanel;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Graphics;
 
 import javax.swing.BoxLayout;
+import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
 import objects.LayeredPanel;
 import animations.Sprite;
-import pokemon.moves.Move;
+import pokemon.Move;
 import util.ImageLibrary;
 import util.Library;
-import util.TestFrame;
 
-public class BattlePanel extends LayeredPanel {
+public class BattlePanel extends JLayeredPane implements BattleUI {
 	private BattleEngine engine;
 
 	public BattleHUD hud;
 	public BattleEnemyHUD ehud;
 	public BattleText text;
+	public GamePanel foreg;
 	public Sprite back, front;
-	public GamePanel fore = new GamePanel();
+	public int width = 400, height = 400;
 
 	public BattlePanel(BattleEngine e) {
-		super(new Dimension(400, 400));
-		background = new JPanel();
-		setForeground(fore);
+		super();
 		engine = e;
 		hud = new BattleHUD();
 		ehud = new BattleEnemyHUD();
 		text = new BattleText(e);
-		int width = 400, height = 400;
+		foreg = new GamePanel();
+		foreg.setPreferredSize(new Dimension(width, height));
+		JLabel background = new JLabel(ImageLibrary.getSolidColor(Color.white, width, height));
 		setBackground(Color.white);
 
 		hud.focus = engine.self.get_first_pokemon();
@@ -50,18 +53,21 @@ public class BattlePanel extends LayeredPanel {
 		back.height *= 2;
 		back.y = BattleHUD.height + BattleEnemyHUD.height - back.height;
 
-		fore.sprites.add(front);
-		fore.sprites.add(back);
+		foreg.sprites.add(front);
+		foreg.sprites.add(back);
 
-		background.setBackground(Color.white);
-		background.setLayout(null);
-		background.add(ehud);
-		background.add(hud);
-		background.add(text);
-
+		setPreferredSize(new Dimension(width, height));
+		setLayout(null);
+		add(foreg, 0);
+		add(ehud, 1);
+		add(hud, 1);
+		add(text, 1);
+		add(background, 5);
+		foreg.setBounds(0, 0, width, height);
 		ehud.setBounds(0, 0, BattleEnemyHUD.width, BattleEnemyHUD.height);
 		hud.setBounds(width - BattleHUD.width, BattleEnemyHUD.height, BattleHUD.width, BattleHUD.height);
-		text.setBounds(0, BattleEnemyHUD.height + BattleHUD.height, width, height - (BattleEnemyHUD.height + BattleHUD.height));
+		text.setBounds(0, BattleEnemyHUD.height + BattleHUD.height, width, height - BattleEnemyHUD.height - BattleHUD.height);
+		background.setBounds(0, 0, width, height);
 	}
 
 	// This should animate the main player in engine as he comes onto the field
@@ -114,8 +120,8 @@ public class BattlePanel extends LayeredPanel {
 		// TODO: animate damage
 	}
 
-	public void displayMoves() {
-		// TODO: use data from engine.friend to get all the moves
-		// TODO: Set up display
+	public void makeSelection() {
+		text.state = 1;
+		text.repaint();
 	}
 }

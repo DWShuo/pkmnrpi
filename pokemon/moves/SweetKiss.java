@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class SweetKiss extends Move {
 
 	public SweetKiss(ArrayList<String> data) {

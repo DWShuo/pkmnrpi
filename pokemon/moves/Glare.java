@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class Glare extends Move {
 
 	public Glare(ArrayList<String> data) {

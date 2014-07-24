@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class MegaPunch extends Move {
 
 	public MegaPunch(ArrayList<String> data) {

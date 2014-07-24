@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class Pound extends Move {
 
 	public Pound(ArrayList<String> data) {

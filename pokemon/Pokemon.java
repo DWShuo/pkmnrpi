@@ -1,16 +1,16 @@
 package pokemon;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import pokedex.Pokedex;
 import pokedex.PokedexUI;
-import pokemon.moves.Move;
 import util.FileParser;
 
-public class Pokemon implements PokedexUI {
+public class Pokemon implements PokedexUI, AI {
 	public static final int FIRE = 0, WATER = 1, GRASS = 2, GROUND = 3, ROCK = 4, DARK = 5, GHOST = 6, STEEL = 7, ELECTRIC = 8, FLYING = 9, DRAGON = 10, ICE = 11, PSYCHIC = 12,
-			POISON = 13, FIGHTING = 14, NORMAL = 15;
+			POISON = 13, FIGHTING = 14, NORMAL = 15, BUG = 16;
 	public static Pokemon[] all_pokemon;
 
 	public String name, species, description;
@@ -21,7 +21,8 @@ public class Pokemon implements PokedexUI {
 	public Stats stats = new Stats();
 	public int catch_rate, base_exp, base_happiness;
 	public HashMap<String, String> evolutions = new HashMap<String, String>();
-	public HashMap<Integer, Move> learnset = new HashMap<Integer, Move>();
+	public ArrayList<Integer> ages = new ArrayList<Integer>();
+	public ArrayList<Move> history = new ArrayList<Move>(), learnset = new ArrayList<Move>();
 	public ArrayList<Move> known_moves = new ArrayList<Move>(), tmset = new ArrayList<Move>();
 
 	public Pokemon() {
@@ -43,6 +44,7 @@ public class Pokemon implements PokedexUI {
 		stats.initIV();
 		stats.calibrate(level);
 		stats.current_health = stats.max_health;
+		selectRandomMoves();
 	}
 
 	// Used when loading pokemon by name
@@ -66,6 +68,7 @@ public class Pokemon implements PokedexUI {
 		evolutions = p.evolutions;
 		learnset = p.learnset;
 		tmset = p.tmset;
+		ages = p.ages;
 		description = p.description;
 		stats = new Stats(p.stats);
 	}
@@ -114,12 +117,14 @@ public class Pokemon implements PokedexUI {
 				str = info.get(index++ );
 			}
 			index++ ;
-			p.learnset = new HashMap<Integer, Move>();
+			p.learnset = new ArrayList<Move>();
+			p.ages = new ArrayList<Integer>();
 			str = info.get(index++ );
 			while (!isUniform(str, '*')) {
 				if (str.contains(",")) {
 					String[] ar = str.split(",");
-					p.learnset.put(Integer.parseInt(ar[1]), Move.lookup(ar[0]));
+					p.ages.add(Integer.parseInt(ar[1]));
+					p.learnset.add(Move.lookup(ar[0]));
 				}
 				str = info.get(index++ );
 			}
@@ -135,6 +140,21 @@ public class Pokemon implements PokedexUI {
 			Pokedex.pkmn_lookup.put(p.name.toLowerCase(), p.ID);
 		}
 		Stats.init();
+	}
+
+	private void selectRandomMoves() {
+		for (int i = ages.size() - 1; i >= 0; --i) {
+			if (ages.get(i) <= stats.level) {
+				Move m = learnset.get(i);
+				if (!history.contains(m))
+					history.add(m);
+				if (known_moves.size() > 3)
+					continue;
+				// if (Math.random() < ((double) ages.get(i)) / stats.level)
+				known_moves.add(m);
+			}
+		}
+		// System.out.println(known_moves.size());
 	}
 
 	public String staticToString() {
@@ -247,6 +267,10 @@ public class Pokemon implements PokedexUI {
 		return temp;
 	}
 
+	public boolean equals(Pokemon p) {
+		return name.equalsIgnoreCase(p.name);
+	}
+
 	public String toString() {
 		String str = "\n", all = name + str;
 		all += ID + str;
@@ -294,6 +318,45 @@ public class Pokemon implements PokedexUI {
 		return "NORMAL";
 	}
 
+	public static Color typeColor(int i) {
+		if (i == 0) {
+			return new Color(240, 128, 48);
+		} else if (i == 1) {
+			return new Color(104, 144, 240);
+		} else if (i == 2) {
+			return new Color(120, 200, 80);
+		} else if (i == 3) {
+			return new Color(224, 192, 104);
+		} else if (i == 4) {
+			return new Color(184, 160, 56);
+		} else if (i == 5) {
+			return new Color(112, 88, 72);
+		} else if (i == 6) {
+			return new Color(112, 88, 152);
+		} else if (i == 7) {
+			return new Color(184, 184, 208);
+		} else if (i == 8) {
+			return new Color(248, 208, 48);
+		} else if (i == 9) {
+			return new Color(168, 144, 240);
+		} else if (i == 10) {
+			return new Color(112, 56, 248);
+		} else if (i == 11) {
+			return new Color(152, 216, 216);
+		} else if (i == 12) {
+			return new Color(248, 88, 136);
+		} else if (i == 13) {
+			return new Color(160, 64, 160);
+		} else if (i == 14) {
+			return new Color(192, 48, 40);
+		} else if (i == 15) {
+			return new Color(168, 168, 120);
+		} else if (i == 16) {
+			return new Color(168, 184, 32);
+		}
+		return new Color(168, 168, 120);
+	}
+
 	public static int getType(String str) {
 		str = str.toUpperCase();
 		if (str.equals("FIRE")) {
@@ -328,7 +391,18 @@ public class Pokemon implements PokedexUI {
 			return 14;
 		} else if (str.equals("NORMAL")) {
 			return 15;
+		} else if (str.equals("BUG")) {
+			return 16;
 		}
 		return 15;
+	}
+
+	@Override
+	public Move decide(Pokemon p) {
+		Move m = known_moves.get(0);
+		for (Move mo : known_moves)
+			if (m.damage < mo.damage)
+				m = mo;
+		return m;
 	}
 }

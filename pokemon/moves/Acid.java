@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class Acid extends Move {
 
 	public Acid(ArrayList<String> data) {

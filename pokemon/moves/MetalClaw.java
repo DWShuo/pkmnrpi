@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class MetalClaw extends Move {
 
 	public MetalClaw(ArrayList<String> data) {

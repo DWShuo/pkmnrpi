@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class Smokescreen extends Move {
 
 	public Smokescreen(ArrayList<String> data) {

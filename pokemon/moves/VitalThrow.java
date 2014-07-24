@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class VitalThrow extends Move {
 
 	public VitalThrow(ArrayList<String> data) {

@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class Kinesis extends Move {
 
 	public Kinesis(ArrayList<String> data) {

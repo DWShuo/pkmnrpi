@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class PoisonPowder extends Move {
 
 	public PoisonPowder(ArrayList<String> data) {

@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class TakeDown extends Move {
 
 	public TakeDown(ArrayList<String> data) {

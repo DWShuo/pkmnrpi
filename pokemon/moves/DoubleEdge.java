@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class DoubleEdge extends Move {
 
 	public DoubleEdge(ArrayList<String> data) {

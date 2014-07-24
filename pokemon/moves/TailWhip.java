@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class TailWhip extends Move {
 
 	public TailWhip(ArrayList<String> data) {

@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class DizzyPunch extends Move {
 
 	public DizzyPunch(ArrayList<String> data) {

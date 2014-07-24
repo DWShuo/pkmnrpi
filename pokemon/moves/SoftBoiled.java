@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class SoftBoiled extends Move {
 
 	public SoftBoiled(ArrayList<String> data) {

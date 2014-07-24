@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class Pursuit extends Move {
 
 	public Pursuit(ArrayList<String> data) {

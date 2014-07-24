@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class Conversion extends Move {
 
 	public Conversion(ArrayList<String> data) {

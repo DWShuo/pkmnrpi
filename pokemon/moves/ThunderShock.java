@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class ThunderShock extends Move {
 
 	public ThunderShock(ArrayList<String> data) {

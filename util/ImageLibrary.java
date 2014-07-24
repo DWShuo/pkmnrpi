@@ -1,7 +1,6 @@
 package util;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -9,16 +8,11 @@ import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 
-import pokedex.PokedexUI;
-
 /**
  * This is a database class designed specifically to hold the static sprite data. However this class also helps with some of the text organization.
  */
 public class ImageLibrary extends Library {
 	public static ImageIcon[] icons, front_sprites, back_sprites, small_sprites;
-	public static ImageIcon[][] text;
-	public static ImageIcon blank = ImageLibrary.getSolidColor(Color.white, 7, 14);
-	public static ImageIcon black = ImageLibrary.getSolidColor(Color.black, 7, 14);
 	public static int[] pixel_width = { 16, 16, 16, 16, 56, 56 };
 	public static int[] start_counts = { 0, 700, 1137, 1304 };
 	public static int[] icon_counts = { 699, 437, 167, 290, 251, 251 };
@@ -44,16 +38,6 @@ public class ImageLibrary extends Library {
 
 	public static ImageIcon getScaledIcon(ImageIcon i, int w, int h) {
 		return new ImageIcon(i.getImage().getScaledInstance(w, h, Image.SCALE_SMOOTH));
-	}
-
-	public static void scaleText(int w, int h) {
-		PokedexUI.TSIZE.width = w;
-		PokedexUI.TSIZE.height = h;
-		blank = getSolidColor(Color.white, w, h);
-		black = getSolidColor(Color.black, w, h);
-		for (ImageIcon[] ar : text)
-			for (int i = 0; i < ar.length; ++i)
-				ar[i] = getScaledIcon(ar[i], w, h);
 	}
 
 	// This method is used to ensure transparency for sprites and animations.
@@ -121,66 +105,15 @@ public class ImageLibrary extends Library {
 		for (int i = 0; i < icon_counts[5]; ++i)
 			back_sprites[i] = new ImageIcon(lst.get(5).get(i));
 
-		// Create the text sprites
-		Image im = (new ImageIcon("src/tilesets/typefont.png")).getImage();
-		int w = im.getWidth(null), h = im.getHeight(null), idx = image_sheets.length - 1;
-		image_sheets[idx] = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
-		image_sheets[idx].getGraphics().drawImage(im, 0, 0, null);
-		image_sheets[idx] = removeBackground(image_sheets[idx], -1);
-		// Split the sheet up by color
-		BufferedImage[] ls = new BufferedImage[18];
-		int temp = 0;
-		for (BufferedImage b : Tileizer.cutter(image_sheets[idx], w, h, 119, 48, 18))
-			ls[temp++ ] = b;
-		text = new ImageIcon[18][];
-		for (int i = 0; i < text.length; ++i) {
-			text[i] = new ImageIcon[69];
-			// Cut up the sheets into font sprites
-			BufferedImage[] font = new BufferedImage[4 * 17];
-			temp = 0;
-			for (BufferedImage b : Tileizer.cutter(ls[i], 119, 48, 7, 12, 4 * 17))
-				font[temp++ ] = b;
-			// Pull the letters in first
-			int c = 0;
-			for (int j = 0; j < 13; ++j) {
-				text[i][c++ ] = new ImageIcon(font[j]);
-			}
-			for (int j = 17; j < 30; ++j) {
-				text[i][c++ ] = new ImageIcon(font[j]);
-			}
-			for (int j = 34; j < 47; ++j) {
-				text[i][c++ ] = new ImageIcon(font[j]);
-			}
-			for (int j = 51; j < 64; ++j) {
-				text[i][c++ ] = new ImageIcon(font[j]);
-			}
-			// Then pull the numbers
-			for (int j = 13; j < 17; ++j) {
-				text[i][c++ ] = new ImageIcon(font[j]);
-			}
-			for (int j = 30; j < 34; ++j) {
-				text[i][c++ ] = new ImageIcon(font[j]);
-			}
-			for (int j = 47; j < 51; ++j) {
-				text[i][c++ ] = new ImageIcon(font[j]);
-			}
-			for (int j = 64; j < 68; ++j) {
-				text[i][c++ ] = new ImageIcon(font[j]);
-			}
-			text[i][68] = blank;
-		}
-
-		// scaleText(8, 16);
-
 		// Load player sprites
-		im = (new ImageIcon("src/tilesets/player_motion.png")).getImage();
-		w = im.getWidth(null);
-		h = im.getHeight(null);
+		Image im = (new ImageIcon("src/tilesets/player_motion.png")).getImage();
+		int w = im.getWidth(null);
+		int h = im.getHeight(null);
 		BufferedImage buf = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
 		buf.getGraphics().drawImage(im, 0, 0, null);
 		buf = removeBackground(buf, bitwise_background_color);
 		player = new BufferedImage[20];
-		temp = 0;
+		int temp = 0;
 		for (BufferedImage b : Tileizer.cutter(buf, w, h, 16, 16, 20))
 			player[temp++ ] = b;
 

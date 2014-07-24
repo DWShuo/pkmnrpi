@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class DrillPeck extends Move {
 
 	public DrillPeck(ArrayList<String> data) {

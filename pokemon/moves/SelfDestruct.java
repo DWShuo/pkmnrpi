@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class SelfDestruct extends Move {
 
 	public SelfDestruct(ArrayList<String> data) {

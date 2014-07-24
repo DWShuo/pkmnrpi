@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class Fly extends Move {
 
 	public Fly(ArrayList<String> data) {

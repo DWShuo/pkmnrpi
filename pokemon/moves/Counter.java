@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class Counter extends Move {
 
 	public Counter(ArrayList<String> data) {

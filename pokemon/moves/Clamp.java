@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class Clamp extends Move {
 
 	public Clamp(ArrayList<String> data) {

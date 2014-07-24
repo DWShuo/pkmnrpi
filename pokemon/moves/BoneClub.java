@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class BoneClub extends Move {
 
 	public BoneClub(ArrayList<String> data) {

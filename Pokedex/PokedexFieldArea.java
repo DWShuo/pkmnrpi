@@ -1,66 +1,48 @@
 package pokedex;
 
+import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.GridLayout;
-import java.util.ArrayList;
+import java.awt.Graphics;
 
-import javax.swing.JLabel;
-import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
-import util.ImageLibrary;
+import pokemon.Pokemon;
 import util.panels.PatternPanel;
 
-public class PokedexFieldArea extends JLayeredPane implements PokedexUI {
-	public TextGrid labels;
-	private int count;
-	public String[] source;
-	private JPanel[] center;
+public class PokedexFieldArea extends JPanel implements PokedexUI {
 	public PatternPanel background = new PatternPanel(PatternPanel.TEXT_AREA);
-	public int color = ImageLibrary.BLACK;
+	public int width, height, window = 150, open = 100, gap = 17, vgap = 10;
+	public StatGraph stats = new StatGraph();
 
-	public PokedexFieldArea(int width, int height, String[] fields) {
+	public PokedexFieldArea(int width, int height) {
 		super();
+		this.width = width;
+		this.height = height;
 		setPreferredSize(new Dimension(width, height));
-		source = fields;
-
-		// Calculate cell count
-		count = width / TSIZE.width - 5;
-		int hgap = (width - TSIZE.width * count) / 2;
-		int vgap = (height - TSIZE.height * fields.length) / (fields.length + 1);
-		labels = new TextGrid();
-		labels.grid = new JLabel[fields.length][];
-		labels.text = new char[fields.length][];
-		center = new JPanel[fields.length];
-
-		Dimension size = new Dimension(TSIZE.width * count, TSIZE.height);
-		for (int i = 0; i < fields.length; ++i) {
-			// Create field panel
-			center[i] = new JPanel();
-			center[i].setPreferredSize(size);
-			center[i].setLayout(new GridLayout(1, count, 0, 0));
-			center[i].setOpaque(false);
-
-			labels.grid[i] = new JLabel[count - 1];
-			labels.text[i] = new char[count - 1];
-			for (int k = 0; k < labels.grid[i].length; ++k) {
-				labels.grid[i][k] = new JLabel(ImageLibrary.blank);
-				labels.text[i][k] = ' ';
-				center[i].add(labels.grid[i][k]);
-			}
-			add(center[i], i);
-			center[i].setBounds(hgap, vgap + (vgap + TSIZE.height) * i, count * TSIZE.width, TSIZE.height);
-		}
-		add(background, center.length);
-		background.setBounds(0, 0, width, height);
-		labels.setText(source);
 	}
 
-	public void setText(String[] ary) {
-		ArrayList<String> t = new ArrayList<String>();
-		for (int i = 0; i < ary.length; ++i) {
-			t.add(source[i] + ary[i]);
-		}
-		labels.setText(t);
+	public void paint(Graphics g) {
+		super.paintComponent(g);
+		PatternPanel.paintTextArea(g, width, height);
+		if (stats.mon == null)
+			return;
+		stats.setPreferredSize(new Dimension(window, open));
+		stats.paintAt(g, (width - window) / 2, height - open - vgap);
+		g.setFont(font);
+		g.setColor(Color.black);
+		int h = g.getFontMetrics().getHeight();
+		g.drawString(stats.mon.name.toUpperCase(), gap, vgap + h);
+		g.setFont(smallfont);
+		g.drawString(stats.mon.species, gap, 2 * (vgap + h));
+		g.setFont(font);
+		g.drawString("Height: " + stats.mon.height, gap, 3 * (vgap + h));
+		g.drawString("Weight: " + stats.mon.weight, gap, 4 * (vgap + h));
+		g.drawString("Type1: " + Pokemon.getType(stats.mon.type), gap, 5 * (vgap + h));
+		g.drawString("Type2: " + Pokemon.getType(stats.mon.t2 == -1 ? stats.mon.type : stats.mon.t2), gap, 6 * (vgap + h));
+	}
+
+	public void update(Pokemon p) {
+		stats.mon = p;
+		repaint();
 	}
 }

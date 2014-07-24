@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class Swift extends Move {
 
 	public Swift(ArrayList<String> data) {

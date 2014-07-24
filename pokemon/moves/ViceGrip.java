@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class ViceGrip extends Move {
 
 	public ViceGrip(ArrayList<String> data) {

@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class Headbutt extends Move {
 
 	public Headbutt(ArrayList<String> data) {

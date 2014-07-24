@@ -2,8 +2,9 @@ package pokedex;
 
 import game.GameEngine;
 
+import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.GridLayout;
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -11,56 +12,42 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-import util.ImageLibrary;
 import util.panels.PatternPanel;
 
 /**
  * This class is in charge of listening to and animating the search bar of the pokedex.
  */
 public class PokedexSearchBar extends JPanel implements KeyListener, PokedexUI, MouseListener, ActionListener {
-	public static final int pixel_height = TSIZE.height + 8;
+	public static final int pixel_height = 22;
 	public static final String default_message = "Click here to search";
 
-	private JLabel[] text;
-	private int max, idx;
+	private int width;
 	private Pokedex pokedex;
 	private String current = "";
-	public int color = ImageLibrary.BLACK;
-	public PatternPanel background = new PatternPanel(0);
 	public Timer time;
 	public boolean flicker;
 
 	public PokedexSearchBar(int width, Pokedex s) {
 		super();
+		this.width = width;
 		time = new Timer(300, this);
 		pokedex = s;
-		max = width / TSIZE.width - 4;
-		int gap = (width - TSIZE.width * max) / 2;
-		// Count is the number of digets that can be displayed.
-		assert (max > 0);
-		setLayout(null);
-		setPreferredSize(new Dimension(width, pixel_height));
-		addMouseListener(this);
-
-		JPanel center = new JPanel();
-		center.setLayout(new GridLayout(1, max, 0, 0));
-		center.setPreferredSize(new Dimension(width - 2 * gap, pixel_height - 6));
-		center.setOpaque(false);
-
-		text = new JLabel[max];
-		for (int i = 0; i < max; ++i) {
-			text[i] = new JLabel(ImageLibrary.blank);
-			center.add(text[i]);
-		}
-		add(center);
-		add(background);
-		background.setBounds(0, 0, width, pixel_height);
-		center.setBounds(gap, 3, width - 2 * gap, pixel_height - 6);
 		setDefaultText();
+		setPreferredSize(new Dimension(width, pixel_height));
+	}
+
+	public void paint(Graphics g) {
+		super.paintComponent(g);
+		PatternPanel.paintTextArea(g, width, pixel_height);
+		g.setFont(font);
+		g.setColor(Color.black);
+		g.drawString(current, 20, pixel_height - 4);
+		int gap = 20 + g.getFontMetrics().stringWidth(current);
+		if (flicker)
+			g.fillRect(gap, 4, g.getFontMetrics().stringWidth("M"), g.getFontMetrics().getHeight());
 	}
 
 	public void keyPressed(KeyEvent e) {
@@ -71,43 +58,28 @@ public class PokedexSearchBar extends JPanel implements KeyListener, PokedexUI, 
 				return;
 			pokedex.search(current);
 			loseFocus();
+			repaint();
+			return;
 		}
 		// Catch backspace key
 		if (e.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
 			// System.out.println("BACKSPACE");
-			if (idx <= 0)
-				return;
-			text[ --idx].setIcon(ImageLibrary.blank);
-			if (idx + 1 < text.length)
-				text[idx + 1].setIcon(ImageLibrary.blank);
 			current = current.substring(0, current.length() - 1);
+			repaint();
+			return;
 		}
 		char c = e.getKeyChar();
-		// System.out.println(c);
-		int index = valid_chars.indexOf(c);
-		if (index == -1)
-			return;
-		if (idx >= max - 1)
-			return;
-		// new TestFrame(ImageLibrary.text[color][index]);
-		text[idx++ ].setIcon(ImageLibrary.text[color][index]);
 		current += c;
-	}
-
-	// This replaces all text with blanks
-	public void clearText() {
-		current = "";
-		idx = 0;
-		for (JLabel l : text)
-			l.setIcon(ImageLibrary.blank);
+		repaint();
 	}
 
 	// This gains the key focus from the game engine, as well
 	// as clearing text, and starting the flicker
 	public void setFocus() {
 		pokedex.engine.focusPokedex();
-		clearText();
+		current = "";
 		flicker = true;
+		repaint();
 		time.start();
 	}
 
@@ -115,6 +87,7 @@ public class PokedexSearchBar extends JPanel implements KeyListener, PokedexUI, 
 	// sets the default text on the search bar.
 	public void loseFocus() {
 		time.stop();
+		flicker = false;
 		addMouseListener(this);
 		pokedex.engine.focusBoard();
 		setDefaultText();
@@ -123,12 +96,8 @@ public class PokedexSearchBar extends JPanel implements KeyListener, PokedexUI, 
 	// This clears all current text, then writes the default message onto
 	// the search bar.
 	public void setDefaultText() {
-		clearText();
 		current = default_message;
-		for (char c : default_message.toCharArray()) {
-			int index = valid_chars.indexOf(c);
-			text[idx++ ].setIcon(ImageLibrary.text[color][index]);
-		}
+		repaint();
 	}
 
 	public void keyReleased(KeyEvent e) {}
@@ -141,11 +110,8 @@ public class PokedexSearchBar extends JPanel implements KeyListener, PokedexUI, 
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		if (flicker)
-			text[idx].setIcon(ImageLibrary.black);
-		else
-			text[idx].setIcon(ImageLibrary.blank);
 		flicker = !flicker;
+		repaint();
 	}
 
 	@Override

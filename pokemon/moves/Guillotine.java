@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class Guillotine extends Move {
 
 	public Guillotine(ArrayList<String> data) {

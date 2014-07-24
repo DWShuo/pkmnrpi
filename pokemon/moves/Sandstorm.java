@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class Sandstorm extends Move {
 
 	public Sandstorm(ArrayList<String> data) {

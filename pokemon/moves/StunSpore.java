@@ -2,6 +2,8 @@ package pokemon.moves;
 
 import java.util.ArrayList;
 
+import pokemon.Move;
+
 public class StunSpore extends Move {
 
 	public StunSpore(ArrayList<String> data) {

@@ -16,6 +16,7 @@ import trainers.Person;
  * This class handles key events for the entire board. It should support key re-mapping.
  */
 public class KeyMapper implements KeyListener {
+	public static final int ENTER = 5;
 	public GameEngine engine;
 	private GameBoard board;
 	private Person player;
@@ -35,6 +36,7 @@ public class KeyMapper implements KeyListener {
 		map.put(Person.DOWN, "Down");
 		map.put(Person.RIGHT, "Right");
 		map.put(Person.LEFT, "Left");
+		map.put(ENTER, "Enter");
 	}
 
 	// This provides a portal for users to change key mapping.
@@ -48,37 +50,31 @@ public class KeyMapper implements KeyListener {
 		// Only listen for events when animations are done.
 		if (GameState.clock.isAnimating())
 			return;
-		boolean background_motion = false;
-		int direction = 0;
-		if (in == map.get(Person.UP)) {
-			direction = Person.UP;
-			// Dont move the board if you aren't in the middle.
-			if (player.y < board.map.mapdata.length - GameBoard.buffer)
-				background_motion = true;
-		} else if (in == map.get(Person.DOWN)) {
-			direction = Person.DOWN;
-			if (player.y > GameBoard.buffer)
-				background_motion = true;
-		} else if (in == map.get(Person.RIGHT)) {
-			direction = Person.RIGHT;
-			if (player.x > GameBoard.buffer)
-				background_motion = true;
-		} else if (in == map.get(Person.LEFT)) {
-			direction = Person.LEFT;
-			if (player.x < board.map.mapdata[0].length - GameBoard.buffer)
-				background_motion = true;
-		} else
-			return;
-		player.setDirection(direction);
-		// Check for obstruction
-		if (!board.canMove(direction)) {
-			board.foreground.repaint();
-			return;
+		boolean battling = engine.battle != null;
+		if (in.equalsIgnoreCase(map.get(Person.UP))) {
+			if (battling)
+				engine.battle.move(Person.UP);
+			else
+				WalkAnimation.run(board, player, Person.UP, player.y < board.map.mapdata.length - GameBoard.buffer);
+		} else if (in.equalsIgnoreCase(map.get(Person.DOWN))) {
+			if (battling)
+				engine.battle.move(Person.DOWN);
+			else
+				WalkAnimation.run(board, player, Person.DOWN, player.y > GameBoard.buffer);
+		} else if (in.equalsIgnoreCase(map.get(Person.RIGHT))) {
+			if (battling)
+				engine.battle.move(Person.RIGHT);
+			else
+				WalkAnimation.run(board, player, Person.RIGHT, player.x > GameBoard.buffer);
+		} else if (in.equalsIgnoreCase(map.get(Person.LEFT))) {
+			if (battling)
+				engine.battle.move(Person.LEFT);
+			else
+				WalkAnimation.run(board, player, Person.LEFT, player.x < board.map.mapdata[0].length - GameBoard.buffer);
+		} else if (in.equalsIgnoreCase(map.get(ENTER))) {
+			if (battling)
+				engine.battle.enter();
 		}
-		WalkAnimation ani = new WalkAnimation(board, player, 1);
-		GameState.clock.animate(ani);
-		if (background_motion)
-			GameState.clock.animate(new BoardAnimation(board, direction));
 	}
 
 	@Override

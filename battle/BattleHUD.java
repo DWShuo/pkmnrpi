@@ -6,12 +6,11 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Polygon;
 
-import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 import pokemon.Pokemon;
 
-public class BattleHUD extends JPanel {
+public class BattleHUD extends JPanel implements BattleUI {
 	public static final int width = 220, height = 150;
 	public static final Font font = new Font("Pokemon GB", Font.TRUETYPE_FONT, 20);
 	public static final Font small = new Font("Pokemon GB", Font.TRUETYPE_FONT, 16);
@@ -19,20 +18,19 @@ public class BattleHUD extends JPanel {
 	public static final double[] ypos = { .9, .9, .87, .65, .65, .84, .84, .88, .88, .83, .9 };
 	public static final double[] xpos2 = { .92, .92, .9, .8, .8, .27, .27, .15, .15, .87, .87, .92 };
 	public static final double[] ypos2 = { .7, .54, .5, .5, .56, .56, .5, .5, .58, .58, .7, .7 };
-	public static final ImageIcon level = new ImageIcon("src/tilesets/level.png");
-	public static final ImageIcon hp = new ImageIcon("src/tilesets/hp.png");
-	public static final int offsetx = 0, offsety = 0;
-	public static final Color blueish = new Color(28, 140, 255);
-	public static final Color greenish = new Color(0, 187, 0);
-	public static final Color redish = new Color(255, 3, 3);
-	public static final Color yellowish = new Color(255, 169, 11);
-
+	public int offsetx = 0, offsety = 0;
 	public Pokemon focus;
 	public Polygon shape, hpbar;
 
 	public BattleHUD() {
 		super();
 		setBackground(Color.white);
+		formShapes();
+		Dimension d = new Dimension(width, height);
+		setPreferredSize(d);
+	}
+
+	private void formShapes() {
 		int[] x = new int[xpos.length];
 		int[] y = new int[ypos.length];
 		for (int i = 0; i < xpos.length; ++i) {
@@ -47,9 +45,6 @@ public class BattleHUD extends JPanel {
 			b[i] = (int) (ypos2[i] * height) + offsety;
 		}
 		hpbar = new Polygon(a, b, a.length);
-		Dimension d = new Dimension(width, height);
-		setPreferredSize(d);
-		// setBackground(Color.blue.brighter());
 	}
 
 	public void drawHPBar(Graphics g) {
@@ -61,7 +56,7 @@ public class BattleHUD extends JPanel {
 			g.setColor(yellowish);
 		else if (dif <= .2)
 			g.setColor(redish);
-		g.fillRect((int) (xpos2[5] * width), (int) ((ypos[5] - .32) * height), (int) (width * (xpos2[4] - xpos2[5]) * dif + .5), 3);
+		g.fillRect((int) (xpos2[5] * width) + offsetx, (int) ((ypos[5] - .32) * height) + offsety, (int) (width * (xpos2[4] - xpos2[5]) * dif + .5), 3);
 	}
 
 	public void drawEXPBar(Graphics g) {
@@ -72,7 +67,8 @@ public class BattleHUD extends JPanel {
 		focus.stats.exp = focus.stats.total_exp - next;
 		int bitgap = (int) (width * xpos[6] - width * xpos[8]);
 		int gap = exp - next;
-		g.fillRect((int) (width * xpos[8] + bitgap * (1 - (double) focus.stats.exp / gap)), (int) (height * ypos[6]), (int) (bitgap * ((double) focus.stats.exp / gap) + .5), 3);
+		g.fillRect((int) (width * xpos[8] + bitgap * (1 - (double) focus.stats.exp / gap)) + offsetx, (int) (height * ypos[6]) + offsety, (int) (bitgap
+				* ((double) focus.stats.exp / gap) + .5), 3);
 	}
 
 	public void setPokemon(Pokemon p) {
@@ -87,13 +83,13 @@ public class BattleHUD extends JPanel {
 			return;
 		g.setFont(font);
 		g.fillPolygon(hpbar);
-		g.drawImage(hp.getImage(), (int) (xpos2[7] * width) + 5, (int) (ypos2[7] * height) + 3, null);
+		g.drawImage(hp.getImage(), (int) (xpos2[7] * width) + 5 + offsetx, (int) (ypos2[7] * height) + 3 + offsety, null);
 		g.drawString(focus.name.toUpperCase(), 20, 30);
-		g.drawImage(level.getImage(), width / 2, (int) (height * .3), null);
-		g.drawString("" + focus.stats.level, width / 2 + 20, (int) (height * .4));
+		g.drawImage(level.getImage(), width / 2 + offsetx, (int) (height * .3) + offsety, null);
+		g.drawString("" + focus.stats.level, width / 2 + 20 + offsetx, (int) (height * .4) + offsety);
 		// g.setFont(small);
 		String hp = focus.stats.current_health + "/ " + focus.stats.max_health;
-		g.drawString(hp, width / 8 * 7 - (g.getFontMetrics().stringWidth(hp)), (int) (height * .75));
+		g.drawString(hp, width / 8 * 7 - (g.getFontMetrics().stringWidth(hp)) + offsetx, (int) (height * .75) + offsety);
 		drawHPBar(g);
 		drawEXPBar(g);
 	}

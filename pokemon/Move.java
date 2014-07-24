@@ -1,27 +1,26 @@
-package pokemon.moves;
+package pokemon;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import pokemon.Pokemon;
 import util.FileParser;
 
 //TODO: determine how to calculate status changes and special effects.
 public class Move implements Comparable<Move> {
 	public static Move[] all_moves;
+	public static final int PHYSICAL = 20, SPECIAL = 30, STATUS = 40;
 
-	public int type, damage, pp, pp_max, lvl_req, tm;
-	public String name, category, description, effect;
+	public int type, damage, pp, pp_max, lvl_req, tm, category;
+	public String name, description, effect;
 	public double crit_chance, hit_chance;
+	public int speed_priority;
 
 	public Move() {}
 
 	public Move(ArrayList<String> data) {
 		name = Pokemon.stripLabel(data.get(0));
 		type = Pokemon.getType(Pokemon.stripLabel(data.get(1)));
-		category = Pokemon.stripLabel(data.get(2));
+		category = parseCategory(Pokemon.stripLabel(data.get(2)));
 		damage = Integer.parseInt(Pokemon.stripLabel(data.get(3)));
 		hit_chance = Double.parseDouble(Pokemon.stripLabel(data.get(4))) / 100.0;
 		// TODO crit_chance = ?
@@ -32,18 +31,20 @@ public class Move implements Comparable<Move> {
 	}
 
 	public static void init() {
-		ArrayList<String> data = FileParser.parseFile("src/data/moves.txt");
+		ArrayList<String> data = FileParser.parseFile("src/data/move_info.txt");
 		ArrayList<Move> all = new ArrayList<Move>();
 		for (String line : data) {
 			String[] ary = line.split(",");
 			Move m = new Move();
 			m.name = ary[0];
-			m.description = ary[1];
-			m.type = Pokemon.getType(ary[2].toUpperCase());
-			m.pp = m.pp_max = Integer.parseInt(ary[3]);
-			m.damage = Integer.parseInt(ary[4]);
-			double acc = Double.parseDouble(ary[5]);
+			m.type = Pokemon.getType(ary[1].toUpperCase());
+			m.category = parseCategory(ary[2]);
+			m.damage = Integer.parseInt(ary[3]);
+			double acc = Double.parseDouble(ary[4]);
 			m.hit_chance = acc == 0 ? 0 : 100.0 / acc;
+			m.pp = m.pp_max = Integer.parseInt(ary[5]);
+			if (ary.length == 7)
+				m.description = ary[6];
 			all.add(m);
 		}
 		all_moves = order_moves(all);
@@ -76,14 +77,22 @@ public class Move implements Comparable<Move> {
 		for (Move m : all_moves)
 			if (m.name.equalsIgnoreCase(name))
 				return m;
-		String str = "";
-		for (Move m : all_moves)
-			str += m.name + ", ";
 		return null;
 	}
 
 	@Override
 	public int compareTo(Move a) {
 		return name.compareTo(a.name);
+	}
+
+	public static int parseCategory(String str) {
+		str = str.toUpperCase();
+		if (str.equals("PHYSICAL"))
+			return PHYSICAL;
+		else if (str.equals("SPECIAL"))
+			return SPECIAL;
+		else if (str.equals("STATUS"))
+			return STATUS;
+		return PHYSICAL;
 	}
 }
