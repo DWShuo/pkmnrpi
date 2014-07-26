@@ -34,6 +34,7 @@ public class BattlePanel extends JLayeredPane implements BattleUI {
 		hud = new BattleHUD();
 		ehud = new BattleEnemyHUD();
 		text = new BattleText(e);
+		text.message = "A wild " + engine.enemy.name.toUpperCase() + " wants to battle!";
 		foreg = new GamePanel();
 		foreg.setPreferredSize(new Dimension(width, height));
 		JLabel background = new JLabel(ImageLibrary.getSolidColor(Color.white, width, height));
@@ -52,6 +53,9 @@ public class BattlePanel extends JLayeredPane implements BattleUI {
 		back.width *= 2;
 		back.height *= 2;
 		back.y = BattleHUD.height + BattleEnemyHUD.height - back.height;
+
+		engine.enemy.sprite = front;
+		engine.friend.sprite = back;
 
 		foreg.sprites.add(front);
 		foreg.sprites.add(back);
@@ -122,6 +126,7 @@ public class BattlePanel extends JLayeredPane implements BattleUI {
 
 	public void makeSelection() {
 		text.state = 1;
+		text.select = 0;
 		text.repaint();
 	}
 }

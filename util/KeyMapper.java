@@ -8,7 +8,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.HashMap;
 
-import animations.BoardAnimation;
 import animations.WalkAnimation;
 import trainers.Person;
 

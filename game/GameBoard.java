@@ -11,13 +11,14 @@ import javax.swing.*;
 import javax.swing.UIManager.LookAndFeelInfo;
 
 import animations.Sprite;
+import animations.SpriteBoard;
 import objects.LayeredPanel;
 import objects.TileMap;
 import trainers.Person;
 import trainers.Trainer;
 import util.ImageLibrary;
 
-public class GameBoard extends JScrollPane implements KeyListener {
+public class GameBoard extends JScrollPane implements KeyListener, SpriteBoard {
 	public static final int tilew = 25, tileh = 25, tsize = ImageLibrary.pixel_width[0];
 	public static final String default_map = "src/default.map";
 	public static final Dimension area = new Dimension(ImageLibrary.pixel_width[0] * tilew, ImageLibrary.pixel_width[0] * tileh);
@@ -34,7 +35,7 @@ public class GameBoard extends JScrollPane implements KeyListener {
 		engine = en;
 		// Set the look and feel to Nimbus
 		try {
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

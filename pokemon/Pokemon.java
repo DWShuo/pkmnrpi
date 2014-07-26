@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import animations.Sprite;
+import battle.BattleEngine;
 import pokedex.Pokedex;
 import pokedex.PokedexUI;
 import util.FileParser;
@@ -14,6 +16,7 @@ public class Pokemon implements PokedexUI, AI {
 	public static Pokemon[] all_pokemon;
 
 	public String name, species, description;
+	public Sprite sprite;
 	public boolean male = true;
 	public int type, t2 = -1;
 	public double height = 1, weight = 10;
@@ -142,6 +145,19 @@ public class Pokemon implements PokedexUI, AI {
 		Stats.init();
 	}
 
+	public void attack(Pokemon p, Move m, BattleEngine e, boolean front) {
+		if (!isHit(m, e)) {
+			System.out.println("Miss");
+			// animate miss
+			return;
+		}
+		new MoveAnimation(e, m, p, this);
+	}
+
+	public static boolean isHit(Move m, BattleEngine e) {
+		return true;
+	}
+
 	private void selectRandomMoves() {
 		for (int i = ages.size() - 1; i >= 0; --i) {
 			if (ages.get(i) <= stats.level) {
@@ -155,6 +171,47 @@ public class Pokemon implements PokedexUI, AI {
 			}
 		}
 		// System.out.println(known_moves.size());
+	}
+
+	public static int calculateDamage(Pokemon attacker, Pokemon defender, Move atk, BattleEngine e, double crit, double type) {
+		if (atk.category == Move.STATUS)
+			return 0;
+		double modifier = STAB(attacker, atk) * type * crit * (.85 + Math.random() * .15);
+		double level = attacker.stats.level;
+		double attack = atk.category == Move.PHYSICAL ? attacker.stats.attack : attacker.stats.special_attack;
+		double defense = atk.category == Move.PHYSICAL ? defender.stats.defense : defender.stats.special_defense;
+		double base = atk.damage;
+		return (int) (((2 * level + 10) / 250 * attack / defense * base + 2) * modifier);
+	}
+
+	public static double critRoll(Move m) {
+		return m.crit_chance > Math.random() ? (1.3 + Math.random() * .5) : 1;
+	}
+
+	public static double STAB(Pokemon p, Move m) {
+		return p.type == m.type || p.t2 == m.type ? 1.5 : 1;
+	}
+
+	public static double typeModifier(Pokemon p, Move m) {
+		if (isSafe(m.type, p.type) || isSafe(m.type, p.t2))
+			return 0;
+		double base = 1;
+		base *= isSuper(m.type, p.type) ? 2 : isHard(m.type, p.type) ? .5 : 1;
+		if (p.t2 >= 0)
+			base *= isSuper(m.type, p.t2) ? 2 : isHard(m.type, p.t2) ? .5 : 1;
+		return base;
+	}
+
+	public static boolean isHard(int t1, int t2) {
+		return false;
+	}
+
+	public static boolean isSuper(int t1, int t2) {
+		return false;
+	}
+
+	public static boolean isSafe(int t1, int t2) {
+		return false;
 	}
 
 	public String staticToString() {

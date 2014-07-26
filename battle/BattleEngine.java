@@ -12,8 +12,8 @@ public class BattleEngine {
 	public GameEngine engine;
 	public Pokemon enemy, friend;
 	public Trainer self, opponent; // opponent will be null if fighting wild pokemon
-	public Move selection;
-	public int stage;
+	public Move selection, counter;
+	public int stage, turn;
 
 	// Start a wild encounter with a pokemon
 	public BattleEngine(GameEngine e, Pokemon p) {
@@ -37,27 +37,37 @@ public class BattleEngine {
 	}
 
 	public void startTurn() {
-		Move attack = enemy.decide(friend);
-		if (attack.speed_priority > selection.speed_priority)
-			;// enemy attack first
-		if (attack.speed_priority < selection.speed_priority)
-			;// you attack first
-		if (enemy.stats.speed > friend.stats.speed)
-			;// enemy attack first
-		else
-			;// you attack first
+		counter = enemy.decide(friend);
+		stage = 2;
+		if (counter.speed_priority > selection.speed_priority) {
+			turn = 1;
+			friend.attack(enemy, counter, this, true);
+		} else if (counter.speed_priority < selection.speed_priority) {
+			turn = 0;
+			enemy.attack(friend, selection, this, false);
+		} else if (enemy.stats.speed > friend.stats.speed) {
+			turn = 1;
+			friend.attack(enemy, counter, this, true);
+		} else {
+			turn = 0;
+			enemy.attack(friend, selection, this, false);
+		}
 	}
 
 	public void enter() {
 		if (stage == 0) {// End of intro
 			stage++ ;
 			panel.makeSelection();
-
 		} else if (stage == 1) {// interpret selection
 			selection = friend.known_moves.get(panel.text.select);
-			stage++ ;
-		} else if (stage == 2) {// end of selection
 			startTurn();
+		} else if (stage == 2) {// counter
+			System.out.println("working " + turn);
+			stage = 0;
+			if (turn == 1)
+				enemy.attack(friend, selection, this, false);
+			else
+				friend.attack(enemy, counter, this, true);
 		}
 	}
 

@@ -3,6 +3,7 @@ package pokemon;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import animations.Sprite;
 import util.FileParser;
 
 //TODO: determine how to calculate status changes and special effects.
@@ -14,20 +15,21 @@ public class Move implements Comparable<Move> {
 	public String name, description, effect;
 	public double crit_chance, hit_chance;
 	public int speed_priority;
+	public String sound = "src/sounds/moves/tackle.mid";
+	public Sprite sprite = new Sprite("src/tilesets/sprites/tackle.png");
 
 	public Move() {}
 
-	public Move(ArrayList<String> data) {
-		name = Pokemon.stripLabel(data.get(0));
-		type = Pokemon.getType(Pokemon.stripLabel(data.get(1)));
-		category = parseCategory(Pokemon.stripLabel(data.get(2)));
-		damage = Integer.parseInt(Pokemon.stripLabel(data.get(3)));
-		hit_chance = Double.parseDouble(Pokemon.stripLabel(data.get(4))) / 100.0;
-		// TODO crit_chance = ?
-		// TODO TM#
-		pp = pp_max = Integer.parseInt(Pokemon.stripLabel(data.get(5)));
-		description = Pokemon.stripLabel(data.get(6));
-		effect = Pokemon.stripLabel(data.get(7));
+	public String toString() {
+		return name + "\n" + type + "\n" + category + "\n" + damage + "\n" + (int) hit_chance * 100 + "\n" + pp_max + "\n";
+	}
+
+	public void animate(int direction) {
+		if (direction == 0) { // Friend is attacking
+
+		} else if (direction == 1) { // Enemy is attacking
+
+		}
 	}
 
 	public static void init() {
@@ -80,11 +82,6 @@ public class Move implements Comparable<Move> {
 		return null;
 	}
 
-	@Override
-	public int compareTo(Move a) {
-		return name.compareTo(a.name);
-	}
-
 	public static int parseCategory(String str) {
 		str = str.toUpperCase();
 		if (str.equals("PHYSICAL"))
@@ -94,5 +91,10 @@ public class Move implements Comparable<Move> {
 		else if (str.equals("STATUS"))
 			return STATUS;
 		return PHYSICAL;
+	}
+
+	@Override
+	public int compareTo(Move a) {
+		return name.compareTo(a.name);
 	}
 }

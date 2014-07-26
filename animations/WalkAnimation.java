@@ -70,4 +70,7 @@ public class WalkAnimation extends Animation {
 		if (background_motion)
 			GameState.clock.animate(new BoardAnimation(b, direction));
 	}
+
+	@Override
+	public void finish() {}
 }

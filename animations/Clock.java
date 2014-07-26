@@ -44,5 +44,7 @@ public class Clock extends Timer implements ActionListener {
 		animations.removeAll(complete);
 		if (animations.isEmpty())
 			stop();
+		for (Animation a : complete)
+			a.finish();
 	}
 }

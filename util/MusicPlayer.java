@@ -11,7 +11,6 @@ import javax.sound.midi.Sequencer;
 //how to find midi files
 public class MusicPlayer {
 	public static void player(String filename) {
-
 		try {
 			// From file
 			Sequence sequence = MidiSystem.getSequence(new File(filename));

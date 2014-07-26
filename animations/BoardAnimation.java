@@ -24,4 +24,7 @@ public class BoardAnimation extends Animation {
 	public void animate() {
 		board.movePanel(delta[0], delta[1]);
 	}
+
+	@Override
+	public void finish() {}
 }

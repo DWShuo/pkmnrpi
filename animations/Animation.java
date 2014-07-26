@@ -1,6 +1,7 @@
 package animations;
 
 import game.GameBoard;
+import game.GameState;
 
 import java.awt.image.BufferedImage;
 
@@ -29,5 +30,11 @@ public abstract class Animation {
 		if (increment == 0)
 			sprite.setImage(final_frame);
 		sprite.setImage(frames[increment % frames.length]);
+	}
+
+	public abstract void finish();
+
+	public void run() {
+		GameState.clock.animate(this);
 	}
 }

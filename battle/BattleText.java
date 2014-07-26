@@ -24,6 +24,7 @@ public class BattleText extends JPanel implements BattleUI {
 	public int state;
 	public BattleEngine engine;
 	public int select, width = 400, height = 100, offsetx, offsety;
+	public String message = "Default";
 
 	public BattleText(BattleEngine e) {
 		engine = e;
@@ -34,7 +35,7 @@ public class BattleText extends JPanel implements BattleUI {
 		super.paintComponent(g);
 		PatternPanel.paintBattleArea(g, width, height);
 		if (state == 0) {
-			challenge(g);
+			write(g, message);
 		}
 		if (state == 1) {
 			drawMoves(g);
@@ -104,10 +105,10 @@ public class BattleText extends JPanel implements BattleUI {
 		g.drawString(pp, x + 4, y + g.getFontMetrics().getHeight() - 3);
 	}
 
-	public void challenge(Graphics g) {
+	public void write(Graphics g, String msg) {
 		g.setColor(Color.black);
 		g.setFont(normal);
-		wrapText(g, "A wild " + engine.enemy.name.toUpperCase() + " wants to battle!", 15 + offsetx, 30 + offsety);
+		wrapText(g, msg, 15 + offsetx, 30 + offsety);
 	}
 
 	public void wrapText(Graphics g, String str, int x, int y) {
