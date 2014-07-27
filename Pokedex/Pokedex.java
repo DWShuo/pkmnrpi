@@ -75,12 +75,23 @@ public class Pokedex extends JPanel implements Searchable, PokedexUI {
 
 		add(search);
 		add(contents);
+	}
 
-		//search("Charizard");
+	public void cleanup() {
+		portrait.image = portrait_icon.getImage();
+		portrait.repaint();
+		name.setNumber("");
+		info.update((Pokemon) null);
+		maintext.text = "";
+		maintext.repaint();
 	}
 
 	// Loads a specific pokemon's info onto the pokedex page
 	public void search(String str) {
+		if (str.equals("")) {
+			cleanup();
+			return;
+		}
 		Pokemon next = getPokemon(str);
 		if (next == null)
 			return;

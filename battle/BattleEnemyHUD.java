@@ -22,6 +22,7 @@ public class BattleEnemyHUD extends JPanel implements BattleUI {
 	public Pokemon focus;
 	public Polygon shape, hpbar;
 	public int offsetx, offsety;
+	public boolean on = false;
 
 	public BattleEnemyHUD() {
 		super();
@@ -50,6 +51,8 @@ public class BattleEnemyHUD extends JPanel implements BattleUI {
 
 	public void paint(Graphics g) {
 		super.paintComponent(g);
+		if(!on)
+			return;
 		g.setColor(Color.black);
 		g.fillPolygon(shape);
 		if (focus == null)

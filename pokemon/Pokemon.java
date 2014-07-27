@@ -57,6 +57,8 @@ public class Pokemon implements PokedexUI, AI {
 
 	private void deepCopy(String name) {
 		Pokemon p = Pokedex.getPokemon(name);
+		if (p == null)
+			throw new IllegalArgumentException(name + " was not recognized as a Pokemon name...");
 		this.name = p.name;
 		species = p.species;
 		male = p.male;
@@ -143,6 +145,18 @@ public class Pokemon implements PokedexUI, AI {
 			Pokedex.pkmn_lookup.put(p.name.toLowerCase(), p.ID);
 		}
 		Stats.init();
+	}
+
+	public int calculateEXP() {
+		return 0;
+	}
+
+	public void levelUp(int n) {
+		int[] temps = { stats.max_health, stats.attack, stats.defense, stats.special_attack, stats.special_defense, stats.speed };
+		stats.calibrate(stats.level + n);
+		int[] diffs = { stats.max_health - temps[0], stats.attack - temps[1], stats.defense - temps[2], stats.special_attack - temps[3], stats.special_defense - temps[4],
+				stats.speed - temps[5] };
+		// TODO: display diffs
 	}
 
 	public void attack(Pokemon p, Move m, BattleEngine e, boolean front) {

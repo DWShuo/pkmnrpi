@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
+import animations.Clock;
 import pokedex.PokedexTextArea;
 import pokemon.Move;
 import pokemon.Pokemon;
@@ -24,11 +25,32 @@ public class BattleText extends JPanel implements BattleUI {
 	public int state;
 	public BattleEngine engine;
 	public int select, width = 400, height = 100, offsetx, offsety;
-	public String message = "Default";
+	private String message = "Default";
 
 	public BattleText(BattleEngine e) {
 		engine = e;
 		setBackground(Color.white);
+	}
+
+	public void setText(String str) {
+		message = str;
+		repaint();
+	}
+
+	public void layText(String str) {
+		boolean st = Clock.manual;
+		Clock.manual = true;
+		for (int i = 0; i < str.length(); ++i) {
+			try {
+				Thread.sleep(Clock.FRAME_WAIT);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			message = str.substring(0, i + 1);
+			repaint();
+		}
+		setText(str);
+		Clock.manual = st;
 	}
 
 	public void paint(Graphics g) {

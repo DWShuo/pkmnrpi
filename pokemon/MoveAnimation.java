@@ -21,7 +21,6 @@ public class MoveAnimation implements ActionListener {
 	public double bonus, crit;
 
 	public MoveAnimation(BattleEngine e, Move m, Pokemon c, Pokemon d) {
-		System.out.println(c.name + " used " + m.name + " on " + d.name);
 		move = m;
 		engine = e;
 		x = c.sprite;
@@ -36,7 +35,8 @@ public class MoveAnimation implements ActionListener {
 		bonus = Pokemon.typeModifier(d, m);
 		crit = Pokemon.critRoll(m);
 		damage = Pokemon.calculateDamage(c, d, m, e, crit, bonus);
-		engine.panel.text.message = c.name.toUpperCase() + " used " + m.name.toUpperCase() + "!";
+		System.out.println(c.name + " used " + m.name + " on " + d.name + " for " + damage + "/" + d.stats.current_health);
+		engine.panel.text.layText(c.name.toUpperCase() + " used " + m.name.toUpperCase() + "!");
 		engine.panel.text.state = 0;
 		time.start();
 	}
@@ -57,9 +57,8 @@ public class MoveAnimation implements ActionListener {
 			++stage;
 			increment = 0;
 			if (stage >= stage_waits.length) {
-				System.out.println("Stopped");
 				time.stop();
-				engine.panel.text.message = printEnding();
+				engine.panel.text.layText(printEnding());
 			}
 		}
 	}
@@ -100,7 +99,7 @@ public class MoveAnimation implements ActionListener {
 			engine.panel.foreg.repaint();
 		} else if (stage == 7) {
 			int gap = damage / (stage_waits[stage] - increment + 1);
-			damage = gap;
+			damage -= gap;
 			bb.stats.current_health -= Math.min(gap, bb.stats.current_health);
 			engine.panel.repaint();
 		}

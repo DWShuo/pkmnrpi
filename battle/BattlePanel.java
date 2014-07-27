@@ -13,8 +13,10 @@ import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
 import objects.LayeredPanel;
+import animations.Clock;
 import animations.Sprite;
 import pokemon.Move;
+import pokemon.Pokemon;
 import util.ImageLibrary;
 import util.Library;
 
@@ -26,6 +28,7 @@ public class BattlePanel extends JLayeredPane implements BattleUI {
 	public BattleText text;
 	public GamePanel foreg;
 	public Sprite back, front;
+	public Sprite[] temps;
 	public int width = 400, height = 400;
 
 	public BattlePanel(BattleEngine e) {
@@ -34,7 +37,7 @@ public class BattlePanel extends JLayeredPane implements BattleUI {
 		hud = new BattleHUD();
 		ehud = new BattleEnemyHUD();
 		text = new BattleText(e);
-		text.message = "A wild " + engine.enemy.name.toUpperCase() + " wants to battle!";
+		text.setText("");
 		foreg = new GamePanel();
 		foreg.setPreferredSize(new Dimension(width, height));
 		JLabel background = new JLabel(ImageLibrary.getSolidColor(Color.white, width, height));
@@ -43,16 +46,19 @@ public class BattlePanel extends JLayeredPane implements BattleUI {
 		hud.focus = engine.self.get_first_pokemon();
 		ehud.focus = engine.enemy;
 
+		temps = new Sprite[10];
 		front = new Sprite("src/tilesets/pokemon_sprites/" + engine.enemy.name.toLowerCase() + ".png");
-		back = new Sprite(ImageLibrary.back_sprites[Library.national_numbers.get(hud.focus.ID) - 1].getImage());
+		temps[0] = new Sprite(ImageLibrary.back_sprites[Library.national_numbers.get(hud.focus.ID) - 1].getImage());
+		temps[0].width *= 2;
+		temps[0].height *= 2;
+		back = engine.self.bigsprite;
 
-		front.width *= 2;
-		front.height *= 2;
-		front.x = BattleEnemyHUD.width;
+		front.scaleToFit(width - BattleEnemyHUD.width, height - BattleHUD.height - text.height - 20);
+		front.x = -front.width;
 
-		back.width *= 2;
-		back.height *= 2;
+		back.scaleToFit(width - BattleHUD.width, height - BattleEnemyHUD.height - text.height - 20);
 		back.y = BattleHUD.height + BattleEnemyHUD.height - back.height;
+		back.x = width;
 
 		engine.enemy.sprite = front;
 		engine.friend.sprite = back;
@@ -76,52 +82,75 @@ public class BattlePanel extends JLayeredPane implements BattleUI {
 
 	// This should animate the main player in engine as he comes onto the field
 	public void walkOn() {
-		// TODO: get correct sprite from engine.self
-		// TODO: animate sprite
+		boolean st = Clock.manual;
+		Clock.manual = true;
+		int frames = 60, buf = 15;
+		for (int i = 0; i < frames; ++i) {
+			nap(Clock.FRAME_WAIT);
+			if (back.x -buf != 0)
+				back.x -= (back.x-buf) / (frames - i);
+			int gap = (BattleEnemyHUD.width - front.x);
+			if (gap != 0)
+				front.x += gap / (frames - i);
+			foreg.repaint();
+		}
+		back.x = buf;
+		front.x = BattleEnemyHUD.width;
+		foreg.repaint();
+		nap(100);
+		ehud.on = true;
+		ehud.repaint();
+		text.layText("A wild " + engine.enemy.name.toUpperCase() + " appeared!");
+		nap(225);
+		walkOnPokemon(engine.friend);
+		hud.on = true;
+		hud.repaint();
+		nap(100);
+		engine.enter();
+		Clock.manual = st;
 	}
 
-	// This should animate the opponent in engine as they arrive
-	public void walkOnEnemy() {
-		// TODO: get correct sprite from engine.opponent
-		// TODO: get intro text from engine.opponent
-		// TODO: animate sprite
-		// TODO: animate text
+	// This should animate a pokemon as it arrives
+	public void walkOnPokemon(Pokemon p) {
+		boolean st = Clock.manual;
+		Clock.manual = true;
+		int frames = 30;
+		for (int i = 0; i < frames; ++i) {
+			nap(Clock.FRAME_WAIT);
+			int gap = back.width + back.x;
+			if (gap != 0)
+				back.x -= gap / (frames - i);
+		}
+		foreg.sprites.remove(back);
+		nap(200);
+		text.layText("Go! " + p.name.toUpperCase() + "!");
+		nap(450);
+		back = temps[0];
+		back.scaleToFit(width - BattleHUD.width, height - BattleEnemyHUD.height - text.height - 20);
+		back.x = -back.width;
+		back.y = height - back.height - text.height;
+		foreg.sprites.add(back);
+		foreg.repaint();
+		frames = 30;
+		for (int i = 0; i < frames; ++i) {
+			nap(Clock.FRAME_WAIT);
+			int gap = (20 - back.x);
+			if (gap != 0)
+				back.x += gap / (frames - i);
+			foreg.repaint();
+		}
+		Clock.manual = st;
 	}
 
-	// This should animate a pokemon from your side as it arrives
-	public void walkOnPokemon() {
-		// TODO: get correct sprite from engine.friend
-		// TODO: animate sprite
-		// TODO: play intro sound
-		// TODO: display stats
-	}
-
-	// This should animate the enemy pokemon as it arrives
-	public void walkOnPokemonEnemy() {
-		// TODO: get correct sprite from engine.enemy
-		// TODO: animate sprite
-		// TODO: play intro sound
-		// TODO: display stats
-	}
-
-	// This should animate the attack sequence originating from left side
-	public void attack(Move m) {
-		// TODO: get move animation. Use tackle as default for now
-		// TODO: animate the pokemon and addition move animations at same time
-		// TODO: play attack sound
-		// TODO: play hit sound
-		// TODO: flicker opponet pokemon
-		// TODO: animate damage
-	}
-
-	// This should animate the attack sequence originating from right side
-	public void enemyAttack(Move m) {
-		// TODO: get move animation. Use tackle as default for now
-		// TODO: animate the pokemon and addition move animations at same time
-		// TODO: play attack sound
-		// TODO: play hit sound
-		// TODO: flicker opponet pokemon
-		// TODO: animate damage
+	public static void nap(long time) {
+		boolean temp = Clock.manual;
+		Clock.manual = true;
+		try {
+			Thread.sleep(time);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		Clock.manual = temp;
 	}
 
 	public void makeSelection() {

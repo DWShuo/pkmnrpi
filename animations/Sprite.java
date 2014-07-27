@@ -23,6 +23,12 @@ public class Sprite {
 		return image;
 	}
 
+	public void scaleToFit(int x, int y) {
+		double ratio = Math.min(((double) x) / width, ((double) y) / height);
+		width *= ratio;
+		height *= ratio;
+	}
+
 	public Sprite(String filename) {
 		setImage(new ImageIcon(filename).getImage());
 	}

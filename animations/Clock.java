@@ -11,6 +11,7 @@ import javax.swing.Timer;
  */
 public class Clock extends Timer implements ActionListener {
 	public static final int FRAME_WAIT = 20;
+	public static boolean manual = false;
 
 	private ArrayList<Animation> animations = new ArrayList<Animation>();
 
@@ -29,7 +30,7 @@ public class Clock extends Timer implements ActionListener {
 	// This is just an accessory method to ensure that multiple animations are
 	// not attempted at once.
 	public boolean isAnimating() {
-		return !animations.isEmpty();
+		return !animations.isEmpty() || manual;
 	}
 
 	@Override

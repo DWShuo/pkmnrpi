@@ -13,7 +13,7 @@ public class Person extends Thing {
 	public static final int UP = 0, DOWN = 1, RIGHT = 2, LEFT = 3;
 	public String name, intro;
 	public ArrayList<String> dialog = new ArrayList<String>();
-	public Sprite sprite;
+	public Sprite sprite, bigsprite;
 	public TileMap map;
 	public BufferedImage[] walk, bike;
 	public int animation_flag, cash;

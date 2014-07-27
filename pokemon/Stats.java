@@ -7,6 +7,8 @@ import util.FileParser;
 
 // Data holder class for Pokemon
 public class Stats {
+	public static final int NORM = 0, FAINT = 1, PAR = 2, SLEEP = 3, POISONED = 4;
+
 	public int max_health, attack, defense, special_attack, special_defense, speed;
 	public int[] base = new int[6], ev = { 1, 1, 1, 1, 1, 1 }, iv = { 15, 15, 15, 15, 15, 15 };
 	public int level, exp, total_exp, happiness, state, current_health;

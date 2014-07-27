@@ -2,6 +2,7 @@ package game;
 
 import java.awt.Font;
 import java.awt.GraphicsEnvironment;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.ArrayList;
 
@@ -11,6 +12,7 @@ import javax.swing.UIManager.LookAndFeelInfo;
 import objects.Backpack;
 import objects.TileMap;
 import animations.Clock;
+import animations.Sprite;
 import pokemon.Move;
 import pokemon.Pokemon;
 import trainers.Trainer;
@@ -127,6 +129,14 @@ public class GameState {
 	public void initPlayer(ArrayList<String> info) {
 		self = Trainer.loadTrainers(info).get(0);
 		self.team = team;
+		self.walk = new BufferedImage[10];
+		for (int i = 0; i < 10; ++i)
+			self.walk[i] = ImageLibrary.player[i];
+		self.bike = new BufferedImage[10];
+		for (int i = 0; i < 10; ++i)
+			self.bike[i] = ImageLibrary.player[i + 10];
+		self.sprite = new Sprite(self.walk[0]);
+		self.bigsprite = new Sprite("src/tilesets/sprites/trainer back.png");
 	}
 
 	public void loadLocations(ArrayList<String> data) {

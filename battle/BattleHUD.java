@@ -18,9 +18,11 @@ public class BattleHUD extends JPanel implements BattleUI {
 	public static final double[] ypos = { .9, .9, .87, .65, .65, .84, .84, .88, .88, .83, .9 };
 	public static final double[] xpos2 = { .92, .92, .9, .8, .8, .27, .27, .15, .15, .87, .87, .92 };
 	public static final double[] ypos2 = { .7, .54, .5, .5, .56, .56, .5, .5, .58, .58, .7, .7 };
+
 	public int offsetx = 0, offsety = 0;
 	public Pokemon focus;
 	public Polygon shape, hpbar;
+	public boolean on = false;
 
 	public BattleHUD() {
 		super();
@@ -64,7 +66,6 @@ public class BattleHUD extends JPanel implements BattleUI {
 		int next = Pokemon.levelToEXP(focus.stats.level, focus.stats.growth_rate);
 		g.setColor(blueish);
 		focus.stats.total_exp = Math.max(next, focus.stats.total_exp);
-		focus.stats.exp = focus.stats.total_exp - next;
 		int bitgap = (int) (width * xpos[6] - width * xpos[8]);
 		int gap = exp - next;
 		g.fillRect((int) (width * xpos[8] + bitgap * (1 - (double) focus.stats.exp / gap)) + offsetx, (int) (height * ypos[6]) + offsety, (int) (bitgap
@@ -77,6 +78,8 @@ public class BattleHUD extends JPanel implements BattleUI {
 
 	public void paint(Graphics g) {
 		super.paintComponent(g);
+		if (!on)
+			return;
 		g.setColor(Color.black);
 		g.fillPolygon(shape);
 		if (focus == null)

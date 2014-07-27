@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import objects.Point;
 import objects.TileMap;
 import pokemon.Pokemon;
+import pokemon.Stats;
 import util.FileParser;
 
 public class Trainer extends Person {
@@ -32,6 +33,14 @@ public class Trainer extends Person {
 		dialog = t.dialog;
 		team = t.team;
 		vision = t.vision;
+	}
+
+	public boolean canBattle() {
+		for (Pokemon p : team) {
+			if (p.stats.state != Stats.FAINT)
+				return true;
+		}
+		return false;
 	}
 
 	public String staticToString() {

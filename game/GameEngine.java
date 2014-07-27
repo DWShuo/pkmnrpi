@@ -56,7 +56,7 @@ public class GameEngine {
 		frame.pack();
 		frame.setVisible(true);
 
-		battle = new BattleEngine(this, new Pokemon("Pidgey", 10));
+		battle = new BattleEngine(this, new Pokemon("Meganium", 40));
 		startBattle();
 		// TODO: Play intro credits
 		// TODO: select save file or start new game
@@ -65,8 +65,20 @@ public class GameEngine {
 	public void startBattle() {
 		// TODO: transition animation
 		window.add(battle.panel, 0);
-		battle.panel.setBounds(0, 0, 400, 400);
 		dex.search(battle.enemy.name);
+		battle.panel.setBounds(0, 0, 400, 400);
+		battle.start();
+	}
+
+	public void endBattle() {
+		window.remove(battle.panel);
+		dex.cleanup();
+		battle = null;
+		window.repaint();
+	}
+
+	public void loseBattle() {
+		endBattle();
 	}
 
 	public void focusPokedex() {
