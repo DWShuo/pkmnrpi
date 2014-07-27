@@ -33,6 +33,26 @@ public class Clock extends Timer implements ActionListener {
 		return !animations.isEmpty() || manual;
 	}
 
+	public static void nap(long time) {
+		boolean temp = Clock.manual;
+		Clock.manual = true;
+		long start = System.currentTimeMillis();
+		while (System.currentTimeMillis() - start < time)
+			;
+		Clock.manual = temp;
+	}
+
+	public static void nap2(long time) {
+		boolean temp = Clock.manual;
+		Clock.manual = true;
+		try {
+			Thread.sleep(time);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		Clock.manual = temp;
+	}
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		ArrayList<Animation> complete = new ArrayList<Animation>();

@@ -53,7 +53,7 @@ public class BattlePanel extends JLayeredPane implements BattleUI {
 		temps[0].height *= 2;
 		back = engine.self.bigsprite;
 
-		front.scaleToFit(width - BattleEnemyHUD.width, height - BattleHUD.height - text.height - 20);
+		front.scaleToFit(width - BattleEnemyHUD.width, height - BattleHUD.height - text.height);
 		front.x = -front.width;
 
 		back.scaleToFit(width - BattleHUD.width, height - BattleEnemyHUD.height - text.height - 20);
@@ -61,7 +61,6 @@ public class BattlePanel extends JLayeredPane implements BattleUI {
 		back.x = width;
 
 		engine.enemy.sprite = front;
-		engine.friend.sprite = back;
 
 		foreg.sprites.add(front);
 		foreg.sprites.add(back);
@@ -86,26 +85,26 @@ public class BattlePanel extends JLayeredPane implements BattleUI {
 		Clock.manual = true;
 		int frames = 60, buf = 15;
 		for (int i = 0; i < frames; ++i) {
-			nap(Clock.FRAME_WAIT);
-			if (back.x -buf != 0)
-				back.x -= (back.x-buf) / (frames - i);
+			Clock.nap(Clock.FRAME_WAIT);
+			if (back.x - buf != 0)
+				back.x -= (back.x - buf) / (frames - i);
 			int gap = (BattleEnemyHUD.width - front.x);
 			if (gap != 0)
 				front.x += gap / (frames - i);
-			foreg.repaint();
+			foreg.paintImmediately(foreg.getBounds());
 		}
 		back.x = buf;
 		front.x = BattleEnemyHUD.width;
 		foreg.repaint();
-		nap(100);
+		Clock.nap(100);
 		ehud.on = true;
 		ehud.repaint();
 		text.layText("A wild " + engine.enemy.name.toUpperCase() + " appeared!");
-		nap(225);
+		Clock.nap(225);
 		walkOnPokemon(engine.friend);
 		hud.on = true;
 		hud.repaint();
-		nap(100);
+		Clock.nap(100);
 		engine.enter();
 		Clock.manual = st;
 	}
@@ -116,41 +115,32 @@ public class BattlePanel extends JLayeredPane implements BattleUI {
 		Clock.manual = true;
 		int frames = 30;
 		for (int i = 0; i < frames; ++i) {
-			nap(Clock.FRAME_WAIT);
+			Clock.nap(Clock.FRAME_WAIT);
 			int gap = back.width + back.x;
 			if (gap != 0)
 				back.x -= gap / (frames - i);
+			foreg.paintImmediately(foreg.getBounds());
 		}
 		foreg.sprites.remove(back);
-		nap(200);
+		Clock.nap(200);
 		text.layText("Go! " + p.name.toUpperCase() + "!");
-		nap(450);
+		Clock.nap(450);
 		back = temps[0];
 		back.scaleToFit(width - BattleHUD.width, height - BattleEnemyHUD.height - text.height - 20);
 		back.x = -back.width;
 		back.y = height - back.height - text.height;
+		engine.friend.sprite = back;
 		foreg.sprites.add(back);
-		foreg.repaint();
+		foreg.paintImmediately(foreg.getBounds());
 		frames = 30;
 		for (int i = 0; i < frames; ++i) {
-			nap(Clock.FRAME_WAIT);
+			Clock.nap(Clock.FRAME_WAIT);
 			int gap = (20 - back.x);
 			if (gap != 0)
 				back.x += gap / (frames - i);
-			foreg.repaint();
+			foreg.paintImmediately(foreg.getBounds());
 		}
 		Clock.manual = st;
-	}
-
-	public static void nap(long time) {
-		boolean temp = Clock.manual;
-		Clock.manual = true;
-		try {
-			Thread.sleep(time);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		Clock.manual = temp;
 	}
 
 	public void makeSelection() {

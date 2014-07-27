@@ -11,7 +11,7 @@ public interface BattleUI {
 	public static final Color yellowish = new Color(255, 169, 11);
 
 	public static final ImageIcon level = new ImageIcon("src/tilesets/sprites/level.png");
-	public static final ImageIcon hp = new ImageIcon("src/tilesets/sprites/hp.png");
+	public static final ImageIcon hp = new ImageIcon("src/tilesets/sprites/hp2.png");
 	public static final ImageIcon green_light = new ImageIcon("src/tilesets/sprites/green light.png");
 	public static final ImageIcon yellow_light = new ImageIcon("src/tilesets/sprites/yellow light.png");
 	public static final ImageIcon red_light = new ImageIcon("src/tilesets/sprites/red light.png");

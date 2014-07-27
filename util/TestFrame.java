@@ -4,15 +4,20 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.GraphicsEnvironment;
 import java.awt.Image;
+import java.awt.event.ComponentListener;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import util.panels.TestPanel;
 import battle.BattlePanel;
 
 // This class only displays a buffered image in a window.
@@ -80,10 +85,16 @@ public class TestFrame extends JFrame {
 
 	}
 
-	public TestFrame(JPanel p) {
+	public TestFrame(JComponent p) {
 		super("Test Frame");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		add(p);
+		if (p instanceof ComponentListener)
+			addComponentListener((ComponentListener) p);
+		if (p instanceof KeyListener)
+			addComponentListener((ComponentListener) p);
+		if (p instanceof MouseListener)
+			addComponentListener((ComponentListener) p);
 		setBounds(200, 400, 300, 300);
 		pack();
 		setVisible(true);

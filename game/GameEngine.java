@@ -18,6 +18,8 @@ import util.TestFrame;
  * This is the main class. Hurrah for the root of all things. Praise the sun!
  */
 public class GameEngine {
+	public static int width = 400, height = 400;
+
 	public GameState state;
 	public GameBoard board;
 	public KeyMapper keymap;
@@ -37,7 +39,7 @@ public class GameEngine {
 		keymap = new KeyMapper(this);
 		contents = new JPanel();
 		window = new JLayeredPane();
-		window.setPreferredSize(new Dimension(400, 400));
+		window.setPreferredSize(new Dimension(width, height));
 		window.setLayout(null);
 		window.add(board, 1);
 		board.setBounds(0, 0, 400, 400);

@@ -34,20 +34,16 @@ public class BattleText extends JPanel implements BattleUI {
 
 	public void setText(String str) {
 		message = str;
-		repaint();
+		paintImmediately(getBounds());
 	}
 
 	public void layText(String str) {
+		state = 0;
 		boolean st = Clock.manual;
 		Clock.manual = true;
 		for (int i = 0; i < str.length(); ++i) {
-			try {
-				Thread.sleep(Clock.FRAME_WAIT);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-			message = str.substring(0, i + 1);
-			repaint();
+			Clock.nap(Clock.FRAME_WAIT);
+			setText(str.substring(0, i + 1));
 		}
 		setText(str);
 		Clock.manual = st;

@@ -12,12 +12,13 @@ import pokemon.Pokemon;
 
 public class BattleHUD extends JPanel implements BattleUI {
 	public static final int width = 220, height = 150;
-	public static final Font font = new Font("Pokemon GB", Font.TRUETYPE_FONT, 20);
+	public static final Font font = new Font("Pokemon GB", Font.TRUETYPE_FONT, 24);
+	public static final Font med = new Font("Pokemon GB", Font.TRUETYPE_FONT, 22);
 	public static final Font small = new Font("Pokemon GB", Font.TRUETYPE_FONT, 16);
-	public static final double[] xpos = { .03, .89, .92, .92, .87, .87, .82, .82, .15, .15, .03 };
-	public static final double[] ypos = { .9, .9, .87, .65, .65, .84, .84, .88, .88, .83, .9 };
-	public static final double[] xpos2 = { .92, .92, .9, .8, .8, .27, .27, .15, .15, .87, .87, .92 };
-	public static final double[] ypos2 = { .7, .54, .5, .5, .56, .56, .5, .5, .58, .58, .7, .7 };
+	public static final double[] xpos = { 0, .87, .9, .9, .85, .85, .82, .82, .1, .1, 0 };
+	public static final double[] ypos = { .9, .9, .87, .65, .65, .82, .82, .88, .88, .83, .9 };
+	public static final double[] xpos2 = { .9, .9, .88, .82, .82, .28, .28, .09, .09, .85, .85, .92 };
+	public static final double[] ypos2 = { .7, .52, .48, .48, .56, .56, .48, .48, .58, .58, .7, .7 };
 
 	public int offsetx = 0, offsety = 0;
 	public Pokemon focus;
@@ -58,7 +59,7 @@ public class BattleHUD extends JPanel implements BattleUI {
 			g.setColor(yellowish);
 		else if (dif <= .2)
 			g.setColor(redish);
-		g.fillRect((int) (xpos2[5] * width) + offsetx, (int) ((ypos[5] - .32) * height) + offsety, (int) (width * (xpos2[4] - xpos2[5]) * dif + .5), 3);
+		g.fillRect((int) (xpos2[5] * width) + offsetx, (int) ((ypos2[5] - .04) * height) + offsety, (int) (width * (xpos2[4] - xpos2[5]) * dif + .5), 3);
 	}
 
 	public void drawEXPBar(Graphics g) {
@@ -68,7 +69,7 @@ public class BattleHUD extends JPanel implements BattleUI {
 		focus.stats.total_exp = Math.max(next, focus.stats.total_exp);
 		int bitgap = (int) (width * xpos[6] - width * xpos[8]);
 		int gap = exp - next;
-		g.fillRect((int) (width * xpos[8] + bitgap * (1 - (double) focus.stats.exp / gap)) + offsetx, (int) (height * ypos[6]) + offsety, (int) (bitgap
+		g.fillRect((int) (width * xpos[8] + bitgap * (1 - (double) focus.stats.exp / gap)) + offsetx, (int) (height * ypos[6]) + 3 + offsety, (int) (bitgap
 				* ((double) focus.stats.exp / gap) + .5), 3);
 	}
 
@@ -86,13 +87,17 @@ public class BattleHUD extends JPanel implements BattleUI {
 			return;
 		g.setFont(font);
 		g.fillPolygon(hpbar);
-		g.drawImage(hp.getImage(), (int) (xpos2[7] * width) + 5 + offsetx, (int) (ypos2[7] * height) + 3 + offsety, null);
-		g.drawString(focus.name.toUpperCase(), 20, 30);
-		g.drawImage(level.getImage(), width / 2 + offsetx, (int) (height * .3) + offsety, null);
-		g.drawString("" + focus.stats.level, width / 2 + 20 + offsetx, (int) (height * .4) + offsety);
+		g.drawImage(hp.getImage(), (int) (xpos2[7] * width) + 10 + offsetx, (int) (ypos2[7] * height) + 3 + offsety, null);
+		int gap = width - g.getFontMetrics().stringWidth(focus.name);
+		if (gap != 0)
+			gap /= 2;
+		g.drawString(focus.name.toUpperCase(), gap, (int) (23 + height * .12));
+		g.drawImage(level.getImage(), (int) (width * .47 + offsetx), (int) (height * .32) + offsety, null);
+		g.setFont(med);
+		g.drawString("" + focus.stats.level, (int) (width * .47 + 16 + offsetx), (int) (height * .32) + 14 + offsety);
 		// g.setFont(small);
 		String hp = focus.stats.current_health + "/ " + focus.stats.max_health;
-		g.drawString(hp, width / 8 * 7 - (g.getFontMetrics().stringWidth(hp)) + offsetx, (int) (height * .75) + offsety);
+		g.drawString(hp, (int) (width * .82 - g.getFontMetrics().stringWidth(hp) + offsetx), (int) (height * .75) + offsety);
 		drawHPBar(g);
 		drawEXPBar(g);
 	}

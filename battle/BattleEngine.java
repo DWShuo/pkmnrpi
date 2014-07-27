@@ -2,13 +2,12 @@ package battle;
 
 import animations.Clock;
 import game.GameEngine;
-import game.GameState;
 import pokemon.Move;
+import pokemon.MoveAnimation;
 import pokemon.Pokemon;
 import pokemon.Stats;
 import trainers.Person;
 import trainers.Trainer;
-import util.TestFrame;
 
 public class BattleEngine {
 	public BattlePanel panel;
@@ -35,7 +34,6 @@ public class BattleEngine {
 		friend = self.get_first_pokemon();
 		enemy = opponent.get_first_pokemon();
 		panel = new BattlePanel(this);
-		panel = new BattlePanel(this);
 	}
 
 	public void startTurn() {
@@ -43,38 +41,42 @@ public class BattleEngine {
 		stage = 2;
 		if (counter.speed_priority > selection.speed_priority) {
 			turn = 1;
-			friend.attack(enemy, counter, this, true);
+			attack(enemy, friend, counter);
 		} else if (counter.speed_priority < selection.speed_priority) {
 			turn = 0;
-			enemy.attack(friend, selection, this, false);
+			attack(friend, enemy, selection);
 		} else if (enemy.stats.speed > friend.stats.speed) {
 			turn = 1;
-			friend.attack(enemy, counter, this, true);
+			attack(enemy, friend, counter);
 		} else {
 			turn = 0;
-			enemy.attack(friend, selection, this, false);
+			attack(friend, enemy, selection);
 		}
-		nap(225);
+		Clock.nap(225);
+		enter();
 	}
 
-	public void checkDeath() {
-		if (friend.stats.current_health < 1) {
-			friend.stats.state = Stats.FAINT;
-			panel.text.layText(friend.name.toUpperCase() + " has fainted!");
-			if (!self.canBattle()) {
-				engine.loseBattle();
-				return;
-			}
-			// Select next pokemon
+	public void checkYourDeath() {
+		if (friend.stats.current_health > 1)
+			return;
+		friend.stats.state = Stats.FAINT;
+		panel.text.layText(friend.name.toUpperCase() + " has fainted!");
+		if (!self.canBattle()) {
+			engine.loseBattle();
 			return;
 		}
+		// Select next pokemon
+		return;
+	}
+
+	public boolean checkEnemyDeath() {
 		if (enemy.stats.current_health > 0)
-			return;
+			return false;
 		enemy.stats.state = Stats.FAINT;
 		panel.text.layText("Enemy " + enemy.name.toUpperCase() + " fainted!");
-		nap(250);
-		int exp = enemy.calculateEXP();
-		System.out.println(exp);
+		System.out.println("HERE");
+		Clock.nap(1000);
+		int exp = enemy.calculateEXP(friend, this);
 		panel.text.layText(friend.name.toUpperCase() + " gainted " + exp + " EXP. Points!");
 		int t = exp, lvl = 0;
 		while (t > Pokemon.levelToEXP(friend.stats.level + lvl + 1, friend.stats.growth_rate)) {
@@ -83,7 +85,7 @@ public class BattleEngine {
 		}
 		int frames = 30;
 		for (int i = 0; i < frames; ++i) {
-			nap(Clock.FRAME_WAIT);
+			Clock.nap(Clock.FRAME_WAIT);
 			if (exp == 0)
 				break;
 			int gap = exp / (frames - i);
@@ -96,20 +98,21 @@ public class BattleEngine {
 			}
 			friend.stats.exp += gap;
 			friend.stats.total_exp += gap;
-			panel.foreg.repaint();
+			panel.foreg.paintImmediately(panel.foreg.getBounds());
 			if (cap) {
-				nap(Clock.FRAME_WAIT);
+				Clock.nap(Clock.FRAME_WAIT);
 				friend.stats.exp = 0;
-				panel.foreg.repaint();
+				panel.foreg.paintImmediately(panel.foreg.getBounds());
 			}
 		}
 		if (lvl > 0)
 			friend.levelUp(lvl);
 
 		if (opponent == null || !opponent.canBattle()) {
-			engine.endBattle();
-			return;
+			stage = 9;
+			return true;
 		}
+		return true;
 		// enemy select next pokemon
 	}
 
@@ -119,32 +122,57 @@ public class BattleEngine {
 
 	public void enter() {
 		if (stage == 0) {// End of intro
-			checkDeath();
+			if (checkEnemyDeath())
+				return;
 			stage++ ;
 			panel.makeSelection();
 		} else if (stage == 1) {// interpret selection
 			selection = friend.known_moves.get(panel.text.select);
 			startTurn();
 		} else if (stage == 2) {// counter;
-			checkDeath();
-			nap(300);
+			if (checkEnemyDeath())
+				return;
+			Clock.nap(300);
 			stage = 0;
 			if (turn == 1)
-				enemy.attack(friend, selection, this, false);
+				attack(friend, enemy, selection);
 			else
-				friend.attack(enemy, counter, this, true);
+				attack(enemy, friend, counter);
+			Clock.nap(200);
+			enter();
+		} else if (stage == 9) {
+			engine.endBattle();
 		}
 	}
 
-	public static void nap(long time) {
-		boolean temp = Clock.manual;
-		Clock.manual = true;
-		try {
-			Thread.sleep(time);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
+	public void attack(Pokemon a, Pokemon b, Move m) {
+		if (!isHit(m)) {
+			System.out.println("Miss");
+			// animate miss
+			return;
 		}
-		Clock.manual = temp;
+		MoveAnimation ani = new MoveAnimation(this, m, a, b);
+		ani.run();
+	}
+
+	public boolean isHit(Move m) {
+		return true;
+	}
+
+	public void animateHP(Pokemon p, int damage, int frames) {
+		for (int i = 0; i < frames && damage != 0; ++i) {
+			Clock.nap(Clock.FRAME_WAIT);
+			int dif = damage / (frames - i);
+			damage -= dif;
+			p.stats.current_health = Math.min(Math.max(p.stats.current_health - dif, 0), p.stats.max_health);
+			if (p == friend)
+				panel.hud.paintImmediately(panel.hud.getBounds());
+			else if (p == enemy)
+				panel.ehud.paintImmediately(panel.ehud.getBounds());
+			else {
+				System.out.println("Warning!!");
+			}
+		}
 	}
 
 	public void move(int direction) {

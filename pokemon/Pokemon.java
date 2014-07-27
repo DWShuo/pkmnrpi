@@ -13,11 +13,48 @@ import util.FileParser;
 public class Pokemon implements PokedexUI, AI {
 	public static final int FIRE = 0, WATER = 1, GRASS = 2, GROUND = 3, ROCK = 4, DARK = 5, GHOST = 6, STEEL = 7, ELECTRIC = 8, FLYING = 9, DRAGON = 10, ICE = 11, PSYCHIC = 12,
 			POISON = 13, FIGHTING = 14, NORMAL = 15, BUG = 16;
+	public static final double[][] TE = {// Type Effectiveness
+			{
+					.5, .5, 2, 1, .5, 1, 1, 2, 1, 1, .5, 2, 1, 1, 1, 1, 2
+			}, {
+					2, .5, .5, 2, 2, 1, 1, 1, 1, 1, .5, 1, 1, 1, 1, 1, .5
+			}, {
+					.5, 2, .5, 2, 2, 1, 1, .5, 1, .5, .5, 1, 1, .5, 1, 1, .5
+			}, {
+					2, 1, .5, 1, 2, 1, 1, 2, 2, 0, 1, 1, 1, 2, 1, 1, .5
+			}, {
+					2, 1, 1, .5, 1, 1, 1, 2, 1, 2, 1, 2, 1, 1, .5, 1, 2
+			}, {
+					1, 1, 1, 1, 1, .5, 2, 1, 1, 1, 1, 1, 2, 1, .5, 1, 1
+			}, {
+					1, 1, 1, 1, 1, .5, 2, 1, 1, 1, 1, 1, 2, 1, 1, 0, 1
+			}, {
+					.5, .5, 1, 1, 2, 1, 1, .5, .5, 1, 1, 2, 1, 1, 1, 1, 1
+			}, {
+					1, 2, .5, 0, 1, 1, 1, 1, .5, 2, .5, 1, 1, 1, 1, 1, 1
+			}, {
+					1, 1, 2, 1, .5, 1, 1, .5, .5, 1, 1, 1, 1, 1, 2, 1, 2
+			}, {
+					1, 1, 1, 1, 1, 1, 1, .5, 1, 1, 2, 1, 1, 1, 1, 1, 1
+			}, {
+					.5, .5, 2, 2, 1, 1, 1, .5, 1, 2, 2, .5, 1, 1, 1, 1, 1
+			}, {
+					1, 1, 1, 1, 1, 0, 1, .5, 1, 1, 1, 1, .5, 2, 2, 1, 1
+			}, {
+					1, 1, 1, .5, .5, 1, .5, 0, 1, 1, 1, 1, 1, .5, 1, 1, 1
+			}, {
+					1, 1, 1, 1, 2, 2, 0, 2, 1, .5, 1, 2, .5, .5, 1, 2, .5
+			}, {
+					1, 1, 1, 1, .5, 1, 0, .5, 1, 1, 1, 1, 1, 1, 1, 1, 1
+			}, {
+					.5, 1, 2, 1, 1, 2, .5, .5, 1, .5, 1, 1, 2, .5, .5, 1, 1
+			},
+	};
 	public static Pokemon[] all_pokemon;
 
 	public String name, species, description;
 	public Sprite sprite;
-	public boolean male = true;
+	public boolean male = true, wild = false;
 	public int type, t2 = -1;
 	public double height = 1, weight = 10;
 	public int ID;
@@ -48,6 +85,7 @@ public class Pokemon implements PokedexUI, AI {
 		stats.calibrate(level);
 		stats.current_health = stats.max_health;
 		selectRandomMoves();
+		wild = true;
 	}
 
 	// Used when loading pokemon by name
@@ -147,29 +185,21 @@ public class Pokemon implements PokedexUI, AI {
 		Stats.init();
 	}
 
-	public int calculateEXP() {
-		return 0;
+	public int calculateEXP(Pokemon other, BattleEngine en) {
+		double a = wild ? 1.5 : 1;
+		double b = base_exp;
+		double e = 1;// change for lucky egg
+		double l = stats.level;
+		double s = 1; // number of pokemon to divide by
+		return (int) (a * b * e * l / (7 * s));
 	}
 
 	public void levelUp(int n) {
-		int[] temps = { stats.max_health, stats.attack, stats.defense, stats.special_attack, stats.special_defense, stats.speed };
+		// int[] temps = { stats.max_health, stats.attack, stats.defense, stats.special_attack, stats.special_defense, stats.speed };
 		stats.calibrate(stats.level + n);
-		int[] diffs = { stats.max_health - temps[0], stats.attack - temps[1], stats.defense - temps[2], stats.special_attack - temps[3], stats.special_defense - temps[4],
-				stats.speed - temps[5] };
+		// int[] diffs = { stats.max_health - temps[0], stats.attack - temps[1], stats.defense - temps[2], stats.special_attack - temps[3], stats.special_defense - temps[4],
+		// stats.speed - temps[5] };
 		// TODO: display diffs
-	}
-
-	public void attack(Pokemon p, Move m, BattleEngine e, boolean front) {
-		if (!isHit(m, e)) {
-			System.out.println("Miss");
-			// animate miss
-			return;
-		}
-		new MoveAnimation(e, m, p, this);
-	}
-
-	public static boolean isHit(Move m, BattleEngine e) {
-		return true;
 	}
 
 	private void selectRandomMoves() {
@@ -207,25 +237,8 @@ public class Pokemon implements PokedexUI, AI {
 	}
 
 	public static double typeModifier(Pokemon p, Move m) {
-		if (isSafe(m.type, p.type) || isSafe(m.type, p.t2))
-			return 0;
-		double base = 1;
-		base *= isSuper(m.type, p.type) ? 2 : isHard(m.type, p.type) ? .5 : 1;
-		if (p.t2 >= 0)
-			base *= isSuper(m.type, p.t2) ? 2 : isHard(m.type, p.t2) ? .5 : 1;
-		return base;
-	}
-
-	public static boolean isHard(int t1, int t2) {
-		return false;
-	}
-
-	public static boolean isSuper(int t1, int t2) {
-		return false;
-	}
-
-	public static boolean isSafe(int t1, int t2) {
-		return false;
+		double base = (p.t2 >= 0) ? TE[m.type][p.t2] : 1;
+		return base * TE[m.type][p.type];
 	}
 
 	public String staticToString() {
