@@ -20,7 +20,7 @@ import util.ImageLibrary;
 
 public class GameBoard extends JScrollPane implements KeyListener, SpriteBoard {
 	public static final int tilew = 25, tileh = 25, tsize = ImageLibrary.pixel_width[0];
-	public static final String default_map = "src/default.map";
+	public static final String default_map = "src/maps/park.map";
 	public static final Dimension area = new Dimension(ImageLibrary.pixel_width[0] * tilew, ImageLibrary.pixel_width[0] * tileh);
 	public static final int buffer = 7;
 
@@ -47,14 +47,15 @@ public class GameBoard extends JScrollPane implements KeyListener, SpriteBoard {
 		setMinimumSize(area);
 		setVisible(true);
 
-		loadMap(default_map);
+		loadMap("Default");
 		this.setViewportView(background);
 		this.setBackground(Color.black);
 		initilizePlayer();
 	}
 
 	public void loadMap(String filename) {
-		map = new TileMap(filename, "Default");
+		System.out.println(TileMap.MAPS.keySet());
+		map = new TileMap("src/maps/park.map", "Default");
 		BufferedImage im = map.get_static_map();
 		foreground = new GamePanel();
 		foreground.sprites = map.get_sprites();
@@ -91,11 +92,23 @@ public class GameBoard extends JScrollPane implements KeyListener, SpriteBoard {
 		new GameEngine();
 	}
 
+	public void checkWildPokemon() {
+		for (String str : Spawn.ALL.keySet()) {
+			if (str.equalsIgnoreCase(map.name)) {
+				if (Spawn.ALL.get(str).roll(engine))
+					return;
+			}
+		}
+	}
+
 	private void initilizePlayer() {
 		player = engine.state.self;
 		player.map = map;
 		player.setLocation(player.x, player.y);
 		foreground.sprites.add(player.sprite);
+		player.px = 13;
+		player.py = 13;
+		movePanel((player.x + map.centerx) * tsize - tilew * tsize / 2, (player.y + map.centery) * tsize - tileh * tsize / 2);
 	}
 
 	public void moveSprite(int xmove, int ymove, Sprite s) {

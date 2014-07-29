@@ -257,7 +257,7 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener {
 	}
 
 	public void clearAll() {
-		tmap = new TileMap(c_width, c_height, "Editmap");
+		tmap = new TileMap(c_width, c_height, "Default");
 		tmap.fill_map(paint_bucket);
 		init();
 		frame.pack();
@@ -267,6 +267,7 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener {
 	public void selected(Object o) {
 		Tile t = (Tile) o;
 		paint_bucket = t.idx;
+		System.out.println(t.idx);
 		bar_label.setIcon(ImageLibrary.icons[paint_bucket]);
 		tmap.fill = paint_bucket;
 		System.out.println(paint_bucket);

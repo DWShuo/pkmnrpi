@@ -160,6 +160,7 @@ public class GameState {
 		Library.init();
 		ImageLibrary.init();
 		TileMap.init();
+		Spawn.init();
 		Flag.init();
 		Move.init();
 		Trainer.init();

@@ -16,7 +16,7 @@ public class Person extends Thing {
 	public Sprite sprite, bigsprite;
 	public TileMap map;
 	public BufferedImage[] walk, bike;
-	public int animation_flag, cash;
+	public int animation_flag, cash, px, py;
 	public boolean male;
 
 	public Person() {}

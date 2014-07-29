@@ -4,6 +4,8 @@ import game.GameBoard;
 import game.GameEngine;
 import game.GameState;
 
+import java.awt.Point;
+import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.HashMap;
@@ -50,26 +52,29 @@ public class KeyMapper implements KeyListener {
 		if (GameState.clock.isAnimating())
 			return;
 		boolean battling = engine.battle != null;
+		Point bound = engine.board.getViewport().getViewPosition();
 		if (in.equalsIgnoreCase(map.get(Person.UP))) {
 			if (battling)
 				engine.battle.move(Person.UP);
 			else
-				WalkAnimation.run(board, player, Person.UP, player.y < board.map.mapdata.length - GameBoard.buffer);
+				WalkAnimation.run(board, player, Person.UP, bound.y - GameBoard.tsize >= 0 && player.py >= 13);
 		} else if (in.equalsIgnoreCase(map.get(Person.DOWN))) {
 			if (battling)
 				engine.battle.move(Person.DOWN);
 			else
-				WalkAnimation.run(board, player, Person.DOWN, player.y > GameBoard.buffer);
+				WalkAnimation.run(board, player, Person.DOWN, bound.y + engine.board.getViewport().getHeight() + GameBoard.tsize <= engine.board.background.getHeight()
+						&& player.py <= 13);
 		} else if (in.equalsIgnoreCase(map.get(Person.RIGHT))) {
 			if (battling)
 				engine.battle.move(Person.RIGHT);
 			else
-				WalkAnimation.run(board, player, Person.RIGHT, player.x > GameBoard.buffer);
+				WalkAnimation.run(board, player, Person.RIGHT, bound.x + engine.board.getViewport().getWidth() + GameBoard.tsize <= engine.board.background.getWidth()
+						&& player.px >= 13);
 		} else if (in.equalsIgnoreCase(map.get(Person.LEFT))) {
 			if (battling)
 				engine.battle.move(Person.LEFT);
 			else
-				WalkAnimation.run(board, player, Person.LEFT, player.x < board.map.mapdata[0].length - GameBoard.buffer);
+				WalkAnimation.run(board, player, Person.LEFT, bound.x + GameBoard.tsize >= 0 && player.px <= 13);
 		} else if (in.equalsIgnoreCase(map.get(ENTER))) {
 			if (battling)
 				engine.battle.enter();

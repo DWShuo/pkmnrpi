@@ -16,24 +16,40 @@ public class WalkAnimation extends Animation {
 		// if (p.on_bike)
 		// offset = 10;
 		if (p.direction == Person.UP) {
-			BufferedImage[] ary = { ImageLibrary.player[offset + 7], ImageLibrary.player[offset + 8], ImageLibrary.player[offset + 9] };
+			BufferedImage[] ary = {
+					ImageLibrary.player[offset + 7], ImageLibrary.player[offset + 8], ImageLibrary.player[offset + 9]
+			};
 			frames = ary;
-			int[] temp = { 0, -distance * GameBoard.tsize };
+			int[] temp = {
+					0, -distance * GameBoard.tsize
+			};
 			counts = temp;
 		} else if (p.direction == Person.DOWN) {
-			BufferedImage[] ary = { ImageLibrary.player[offset + 4], ImageLibrary.player[offset + 5], ImageLibrary.player[offset + 6] };
+			BufferedImage[] ary = {
+					ImageLibrary.player[offset + 4], ImageLibrary.player[offset + 5], ImageLibrary.player[offset + 6]
+			};
 			frames = ary;
-			int[] temp = { 0, distance * GameBoard.tsize };
+			int[] temp = {
+					0, distance * GameBoard.tsize
+			};
 			counts = temp;
 		} else if (p.direction == Person.LEFT) {
-			BufferedImage[] ary = { ImageLibrary.player[offset + 2], ImageLibrary.player[offset + 3] };
+			BufferedImage[] ary = {
+					ImageLibrary.player[offset + 2], ImageLibrary.player[offset + 3]
+			};
 			frames = ary;
-			int[] temp = { -distance * GameBoard.tsize, 0 };
+			int[] temp = {
+					-distance * GameBoard.tsize, 0
+			};
 			counts = temp;
 		} else if (p.direction == Person.RIGHT) {
-			BufferedImage[] ary = { ImageLibrary.player[offset], ImageLibrary.player[offset + 1] };
+			BufferedImage[] ary = {
+					ImageLibrary.player[offset], ImageLibrary.player[offset + 1]
+			};
 			frames = ary;
-			int[] temp = { distance * GameBoard.tsize, 0 };
+			int[] temp = {
+					distance * GameBoard.tsize, 0
+			};
 			counts = temp;
 		}
 		final_frame = frames[0];
@@ -46,7 +62,7 @@ public class WalkAnimation extends Animation {
 
 	public void animate() {
 		super.animate();
-		if (increment == 0)
+		if (increment == 0) {
 			if (person.direction == Person.UP) {
 				--person.y;
 			} else if (person.direction == Person.DOWN) {
@@ -56,6 +72,8 @@ public class WalkAnimation extends Animation {
 			} else if (person.direction == Person.LEFT) {
 				--person.x;
 			}
+			board.checkWildPokemon();
+		}
 	}
 
 	public static void run(GameBoard b, Person p, int direction, boolean background_motion) {
@@ -69,6 +87,15 @@ public class WalkAnimation extends Animation {
 		GameState.clock.animate(ani);
 		if (background_motion)
 			GameState.clock.animate(new BoardAnimation(b, direction));
+		else if (direction == Person.UP) {
+			b.player.py-- ;
+		} else if (direction == Person.DOWN) {
+			b.player.py++ ;
+		} else if (direction == Person.LEFT) {
+			b.player.px-- ;
+		} else if (direction == Person.RIGHT) {
+			b.player.px++ ;
+		}
 	}
 
 	@Override
