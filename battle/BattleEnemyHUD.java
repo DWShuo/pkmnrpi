@@ -12,18 +12,29 @@ import pokemon.Pokemon;
 
 public class BattleEnemyHUD extends JPanel implements BattleUI {
 	public static final int width = 220, height = 150;
-	public static final Font font = new Font("Pokemon GB", Font.TRUETYPE_FONT, 24);
-	public static final Font med = new Font("Pokemon GB", Font.TRUETYPE_FONT, 22);
-	public static final Font small = new Font("Pokemon GB", Font.TRUETYPE_FONT, 16);
-	public static double[] xpos = { 1, .13, .11, .11, .15, .15, .17, .9, .9, .999 };
-	public static double[] ypos = { .52, .52, .48, .26, .26, .45, .5, .5, .45, .52 };
-	public static double[] xpos2 = { .18, .93, .93, .9, .9, .36, .36, .18, .18 };
-	public static double[] ypos2 = { .38, .38, .28, .28, .36, .36, .28, .28, .38 };
+	public static final Font[] fonts = {
+			new Font("Pokemon GB", Font.TRUETYPE_FONT, 24), new Font("Pokemon GB", Font.TRUETYPE_FONT, 23), new Font("Pokemon GB", Font.TRUETYPE_FONT, 22),
+			new Font("Pokemon GB", Font.TRUETYPE_FONT, 21), new Font("Pokemon GB", Font.TRUETYPE_FONT, 20), new Font("Pokemon GB", Font.TRUETYPE_FONT, 19),
+			new Font("Pokemon GB", Font.TRUETYPE_FONT, 18), new Font("Pokemon GB", Font.TRUETYPE_FONT, 17), new Font("Pokemon GB", Font.TRUETYPE_FONT, 16)
+	};
+	public static double[] xpos = {
+			1, .13, .11, .11, .15, .15, .17, .9, .9, .999
+	};
+	public static double[] ypos = {
+			.52, .52, .48, .26, .26, .45, .5, .5, .45, .52
+	};
+	public static double[] xpos2 = {
+			.18, .93, .93, .9, .9, .36, .36, .18, .18
+	};
+	public static double[] ypos2 = {
+			.38, .38, .28, .28, .36, .36, .28, .28, .38
+	};
 
 	public Pokemon focus;
 	public Polygon shape, hpbar;
 	public int offsetx, offsety;
 	public boolean on = false;
+	public Font header;
 
 	public BattleEnemyHUD() {
 		super();
@@ -31,6 +42,8 @@ public class BattleEnemyHUD extends JPanel implements BattleUI {
 		formShapes();
 		Dimension d = new Dimension(width, height);
 		setPreferredSize(d);
+		int index = 0;
+		header = fonts[index];
 	}
 
 	private void formShapes() {
@@ -59,11 +72,11 @@ public class BattleEnemyHUD extends JPanel implements BattleUI {
 		if (focus == null)
 			return;
 		g.fillPolygon(hpbar);
-		g.setFont(font);
+		g.setFont(header);
+		g.drawString(focus.name.toUpperCase(), 5 + offsetx, 23 + offsety);
 		g.drawImage(hp.getImage(), (int) (xpos2[7] * width) + 8 + offsetx, (int) (ypos2[7] * height) + 3 + offsety, null);
-		g.drawString(focus.name.toUpperCase(), 20 + offsetx, 23 + offsety);
 		g.drawImage(level.getImage(), width / 2 + 13 + offsetx, 30 + offsety, null);
-		g.setFont(med);
+		g.setFont(fonts[2]);
 		g.drawString("" + focus.stats.level, width / 2 + 32 + offsetx, 45 + offsety);
 
 		if (focus.stats.max_health == 0 || focus.stats.current_health == 0)

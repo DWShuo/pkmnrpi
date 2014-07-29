@@ -177,7 +177,7 @@ Peck,FLYING,Physical,35,100,35,
 Petal Dance,GRASS,Special,120,100,10,User attacks for 2-3 turns but then becomes confused.
 Pin Missile,BUG,Physical,25,85,20,Hits 2-5 times in one turn.
 Poison Gas,POISON,Status,0,90,40,Poisons opponent.
-Poison Powder,POISON,Status,0,75,35,Poisons opponent.
+Poisonpowder,POISON,Status,0,75,35,Poisons opponent.
 Poison Sting,POISON,Physical,15,100,35,May poison the opponent.
 Pound,NORMAL,Physical,40,100,35,
 Psybeam,PSYCHIC,Special,65,100,20,May confuse opponent.

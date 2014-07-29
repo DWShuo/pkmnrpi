@@ -54,7 +54,6 @@ public class GameBoard extends JScrollPane implements KeyListener, SpriteBoard {
 	}
 
 	public void loadMap(String filename) {
-		System.out.println(TileMap.MAPS.keySet());
 		map = new TileMap("src/maps/park.map", "Default");
 		BufferedImage im = map.get_static_map();
 		foreground = new GamePanel();
@@ -96,6 +95,7 @@ public class GameBoard extends JScrollPane implements KeyListener, SpriteBoard {
 		for (String str : Spawn.ALL.keySet()) {
 			if (str.equalsIgnoreCase(map.name)) {
 				if (Spawn.ALL.get(str).roll(engine))
+
 					return;
 			}
 		}

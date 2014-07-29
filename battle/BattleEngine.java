@@ -74,7 +74,6 @@ public class BattleEngine {
 			return false;
 		enemy.stats.state = Stats.FAINT;
 		panel.text.layText("Enemy " + enemy.name.toUpperCase() + " fainted!");
-		System.out.println("HERE");
 		Clock.nap(1000);
 		int exp = enemy.calculateEXP(friend, this);
 		panel.text.layText(friend.name.toUpperCase() + " gainted " + exp + " EXP. Points!");

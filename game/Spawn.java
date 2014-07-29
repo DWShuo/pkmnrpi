@@ -28,6 +28,11 @@ public class Spawn {
 			if (Math.random() > p.b)
 				continue;
 			e.battle = new BattleEngine(e, new Pokemon(p.a, (int) (p.c + Math.random() * 5)));
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException e1) {
+				e1.printStackTrace();
+			}
 			e.startBattle();
 			return true;
 		}
