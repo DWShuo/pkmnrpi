@@ -89,7 +89,15 @@ public class EditWindow extends JPanel implements MouseListener, MouseMotionList
 		ArrayList<Point> current = new ArrayList<Point>();
 		current.add(p);
 		Pair<String, Integer, Integer> type = map.mapdata[p.y][p.x];
-		addNeighboors(p, current, type);
+		ArrayList<Point> next = addNeighboors(p, current, type);
+		while (!next.isEmpty()) {
+			ArrayList<Point> extra = new ArrayList<Point>();
+			for (Point a : next) {
+				current.add(a);
+				extra.addAll(addNeighboors(a, current, type));
+			}
+			next = extra;
+		}
 
 		for (Point a : current) {
 			map.mapdata[a.y][a.x] = editor.paint_bucket;
@@ -100,27 +108,29 @@ public class EditWindow extends JPanel implements MouseListener, MouseMotionList
 		return p.x >= 0 && p.y >= 0 && p.x < map.mapdata[0].length && p.y < map.mapdata.length;
 	}
 
-	public void addNeighboors(Point p, ArrayList<Point> ls, Pair<String, Integer, Integer> type) {
+	public ArrayList<Point> addNeighboors(Point p, ArrayList<Point> ls, Pair<String, Integer, Integer> type) {
 		Point a = new Point(p.x + 1, p.y);
 		Point b = new Point(p.x - 1, p.y);
 		Point c = new Point(p.x, p.y + 1);
 		Point d = new Point(p.x, p.y - 1);
+		ArrayList<Point> next = new ArrayList<Point>();
 		if (isValid(a) && !isIn(ls, a) && type.compareTo(map.mapdata[a.y][a.x]) == 0) {
 			ls.add(a);
-			addNeighboors(a, ls, type);
+			next.add(a);
 		}
 		if (isValid(b) && !isIn(ls, b) && type.compareTo(map.mapdata[b.y][b.x]) == 0) {
 			ls.add(b);
-			addNeighboors(b, ls, type);
+			next.add(b);
 		}
 		if (isValid(c) && !isIn(ls, c) && type.compareTo(map.mapdata[c.y][c.x]) == 0) {
 			ls.add(c);
-			addNeighboors(c, ls, type);
+			next.add(c);
 		}
 		if (isValid(d) && !isIn(ls, d) && type.compareTo(map.mapdata[d.y][d.x]) == 0) {
 			ls.add(d);
-			addNeighboors(d, ls, type);
+			next.add(d);
 		}
+		return next;
 	}
 
 	public void paintTo(int x, int y, Pair<String, Integer, Integer> p) {

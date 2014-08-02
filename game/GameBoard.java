@@ -53,7 +53,7 @@ public class GameBoard extends JScrollPane implements KeyListener, SpriteBoard {
 	}
 
 	public void loadMap(String filename) {
-		map = new TileMap("src/maps/park.map", "Default");
+		map = new TileMap("src/maps/park.map");
 		BufferedImage im = map.get_static_map();
 		foreground = new GamePanel();
 		background = new LayeredPanel(new ImageIcon(im), foreground);
@@ -90,9 +90,9 @@ public class GameBoard extends JScrollPane implements KeyListener, SpriteBoard {
 	}
 
 	public void checkWildPokemon() {
-		for (String str : Spawn.ALL.keySet()) {
+		for (String str : GameState.SPAWNS.keySet()) {
 			if (str.equalsIgnoreCase(map.name)) {
-				if (Spawn.ALL.get(str).roll(engine))
+				if (GameState.SPAWNS.get(str).roll(engine))
 
 					return;
 			}

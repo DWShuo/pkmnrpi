@@ -1,5 +1,7 @@
 package console;
 
+import game.GameState;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -15,9 +17,7 @@ import javax.swing.JScrollPane;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 
-import objects.SpriteSheet;
 import objects.TileMap;
-import util.Flag;
 import util.ImageLibrary;
 import util.Pair;
 
@@ -47,8 +47,7 @@ public class MapEditor extends JPanel implements ComponentListener {
 		}
 		frame = f;
 		this.setBackground(Color.gray.darker());
-		ImageLibrary.init();
-		Flag.init();
+		GameState.initilize_all();
 		init();
 	}
 
@@ -58,7 +57,7 @@ public class MapEditor extends JPanel implements ComponentListener {
 
 		selections = new JScrollPane[4];
 		selectwindows = new SelectWindow[4];
-		tmap = new TileMap("src/default.map", "Default");
+		tmap = new TileMap("src/default.map");
 		creation = new EditWindow(this, tmap);
 
 		selectwindows[0] = new SelectWindow(this, ImageLibrary.getSheet("Land"));
@@ -105,14 +104,13 @@ public class MapEditor extends JPanel implements ComponentListener {
 	}
 
 	public void save(File file) {
-		tmap.save(file);
-		Flag.save();
-		SpriteSheet.save();
+		GameState.save();
 	}
 
 	public void load(File file) {
-		tmap.load(file);
-		init();
+		tmap = new TileMap(file.getAbsolutePath());
+		creation.map = tmap;
+		creation.repaint();
 		frame.pack();
 		repaint();
 	}

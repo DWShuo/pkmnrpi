@@ -10,8 +10,6 @@ import battle.BattleEngine;
 import util.Pair;
 
 public class Spawn {
-	public static HashMap<String, Spawn> ALL = new HashMap<String, Spawn>();
-
 	public Rectangle bounds = new Rectangle();
 	public HashMap<Integer, ArrayList<Pair<String, Double, Integer>>> chances = new HashMap<Integer, ArrayList<Pair<String, Double, Integer>>>();
 
@@ -37,21 +35,5 @@ public class Spawn {
 			return true;
 		}
 		return false;
-	}
-
-	public static void init() {
-		Spawn s = new Spawn();
-		s.bounds = new Rectangle(-24, -42, 50, 75);
-		ArrayList<Pair<String, Double, Integer>> list = new ArrayList<Pair<String, Double, Integer>>();
-		list.add(new Pair<String, Double, Integer>("Bayleef", .3, 30));
-		list.add(new Pair<String, Double, Integer>("Chikorita", .3, 24));
-		list.add(new Pair<String, Double, Integer>("Pidgeot", .3, 45));
-		s.chances.put(1519, list);
-		list = new ArrayList<Pair<String, Double, Integer>>();
-		list.add(new Pair<String, Double, Integer>("Meganium", .3, 38));
-		list.add(new Pair<String, Double, Integer>("Typhlosion", .3, 40));
-		list.add(new Pair<String, Double, Integer>("Feraligatr", .3, 39));
-		s.chances.put(1520, list);
-		ALL.put("Default", s);
 	}
 }

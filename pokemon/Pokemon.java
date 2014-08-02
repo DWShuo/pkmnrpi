@@ -8,7 +8,6 @@ import animations.Sprite;
 import battle.BattleEngine;
 import pokedex.Pokedex;
 import pokedex.PokedexUI;
-import util.FileParser;
 
 public class Pokemon implements PokedexUI, AI {
 	public static final int FIRE = 0, WATER = 1, GRASS = 2, GROUND = 3, ROCK = 4, DARK = 5, GHOST = 6, STEEL = 7, ELECTRIC = 8, FLYING = 9, DRAGON = 10, ICE = 11, PSYCHIC = 12,
@@ -50,7 +49,6 @@ public class Pokemon implements PokedexUI, AI {
 					.5, 1, 2, 1, 1, 2, .5, .5, 1, .5, 1, 1, 2, .5, .5, 1, 1
 			},
 	};
-	public static Pokemon[] all_pokemon;
 
 	public String name, species, description;
 	public Sprite sprite;
@@ -114,75 +112,6 @@ public class Pokemon implements PokedexUI, AI {
 		ages = p.ages;
 		description = p.description;
 		stats = new Stats(p.stats);
-	}
-
-	// Loads all static pokemon info
-	public static void init() {
-		ArrayList<String> info = FileParser.parseFile("src/data/pokemon data.txt");
-		int index = 0;
-		all_pokemon = new Pokemon[251];
-		Pokemon p;
-		while (index < info.size()) {
-			p = new Pokemon();
-			p.ID = Integer.parseInt(info.get(index++ ));
-			p.name = info.get(index++ );
-			String types = info.get(index++ );
-			if (types.contains("/")) {
-				String[] ar = types.split("/");
-				p.type = getType(ar[0]);
-				p.t2 = getType(ar[1]);
-			} else
-				p.type = getType(types);
-			p.species = info.get(index++ );
-			String str = info.get(index++ );
-			if (isDouble(str))
-				p.height = Double.parseDouble(str);
-			str = info.get(index++ );
-			if (isDouble(str))
-				p.weight = Double.parseDouble(str);
-			str = info.get(index++ );
-			if (isDouble(str))
-				p.catch_rate = Integer.parseInt(str);
-			str = info.get(index++ );
-			if (isDouble(str))
-				p.base_exp = Integer.parseInt(str);
-			p.base_happiness = Integer.parseInt(info.get(index++ ));
-			p.stats.growth_rate = info.get(index++ );
-			p.description = info.get(index++ );
-
-			p.evolutions = new HashMap<String, String>();
-			str = info.get(index++ );
-			while (!isUniform(str, '*')) {
-				if (str.contains(",")) {
-					String[] ar = str.split(",");
-					p.evolutions.put(ar[1], ar[0]);
-				}
-				str = info.get(index++ );
-			}
-			index++ ;
-			p.learnset = new ArrayList<Move>();
-			p.ages = new ArrayList<Integer>();
-			str = info.get(index++ );
-			while (!isUniform(str, '*')) {
-				if (str.contains(",")) {
-					String[] ar = str.split(",");
-					p.ages.add(Integer.parseInt(ar[1]));
-					p.learnset.add(Move.lookup(ar[0]));
-				}
-				str = info.get(index++ );
-			}
-			index++ ;
-			p.tmset = new ArrayList<Move>();
-			str = info.get(index++ );
-			while (!isUniform(str, '*')) {
-				p.tmset.add(Move.lookup(str));
-				str = info.get(index++ );
-			}
-
-			all_pokemon[p.ID - 1] = p;
-			Pokedex.pkmn_lookup.put(p.name.toLowerCase(), p.ID);
-		}
-		Stats.init();
 	}
 
 	public int calculateEXP(Pokemon other, BattleEngine en) {
@@ -249,14 +178,6 @@ public class Pokemon implements PokedexUI, AI {
 		all += str + species + str + height + str + weight + str + catch_rate + str;
 		all += base_happiness + str + description + str;
 		return all;
-	}
-
-	private static boolean isDouble(String str) {
-		String good = "1234567890.";
-		for (char c : str.toCharArray())
-			if (!good.contains(c + ""))
-				return false;
-		return true;
 	}
 
 	public void loadMoveSet(ArrayList<String> data) {

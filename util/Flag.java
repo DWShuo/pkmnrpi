@@ -1,12 +1,10 @@
 package util;
 
+import game.GameState;
+
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Flag {
-	public static ArrayList<Flag> all_flags = new ArrayList<Flag>();
-	public static HashMap<String, ArrayList<Flag>> map_flag_pools = new HashMap<String, ArrayList<Flag>>();
-	public static final String FILENAME = "src/data/Flag_Data.txt";
 	public static final int TEXT = 0, DOOR = 1, ITEM = 2;
 
 	public int x, y, type;
@@ -24,24 +22,24 @@ public class Flag {
 
 	public static void addFlag(Flag f) {
 		ArrayList<Flag> rm = new ArrayList<Flag>();
-		for (Flag fl : all_flags)
+		for (Flag fl : GameState.FLAGS)
 			if (f.x == fl.x && f.y == fl.y && f.mapname.equals(fl.mapname))
 				rm.add(fl);
 		for (Flag fl : rm)
 			removeFLag(fl);
-		all_flags.add(f);
-		if (map_flag_pools.containsKey(f.mapname))
-			map_flag_pools.get(f.mapname).add(f);
+		GameState.FLAGS.add(f);
+		if (GameState.FLAG_POOL.containsKey(f.mapname))
+			GameState.FLAG_POOL.get(f.mapname).add(f);
 		else {
 			ArrayList<Flag> t = new ArrayList<Flag>();
 			t.add(f);
-			map_flag_pools.put(f.mapname, t);
+			GameState.FLAG_POOL.put(f.mapname, t);
 		}
 	}
 
 	public static void removeFLag(Flag f) {
-		map_flag_pools.get(f.mapname).remove(f);
-		all_flags.remove(f);
+		GameState.FLAG_POOL.get(f.mapname).remove(f);
+		GameState.FLAGS.remove(f);
 	}
 
 	public String toString() {
@@ -50,16 +48,8 @@ public class Flag {
 
 	public static void save() {
 		ArrayList<String> ary = new ArrayList<String>();
-		for (Flag f : all_flags)
+		for (Flag f : GameState.FLAGS)
 			ary.add(f.toString());
-		FileParser.saveFile(ary, FILENAME);
-	}
-
-	public static void init() {
-		for (String str : FileParser.parseFile(FILENAME)) {
-			if (str.length() == 0)
-				continue;
-			new Flag(str);
-		}
+		FileParser.saveFile(ary, "src/data/Flag_Data.txt");
 	}
 }

@@ -1,19 +1,19 @@
 package objects;
 
+import game.GameState;
+
 import java.awt.image.BufferedImage;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import util.FileParser;
 import util.ImageLibrary;
 import util.Pair;
 
 public class TileMap {
-	public static HashMap<String, TileMap> MAPS = new HashMap<String, TileMap>();
 	public static Pair<String, Integer, Integer> fill = new Pair<String, Integer, Integer>("Land", 3, 15);
 
 	public Pair<String, Integer, Integer>[][] mapdata;
@@ -24,13 +24,12 @@ public class TileMap {
 		name = n;
 		mapdata = new Pair[y][x];
 		clear_map();
-		MAPS.put(name, this);
+		GameState.MAPS.put(name, this);
 	}
 
-	public TileMap(String filename, String n) {
-		name = n;
+	public TileMap(String filename) {
 		load(new File(filename));
-		MAPS.put(name, this);
+		GameState.MAPS.put(name, this);
 	}
 
 	public void fillMap(Pair<String, Integer, Integer> p) {
@@ -125,6 +124,4 @@ public class TileMap {
 		}
 		mapdata = data;
 	}
-
-	public static void init() {}
 }

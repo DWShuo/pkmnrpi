@@ -1,5 +1,7 @@
 package console;
 
+import game.GameState;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -32,7 +34,7 @@ public class SelectWindow extends JPanel implements MouseListener, MouseMotionLi
 		g.drawImage(sheet.base.getImage(), 0, 0, null);
 		if (flag == 0)
 			return;
-		ArrayList<Dimension> ary = SpriteSheet.TERRAIN_INFO.get(sheet.name);
+		ArrayList<Dimension> ary = GameState.TERRAIN.get(sheet.name);
 		if (ary == null)
 			return;
 		for (Dimension d : ary) {
@@ -59,7 +61,7 @@ public class SelectWindow extends JPanel implements MouseListener, MouseMotionLi
 		editor.bar_label.setIcon(ImageLibrary.getIcon(editor.paint_bucket));
 		if (flag == 0)
 			return;
-		SpriteSheet.add(sheet.name, new Dimension(x, y));
+		GameState.add(sheet.name, new Dimension(x, y));
 		repaint();
 	}
 

@@ -2,6 +2,7 @@
 package pokedex;
 
 import game.GameEngine;
+import game.GameState;
 
 import java.awt.Dimension;
 import java.util.HashMap;
@@ -106,6 +107,6 @@ public class Pokedex extends JPanel implements Searchable, PokedexUI {
 		// System.out.println(name + " " + result);
 		if (result == null)
 			return null;
-		return Pokemon.all_pokemon[result - 1];
+		return GameState.POKEMON[result - 1];
 	}
 }

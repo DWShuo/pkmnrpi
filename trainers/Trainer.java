@@ -1,20 +1,18 @@
 package trainers;
 
+import game.GameState;
+
 import java.util.ArrayList;
 
 import objects.Point;
-import objects.TileMap;
 import pokemon.Pokemon;
 import pokemon.Stats;
-import util.FileParser;
 
 public class Trainer extends Person {
-	public static ArrayList<Trainer> all_trainers = new ArrayList<Trainer>();
-
 	public String victory_outro, defeat_outro;
 	public ArrayList<Point> vision = new ArrayList<Point>();
 	public ArrayList<Pokemon> team = new ArrayList<Pokemon>();
-	private ArrayList<String> team_data = new ArrayList<String>();
+	public ArrayList<String> team_data = new ArrayList<String>();
 
 	public Trainer() {}
 
@@ -60,7 +58,7 @@ public class Trainer extends Person {
 		while (index < data.size()) {
 			Trainer t = new Trainer(data.get(index++ ));
 			t.mapname = data.get(index++ );
-			t.map = TileMap.MAPS.get(t.mapname);
+			t.map = GameState.MAPS.get(t.mapname);
 			String[] ary = data.get(index++ ).split(",");
 			t.x = Integer.parseInt(ary[0]);
 			t.y = Integer.parseInt(ary[1]);
@@ -93,41 +91,10 @@ public class Trainer extends Person {
 	}
 
 	public static Trainer lookUp(String name) {
-		for (Trainer t : all_trainers)
+		for (Trainer t : GameState.TRAINERS)
 			if (t.name.equalsIgnoreCase(name))
 				return t;
 		return null;
-	}
-
-	public static void init() {
-		ArrayList<String> data = FileParser.parseFile("src/data/Trainer_Data.txt");
-		Trainer t;
-		int index = 0;
-		while (index < data.size()) {
-			t = new Trainer();
-			t.name = data.get(index++ );
-			t.male = data.get(index++ ).equalsIgnoreCase("male");
-			t.cash = Integer.parseInt(data.get(index++ ));
-			t.intro = data.get(index++ );
-			t.victory_outro = data.get(index++ );
-			t.defeat_outro = data.get(index++ );
-			t.mapname = data.get(index++ );
-			String[] ary = data.get(index++ ).split(",");
-			t.x = Integer.parseInt(ary[0]);
-			t.y = Integer.parseInt(ary[1]);
-			t.setDirection(data.get(index++ ));
-			String line = data.get(index++ );
-			while (!Pokemon.isUniform(line, '+')) {
-				t.dialog.add(line);
-				line = data.get(index++ );
-			}
-			line = data.get(index++ );
-			while (!Pokemon.isUniform(line, '+')) {
-				t.team_data.add(line);
-				line = data.get(index++ );
-			}
-			all_trainers.add(t);
-		}
 	}
 
 	public void reloadPokemon() {

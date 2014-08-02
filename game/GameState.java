@@ -1,10 +1,14 @@
 package game;
 
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GraphicsEnvironment;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
@@ -13,19 +17,30 @@ import objects.Backpack;
 import objects.TileMap;
 import animations.Clock;
 import animations.Sprite;
+import pokedex.Pokedex;
 import pokemon.Move;
 import pokemon.Pokemon;
+import pokemon.Stats;
 import trainers.Trainer;
 import util.FileParser;
 import util.Flag;
 import util.ImageLibrary;
 import util.Library;
+import util.Pair;
 
 /**
  * This class will initialize all static data, as well as load, hold, and save temporary data.
  */
 public class GameState {
 	public static Clock clock;
+	public static HashMap<String, ArrayList<Dimension>> TERRAIN = new HashMap<String, ArrayList<Dimension>>();
+	public static HashMap<String, TileMap> MAPS = new HashMap<String, TileMap>();
+	public static HashMap<String, Spawn> SPAWNS = new HashMap<String, Spawn>();
+	public static ArrayList<Flag> FLAGS = new ArrayList<Flag>();
+	public static HashMap<String, ArrayList<Flag>> FLAG_POOL = new HashMap<String, ArrayList<Flag>>();
+	public static Move[] MOVES;
+	public static ArrayList<Trainer> TRAINERS = new ArrayList<Trainer>();
+	public static Pokemon[] POKEMON;
 
 	public ArrayList<Pokemon> stored = new ArrayList<Pokemon>(), team = new ArrayList<Pokemon>();
 	public ArrayList<Trainer> opponents = new ArrayList<Trainer>();
@@ -46,6 +61,35 @@ public class GameState {
 	public GameState(GameEngine e, String filename) {
 		engine = e;
 		load(filename);
+	}
+
+	public static void save() {}
+
+	public static void initilize_all() {
+		try {
+			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("src/data/pfont.ttf")));
+			for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+				if ("Nimbus".equals(info.getName())) {
+					UIManager.setLookAndFeel(info.getClassName());
+					break;
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		Library.init();
+		initTerrain();
+		ImageLibrary.init();
+		initSpawns();
+		initFlags();
+		initMoves();
+		initTrainers();
+		initPokemon();
+		// signs
+		// npcs
+		for (Trainer t : TRAINERS)
+			t.reloadPokemon();
 	}
 
 	// load save from file.
@@ -109,7 +153,7 @@ public class GameState {
 		for (Trainer t : opponents)
 			all += t;
 		all += space;
-		for (Flag f : Flag.all_flags)
+		for (Flag f : FLAGS)
 			if (f.type == Flag.ITEM)
 				all += f;
 		all += space;
@@ -139,35 +183,198 @@ public class GameState {
 		self.bigsprite = new Sprite("src/tilesets/sprites/trainer back.png");
 	}
 
+	public static void initTerrain() {
+		ArrayList<String> data = FileParser.parseFile("src/data/terrain info.txt");
+		for (String str : data) {
+			String[] line = str.split(":");
+			Dimension d = new Dimension(Integer.parseInt(line[0]), Integer.parseInt(line[1]));
+			add(line[2], d);
+		}
+	}
+
+	public static void initSpawns() {
+		Spawn s = new Spawn();
+		s.bounds = new Rectangle(-24, -42, 50, 75);
+		ArrayList<Pair<String, Double, Integer>> list = new ArrayList<Pair<String, Double, Integer>>();
+		list.add(new Pair<String, Double, Integer>("Bayleef", .3, 30));
+		list.add(new Pair<String, Double, Integer>("Chikorita", .3, 24));
+		list.add(new Pair<String, Double, Integer>("Pidgeot", .3, 45));
+		s.chances.put(1519, list);
+		list = new ArrayList<Pair<String, Double, Integer>>();
+		list.add(new Pair<String, Double, Integer>("Meganium", .3, 38));
+		list.add(new Pair<String, Double, Integer>("Typhlosion", .3, 40));
+		list.add(new Pair<String, Double, Integer>("Feraligatr", .3, 39));
+		s.chances.put(1520, list);
+		SPAWNS.put("PalletTown", s);
+	}
+
+	public static void initFlags() {
+		for (String str : FileParser.parseFile("src/data/Flag_Data.txt")) {
+			if (str.length() == 0)
+				continue;
+			new Flag(str);
+		}
+	}
+
+	public static void initTrainers() {
+		ArrayList<String> data = FileParser.parseFile("src/data/Trainer_Data.txt");
+		Trainer t;
+		int index = 0;
+		while (index < data.size()) {
+			t = new Trainer();
+			t.name = data.get(index++ );
+			t.male = data.get(index++ ).equalsIgnoreCase("male");
+			t.cash = Integer.parseInt(data.get(index++ ));
+			t.intro = data.get(index++ );
+			t.victory_outro = data.get(index++ );
+			t.defeat_outro = data.get(index++ );
+			t.mapname = data.get(index++ );
+			String[] ary = data.get(index++ ).split(",");
+			t.x = Integer.parseInt(ary[0]);
+			t.y = Integer.parseInt(ary[1]);
+			t.setDirection(data.get(index++ ));
+			String line = data.get(index++ );
+			while (!Pokemon.isUniform(line, '+')) {
+				t.dialog.add(line);
+				line = data.get(index++ );
+			}
+			line = data.get(index++ );
+			while (!Pokemon.isUniform(line, '+')) {
+				t.team_data.add(line);
+				line = data.get(index++ );
+			}
+			TRAINERS.add(t);
+		}
+	}
+
+	public static void initMoves() {
+		ArrayList<String> data = FileParser.parseFile("src/data/move_info.txt");
+		ArrayList<Move> all = new ArrayList<Move>();
+		for (String line : data) {
+			String[] ary = line.split(",");
+			Move m = new Move();
+			m.name = ary[0];
+			m.type = Pokemon.getType(ary[1].toUpperCase());
+			m.category = parseCategory(ary[2]);
+			m.damage = Integer.parseInt(ary[3]);
+			double acc = Double.parseDouble(ary[4]);
+			m.hit_chance = acc == 0 ? 0 : 100.0 / acc;
+			m.pp = m.pp_max = Integer.parseInt(ary[5]);
+			if (ary.length == 7)
+				m.description = ary[6];
+			all.add(m);
+		}
+		GameState.MOVES = order_moves(all);
+	}
+
+	// Loads all static pokemon info
+	public static void initPokemon() {
+		ArrayList<String> info = FileParser.parseFile("src/data/pokemon data.txt");
+		int index = 0;
+		POKEMON = new Pokemon[251];
+		Pokemon p;
+		while (index < info.size()) {
+			p = new Pokemon();
+			p.ID = Integer.parseInt(info.get(index++ ));
+			p.name = info.get(index++ );
+			String types = info.get(index++ );
+			if (types.contains("/")) {
+				String[] ar = types.split("/");
+				p.type = Pokemon.getType(ar[0]);
+				p.t2 = Pokemon.getType(ar[1]);
+			} else
+				p.type = Pokemon.getType(types);
+			p.species = info.get(index++ );
+			String str = info.get(index++ );
+			if (isDouble(str))
+				p.height = Double.parseDouble(str);
+			str = info.get(index++ );
+			if (isDouble(str))
+				p.weight = Double.parseDouble(str);
+			str = info.get(index++ );
+			if (isDouble(str))
+				p.catch_rate = Integer.parseInt(str);
+			str = info.get(index++ );
+			if (isDouble(str))
+				p.base_exp = Integer.parseInt(str);
+			p.base_happiness = Integer.parseInt(info.get(index++ ));
+			p.stats.growth_rate = info.get(index++ );
+			p.description = info.get(index++ );
+
+			p.evolutions = new HashMap<String, String>();
+			str = info.get(index++ );
+			while (!Pokemon.isUniform(str, '*')) {
+				if (str.contains(",")) {
+					String[] ar = str.split(",");
+					p.evolutions.put(ar[1], ar[0]);
+				}
+				str = info.get(index++ );
+			}
+			index++ ;
+			p.learnset = new ArrayList<Move>();
+			p.ages = new ArrayList<Integer>();
+			str = info.get(index++ );
+			while (!Pokemon.isUniform(str, '*')) {
+				if (str.contains(",")) {
+					String[] ar = str.split(",");
+					p.ages.add(Integer.parseInt(ar[1]));
+					p.learnset.add(Move.lookup(ar[0]));
+				}
+				str = info.get(index++ );
+			}
+			index++ ;
+			p.tmset = new ArrayList<Move>();
+			str = info.get(index++ );
+			while (!Pokemon.isUniform(str, '*')) {
+				p.tmset.add(Move.lookup(str));
+				str = info.get(index++ );
+			}
+
+			POKEMON[p.ID - 1] = p;
+			Pokedex.pkmn_lookup.put(p.name.toLowerCase(), p.ID);
+		}
+		Stats.init();
+	}
+
+	private static boolean isDouble(String str) {
+		String good = "1234567890.";
+		for (char c : str.toCharArray())
+			if (!good.contains(c + ""))
+				return false;
+		return true;
+	}
+
+	private static int parseCategory(String str) {
+		str = str.toUpperCase();
+		if (str.equals("PHYSICAL"))
+			return Move.PHYSICAL;
+		else if (str.equals("SPECIAL"))
+			return Move.SPECIAL;
+		else if (str.equals("STATUS"))
+			return Move.STATUS;
+		return Move.PHYSICAL;
+	}
+
+	private static Move[] order_moves(ArrayList<Move> all) {
+		Collections.sort(all);
+		Move[] mo = new Move[all.size()];
+		int index = 0;
+		for (Move m : all)
+			mo[index++ ] = m;
+		return mo;
+	}
+
+	public static void add(String key, Dimension d) {
+		if (TERRAIN.keySet().contains(key))
+			TERRAIN.get(key).add(d);
+		else {
+			TERRAIN.put(key, new ArrayList<Dimension>());
+			TERRAIN.get(key).add(d);
+		}
+	}
+
 	public void loadLocations(ArrayList<String> data) {
 		for (String str : data)
 			new Flag(str);
-	}
-
-	public static void initilize_all() {
-		try {
-			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("src/data/pfont.ttf")));
-			for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-				if ("Nimbus".equals(info.getName())) {
-					UIManager.setLookAndFeel(info.getClassName());
-					break;
-				}
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		Library.init();
-		ImageLibrary.init();
-		TileMap.init();
-		Spawn.init();
-		Flag.init();
-		Move.init();
-		Trainer.init();
-		Pokemon.init();
-		// signs
-		// npcs
-		for (Trainer t : Trainer.all_trainers)
-			t.reloadPokemon();
 	}
 }

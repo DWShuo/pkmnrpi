@@ -89,7 +89,6 @@ public class ImageLibrary extends Library {
 	}
 
 	public static void init() {
-		SpriteSheet.init();
 		sheets = new ArrayList<SpriteSheet>();
 		sheets.add(new SpriteSheet(image_sheet_names[0], new Dimension(pixel_width[0], pixel_width[0]), "Misc"));
 		sheets.add(new SpriteSheet(image_sheet_names[1], new Dimension(pixel_width[0], pixel_width[0]), "Roof"));
