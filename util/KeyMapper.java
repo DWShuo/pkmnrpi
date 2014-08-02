@@ -5,7 +5,6 @@ import game.GameEngine;
 import game.GameState;
 
 import java.awt.Point;
-import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.HashMap;

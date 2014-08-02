@@ -8,12 +8,9 @@ import javax.swing.JFrame;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
-import objects.TileMap;
 import battle.BattleEngine;
 import pokedex.Pokedex;
-import pokemon.Pokemon;
 import util.KeyMapper;
-import util.TestFrame;
 
 /**
  * This is the main class. Hurrah for the root of all things. Praise the sun!
@@ -59,8 +56,8 @@ public class GameEngine {
 		frame.pack();
 		frame.setVisible(true);
 
-		//battle = new BattleEngine(this, new Pokemon("Meganium", 40));
-		//startBattle();
+		// battle = new BattleEngine(this, new Pokemon("Meganium", 40));
+		// startBattle();
 		// TODO: Play intro credits
 		// TODO: select save file or start new game
 	}

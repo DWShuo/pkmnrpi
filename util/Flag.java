@@ -57,6 +57,8 @@ public class Flag {
 
 	public static void init() {
 		for (String str : FileParser.parseFile(FILENAME)) {
+			if (str.length() == 0)
+				continue;
 			new Flag(str);
 		}
 	}

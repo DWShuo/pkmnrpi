@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import javax.swing.JPanel;
 
 import animations.Clock;
-import pokedex.PokedexTextArea;
 import pokemon.Move;
 import pokemon.Pokemon;
 import util.panels.PatternPanel;

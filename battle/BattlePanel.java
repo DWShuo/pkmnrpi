@@ -4,18 +4,12 @@ import game.GamePanel;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Graphics;
 
-import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
-import javax.swing.JPanel;
 
-import objects.LayeredPanel;
 import animations.Clock;
 import animations.Sprite;
-import pokemon.Move;
 import pokemon.Pokemon;
 import util.ImageLibrary;
 import util.Library;

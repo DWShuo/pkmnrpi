@@ -8,12 +8,9 @@ import java.util.HashMap;
 
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 
 import pokemon.Pokemon;
-import util.ImageLibrary;
 import util.Searchable;
 import util.panels.ScalePanel;
 

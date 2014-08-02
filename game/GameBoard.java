@@ -8,7 +8,6 @@ import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 
 import javax.swing.*;
-import javax.swing.UIManager.LookAndFeelInfo;
 
 import animations.Sprite;
 import animations.SpriteBoard;
@@ -57,7 +56,6 @@ public class GameBoard extends JScrollPane implements KeyListener, SpriteBoard {
 		map = new TileMap("src/maps/park.map", "Default");
 		BufferedImage im = map.get_static_map();
 		foreground = new GamePanel();
-		foreground.sprites = map.get_sprites();
 		background = new LayeredPanel(new ImageIcon(im), foreground);
 		background.setPreferredSize(new Dimension(im.getWidth(), im.getHeight()));
 	}
@@ -80,7 +78,7 @@ public class GameBoard extends JScrollPane implements KeyListener, SpriteBoard {
 		} else if (direction == Person.LEFT) {
 			x-- ;
 		}
-		return ImageLibrary.walk_tiles[map.mapdata[y][x]];
+		return ImageLibrary.canWalk(map.mapdata[y][x]);
 	}
 
 	public void keyReleased(KeyEvent e) {}

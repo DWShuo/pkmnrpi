@@ -1,7 +1,0 @@
-DEFAULT,5,6,0,This is a sign.
-DEFAULT,-4,7,0,This is a sign.
-DEFAULT,-10,0,0,This is a sign.
-DEFAULT,-2,14,0,This is a sign.
-DEFAULT,5,-7,1,7:7:DEFAULT
-DEFAULT,7,6,1,-6:8:DEFAULT
-DEFAULT,-6,7,1,5:-6:DEFAULT
