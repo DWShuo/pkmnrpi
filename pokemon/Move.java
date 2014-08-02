@@ -20,7 +20,7 @@ public class Move implements Comparable<Move> {
 	public Move() {}
 
 	public String toString() {
-		return name + "\n" + type + "\n" + category + "\n" + damage + "\n" + (int) hit_chance * 100 + "\n" + pp_max + "\n";
+		return name + "," + Pokemon.getType(type) + "," + category + "," + damage + "," + (int) hit_chance * 100 + "," + pp_max;
 	}
 
 	public void animate(int direction) {

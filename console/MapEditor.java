@@ -104,7 +104,8 @@ public class MapEditor extends JPanel implements ComponentListener {
 	}
 
 	public void save(File file) {
-		GameState.save();
+		tmap.save(file);
+		GameState.save(new File("src/data/game state.txt"));
 	}
 
 	public void load(File file) {

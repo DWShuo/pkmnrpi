@@ -63,7 +63,58 @@ public class GameState {
 		load(filename);
 	}
 
-	public static void save() {}
+	public static void save(File file) {
+		ArrayList<String> data = new ArrayList<String>();
+		data.addAll(saveTerrain());
+		data.add("((((((((((");
+		data.addAll(saveSpawns());
+		data.add("((((((((((");
+		data.addAll(saveFlags());
+		data.add("((((((((((");
+		data.addAll(saveMoves());
+		data.add("((((((((((");
+		data.addAll(saveTrainers());
+
+		FileParser.saveFile(data, file);
+	}
+
+	private static ArrayList<String> saveTerrain() {
+		ArrayList<String> ary = new ArrayList<String>();
+		for (String str : TERRAIN.keySet())
+			for (Dimension d : TERRAIN.get(str))
+				ary.add(d.width + ":" + d.height + ":" + str);
+		return ary;
+	}
+
+	private static ArrayList<String> saveSpawns() {
+		ArrayList<String> ary = new ArrayList<String>();
+		for (String str : SPAWNS.keySet()) {
+			ary.addAll(SPAWNS.get(str).save());
+		}
+		return ary;
+	}
+
+	private static ArrayList<String> saveFlags() {
+		ArrayList<String> ary = new ArrayList<String>();
+		for (Flag f : FLAGS)
+			ary.add(f.toString());
+		return ary;
+	}
+
+	private static ArrayList<String> saveMoves() {
+		ArrayList<String> ary = new ArrayList<String>();
+		for (Move m : MOVES) {
+			ary.add(m.toString());
+		}
+		return ary;
+	}
+
+	private static ArrayList<String> saveTrainers() {
+		ArrayList<String> ary = new ArrayList<String>();
+		for (Trainer t : TRAINERS)
+			ary.addAll(t.saveStaticInfo());
+		return ary;
+	}
 
 	public static void initilize_all() {
 		try {
@@ -78,13 +129,14 @@ public class GameState {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		ArrayList<ArrayList<String>> data = FileParser.parseSeperatedFile("src/data/game state.txt", '(');
 		Library.init();
-		initTerrain();
+		initTerrain(data.get(0));
 		ImageLibrary.init();
-		initSpawns();
-		initFlags();
-		initMoves();
-		initTrainers();
+		initSpawns(data.get(1));
+		initFlags(data.get(2));
+		initMoves(data.get(3));
+		initTrainers(data.get(4));
 		initPokemon();
 		// signs
 		// npcs
@@ -170,7 +222,47 @@ public class GameState {
 		return all;
 	}
 
-	public void initPlayer(ArrayList<String> info) {
+	private static void initTerrain(ArrayList<String> data) {
+		for (String str : data) {
+			String[] line = str.split(":");
+			Dimension d = new Dimension(Integer.parseInt(line[0]), Integer.parseInt(line[1]));
+			add(line[2], d);
+		}
+	}
+
+	private static void initSpawns(ArrayList<String> data) {
+		int index = 0;
+		while (index < data.size()) {
+			Spawn s = new Spawn();
+			s.mapname = data.get(index++ );
+			String[] ary = data.get(index++ ).split(":");
+			s.bounds = new Rectangle(Integer.parseInt(ary[0]), Integer.parseInt(ary[1]), Integer.parseInt(ary[2]), Integer.parseInt(ary[3]));
+			String line = data.get(index++ );
+			while (!Pokemon.isUniform(line, ')')) {
+				int id = Integer.parseInt(line);
+				ArrayList<Pair<String, Double, Integer>> list = new ArrayList<Pair<String, Double, Integer>>();
+				line = data.get(index++ );
+				while (!Pokemon.isUniform(line, '#')) {
+					ary = line.split(":");
+					list.add(new Pair<String, Double, Integer>(ary[0], Double.parseDouble(ary[1]), Integer.parseInt(ary[2])));
+					line = data.get(index++ );
+				}
+				line = data.get(index++ );
+				s.chances.put(id, list);
+			}
+			SPAWNS.put(s.mapname, s);
+		}
+	}
+
+	private static void initFlags(ArrayList<String> data) {
+		for (String str : data) {
+			if (str.length() == 0)
+				continue;
+			new Flag(str);
+		}
+	}
+
+	private void initPlayer(ArrayList<String> info) {
 		self = Trainer.loadTrainers(info).get(0);
 		self.team = team;
 		self.walk = new BufferedImage[10];
@@ -183,41 +275,7 @@ public class GameState {
 		self.bigsprite = new Sprite("src/tilesets/sprites/trainer back.png");
 	}
 
-	public static void initTerrain() {
-		ArrayList<String> data = FileParser.parseFile("src/data/terrain info.txt");
-		for (String str : data) {
-			String[] line = str.split(":");
-			Dimension d = new Dimension(Integer.parseInt(line[0]), Integer.parseInt(line[1]));
-			add(line[2], d);
-		}
-	}
-
-	public static void initSpawns() {
-		Spawn s = new Spawn();
-		s.bounds = new Rectangle(-24, -42, 50, 75);
-		ArrayList<Pair<String, Double, Integer>> list = new ArrayList<Pair<String, Double, Integer>>();
-		list.add(new Pair<String, Double, Integer>("Bayleef", .3, 30));
-		list.add(new Pair<String, Double, Integer>("Chikorita", .3, 24));
-		list.add(new Pair<String, Double, Integer>("Pidgeot", .3, 45));
-		s.chances.put(1519, list);
-		list = new ArrayList<Pair<String, Double, Integer>>();
-		list.add(new Pair<String, Double, Integer>("Meganium", .3, 38));
-		list.add(new Pair<String, Double, Integer>("Typhlosion", .3, 40));
-		list.add(new Pair<String, Double, Integer>("Feraligatr", .3, 39));
-		s.chances.put(1520, list);
-		SPAWNS.put("PalletTown", s);
-	}
-
-	public static void initFlags() {
-		for (String str : FileParser.parseFile("src/data/Flag_Data.txt")) {
-			if (str.length() == 0)
-				continue;
-			new Flag(str);
-		}
-	}
-
-	public static void initTrainers() {
-		ArrayList<String> data = FileParser.parseFile("src/data/Trainer_Data.txt");
+	private static void initTrainers(ArrayList<String> data) {
 		Trainer t;
 		int index = 0;
 		while (index < data.size()) {
@@ -229,9 +287,8 @@ public class GameState {
 			t.victory_outro = data.get(index++ );
 			t.defeat_outro = data.get(index++ );
 			t.mapname = data.get(index++ );
-			String[] ary = data.get(index++ ).split(",");
-			t.x = Integer.parseInt(ary[0]);
-			t.y = Integer.parseInt(ary[1]);
+			t.x = Integer.parseInt(data.get(index++ ));
+			t.y = Integer.parseInt(data.get(index++ ));
 			t.setDirection(data.get(index++ ));
 			String line = data.get(index++ );
 			while (!Pokemon.isUniform(line, '+')) {
@@ -247,8 +304,7 @@ public class GameState {
 		}
 	}
 
-	public static void initMoves() {
-		ArrayList<String> data = FileParser.parseFile("src/data/move_info.txt");
+	private static void initMoves(ArrayList<String> data) {
 		ArrayList<Move> all = new ArrayList<Move>();
 		for (String line : data) {
 			String[] ary = line.split(",");
@@ -258,7 +314,7 @@ public class GameState {
 			m.category = parseCategory(ary[2]);
 			m.damage = Integer.parseInt(ary[3]);
 			double acc = Double.parseDouble(ary[4]);
-			m.hit_chance = acc == 0 ? 0 : 100.0 / acc;
+			m.hit_chance = acc == 0 ? 0 : acc / 100.0;
 			m.pp = m.pp_max = Integer.parseInt(ary[5]);
 			if (ary.length == 7)
 				m.description = ary[6];
@@ -268,7 +324,7 @@ public class GameState {
 	}
 
 	// Loads all static pokemon info
-	public static void initPokemon() {
+	private static void initPokemon() {
 		ArrayList<String> info = FileParser.parseFile("src/data/pokemon data.txt");
 		int index = 0;
 		POKEMON = new Pokemon[251];

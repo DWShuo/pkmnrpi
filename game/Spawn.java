@@ -10,6 +10,7 @@ import battle.BattleEngine;
 import util.Pair;
 
 public class Spawn {
+	public String mapname;
 	public Rectangle bounds = new Rectangle();
 	public HashMap<Integer, ArrayList<Pair<String, Double, Integer>>> chances = new HashMap<Integer, ArrayList<Pair<String, Double, Integer>>>();
 
@@ -35,5 +36,20 @@ public class Spawn {
 			return true;
 		}
 		return false;
+	}
+
+	public ArrayList<String> save() {
+		ArrayList<String> ary = new ArrayList<String>();
+		ary.add(mapname);
+		ary.add(bounds.x + ":" + bounds.y + ":" + bounds.width + ":" + bounds.height);
+		for (Integer i : chances.keySet()) {
+			ary.add(i + "");
+			for (Pair<?, ?, ?> p : chances.get(i)) {
+				ary.add(p.toString());
+			}
+			ary.add("#######");
+		}
+		ary.add(")))))))");
+		return ary;
 	}
 }

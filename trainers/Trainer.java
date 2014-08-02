@@ -41,6 +41,27 @@ public class Trainer extends Person {
 		return false;
 	}
 
+	public ArrayList<String> saveStaticInfo() {
+		ArrayList<String> data = new ArrayList<String>();
+		data.add(name);
+		data.add(male ? "male" : "female");
+		data.add(cash + "");
+		data.add(intro);
+		data.add(victory_outro);
+		data.add(defeat_outro);
+		data.add(mapname);
+		data.add(x + "");
+		data.add(y + "");
+		data.add(direction + "");
+		for (String str : dialog)
+			data.add(str);
+		data.add("+++++++");
+		for (String str : team_data)
+			data.add(str);
+		data.add("++++++++");
+		return data;
+	}
+
 	public String staticToString() {
 		String space = "+++++++++++\n", s = "\n", all = "";
 		all += name + s + (male ? "Male" : "Female") + s + cash + s;
