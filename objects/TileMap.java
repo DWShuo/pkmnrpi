@@ -2,6 +2,7 @@ package objects;
 
 import game.GameState;
 
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -56,7 +57,23 @@ public class TileMap {
 				mapdata[i][k] = fill;
 	}
 
-	public BufferedImage get_static_map() {
+	public BufferedImage getSubMap(Rectangle r) {
+		int unit = ImageLibrary.pixel_width[0];
+		int x = r.x / unit;
+		int y = r.y / unit;
+		int w = r.width / unit + (r.width % unit == 0 ? 0 : 1);
+		int h = r.height / unit + (r.height % unit == 0 ? 0 : 1);
+		BufferedImage im = new BufferedImage(w * unit, h * unit, BufferedImage.TYPE_INT_ARGB);
+		for (int i = 0; i < h; ++i) {
+			for (int j = 0; j < w; ++j) {
+				Pair<String, Integer, Integer> p = mapdata[y + i][x + j];
+				im.getGraphics().drawImage(ImageLibrary.getIcon(p).getImage(), j * unit, i * unit, null);
+			}
+		}
+		return im.getSubimage(r.x - x * unit, r.y - y * unit, Math.min(r.width, im.getWidth() - (r.x - x * unit)), Math.min(r.height, im.getHeight() - (r.y - y * unit)));
+	}
+
+	public BufferedImage getStaticMap() {
 		int unit = ImageLibrary.pixel_width[0];
 		BufferedImage im = new BufferedImage(mapdata[0].length * unit, mapdata.length * unit, BufferedImage.TYPE_INT_ARGB);
 		for (int i = 0; i < mapdata.length; ++i) {

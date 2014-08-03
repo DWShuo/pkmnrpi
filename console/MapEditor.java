@@ -48,6 +48,7 @@ public class MapEditor extends JPanel implements ComponentListener {
 		frame = f;
 		this.setBackground(Color.gray.darker());
 		GameState.initilize_all();
+		tmap = new TileMap("src/default.map");
 		init();
 	}
 
@@ -57,8 +58,7 @@ public class MapEditor extends JPanel implements ComponentListener {
 
 		selections = new JScrollPane[4];
 		selectwindows = new SelectWindow[4];
-		tmap = new TileMap("src/default.map");
-		creation = new EditWindow(this, tmap);
+		creation = new EditWindow(this);
 
 		selectwindows[0] = new SelectWindow(this, ImageLibrary.getSheet("Land"));
 		selectwindows[1] = new SelectWindow(this, ImageLibrary.getSheet("Roof"));
@@ -110,7 +110,6 @@ public class MapEditor extends JPanel implements ComponentListener {
 
 	public void load(File file) {
 		tmap = new TileMap(file.getAbsolutePath());
-		creation.map = tmap;
 		creation.repaint();
 		frame.pack();
 		repaint();
