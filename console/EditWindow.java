@@ -13,6 +13,7 @@ import java.util.ArrayList;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.SwingUtilities;
 
 import util.Flag;
 import util.Pair;
@@ -60,6 +61,10 @@ public class EditWindow extends JPanel implements MouseListener, MouseMotionList
 				g.fillRect(0, 0, width, height);
 				g.drawImage(image, 0, 0, null);
 			}
+			if (menu.operating) {
+				g.setColor(new Color(64, 128, 128, 128));
+				g.fillRect(menu.start.x * 16, menu.start.y * 16, (menu.current.x - menu.start.x + 1) * 16, (menu.current.y - menu.start.y + 1) * 16);
+			}
 		}
 
 		private Rectangle bound(Rectangle r) {
@@ -74,18 +79,21 @@ public class EditWindow extends JPanel implements MouseListener, MouseMotionList
 	public MapEditor editor;
 	public JScrollPane view;
 	public Canvas background;
+	public ContextMenu menu;
 	public int flag = 0;
 
 	public EditWindow(MapEditor e) {
 		editor = e;
 		setLayout(null);
 		background = new Canvas(this, editor.tmap.getStaticMap());
+		menu = new ContextMenu(editor);
 
 		view = new JScrollPane(background);
 		view.getViewport().setViewPosition(new Point(0, 0));
 		view.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		view.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 		background.addMouseListener(this);
+		background.addMouseListener(menu);
 		background.addMouseMotionListener(this);
 
 		add(view);
@@ -134,7 +142,7 @@ public class EditWindow extends JPanel implements MouseListener, MouseMotionList
 		}
 	}
 
-	private boolean isValid(Point p) {
+	public boolean isValid(Point p) {
 		return p.x >= 0 && p.y >= 0 && p.x < editor.tmap.mapdata[0].length && p.y < editor.tmap.mapdata.length;
 	}
 
@@ -192,21 +200,37 @@ public class EditWindow extends JPanel implements MouseListener, MouseMotionList
 		repaint();
 	}
 
+	public Point press = new Point(0, 0);
+
+	private double radius(Point a) {
+		return Math.sqrt((a.x - press.x) * (a.x - press.x) + (a.y - press.y) * (a.y - press.y));
+	}
+
 	public void mouseDragged(MouseEvent e) {
-		paintTo(e.getX(), e.getY(), editor.paint_bucket);
+		if (SwingUtilities.isRightMouseButton(e))
+			return;
+		if (radius(e.getPoint()) > 8)
+			paintTo(e.getX(), e.getY(), editor.paint_bucket);
 	}
 
 	public void mouseMoved(MouseEvent e) {}
 
-	public void mouseClicked(MouseEvent e) {
-		paintTo(e.getX(), e.getY(), editor.paint_bucket);
-	}
+	public void mouseClicked(MouseEvent e) {}
 
 	public void mouseEntered(MouseEvent e) {}
 
 	public void mouseExited(MouseEvent e) {}
 
-	public void mousePressed(MouseEvent e) {}
+	public void mousePressed(MouseEvent e) {
+		if (SwingUtilities.isRightMouseButton(e))
+			return;
+		press = e.getPoint();
+		paintTo(e.getX(), e.getY(), editor.paint_bucket);
+	}
 
-	public void mouseReleased(MouseEvent e) {}
+	public void mouseReleased(MouseEvent e) {
+		if (SwingUtilities.isRightMouseButton(e))
+			return;
+		press = e.getPoint();
+	}
 }

@@ -56,7 +56,9 @@ public class SelectWindow extends JPanel implements MouseListener, MouseMotionLi
 	public void mousePressed(MouseEvent e) {
 		int x = e.getX() == 0 ? 0 : e.getX() / sheet.cut.width;
 		int y = e.getY() == 0 ? 0 : e.getY() / sheet.cut.height;
-		System.out.println(x + ", " + y);
+		// System.out.println(x + ", " + y);
+		if (y >= sheet.iconmap.length)
+			return;
 		editor.paint_bucket = new Pair<String, Integer, Integer>(sheet.name, x, y);
 		editor.bar_label.setIcon(ImageLibrary.getIcon(editor.paint_bucket));
 		if (flag == 0)

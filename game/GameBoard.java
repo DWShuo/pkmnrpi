@@ -54,7 +54,7 @@ public class GameBoard extends JScrollPane implements KeyListener, SpriteBoard {
 
 	public void loadMap(String filename) {
 		map = new TileMap("src/maps/park.map");
-		BufferedImage im = map.get_static_map();
+		BufferedImage im = map.getStaticMap();
 		foreground = new GamePanel();
 		background = new LayeredPanel(new ImageIcon(im), foreground);
 		background.setPreferredSize(new Dimension(im.getWidth(), im.getHeight()));
