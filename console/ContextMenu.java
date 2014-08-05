@@ -12,10 +12,11 @@ import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 import javax.swing.SwingUtilities;
 
+import util.ImageLibrary;
 import util.Pair;
 
 public class ContextMenu extends JPopupMenu implements MouseListener, MouseMotionListener, ActionListener {
-	public JMenuItem select = new JMenuItem("Copy"), paste = new JMenuItem("Paste");
+	public JMenuItem select = new JMenuItem("Copy"), paste = new JMenuItem("Paste"), paint = new JMenuItem("Select");
 
 	public MapEditor editor;
 	public Point start, temp, current;
@@ -25,9 +26,12 @@ public class ContextMenu extends JPopupMenu implements MouseListener, MouseMotio
 
 	public ContextMenu(MapEditor e) {
 		editor = e;
+		add(paint);
 		add(select);
 		add(paste);
 		select.addActionListener(this);
+		paste.addActionListener(this);
+		paint.addActionListener(this);
 	}
 
 	public void show(Component c, int x, int y) {
@@ -57,7 +61,9 @@ public class ContextMenu extends JPopupMenu implements MouseListener, MouseMotio
 	private void select(Point a, Point b) {
 		Point c = bind(new Point(Math.min(a.x, b.x), Math.min(a.y, b.y)));
 		Point d = bind(new Point(Math.max(a.x, b.x), Math.max(a.y, b.y)));
-		selection = new Pair[d.x - c.x + 1][d.y - c.y + 1];
+		++d.x;
+		++d.y;
+		selection = new Pair[d.y - c.y][d.x - c.x];
 		for (int i = 0; i < selection.length; ++i) {
 			for (int j = 0; j < selection[i].length; ++j) {
 				selection[i][j] = editor.tmap.mapdata[c.y + i][c.x + j];
@@ -77,16 +83,15 @@ public class ContextMenu extends JPopupMenu implements MouseListener, MouseMotio
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == select) {
 			current = start = temp;
-			temp = null;
 			operating = true;
 			focus.addMouseMotionListener(this);
 			focus.removeMouseListener(editor.creation);
-			paste.addActionListener(this);
 		} else if (e.getSource() == paste) {
 			operating = false;
 			paste(temp);
-			temp = null;
-			paste.removeActionListener(this);
+		} else if (e.getSource() == paint) {
+			editor.paint_bucket = editor.tmap.mapdata[temp.y][temp.x];
+			editor.bar_label.setIcon(ImageLibrary.getIcon(editor.paint_bucket));
 		}
 	}
 

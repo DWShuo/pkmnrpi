@@ -4,10 +4,7 @@ import game.GameState;
 
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 
 import util.FileParser;
@@ -98,14 +95,23 @@ public class TileMap {
 		return centerx + "\n" + centery + "\n" + name + str;
 	}
 
+	public Pair<String, Integer, Integer> get(Point a) {
+		return mapdata[a.y][a.x];
+	}
+
 	public void save(File file) {
-		try {
-			BufferedWriter out = new BufferedWriter(new FileWriter(file));
-			out.write(toString());
-			out.close();
-		} catch (IOException e) {
-			e.printStackTrace();
+		ArrayList<String> data = new ArrayList<String>();
+		data.add("" + centerx);
+		data.add("" + centery);
+		data.add(name);
+		data.add("" + mapdata.length);
+		data.add("" + mapdata[0].length);
+		for (int i = 0; i < mapdata.length; ++i) {
+			for (int j = 0; j < mapdata[0].length; ++j) {
+				data.add("" + mapdata[i][j]);
+			}
 		}
+		FileParser.saveFile(data, file);
 	}
 
 	public void load(File file) {

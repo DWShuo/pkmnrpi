@@ -20,7 +20,7 @@ import util.Pair;
 
 public class EditWindow extends JPanel implements MouseListener, MouseMotionListener {
 
-	private class Canvas extends JPanel {
+	class Canvas extends JPanel {
 		public BufferedImage image, projection;
 		public int width, height;
 		public boolean superbig;

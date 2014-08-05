@@ -31,8 +31,10 @@ public class MapEditor extends JPanel implements ComponentListener {
 	public JLabel bar_label;
 	public boolean bucketfill = false;
 	public String clipboard;
+	public JFrame sheetframe;
+	public MEBar bar;
 
-	public int width = 1200, height = 450, total, doorx, doory;
+	public int width = 700, height = 900, total, doorx, doory;
 
 	public MapEditor(JFrame f) {
 		try {
@@ -45,9 +47,12 @@ public class MapEditor extends JPanel implements ComponentListener {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		frame = f;
-		this.setBackground(Color.gray.darker());
 		GameState.initilize_all();
+		frame = f;
+		f.addComponentListener(this);
+		bar = new MEBar(this);
+		f.setJMenuBar(bar);
+		this.setBackground(Color.gray.darker());
 		tmap = new TileMap("src/default.map");
 		init();
 	}
@@ -56,14 +61,21 @@ public class MapEditor extends JPanel implements ComponentListener {
 		removeAll();
 		setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
 
-		selections = new JScrollPane[4];
-		selectwindows = new SelectWindow[4];
 		creation = new EditWindow(this);
+		add(creation);
+		displaySelections();
 
+		resizeAll();
+	}
+
+	public void displaySelections() {
+		selectwindows = new SelectWindow[4];
 		selectwindows[0] = new SelectWindow(this, ImageLibrary.getSheet("Land"));
 		selectwindows[1] = new SelectWindow(this, ImageLibrary.getSheet("Roof"));
 		selectwindows[2] = new SelectWindow(this, ImageLibrary.getSheet("Building"));
 		selectwindows[3] = new SelectWindow(this, ImageLibrary.getSheet("Misc"));
+
+		selections = new JScrollPane[4];
 		selections[0] = new JScrollPane(selectwindows[0]);
 		selections[1] = new JScrollPane(selectwindows[1]);
 		selections[2] = new JScrollPane(selectwindows[2]);
@@ -81,21 +93,22 @@ public class MapEditor extends JPanel implements ComponentListener {
 		selections[2].getViewport().setViewPosition(new Point(0, 0));
 		selections[3].getViewport().setViewPosition(new Point(0, 0));
 
-		int scrollbar = 20;
+		sheetframe = new JFrame("Icon Tile Sheets (CLOSABLE)");
+		sheetframe.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
+		int scrollbar = 25;
 		total = selectwindows[0].sheet.width + selectwindows[1].sheet.width + selectwindows[2].sheet.width + selectwindows[3].sheet.width + 4 * scrollbar;
+		sheetframe.setBounds(0, 0, total, height);
+		sheetframe.setVisible(true);
+		sheetframe.add(selections[0]);
+		sheetframe.add(selections[1]);
+		sheetframe.add(selections[2]);
+		sheetframe.add(selections[3]);
 
-		add(selections[0]);
-		add(selections[1]);
-		add(selections[2]);
-		add(selections[3]);
-		add(creation);
-
-		resizeAll();
 	}
 
 	public void resizeAll() {
 		setPreferredSize(new Dimension(width, height));
-		creation.setPreferredSize(new Dimension(width - total, height));
+		creation.setPreferredSize(new Dimension(width, height));
 		int scrollbar = 20;
 		selections[0].setPreferredSize(new Dimension(selectwindows[0].sheet.width + scrollbar, height));
 		selections[1].setPreferredSize(new Dimension(selectwindows[1].sheet.width + scrollbar, height));
@@ -110,6 +123,11 @@ public class MapEditor extends JPanel implements ComponentListener {
 
 	public void load(File file) {
 		tmap = new TileMap(file.getAbsolutePath());
+		creation.background.width = tmap.mapdata[0].length * 16;
+		creation.background.height = tmap.mapdata.length * 16;
+		creation.background.superbig = creation.background.width * creation.background.height > 250000;
+		creation.background.setPreferredSize(new Dimension(creation.background.width, creation.background.height));
+		creation.background.repaint();
 		creation.repaint();
 		frame.pack();
 		repaint();
@@ -133,8 +151,6 @@ public class MapEditor extends JPanel implements ComponentListener {
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		MapEditor m = new MapEditor(f);
 		f.add(m);
-		f.addComponentListener(m);
-		f.setJMenuBar(new MEBar(m));
 		f.pack();
 		f.setResizable(true);
 		f.setVisible(true);

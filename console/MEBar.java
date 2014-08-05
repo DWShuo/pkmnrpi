@@ -1,5 +1,6 @@
 package console;
 
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -21,7 +22,7 @@ import util.ImageLibrary;
  */
 public class MEBar extends JMenuBar implements ActionListener {
 	private MapEditor editor;
-	private JMenuItem save, n, load, pen, bucket, doorflag, textflag, center, resize, walk, off;
+	private JMenuItem save, n, load, pen, bucket, doorflag, textflag, center, resize, walk, off, show;
 	private JFileChooser filer;
 	private JLabel label;
 	private JMenu menu, tools, flags;
@@ -46,6 +47,7 @@ public class MEBar extends JMenuBar implements ActionListener {
 		resize = new JMenuItem("Resize");
 		walk = new JMenuItem("Set Walk");
 		off = new JMenuItem("Walk OFF");
+		show = new JMenuItem("Display Selection");
 
 		add(menu);
 		add(label);
@@ -56,6 +58,7 @@ public class MEBar extends JMenuBar implements ActionListener {
 		menu.add(n);
 		menu.add(load);
 		menu.add(resize);
+		menu.add(show);
 
 		tools.add(pen);
 		tools.add(bucket);
@@ -76,6 +79,7 @@ public class MEBar extends JMenuBar implements ActionListener {
 		resize.addActionListener(this);
 		walk.addActionListener(this);
 		off.addActionListener(this);
+		show.addActionListener(this);
 	}
 
 	@Override
@@ -167,8 +171,13 @@ public class MEBar extends JMenuBar implements ActionListener {
 				int a = Integer.parseInt(aField.getText());
 				int b = Integer.parseInt(bField.getText());
 				editor.tmap.resize(x, y, a, b);
-				editor.repaint();
-				editor.creation.repaint();
+				editor.creation.background.width = a * 16;
+				editor.creation.background.height = b * 16;
+				editor.creation.background.superbig = editor.creation.background.width * editor.creation.background.height > 250000;
+				editor.creation.background.setPreferredSize(new Dimension(editor.creation.background.width, editor.creation.background.height));
+				editor.creation.background.repaint();
+				// editor.repaint();
+				// editor.creation.repaint();
 			}
 		} else if (e.getSource() == walk) {
 			for (SelectWindow a : editor.selectwindows) {
@@ -182,6 +191,8 @@ public class MEBar extends JMenuBar implements ActionListener {
 			}
 			flags.remove(off);
 			flags.add(walk);
+		} else if (e.getSource() == show) {
+			editor.displaySelections();
 		}
 	}
 
