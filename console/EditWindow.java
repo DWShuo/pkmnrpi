@@ -21,30 +21,24 @@ import util.Pair;
 public class EditWindow extends JPanel implements MouseListener, MouseMotionListener {
 
 	class Canvas extends JPanel {
-		public BufferedImage image, projection;
+		public static final int BW = 200;
+
+		public BufferedImage projection;
 		public int width, height;
-		public boolean superbig;
 		public EditWindow window;
 		public Rectangle viewposition, drawposition;
 		public long lastupdate;
 
-		public Canvas(EditWindow w, BufferedImage b) {
+		public Canvas(EditWindow w) {
 			window = w;
-			setImage(b);
-		}
-
-		public void setImage(BufferedImage i) {
-			image = i;
-			width = i.getWidth();
-			height = i.getHeight();
-			superbig = width * height > 250000;
-			setPreferredSize(new Dimension(width, height));
-			repaint();
 		}
 
 		private void update() {
+			width = window.editor.tmap.mapdata[0].length * 16;
+			height = window.editor.tmap.mapdata.length * 16;
+			setPreferredSize(new Dimension(width, height));
 			viewposition = window.view.getViewport().getViewRect();
-			drawposition = bound(new Rectangle(viewposition.x - viewposition.width / 2, viewposition.y - viewposition.height / 2, viewposition.width * 2, viewposition.height * 2));
+			drawposition = bound(new Rectangle(viewposition.x - BW, viewposition.y - BW, viewposition.width + BW * 2, viewposition.height + BW * 2));
 			projection = window.editor.tmap.getSubMap(drawposition);
 			lastupdate = System.currentTimeMillis();
 		}
@@ -52,15 +46,12 @@ public class EditWindow extends JPanel implements MouseListener, MouseMotionList
 		public void paint(Graphics g) {
 			super.paintComponent(g);
 			g.setColor(Color.black);
-			if (superbig) {
-				if (System.currentTimeMillis() - lastupdate > 100)
-					update();
-				g.fillRect(drawposition.x, drawposition.y, drawposition.width, drawposition.height);
-				g.drawImage(projection, drawposition.x, drawposition.y, null);
-			} else {
-				g.fillRect(0, 0, width, height);
-				g.drawImage(image, 0, 0, null);
-			}
+
+			if (System.currentTimeMillis() - lastupdate > 100)
+				update();
+			g.fillRect(drawposition.x, drawposition.y, drawposition.width, drawposition.height);
+			g.drawImage(projection, drawposition.x, drawposition.y, null);
+
 			if (menu.operating) {
 				g.setColor(new Color(64, 128, 128, 128));
 				g.fillRect(menu.start.x * 16, menu.start.y * 16, (menu.current.x - menu.start.x + 1) * 16, (menu.current.y - menu.start.y + 1) * 16);
@@ -85,7 +76,7 @@ public class EditWindow extends JPanel implements MouseListener, MouseMotionList
 	public EditWindow(MapEditor e) {
 		editor = e;
 		setLayout(null);
-		background = new Canvas(this, editor.tmap.getStaticMap());
+		background = new Canvas(this);
 		menu = new ContextMenu(editor);
 
 		view = new JScrollPane(background);
@@ -107,10 +98,7 @@ public class EditWindow extends JPanel implements MouseListener, MouseMotionList
 
 	public void repaint() {
 		if (editor != null && editor.tmap != null && background != null) {
-			if (background.superbig)
-				background.update();
-			else
-				background.setImage(editor.tmap.getStaticMap());
+			background.update();
 		}
 		super.repaint();
 	}
@@ -172,12 +160,6 @@ public class EditWindow extends JPanel implements MouseListener, MouseMotionList
 	}
 
 	public void paintTo(int x, int y, Pair<String, Integer, Integer> p) {
-		if (x != 0)
-			x /= 16;
-		if (y != 0)
-			y /= 16;
-		if (y < 0 || x < 0 || y >= editor.tmap.mapdata.length || x >= editor.tmap.mapdata[0].length)
-			return;
 		if (flag != 0) {
 			if (flag == 1) {
 				editor.tmap.centerx = x;
@@ -210,7 +192,16 @@ public class EditWindow extends JPanel implements MouseListener, MouseMotionList
 		if (SwingUtilities.isRightMouseButton(e))
 			return;
 		if (radius(e.getPoint()) > 8)
-			paintTo(e.getX(), e.getY(), editor.paint_bucket);
+			;
+		int x = e.getX();
+		int y = e.getY();
+		if (x != 0)
+			x /= 16;
+		if (y != 0)
+			y /= 16;
+		if (y < 0 || x < 0 || y >= editor.tmap.mapdata.length || x >= editor.tmap.mapdata[0].length)
+			return;
+		paintTo(x, y, editor.paint_bucket);
 	}
 
 	public void mouseMoved(MouseEvent e) {}
@@ -225,7 +216,22 @@ public class EditWindow extends JPanel implements MouseListener, MouseMotionList
 		if (SwingUtilities.isRightMouseButton(e))
 			return;
 		press = e.getPoint();
-		paintTo(e.getX(), e.getY(), editor.paint_bucket);
+		int x = e.getX();
+		int y = e.getY();
+		if (x != 0)
+			x /= 16;
+		if (y != 0)
+			y /= 16;
+		if (y < 0 || x < 0 || y >= editor.tmap.mapdata.length || x >= editor.tmap.mapdata[0].length)
+			return;
+		paintTo(x, y, editor.paint_bucket);
+		if (e.getClickCount() == 2) {
+			fillFrom(new Point(x, y), editor.paint_bucket);
+			fillFrom(new Point(x + 1, y), editor.paint_bucket);
+			fillFrom(new Point(x, y + 1), editor.paint_bucket);
+			fillFrom(new Point(x - 1, y), editor.paint_bucket);
+			fillFrom(new Point(x, y - 1), editor.paint_bucket);
+		}
 	}
 
 	public void mouseReleased(MouseEvent e) {

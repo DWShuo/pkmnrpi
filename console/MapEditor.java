@@ -53,7 +53,7 @@ public class MapEditor extends JPanel implements ComponentListener {
 		bar = new MEBar(this);
 		f.setJMenuBar(bar);
 		this.setBackground(Color.gray.darker());
-		tmap = new TileMap("src/default.map");
+		tmap = new TileMap("src/maps/ALL.map");
 		init();
 	}
 
@@ -123,10 +123,7 @@ public class MapEditor extends JPanel implements ComponentListener {
 
 	public void load(File file) {
 		tmap = new TileMap(file.getAbsolutePath());
-		creation.background.width = tmap.mapdata[0].length * 16;
-		creation.background.height = tmap.mapdata.length * 16;
-		creation.background.superbig = creation.background.width * creation.background.height > 250000;
-		creation.background.setPreferredSize(new Dimension(creation.background.width, creation.background.height));
+		creation.background.lastupdate = 0;
 		creation.background.repaint();
 		creation.repaint();
 		frame.pack();

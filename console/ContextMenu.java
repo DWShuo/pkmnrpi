@@ -69,6 +69,7 @@ public class ContextMenu extends JPopupMenu implements MouseListener, MouseMotio
 				selection[i][j] = editor.tmap.mapdata[c.y + i][c.x + j];
 			}
 		}
+		System.gc();
 	}
 
 	private void paste(Point a) {

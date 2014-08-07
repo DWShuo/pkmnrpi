@@ -1,11 +1,12 @@
 package console;
 
-import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -22,7 +23,7 @@ import util.ImageLibrary;
  */
 public class MEBar extends JMenuBar implements ActionListener {
 	private MapEditor editor;
-	private JMenuItem save, n, load, pen, bucket, doorflag, textflag, center, resize, walk, off, show;
+	private JMenuItem save, n, load, pen, bucket, doorflag, textflag, center, resize, walk, off, show, derez;
 	private JFileChooser filer;
 	private JLabel label;
 	private JMenu menu, tools, flags;
@@ -30,6 +31,7 @@ public class MEBar extends JMenuBar implements ActionListener {
 	public MEBar(MapEditor e) {
 		editor = e;
 		filer = new JFileChooser();
+		filer.setCurrentDirectory(new File("src/maps"));
 		menu = new JMenu("File");
 		tools = new JMenu("Tools");
 		flags = new JMenu("Flags");
@@ -48,11 +50,13 @@ public class MEBar extends JMenuBar implements ActionListener {
 		walk = new JMenuItem("Set Walk");
 		off = new JMenuItem("Walk OFF");
 		show = new JMenuItem("Display Selection");
+		derez = new JMenuItem(new ImageIcon("src/tilesets/sprites/derez.png"));
 
 		add(menu);
 		add(label);
 		add(tools);
 		add(flags);
+		add(derez);
 
 		menu.add(save);
 		menu.add(n);
@@ -80,6 +84,7 @@ public class MEBar extends JMenuBar implements ActionListener {
 		walk.addActionListener(this);
 		off.addActionListener(this);
 		show.addActionListener(this);
+		derez.addActionListener(this);
 	}
 
 	@Override
@@ -171,10 +176,7 @@ public class MEBar extends JMenuBar implements ActionListener {
 				int a = Integer.parseInt(aField.getText());
 				int b = Integer.parseInt(bField.getText());
 				editor.tmap.resize(x, y, a, b);
-				editor.creation.background.width = a * 16;
-				editor.creation.background.height = b * 16;
-				editor.creation.background.superbig = editor.creation.background.width * editor.creation.background.height > 250000;
-				editor.creation.background.setPreferredSize(new Dimension(editor.creation.background.width, editor.creation.background.height));
+				editor.creation.background.lastupdate = 0;
 				editor.creation.background.repaint();
 				// editor.repaint();
 				// editor.creation.repaint();
@@ -193,6 +195,9 @@ public class MEBar extends JMenuBar implements ActionListener {
 			flags.add(walk);
 		} else if (e.getSource() == show) {
 			editor.displaySelections();
+		}
+		if (e.getSource() == derez) {
+			System.gc();
 		}
 	}
 

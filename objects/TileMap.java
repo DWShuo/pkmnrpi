@@ -2,10 +2,15 @@ package objects;
 
 import game.GameState;
 
+import java.awt.Dimension;
 import java.awt.Rectangle;
+import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+
+import javax.imageio.ImageIO;
 
 import util.FileParser;
 import util.ImageLibrary;
@@ -55,6 +60,7 @@ public class TileMap {
 	}
 
 	public BufferedImage getSubMap(Rectangle r) {
+		r = bound(r);
 		int unit = ImageLibrary.pixel_width[0];
 		int x = r.x / unit;
 		int y = r.y / unit;
@@ -70,6 +76,14 @@ public class TileMap {
 		return im.getSubimage(r.x - x * unit, r.y - y * unit, Math.min(r.width, im.getWidth() - (r.x - x * unit)), Math.min(r.height, im.getHeight() - (r.y - y * unit)));
 	}
 
+	private Rectangle bound(Rectangle r) {
+		int x = Math.max(0, Math.min(mapdata[0].length * 16 - 1, r.x));
+		int y = Math.max(0, Math.min(mapdata.length * 16 - 1, r.y));
+		int w = Math.max(1, Math.min(mapdata[0].length * 16 - x, r.width));
+		int h = Math.max(1, Math.min(mapdata.length * 16 - y, r.height));
+		return new Rectangle(x, y, w, h);
+	}
+
 	public BufferedImage getStaticMap() {
 		int unit = ImageLibrary.pixel_width[0];
 		BufferedImage im = new BufferedImage(mapdata[0].length * unit, mapdata.length * unit, BufferedImage.TYPE_INT_ARGB);
@@ -80,6 +94,38 @@ public class TileMap {
 			}
 		}
 		return im;
+	}
+	
+	public static void main(String[] args) {
+		GameState.initilize_all();
+		new TileMap("src/maps/ALL.map").export("sample");
+	}
+
+	public void export(String filename) {
+		try {
+
+			Rectangle[][] ary = slice();
+			for (int i = 0; i < ary.length; ++i)
+				for (int j = 0; j < ary[i].length; ++j)
+					ImageIO.write(getSubMap(ary[i][j]), "png", new File("src/maps/test/" + i + "_" + j + "_" + filename + ".png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	private Rectangle[][] slice() {
+		Dimension d = new Dimension(300 * 16, 300 * 16);
+		int w = mapdata[0].length * 16;
+		int h = mapdata.length * 16;
+		int a = w / d.width + (d.width % w == 0 ? 0 : 1);
+		int b = h / d.height + (d.height % h == 0 ? 0 : 1);
+		Rectangle[][] ary = new Rectangle[b][a];
+		for (int i = 0; i < b; ++i) {
+			for (int j = 0; j < a; ++j) {
+				ary[i][j] = new Rectangle(j * d.height, i * d.width, d.width, d.height);
+			}
+		}
+		return ary;
 	}
 
 	public String toString() {
