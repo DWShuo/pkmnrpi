@@ -95,7 +95,7 @@ public class TileMap {
 		}
 		return im;
 	}
-	
+
 	public static void main(String[] args) {
 		GameState.initilize_all();
 		new TileMap("src/maps/ALL.map").export("sample");
@@ -161,7 +161,7 @@ public class TileMap {
 	}
 
 	public void load(File file) {
-		ArrayList<String> data = FileParser.parseFile(file.getAbsolutePath());
+		ArrayList<String> data = FileParser.parseFile(file);
 		centerx = Integer.parseInt(data.get(0));
 		centery = Integer.parseInt(data.get(1));
 		name = data.get(2);
@@ -171,7 +171,7 @@ public class TileMap {
 		int index = 5;
 		for (int i = 0; i < h; ++i) {
 			for (int j = 0; j < w; ++j) {
-				String[] ary = data.get(index++ ).split(":");
+				String[] ary = data.get(index++).split(":");
 				mapdata[i][j] = new Pair<String, Integer, Integer>(ary[0], Integer.parseInt(ary[1]), Integer.parseInt(ary[2]));
 			}
 		}

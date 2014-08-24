@@ -29,7 +29,8 @@ import util.Library;
 import util.Pair;
 
 /**
- * This class will initialize all static data, as well as load, hold, and save temporary data.
+ * This class will initialize all static data, as well as load, hold, and save
+ * temporary data.
  */
 public class GameState {
 	public static Clock clock;
@@ -148,54 +149,54 @@ public class GameState {
 	public void load(String filename) {
 		ArrayList<String> data = FileParser.parseFile(filename);
 		int index = 0;
-		String line = data.get(index++ );
+		String line = data.get(index++);
 		ArrayList<String> ary = new ArrayList<String>();
 		while (!Pokemon.isUniform(line, '=')) {
 			ary.add(line);
-			line = data.get(index++ );
+			line = data.get(index++);
 		}
 		opponents = Trainer.loadTrainers(ary);
-		line = data.get(index++ );
+		line = data.get(index++);
 		ary = new ArrayList<String>();
 		while (!Pokemon.isUniform(line, '=')) {
 			ary.add(line);
-			line = data.get(index++ );
+			line = data.get(index++);
 		}
 		loadLocations(ary);
-		line = data.get(index++ );
+		line = data.get(index++);
 		ary = new ArrayList<String>();
 		while (!Pokemon.isUniform(line, '=')) {
 			ary.add(line);
-			line = data.get(index++ );
+			line = data.get(index++);
 		}
 		pack = new Backpack(ary);
-		line = data.get(index++ );
+		line = data.get(index++);
 		ary = new ArrayList<String>();
 		while (!Pokemon.isUniform(line, '=')) {
 			ary.add(line);
-			line = data.get(index++ );
+			line = data.get(index++);
 		}
 		team = Pokemon.loadPokemon(ary);
-		line = data.get(index++ );
+		line = data.get(index++);
 		ary = new ArrayList<String>();
 		while (!Pokemon.isUniform(line, '=')) {
 			ary.add(line);
-			line = data.get(index++ );
+			line = data.get(index++);
 		}
 		stored = Pokemon.loadPokemon(ary);
-		line = data.get(index++ );
+		line = data.get(index++);
 		ary = new ArrayList<String>();
 		while (!Pokemon.isUniform(line, '=')) {
 			ary.add(line);
-			line = data.get(index++ );
+			line = data.get(index++);
 		}
 		card = new ScoreCard(ary);
 		;
-		line = data.get(index++ );
+		line = data.get(index++);
 		ary = new ArrayList<String>();
 		while (!Pokemon.isUniform(line, '=')) {
 			ary.add(line);
-			line = data.get(index++ );
+			line = data.get(index++);
 		}
 		initPlayer(ary);
 	}
@@ -234,20 +235,20 @@ public class GameState {
 		int index = 0;
 		while (index < data.size()) {
 			Spawn s = new Spawn();
-			s.mapname = data.get(index++ );
-			String[] ary = data.get(index++ ).split(":");
+			s.mapname = data.get(index++);
+			String[] ary = data.get(index++).split(":");
 			s.bounds = new Rectangle(Integer.parseInt(ary[0]), Integer.parseInt(ary[1]), Integer.parseInt(ary[2]), Integer.parseInt(ary[3]));
-			String line = data.get(index++ );
+			String line = data.get(index++);
 			while (!Pokemon.isUniform(line, ')')) {
 				int id = Integer.parseInt(line);
 				ArrayList<Pair<String, Double, Integer>> list = new ArrayList<Pair<String, Double, Integer>>();
-				line = data.get(index++ );
+				line = data.get(index++);
 				while (!Pokemon.isUniform(line, '#')) {
 					ary = line.split(":");
 					list.add(new Pair<String, Double, Integer>(ary[0], Double.parseDouble(ary[1]), Integer.parseInt(ary[2])));
-					line = data.get(index++ );
+					line = data.get(index++);
 				}
-				line = data.get(index++ );
+				line = data.get(index++);
 				s.chances.put(id, list);
 			}
 			SPAWNS.put(s.mapname, s);
@@ -280,25 +281,25 @@ public class GameState {
 		int index = 0;
 		while (index < data.size()) {
 			t = new Trainer();
-			t.name = data.get(index++ );
-			t.male = data.get(index++ ).equalsIgnoreCase("male");
-			t.cash = Integer.parseInt(data.get(index++ ));
-			t.intro = data.get(index++ );
-			t.victory_outro = data.get(index++ );
-			t.defeat_outro = data.get(index++ );
-			t.mapname = data.get(index++ );
-			t.x = Integer.parseInt(data.get(index++ ));
-			t.y = Integer.parseInt(data.get(index++ ));
-			t.setDirection(data.get(index++ ));
-			String line = data.get(index++ );
+			t.name = data.get(index++);
+			t.male = data.get(index++).equalsIgnoreCase("male");
+			t.cash = Integer.parseInt(data.get(index++));
+			t.intro = data.get(index++);
+			t.victory_outro = data.get(index++);
+			t.defeat_outro = data.get(index++);
+			t.mapname = data.get(index++);
+			t.x = Integer.parseInt(data.get(index++));
+			t.y = Integer.parseInt(data.get(index++));
+			t.setDirection(data.get(index++));
+			String line = data.get(index++);
 			while (!Pokemon.isUniform(line, '+')) {
 				t.dialog.add(line);
-				line = data.get(index++ );
+				line = data.get(index++);
 			}
-			line = data.get(index++ );
+			line = data.get(index++);
 			while (!Pokemon.isUniform(line, '+')) {
 				t.team_data.add(line);
-				line = data.get(index++ );
+				line = data.get(index++);
 			}
 			TRAINERS.add(t);
 		}
@@ -331,65 +332,91 @@ public class GameState {
 		Pokemon p;
 		while (index < info.size()) {
 			p = new Pokemon();
-			p.ID = Integer.parseInt(info.get(index++ ));
-			p.name = info.get(index++ );
-			String types = info.get(index++ );
+			p.ID = Integer.parseInt(info.get(index++));
+			p.name = info.get(index++);
+			String types = info.get(index++);
 			if (types.contains("/")) {
 				String[] ar = types.split("/");
 				p.type = Pokemon.getType(ar[0]);
 				p.t2 = Pokemon.getType(ar[1]);
 			} else
 				p.type = Pokemon.getType(types);
-			p.species = info.get(index++ );
-			String str = info.get(index++ );
+			p.species = info.get(index++);
+			String str = info.get(index++);
 			if (isDouble(str))
 				p.height = Double.parseDouble(str);
-			str = info.get(index++ );
+			str = info.get(index++);
 			if (isDouble(str))
 				p.weight = Double.parseDouble(str);
-			str = info.get(index++ );
+			str = info.get(index++);
 			if (isDouble(str))
 				p.catch_rate = Integer.parseInt(str);
-			str = info.get(index++ );
+			str = info.get(index++);
 			if (isDouble(str))
 				p.base_exp = Integer.parseInt(str);
-			p.base_happiness = Integer.parseInt(info.get(index++ ));
-			p.stats.growth_rate = info.get(index++ );
-			p.description = info.get(index++ );
+			p.base_happiness = Integer.parseInt(info.get(index++));
+			String[] evs = info.get(index++).replaceAll("^[,\\s]+", "").split("[,\\s]+");
+			int[] evy = new int[evs.length];
+			for (int i = 0; i < evs.length; ++i)
+				evy[i] = Integer.parseInt(evs[i]);
+			for (int i = 0; i * 2 + 1 < evy.length; ++i)
+				p.evyield[evy[i * 2 + 1]] = evy[i * 2];
+			p.stats.growth_rate = info.get(index++);
+			p.description = info.get(index++);
 
 			p.evolutions = new HashMap<String, String>();
-			str = info.get(index++ );
+			str = info.get(index++);
 			while (!Pokemon.isUniform(str, '*')) {
 				if (str.contains(",")) {
 					String[] ar = str.split(",");
 					p.evolutions.put(ar[1], ar[0]);
 				}
-				str = info.get(index++ );
+				str = info.get(index++);
 			}
-			index++ ;
+			index++;
 			p.learnset = new ArrayList<Move>();
 			p.ages = new ArrayList<Integer>();
-			str = info.get(index++ );
+			str = info.get(index++);
 			while (!Pokemon.isUniform(str, '*')) {
 				if (str.contains(",")) {
 					String[] ar = str.split(",");
 					p.ages.add(Integer.parseInt(ar[1]));
 					p.learnset.add(Move.lookup(ar[0]));
 				}
-				str = info.get(index++ );
+				str = info.get(index++);
 			}
-			index++ ;
+			index++;
 			p.tmset = new ArrayList<Move>();
-			str = info.get(index++ );
+			str = info.get(index++);
 			while (!Pokemon.isUniform(str, '*')) {
 				p.tmset.add(Move.lookup(str));
-				str = info.get(index++ );
+				str = info.get(index++);
 			}
 
 			POKEMON[p.ID - 1] = p;
 			Pokedex.pkmn_lookup.put(p.name.toLowerCase(), p.ID);
 		}
-		Stats.init();
+		initStats();
+	}
+
+	public static void initStats() {
+		ArrayList<String> data = FileParser.parseFile("src/data/base_stats.txt");
+		for (String line : data) {
+			String[] ary = line.split(",");
+			Pokemon p = Pokedex.getPokemon(ary[0]);
+			String rate = p.stats.growth_rate;
+			p.stats = new Stats();
+			p.stats.base[0] = Integer.parseInt(ary[1]);
+			p.stats.base[1] = Integer.parseInt(ary[2]);
+			p.stats.base[2] = Integer.parseInt(ary[3]);
+			p.stats.base[3] = Integer.parseInt(ary[4]);
+			p.stats.base[4] = Integer.parseInt(ary[5]);
+			p.stats.base[5] = Integer.parseInt(ary[6]);
+			p.stats.level = 0;
+			p.stats.happiness = p.base_happiness;
+			p.stats.exp = p.stats.total_exp = 0;
+			p.stats.growth_rate = rate;
+		}
 	}
 
 	private static boolean isDouble(String str) {
@@ -416,7 +443,7 @@ public class GameState {
 		Move[] mo = new Move[all.size()];
 		int index = 0;
 		for (Move m : all)
-			mo[index++ ] = m;
+			mo[index++] = m;
 		return mo;
 	}
 

@@ -97,26 +97,6 @@ public class Stats {
 		return (int) (5 + Math.random() * 20);
 	}
 
-	public static void init() {
-		ArrayList<String> data = FileParser.parseFile("src/data/base_stats.txt");
-		for (String line : data) {
-			String[] ary = line.split(",");
-			Pokemon p = Pokedex.getPokemon(ary[0]);
-			String rate = p.stats.growth_rate;
-			p.stats = new Stats();
-			p.stats.base[0] = Integer.parseInt(ary[1]);
-			p.stats.base[1] = Integer.parseInt(ary[2]);
-			p.stats.base[2] = Integer.parseInt(ary[3]);
-			p.stats.base[3] = Integer.parseInt(ary[4]);
-			p.stats.base[4] = Integer.parseInt(ary[5]);
-			p.stats.base[5] = Integer.parseInt(ary[6]);
-			p.stats.level = 0;
-			p.stats.happiness = p.base_happiness;
-			p.stats.exp = p.stats.total_exp = 0;
-			p.stats.growth_rate = rate;
-		}
-	}
-
 	public int[] deepCopy(int[] a) {
 		if (a == null)
 			return null;

@@ -46,21 +46,22 @@ public class GameBoard extends JScrollPane implements KeyListener, SpriteBoard {
 		setMinimumSize(area);
 		setVisible(true);
 
-		loadMap("Default");
+		loadMap("src/maps/ALL.map");
 		this.setViewportView(background);
 		this.setBackground(Color.black);
 		initilizePlayer();
 	}
 
 	public void loadMap(String filename) {
-		map = new TileMap("src/maps/park.map");
+		map = new TileMap(filename);
 		BufferedImage im = map.getStaticMap();
 		foreground = new GamePanel();
 		background = new LayeredPanel(new ImageIcon(im), foreground);
 		background.setPreferredSize(new Dimension(im.getWidth(), im.getHeight()));
 	}
 
-	public void keyPressed(KeyEvent e) {}
+	public void keyPressed(KeyEvent e) {
+	}
 
 	public boolean canMove(int direction) {
 		int x = player.x + map.centerx;
@@ -70,20 +71,22 @@ public class GameBoard extends JScrollPane implements KeyListener, SpriteBoard {
 		if (x > map.mapdata[0].length || y > map.mapdata.length)
 			return false;
 		if (direction == Person.UP) {
-			y-- ;
+			y--;
 		} else if (direction == Person.DOWN) {
-			y++ ;
+			y++;
 		} else if (direction == Person.RIGHT) {
-			x++ ;
+			x++;
 		} else if (direction == Person.LEFT) {
-			x-- ;
+			x--;
 		}
 		return ImageLibrary.canWalk(map.mapdata[y][x]);
 	}
 
-	public void keyReleased(KeyEvent e) {}
+	public void keyReleased(KeyEvent e) {
+	}
 
-	public void keyTyped(KeyEvent e) {}
+	public void keyTyped(KeyEvent e) {
+	}
 
 	public static void main(String[] args) {
 		new GameEngine();
