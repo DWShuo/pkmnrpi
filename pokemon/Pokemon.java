@@ -53,9 +53,9 @@ public class Pokemon implements PokedexUI, AI {
 	public String name, species, description;
 	public Sprite sprite;
 	public boolean male = true, wild = false;
-	public int ID, type, t2 = -1;
+	public int type, t2 = -1;
 	public double height = 1, weight = 10;
-	public int[] evyield = {0, 0, 0, 0, 0};
+	public int ID;
 	public Stats stats = new Stats();
 	public int catch_rate, base_exp, base_happiness;
 	public HashMap<String, String> evolutions = new HashMap<String, String>();
@@ -63,8 +63,18 @@ public class Pokemon implements PokedexUI, AI {
 	public ArrayList<Move> history = new ArrayList<Move>(), learnset = new ArrayList<Move>();
 	public ArrayList<Move> known_moves = new ArrayList<Move>(), tmset = new ArrayList<Move>();
 
-	// Used for initilizing generic Pokemon
-	public Pokemon() {}
+	public Pokemon() {
+		name = "Pidgey";
+		species = "Bird";
+		type = FLYING;
+		ID = 16;
+		height = .3;
+		weight = 1.8;
+		catch_rate = 225;
+		base_exp = 55;
+		base_happiness = 70;
+		description = "This is a bird.";
+	}
 
 	// Generates wild pokemon
 	public Pokemon(String name, int level) {

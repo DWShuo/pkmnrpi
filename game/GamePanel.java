@@ -16,11 +16,6 @@ public class GamePanel extends JPanel {
 		setOpaque(false);
 	}
 
-	public void painter(Graphics g) {
-		for (Sprite s : sprites)
-			s.paint(g);
-	}
-
 	public void paint(Graphics g) {
 		super.paintComponent(g);
 		for (Sprite s : sprites)
