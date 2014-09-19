@@ -15,57 +15,11 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.SwingUtilities;
 
+import objects.Canvas;
 import util.Flag;
 import util.Pair;
 
 public class EditWindow extends JPanel implements MouseListener, MouseMotionListener {
-
-	class Canvas extends JPanel {
-		public static final int BW = 200;
-
-		public BufferedImage projection;
-		public int width, height;
-		public EditWindow window;
-		public Rectangle viewposition, drawposition;
-		public long lastupdate;
-
-		public Canvas(EditWindow w) {
-			window = w;
-		}
-
-		private void update() {
-			width = window.editor.tmap.mapdata[0].length * 16;
-			height = window.editor.tmap.mapdata.length * 16;
-			setPreferredSize(new Dimension(width, height));
-			viewposition = window.view.getViewport().getViewRect();
-			drawposition = bound(new Rectangle(viewposition.x - BW, viewposition.y - BW, viewposition.width + BW * 2, viewposition.height + BW * 2));
-			projection = window.editor.tmap.getSubMap(drawposition);
-			lastupdate = System.currentTimeMillis();
-		}
-
-		public void paint(Graphics g) {
-			super.paintComponent(g);
-			g.setColor(Color.black);
-
-			if (System.currentTimeMillis() - lastupdate > 100)
-				update();
-			g.fillRect(drawposition.x, drawposition.y, drawposition.width, drawposition.height);
-			g.drawImage(projection, drawposition.x, drawposition.y, null);
-
-			if (menu.operating) {
-				g.setColor(new Color(64, 128, 128, 128));
-				g.fillRect(menu.start.x * 16, menu.start.y * 16, (menu.current.x - menu.start.x + 1) * 16, (menu.current.y - menu.start.y + 1) * 16);
-			}
-		}
-
-		private Rectangle bound(Rectangle r) {
-			int x = Math.max(0, Math.min(width - 1, r.x));
-			int y = Math.max(0, Math.min(height - 1, r.y));
-			int w = Math.max(1, Math.min(width - x, r.width));
-			int h = Math.max(1, Math.min(height - y, r.height));
-			return new Rectangle(x, y, w, h);
-		}
-	}
 
 	public MapEditor editor;
 	public JScrollPane view;
@@ -76,13 +30,14 @@ public class EditWindow extends JPanel implements MouseListener, MouseMotionList
 	public EditWindow(MapEditor e) {
 		editor = e;
 		setLayout(null);
-		background = new Canvas(this);
 		menu = new ContextMenu(editor);
 
 		view = new JScrollPane(background);
 		view.getViewport().setViewPosition(new Point(0, 0));
 		view.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		view.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+
+		background = new Canvas(editor.tmap, view.getViewport(), menu);
 		background.addMouseListener(this);
 		background.addMouseListener(menu);
 		background.addMouseMotionListener(this);
@@ -204,13 +159,17 @@ public class EditWindow extends JPanel implements MouseListener, MouseMotionList
 		paintTo(x, y, editor.paint_bucket);
 	}
 
-	public void mouseMoved(MouseEvent e) {}
+	public void mouseMoved(MouseEvent e) {
+	}
 
-	public void mouseClicked(MouseEvent e) {}
+	public void mouseClicked(MouseEvent e) {
+	}
 
-	public void mouseEntered(MouseEvent e) {}
+	public void mouseEntered(MouseEvent e) {
+	}
 
-	public void mouseExited(MouseEvent e) {}
+	public void mouseExited(MouseEvent e) {
+	}
 
 	public void mousePressed(MouseEvent e) {
 		if (SwingUtilities.isRightMouseButton(e))

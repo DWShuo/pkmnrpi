@@ -31,9 +31,14 @@ public class LayeredPanel extends JPanel {
 		setForeground(new ClearPanel());
 	}
 
+	public LayeredPanel(JPanel a, JPanel b) {
+		setLayout(null);
+		background = b;
+		foreground = a;
+	}
+
 	public LayeredPanel(JPanel p) {
 		setLayout(null);
-		setBackground(Color.red);
 		background = new JLabel(def);
 		((JLabel) background).setVerticalAlignment(JLabel.TOP);
 		((JLabel) background).setHorizontalAlignment(JLabel.LEFT);

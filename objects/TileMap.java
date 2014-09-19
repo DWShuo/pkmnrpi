@@ -84,18 +84,6 @@ public class TileMap {
 		return new Rectangle(x, y, w, h);
 	}
 
-	public BufferedImage getStaticMap() {
-		int unit = ImageLibrary.pixel_width[0];
-		BufferedImage im = new BufferedImage(mapdata[0].length * unit, mapdata.length * unit, BufferedImage.TYPE_INT_ARGB);
-		for (int i = 0; i < mapdata.length; ++i) {
-			for (int j = 0; j < mapdata[i].length; ++j) {
-				Pair<String, Integer, Integer> p = mapdata[i][j];
-				im.getGraphics().drawImage(ImageLibrary.getIcon(p).getImage(), j * unit, i * unit, null);
-			}
-		}
-		return im;
-	}
-	
 	public static void main(String[] args) {
 		GameState.initilize_all();
 		new TileMap("src/maps/ALL.map").export("sample");
@@ -171,7 +159,7 @@ public class TileMap {
 		int index = 5;
 		for (int i = 0; i < h; ++i) {
 			for (int j = 0; j < w; ++j) {
-				String[] ary = data.get(index++ ).split(":");
+				String[] ary = data.get(index++).split(":");
 				mapdata[i][j] = new Pair<String, Integer, Integer>(ary[0], Integer.parseInt(ary[1]), Integer.parseInt(ary[2]));
 			}
 		}
@@ -192,5 +180,13 @@ public class TileMap {
 			}
 		}
 		mapdata = data;
+	}
+
+	public int getHeight() {
+		return 16 * mapdata.length;
+	}
+
+	public int getWidth() {
+		return 126 * mapdata[0].length;
 	}
 }

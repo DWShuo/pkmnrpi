@@ -11,6 +11,7 @@ import javax.swing.*;
 
 import animations.Sprite;
 import animations.SpriteBoard;
+import objects.Canvas;
 import objects.LayeredPanel;
 import objects.TileMap;
 import trainers.Person;
@@ -24,10 +25,12 @@ public class GameBoard extends JScrollPane implements KeyListener, SpriteBoard {
 	public static final int buffer = 7;
 
 	public LayeredPanel background;
+	
 	public GamePanel foreground;
 	public TileMap map;
 	public Trainer player;
 	public GameEngine engine;
+	public Canvas canvas;
 
 	public GameBoard(GameEngine en) {
 		super();
@@ -53,11 +56,11 @@ public class GameBoard extends JScrollPane implements KeyListener, SpriteBoard {
 	}
 
 	public void loadMap(String filename) {
-		map = new TileMap("src/maps/park.map");
-		BufferedImage im = map.getStaticMap();
+		map = new TileMap("src/maps/ALL.map");
 		foreground = new GamePanel();
-		background = new LayeredPanel(new ImageIcon(im), foreground);
-		background.setPreferredSize(new Dimension(im.getWidth(), im.getHeight()));
+		canvas = new Canvas(map, this.getViewport(), null);
+		background = new LayeredPanel(foreground, canvas);
+		background.setPreferredSize(new Dimension(map.getWidth(), map.getHeight()));
 	}
 
 	public void keyPressed(KeyEvent e) {}
