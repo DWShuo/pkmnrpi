@@ -1,5 +1,7 @@
 package util;
 
+import game.GameState;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -12,22 +14,22 @@ import javax.swing.ImageIcon;
 import objects.SpriteSheet;
 
 /**
- * This is a database class designed specifically to hold the static sprite data. However this class also helps with some of the text organization.
+ * This is a database class designed specifically to hold the static sprite
+ * data. However this class also helps with some of the text organization.
  */
 public class ImageLibrary extends Library {
 	public static ImageIcon[] back_sprites;
-	public static int[] pixel_width = {
-			16, 16, 16, 16, 56
-	};
-	public static String[] image_sheet_names = {
-			"src/tilesets/misc_tiles.png", "src/tilesets/day_roofs.png", "src/tilesets/day_buildings.png", "src/tilesets/day_landscape.png", "src/tilesets/back_sprites.png"
-	};
+	public static int[] pixel_width = { 16, 16, 16, 16, 56 };
+	public static String[] image_sheet_names = { "src/tilesets/misc_tiles.png",
+			"src/tilesets/day_roofs.png", "src/tilesets/day_buildings.png",
+			"src/tilesets/day_landscape.png", "src/tilesets/back_sprites.png" };
 	public static BufferedImage[] player;
 	public static ArrayList<SpriteSheet> sheets;
 
 	// This method simply creates a solid color background sprite.
 	public static BufferedImage bufferSolidColor(Color c, int w, int h) {
-		BufferedImage base = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+		BufferedImage base = new BufferedImage(w, h,
+				BufferedImage.TYPE_INT_ARGB);
 		Graphics g = base.getGraphics();
 		g.setColor(c);
 		g.fillRect(0, 0, w, h);
@@ -46,7 +48,8 @@ public class ImageLibrary extends Library {
 	}
 
 	public static ImageIcon getScaledIcon(ImageIcon i, int w, int h) {
-		return new ImageIcon(i.getImage().getScaledInstance(w, h, Image.SCALE_SMOOTH));
+		return new ImageIcon(i.getImage().getScaledInstance(w, h,
+				Image.SCALE_SMOOTH));
 	}
 
 	public static ImageIcon getIcon(String name, int x, int y) {
@@ -62,10 +65,12 @@ public class ImageLibrary extends Library {
 	}
 
 	public static boolean canWalk(String name, int x, int y) {
-		for (SpriteSheet s : sheets) {
-			if (s.name.equalsIgnoreCase(name))
-				return s.walkable[x][y];
-		}
+		ArrayList<Dimension> list = GameState.TERRAIN.get(name);
+		if (list == null)
+			return false;
+		for (Dimension d : list)
+			if (d.width == x && d.height == y)
+				return true;
 		return false;
 	}
 
@@ -74,10 +79,12 @@ public class ImageLibrary extends Library {
 	}
 
 	// This method is used to ensure transparency for sprites and animations.
-	public static BufferedImage removeBackground(BufferedImage base, int background_RGB) {
+	public static BufferedImage removeBackground(BufferedImage base,
+			int background_RGB) {
 		int w = base.getWidth();
 		int h = base.getHeight();
-		BufferedImage image = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+		BufferedImage image = new BufferedImage(w, h,
+				BufferedImage.TYPE_INT_ARGB);
 		for (int i = 0; i < w; ++i)
 			for (int j = 0; j < h; ++j) {
 				if (background_RGB == base.getRGB(i, j)) {
@@ -89,12 +96,18 @@ public class ImageLibrary extends Library {
 	}
 
 	public static void init() {
+		// Add all sprite sheets
 		sheets = new ArrayList<SpriteSheet>();
-		sheets.add(new SpriteSheet(image_sheet_names[0], new Dimension(pixel_width[0], pixel_width[0]), "Misc"));
-		sheets.add(new SpriteSheet(image_sheet_names[1], new Dimension(pixel_width[0], pixel_width[0]), "Roof"));
-		sheets.add(new SpriteSheet(image_sheet_names[2], new Dimension(pixel_width[0], pixel_width[0]), "Building"));
-		sheets.add(new SpriteSheet(image_sheet_names[3], new Dimension(pixel_width[0], pixel_width[0]), "Land"));
-		sheets.add(new SpriteSheet(image_sheet_names[4], new Dimension(pixel_width[4], pixel_width[4]), "Backs"));
+		sheets.add(new SpriteSheet(image_sheet_names[0], new Dimension(
+				pixel_width[0], pixel_width[0]), "Misc"));
+		sheets.add(new SpriteSheet(image_sheet_names[1], new Dimension(
+				pixel_width[0], pixel_width[0]), "Roof"));
+		sheets.add(new SpriteSheet(image_sheet_names[2], new Dimension(
+				pixel_width[0], pixel_width[0]), "Building"));
+		sheets.add(new SpriteSheet(image_sheet_names[3], new Dimension(
+				pixel_width[0], pixel_width[0]), "Land"));
+		sheets.add(new SpriteSheet(image_sheet_names[4], new Dimension(
+				pixel_width[4], pixel_width[4]), "Backs"));
 
 		// Create back sprites, an array of image icons
 		back_sprites = sheets.get(4).iconlist;
@@ -109,6 +122,6 @@ public class ImageLibrary extends Library {
 		player = new BufferedImage[20];
 		int temp = 0;
 		for (BufferedImage b : Tileizer.cutter(buf, w, h, 16, 16, 20))
-			player[temp++ ] = b;
+			player[temp++] = b;
 	}
 }

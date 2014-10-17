@@ -1,10 +1,7 @@
 package objects;
 
-import game.GameState;
-
 import java.awt.Dimension;
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 
@@ -14,7 +11,6 @@ public class SpriteSheet implements Comparable<SpriteSheet> {
 	public ImageIcon base;
 	public ImageIcon[] iconlist;
 	public ImageIcon[][] iconmap;
-	public boolean[][] walkable;
 	public Dimension cut;
 	public int width, height;
 
@@ -30,7 +26,6 @@ public class SpriteSheet implements Comparable<SpriteSheet> {
 		height = base.getIconHeight();
 		int w = width / cut.width;
 		int h = height / cut.height;
-		walkable = new boolean[h][w];
 		iconmap = new ImageIcon[h][w];
 		iconlist = new ImageIcon[w * h];
 		BufferedImage canvas = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
@@ -42,11 +37,6 @@ public class SpriteSheet implements Comparable<SpriteSheet> {
 				iconmap[i][k] = iconlist[count++ ];
 			}
 		}
-		ArrayList<Dimension> context = GameState.TERRAIN.get(name);
-		if (context == null)
-			return;
-		for (Dimension d : context)
-			walkable[d.height][d.width] = true;
 	}
 
 	public int compareTo(SpriteSheet o) {
