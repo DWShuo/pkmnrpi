@@ -25,7 +25,7 @@ public class GameBoard extends JScrollPane implements KeyListener, SpriteBoard {
 	public static final int buffer = 7;
 
 	public LayeredPanel background;
-	
+
 	public GamePanel foreground;
 	public TileMap map;
 	public Trainer player;
@@ -49,21 +49,22 @@ public class GameBoard extends JScrollPane implements KeyListener, SpriteBoard {
 		setMinimumSize(area);
 		setVisible(true);
 
-		loadMap("Default");
+		loadMap("Vanilla");
 		this.setViewportView(background);
 		this.setBackground(Color.black);
 		initilizePlayer();
 	}
 
 	public void loadMap(String filename) {
-		map = new TileMap("src/maps/ALL.map");
+		map = GameState.MAPS.get(filename);
 		foreground = new GamePanel();
 		canvas = new Canvas(map, this.getViewport(), null);
 		background = new LayeredPanel(foreground, canvas);
 		background.setPreferredSize(new Dimension(map.getWidth(), map.getHeight()));
 	}
 
-	public void keyPressed(KeyEvent e) {}
+	public void keyPressed(KeyEvent e) {
+	}
 
 	public boolean canMove(int direction) {
 		int x = player.x + map.centerx;
@@ -73,20 +74,22 @@ public class GameBoard extends JScrollPane implements KeyListener, SpriteBoard {
 		if (x > map.mapdata[0].length || y > map.mapdata.length)
 			return false;
 		if (direction == Person.UP) {
-			y-- ;
+			y--;
 		} else if (direction == Person.DOWN) {
-			y++ ;
+			y++;
 		} else if (direction == Person.RIGHT) {
-			x++ ;
+			x++;
 		} else if (direction == Person.LEFT) {
-			x-- ;
+			x--;
 		}
 		return ImageLibrary.canWalk(map.mapdata[y][x]);
 	}
 
-	public void keyReleased(KeyEvent e) {}
+	public void keyReleased(KeyEvent e) {
+	}
 
-	public void keyTyped(KeyEvent e) {}
+	public void keyTyped(KeyEvent e) {
+	}
 
 	public static void main(String[] args) {
 		new GameEngine();
@@ -105,7 +108,7 @@ public class GameBoard extends JScrollPane implements KeyListener, SpriteBoard {
 	private void initilizePlayer() {
 		player = engine.state.self;
 		player.map = map;
-		player.setLocation(player.x, player.y);
+		player.setLocation(player.x + map.centerx, player.y + map.centerx);
 		foreground.sprites.add(player.sprite);
 		player.px = 13;
 		player.py = 13;
