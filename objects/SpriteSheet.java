@@ -2,7 +2,6 @@ package objects;
 
 import java.awt.Dimension;
 import java.awt.image.BufferedImage;
-
 import javax.swing.ImageIcon;
 
 public class SpriteSheet implements Comparable<SpriteSheet> {

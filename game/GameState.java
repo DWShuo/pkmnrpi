@@ -226,9 +226,8 @@ public class GameState {
 		for (String str : data) {
 			String[] line = str.split(":");
 			Dimension d = new Dimension(Integer.parseInt(line[0]), Integer.parseInt(line[1]));
-			addTerrain(line[2], d);
+			add(line[2], d);
 		}
-		
 	}
 
 	private static void initSpawns(ArrayList<String> data) {
@@ -421,7 +420,7 @@ public class GameState {
 		return mo;
 	}
 
-	public static void addTerrain(String key, Dimension d) {
+	public static void add(String key, Dimension d) {
 		if (TERRAIN.keySet().contains(key))
 			TERRAIN.get(key).add(d);
 		else {

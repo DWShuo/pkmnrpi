@@ -63,7 +63,7 @@ public class SelectWindow extends JPanel implements MouseListener, MouseMotionLi
 		editor.bar_label.setIcon(ImageLibrary.getIcon(editor.paint_bucket));
 		if (flag == 0)
 			return;
-		GameState.addTerrain(sheet.name, new Dimension(x, y));
+		GameState.add(sheet.name, new Dimension(x, y));
 		repaint();
 	}
 
