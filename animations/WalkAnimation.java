@@ -11,9 +11,11 @@ import util.ImageLibrary;
 public class WalkAnimation extends Animation {
 	public Person person;
 	public static boolean iswalking;
+	public int distance;
 
-	public WalkAnimation(GameBoard b, Person p, int distance) {
+	public WalkAnimation(GameBoard b, Person p, int d) {
 		int offset = 0;
+		distance = d;
 		// if (p.on_bike)
 		// offset = 10;
 		if (p.direction == Person.UP) {
@@ -43,11 +45,15 @@ public class WalkAnimation extends Animation {
 		delta = new int[counts.length];
 		person = p;
 		increment = 6 * distance - 1;
+		if (distance == 0)
+			increment = 5;
 	}
 
 	public void animate() {
 		super.animate();
-		if (increment == 0) {
+		if (distance == 0)
+			return;
+		if (increment <= 0) {
 			if (person.direction == Person.UP) {
 				--person.y;
 			} else if (person.direction == Person.DOWN) {
@@ -62,14 +68,19 @@ public class WalkAnimation extends Animation {
 	}
 
 	public static void run(GameBoard b, Person p, int direction, boolean background_motion) {
+		System.out.println(p.x + " : " + p.y);
 		iswalking = true;
+		if (p.direction != direction)
+			b.checkWildPokemon();
 		p.setDirection(direction);
 		// Check for obstruction
+		WalkAnimation ani;
 		if (!b.canMove(direction)) {
-			b.foreground.repaint();
+			ani = new WalkAnimation(b, p, 0);
+			GameState.clock.animate(ani);
 			return;
 		}
-		WalkAnimation ani = new WalkAnimation(b, p, 1);
+		ani = new WalkAnimation(b, p, 1);
 		GameState.clock.animate(ani);
 		if (background_motion)
 			GameState.clock.animate(new BoardAnimation(b, direction));

@@ -23,6 +23,7 @@ public class TileMap {
 	public int centerx, centery;
 	public String name;
 
+	@SuppressWarnings("unchecked")
 	public TileMap(int x, int y, String n) {
 		name = n;
 		mapdata = new Pair[y][x];
@@ -148,6 +149,7 @@ public class TileMap {
 		FileParser.saveFile(data, file);
 	}
 
+	@SuppressWarnings("unchecked")
 	public void load(File file) {
 		ArrayList<String> data = FileParser.parseFile(file.getAbsolutePath());
 		centerx = Integer.parseInt(data.get(0));
@@ -165,6 +167,7 @@ public class TileMap {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public void resize(int x, int y, int w, int h) {
 		centerx += x;
 		centery += y;

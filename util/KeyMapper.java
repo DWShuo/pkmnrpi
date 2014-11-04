@@ -2,12 +2,10 @@ package util;
 
 import game.GameBoard;
 import game.GameEngine;
-import game.GameState;
 
 import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.HashMap;
 
 import animations.WalkAnimation;
 import trainers.Person;
@@ -65,7 +63,7 @@ public class KeyMapper implements KeyListener {
 			return;
 
 		Point bound = engine.board.getViewport().getViewPosition();
-		if (dir > 0)
+		if (dir >= 0)
 			WalkAnimation.run(board, player, dir, needScroll(bound, dir));
 	}
 

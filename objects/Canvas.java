@@ -10,7 +10,6 @@ import javax.swing.JPanel;
 import javax.swing.JViewport;
 
 import console.ContextMenu;
-import console.EditWindow;
 
 public class Canvas extends JPanel {
 	public static final int BW = 200;

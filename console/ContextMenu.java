@@ -58,6 +58,7 @@ public class ContextMenu extends JPopupMenu implements MouseListener, MouseMotio
 		return new Point(Math.max(0, Math.min(a.x, editor.tmap.mapdata[0].length)), Math.max(0, Math.min(a.y, editor.tmap.mapdata.length)));
 	}
 
+	@SuppressWarnings("unchecked")
 	private void select(Point a, Point b) {
 		Point c = bind(new Point(Math.min(a.x, b.x), Math.min(a.y, b.y)));
 		Point d = bind(new Point(Math.max(a.x, b.x), Math.max(a.y, b.y)));

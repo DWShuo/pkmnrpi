@@ -10,7 +10,7 @@ import javax.swing.Timer;
  * This class is used as a generic animation timer class. The reason for having a generic class is to handle a large number of animations simultaniously without lag
  */
 public class Clock extends Timer implements ActionListener {
-	public static final int FRAME_WAIT = 20;
+	public static final int FRAME_WAIT = 30;
 	public static boolean manual = false;
 
 	private ArrayList<Animation> animations = new ArrayList<Animation>();

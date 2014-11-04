@@ -85,6 +85,7 @@ public class Backpack {
 		moves.add(m);
 	}
 
+	@SuppressWarnings("unchecked")
 	public void addItem(Item i) {
 		Object items = null;
 		if (i.type == Item.MISC) {
