@@ -32,10 +32,15 @@ import util.Pair;
  * This class will initialize all static data, as well as load, hold, and save temporary data.
  */
 public class GameState {
+	// Animation clock
 	public static Clock clock;
+	// Walkable Terrain
 	public static HashMap<String, ArrayList<Dimension>> TERRAIN = new HashMap<String, ArrayList<Dimension>>();
+	// Icon tile maps
 	public static HashMap<String, TileMap> MAPS = new HashMap<String, TileMap>();
+	// Wild Pokemon spawn locations
 	public static HashMap<String, Spawn> SPAWNS = new HashMap<String, Spawn>();
+	// Items and events
 	public static ArrayList<Flag> FLAGS = new ArrayList<Flag>();
 	public static HashMap<String, ArrayList<Flag>> FLAG_POOL = new HashMap<String, ArrayList<Flag>>();
 	public static Move[] MOVES;
@@ -239,7 +244,7 @@ public class GameState {
 			s.bounds = new Rectangle(Integer.parseInt(ary[0]), Integer.parseInt(ary[1]), Integer.parseInt(ary[2]), Integer.parseInt(ary[3]));
 			String line = data.get(index++ );
 			while (!Pokemon.isUniform(line, ')')) {
-				int id = Integer.parseInt(line);
+				String id = line;
 				ArrayList<Pair<String, Double, Integer>> list = new ArrayList<Pair<String, Double, Integer>>();
 				line = data.get(index++ );
 				while (!Pokemon.isUniform(line, '#')) {

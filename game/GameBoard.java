@@ -98,7 +98,6 @@ public class GameBoard extends JScrollPane implements KeyListener, SpriteBoard {
 		for (String str : GameState.SPAWNS.keySet()) {
 			if (str.equalsIgnoreCase(map.name)) {
 				if (GameState.SPAWNS.get(str).roll(engine))
-
 					return;
 			}
 		}

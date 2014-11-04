@@ -12,14 +12,16 @@ import util.Pair;
 public class Spawn {
 	public String mapname;
 	public Rectangle bounds = new Rectangle();
-	public HashMap<Integer, ArrayList<Pair<String, Double, Integer>>> chances = new HashMap<Integer, ArrayList<Pair<String, Double, Integer>>>();
+	public HashMap<String, ArrayList<Pair<String, Double, Integer>>> chances = new HashMap<String, ArrayList<Pair<String, Double, Integer>>>();
 
-	public Spawn() {}
+	public Spawn() {
+	}
 
 	public boolean roll(GameEngine e) {
 		if (!bounds.contains(e.board.player.x, e.board.player.y))
 			return false;
-		ArrayList<Pair<String, Double, Integer>> temp = chances.get(e.board.map.mapdata[e.board.player.y + e.board.map.centery][e.board.player.x + e.board.map.centerx]);
+		Pair<String, Integer, Integer> pp = e.board.map.mapdata[e.board.player.y + e.board.map.centery][e.board.player.x + e.board.map.centerx];
+		ArrayList<Pair<String, Double, Integer>> temp = chances.get(pp.a + ":" + pp.b + ":" + pp.c);
 		if (temp == null)
 			return false;
 		Collections.shuffle(temp);
@@ -42,8 +44,8 @@ public class Spawn {
 		ArrayList<String> ary = new ArrayList<String>();
 		ary.add(mapname);
 		ary.add(bounds.x + ":" + bounds.y + ":" + bounds.width + ":" + bounds.height);
-		for (Integer i : chances.keySet()) {
-			ary.add(i + "");
+		for (String i : chances.keySet()) {
+			ary.add(i);
 			for (Pair<?, ?, ?> p : chances.get(i)) {
 				ary.add(p.toString());
 			}

@@ -68,7 +68,6 @@ public class WalkAnimation extends Animation {
 	}
 
 	public static void run(GameBoard b, Person p, int direction, boolean background_motion) {
-		System.out.println(p.x + " : " + p.y);
 		iswalking = true;
 		if (p.direction != direction)
 			b.checkWildPokemon();
