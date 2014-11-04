@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 
-import pokemon.Pokemon;
-import battle.BattleEngine;
 import util.Pair;
 
 public class Spawn {
@@ -16,7 +14,6 @@ public class Spawn {
 
 	public Spawn() {
 	}
-
 	public boolean roll(GameEngine e) {
 		if (!bounds.contains(e.board.player.x, e.board.player.y))
 			return false;
@@ -28,13 +25,8 @@ public class Spawn {
 		for (Pair<String, Double, Integer> p : temp) {
 			if (Math.random() > p.b)
 				continue;
-			e.battle = new BattleEngine(e, new Pokemon(p.a, (int) (p.c + Math.random() * 5)));
-			try {
-				Thread.sleep(100);
-			} catch (InterruptedException e1) {
-				e1.printStackTrace();
-			}
-			e.startBattle();
+			
+			e.startBattle(p);
 			return true;
 		}
 		return false;

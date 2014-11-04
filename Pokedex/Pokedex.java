@@ -16,7 +16,8 @@ import util.Searchable;
 import util.panels.ScalePanel;
 
 /**
- * This class handles all of the GUI construction for the pokedex panel. Additionally it supports the search bar with a lookup table.
+ * This class handles all of the GUI construction for the pokedex panel.
+ * Additionally it supports the search bar with a lookup table.
  */
 public class Pokedex extends JPanel implements Searchable, PokedexUI {
 	private static final int width = 400, height = 400 - PokedexSearchBar.pixel_height;
@@ -99,6 +100,7 @@ public class Pokedex extends JPanel implements Searchable, PokedexUI {
 		info.update(next);
 		maintext.text = next.description;
 		maintext.repaint();
+		engine.contents.repaint();
 	}
 
 	// Returns the instance of the pokemon that the text names.

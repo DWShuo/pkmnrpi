@@ -10,7 +10,9 @@ import javax.swing.JPanel;
 
 import battle.BattleEngine;
 import pokedex.Pokedex;
+import pokemon.Pokemon;
 import util.KeyMapper;
+import util.Pair;
 
 /**
  * This is the main class. Hurrah for the root of all things. Praise the sun!
@@ -62,11 +64,17 @@ public class GameEngine {
 		// TODO: select save file or start new game
 	}
 
-	public void startBattle() {
+	public void startBattle(Pair<String, Double, Integer> p) {
 		// TODO: transition animation
+		dex.search(p.a);
+		battle = new BattleEngine(this, new Pokemon(p.a, (int) (p.c + Math.random() * 5)));
 		window.add(battle.panel, 0);
-		dex.search(battle.enemy.name);
 		battle.panel.setBounds(0, 0, 400, 400);
+		try {
+			Thread.sleep(10); // 1000 milliseconds is one second.
+		} catch (InterruptedException ex) {
+			Thread.currentThread().interrupt();
+		}
 		battle.start();
 	}
 

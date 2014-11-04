@@ -93,7 +93,7 @@ public class ImageLibrary extends Library {
 		sheets.add(new SpriteSheet(image_sheet_names[1], new Dimension(pixel_width[0], pixel_width[0]), "Roof"));
 		sheets.add(new SpriteSheet(image_sheet_names[2], new Dimension(pixel_width[0], pixel_width[0]), "Building"));
 		sheets.add(new SpriteSheet(image_sheet_names[3], new Dimension(pixel_width[0], pixel_width[0]), "Land"));
-		sheets.add(new SpriteSheet(image_sheet_names[4], new Dimension(pixel_width[4], pixel_width[4]), "Backs"));
+		sheets.add(new SpriteSheet(image_sheet_names[4], new Dimension(pixel_width[4], pixel_width[4]), "Backs", true));
 
 		// Create back sprites, an array of image icons
 		back_sprites = sheets.get(4).iconlist;
