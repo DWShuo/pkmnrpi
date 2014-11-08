@@ -19,6 +19,7 @@ import util.Pair;
  */
 public class GameEngine {
 	public static int width = 400, height = 400;
+	public static boolean battling;
 
 	public GameState state;
 	public GameBoard board;
@@ -65,20 +66,22 @@ public class GameEngine {
 	}
 
 	public void startBattle(Pair<String, Double, Integer> p) {
+		battling = true;
 		// TODO: transition animation
-		dex.search(p.a);
+		//System.out.println("HERE");
 		battle = new BattleEngine(this, new Pokemon(p.a, (int) (p.c + Math.random() * 5)));
 		window.add(battle.panel, 0);
 		battle.panel.setBounds(0, 0, 400, 400);
-		try {
-			Thread.sleep(10); // 1000 milliseconds is one second.
-		} catch (InterruptedException ex) {
-			Thread.currentThread().interrupt();
-		}
+//		try {
+//			Thread.sleep(10); // 1000 milliseconds is one second.
+//		} catch (InterruptedException ex) {
+//			Thread.currentThread().interrupt();
+//		}
 		battle.start();
 	}
 
 	public void endBattle() {
+		battling = false;
 		window.remove(battle.panel);
 		dex.cleanup();
 		battle = null;

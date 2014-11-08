@@ -24,6 +24,7 @@ public class BattleEngine {
 		friend = self.get_first_pokemon();
 		enemy = p;
 		panel = new BattlePanel(this);
+		engine.dex.search(p.name);
 	}
 
 	// Start a trainer battle

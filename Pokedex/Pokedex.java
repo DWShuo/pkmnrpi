@@ -95,11 +95,10 @@ public class Pokedex extends JPanel implements Searchable, PokedexUI {
 		if (next == null)
 			return;
 		portrait.image = new ImageIcon("src/tilesets/pokemon_sprites/" + next.name.toLowerCase() + ".jpg").getImage();
-		portrait.repaint();
+		portrait.paintImmediately(portrait.getBounds());
 		name.setNumber(next.ID + "");
 		info.update(next);
 		maintext.text = next.description;
-		maintext.repaint();
 		engine.contents.repaint();
 	}
 

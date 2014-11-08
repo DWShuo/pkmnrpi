@@ -49,9 +49,8 @@ public class KeyMapper implements KeyListener {
 	public void listen() {
 		if (!inmotion)
 			return;
-		boolean battling = engine.battle != null;
 		int dir = getDirection(input);
-		if (battling) {
+		if (engine.battling) {
 			if (dir >= 0)
 				engine.battle.move(dir);
 			else if (dir == -1)
