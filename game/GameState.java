@@ -70,13 +70,10 @@ public class GameState {
 
 	public static void save(File file) {
 		ArrayList<String> data = new ArrayList<String>();
-		data.addAll(saveTerrain());
-		data.add("((((((((((");
-		data.addAll(saveSpawns());
-		data.add("((((((((((");
+		FileParser.saveFile(saveTerrain(), "src/data/walkable_tiles.txt");
+		FileParser.saveFile(saveSpawns(), "src/data/spawn_locations.txt");
+		FileParser.saveFile(saveMoves(), "src/data/move_info.csv");
 		data.addAll(saveFlags());
-		data.add("((((((((((");
-		data.addAll(saveMoves());
 		data.add("((((((((((");
 		data.addAll(saveTrainers());
 
@@ -134,14 +131,17 @@ public class GameState {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		ArrayList<ArrayList<String>> data = FileParser.parseSeperatedFile("src/data/game state.txt", '(');
+		// Initilize Static Libraries
 		Library.init();
-		initTerrain(data.get(0));
 		ImageLibrary.init();
-		initSpawns(data.get(1));
-		initFlags(data.get(2));
-		initMoves(data.get(3));
-		initTrainers(data.get(4));
+		// Load Static Info Files
+		initTerrain(FileParser.parseFile("src/data/walkable_tiles.txt"));
+		initSpawns(FileParser.parseFile("src/data/spawn_locations.txt"));
+		initMoves(FileParser.parseFile("src/data/move_info.csv"));
+		// Load Game State File
+		ArrayList<ArrayList<String>> data = FileParser.parseSeperatedFile("src/data/game state.txt", '(');
+		initFlags(data.get(0));
+		initTrainers(data.get(1));
 		initPokemon();
 		// signs
 		// npcs
@@ -413,7 +413,7 @@ public class GameState {
 			return Move.SPECIAL;
 		else if (str.equals("STATUS"))
 			return Move.STATUS;
-		return Move.PHYSICAL;
+		return Integer.parseInt(str);
 	}
 
 	private static Move[] order_moves(ArrayList<Move> all) {

@@ -1,0 +1,13 @@
+Vanilla
+101:107:2:2
+Land:5:20
+Meganium:0.3:38
+Typhlosion:0.3:40
+Feraligatr:0.3:39
+#######
+Land:5:21
+Bayleef:0.3:30
+Chikorita:0.3:24
+Pidgeot:0.3:45
+#######
+)))))))

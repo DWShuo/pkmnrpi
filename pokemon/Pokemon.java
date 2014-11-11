@@ -402,6 +402,7 @@ public class Pokemon implements PokedexUI, AI {
 		return 15;
 	}
 
+	// Implement AI here
 	@Override
 	public Move decide(Pokemon p) {
 		Move m = known_moves.get(0);
