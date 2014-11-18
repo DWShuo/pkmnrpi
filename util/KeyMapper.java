@@ -19,9 +19,9 @@ public class KeyMapper implements KeyListener {
 	public GameEngine engine;
 	private GameBoard board;
 	private Person player;
-	public static KeyMap map;
+	public static KeyMap<Integer, Integer> map;
 	public boolean inmotion = false;
-	public String input;
+	public int input;
 
 	public KeyMapper(GameEngine e) {
 		engine = e;
@@ -32,12 +32,12 @@ public class KeyMapper implements KeyListener {
 
 	// This loads the default key mapping
 	public static void load_default() {
-		map = new KeyMap();
-		map.put(Person.UP, "Up");
-		map.put(Person.DOWN, "Down");
-		map.put(Person.RIGHT, "Right");
-		map.put(Person.LEFT, "Left");
-		map.put(ENTER, "Enter");
+		map = new KeyMap<Integer, Integer>();
+		map.put(Person.UP, 38);
+		map.put(Person.DOWN, 40);
+		map.put(Person.RIGHT, 39);
+		map.put(Person.LEFT, 37);
+		map.put(ENTER, 10);
 	}
 
 	// This provides a portal for users to change key mapping.
@@ -50,7 +50,7 @@ public class KeyMapper implements KeyListener {
 		if (!inmotion)
 			return;
 		int dir = getDirection(input);
-		if (engine.battling) {
+		if (GameEngine.battling) {
 			if (dir >= 0)
 				engine.battle.move(dir);
 			else if (dir == -1)
@@ -82,24 +82,24 @@ public class KeyMapper implements KeyListener {
 
 	// This returns the direction of the mapped key or -2 if it isnt mapped to a
 	// direction, -1 for enter.
-	public int getDirection(String str) {
-		if (str.equalsIgnoreCase(map.get(Person.UP)))
+	public int getDirection(int key) {
+		if (key == map.getB(Person.UP))
 			return Person.UP;
-		else if (str.equalsIgnoreCase(map.get(Person.DOWN)))
+		else if (key == map.getB(Person.DOWN))
 			return Person.DOWN;
-		else if (str.equalsIgnoreCase(map.get(Person.RIGHT)))
+		else if (key == map.getB(Person.RIGHT))
 			return Person.RIGHT;
-		else if (str.equalsIgnoreCase(map.get(Person.LEFT)))
+		else if (key == map.getB(Person.LEFT))
 			return Person.LEFT;
-		else if (str.equalsIgnoreCase(map.get(ENTER)))
+		else if (key == map.getB(ENTER))
 			return -1;
 		return -2;
 	}
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		input = KeyEvent.getKeyText(e.getKeyCode());
-		if (!map.contains(input)) {
+		input = e.getKeyCode();
+		if (!map.containsA(input)) {
 			System.out.println("Skipping un known input'" + input + "'");
 			return;
 		}

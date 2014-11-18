@@ -22,18 +22,20 @@ public class Canvas extends JPanel {
 	public long lastupdate;
 	public ContextMenu menu;
 
-	public Canvas(TileMap a, JViewport v, ContextMenu m) {
+	public Canvas(TileMap a, ContextMenu m) {
 		menu = m;
 		map = a;
-		view = v;
 	}
 
 	public void update() {
+		if (view == null)
+			return;
 		width = map.mapdata[0].length * 16;
 		height = map.mapdata.length * 16;
 		setPreferredSize(new Dimension(width, height));
 		viewposition = view.getViewRect();
-		drawposition = bound(new Rectangle(viewposition.x - BW, viewposition.y - BW, viewposition.width + BW * 2, viewposition.height + BW * 2));
+		drawposition = bound(new Rectangle(viewposition.x - BW, viewposition.y
+				- BW, viewposition.width + BW * 2, viewposition.height + BW * 2));
 		projection = map.getSubMap(drawposition);
 		lastupdate = System.currentTimeMillis();
 	}
@@ -50,7 +52,9 @@ public class Canvas extends JPanel {
 
 		if (menu != null && menu.operating) {
 			g.setColor(new Color(64, 128, 128, 128));
-			g.fillRect(menu.start.x * 16, menu.start.y * 16, (menu.current.x - menu.start.x + 1) * 16, (menu.current.y - menu.start.y + 1) * 16);
+			g.fillRect(menu.start.x * 16, menu.start.y * 16, (menu.current.x
+					- menu.start.x + 1) * 16,
+					(menu.current.y - menu.start.y + 1) * 16);
 		}
 	}
 

@@ -27,13 +27,14 @@ public class EditWindow extends JPanel implements MouseListener, MouseMotionList
 		editor = e;
 		setLayout(null);
 		menu = new ContextMenu(editor);
+		background = new Canvas(editor.tmap, menu);
 
 		view = new JScrollPane(background);
 		view.getViewport().setViewPosition(new Point(0, 0));
 		view.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		view.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 
-		background = new Canvas(editor.tmap, view.getViewport(), menu);
+		background.view = view.getViewport();
 		background.addMouseListener(this);
 		background.addMouseListener(menu);
 		background.addMouseMotionListener(this);

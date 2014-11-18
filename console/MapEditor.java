@@ -53,7 +53,7 @@ public class MapEditor extends JPanel implements ComponentListener {
 		bar = new MEBar(this);
 		f.setJMenuBar(bar);
 		this.setBackground(Color.gray.darker());
-		tmap = new TileMap("src/maps/ALL.map");
+		tmap = GameState.MAPS.get("Vanilla");
 		init();
 	}
 

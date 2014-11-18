@@ -3,56 +3,56 @@ package util;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class KeyMap {
+public class KeyMap <A, B> {
 	// the string is what KeyEvent.getKeyText(e.getKeyCode()); returns
 	// the integer is the unique id of the event
-	private HashMap<String, Integer> data = new HashMap<String, Integer>();
-	private HashMap<Integer, String> revr = new HashMap<Integer, String>();
+	private HashMap<A, B> data = new HashMap<A, B>();
+	private HashMap<B, A> revr = new HashMap<B, A>();
 	// this is a list of all pressed keys.
-	private ArrayList<Integer> pressed = new ArrayList<Integer>();
+	private ArrayList<B> pressed = new ArrayList<B>();
 
 	public KeyMap() {
 	}
 
-	public boolean contains(String str) {
-		return data.keySet().contains(str);
+	public boolean containsA(A a) {
+		return data.keySet().contains(a);
 	}
 
-	public boolean contains(int i) {
-		return revr.keySet().contains(i);
+	public boolean containsB(B b) {
+		return revr.keySet().contains(b);
 	}
 
-	public int get(String str) {
-		return data.get(str);
+	public A getA(B b) {
+		return revr.get(b);
 	}
 
-	public String get(int i) {
-		return revr.get(i);
+	public B getB(A a) {
+		return data.get(a);
 	}
 
-	public void put(int i, String str) {
-		data.put(str, i);
-		revr.put(i, str);
+	public void put(A a, B b) {
+		data.put(a, b);
+		revr.put(b, a);
 	}
 
-	public void press(String str) {
-		press(data.get(str));
+	public void pressA(A a) {
+		pressB(data.get(a));
 	}
 
-	public void press(int i) {
-		if (!pressed.contains(i))
-			pressed.add(i);
+	public void pressB(B b) {
+		if (!pressed.contains(b))
+			pressed.add(b);
 	}
 
-	public void release(String str) {
-		release(data.get(str));
+	public void releaseA(A a) {
+		releaseB(data.get(a));
 	}
 
-	public void release(int i) {
+	public void releaseB(B b) {
 		// Must cast int to Object, so that the correct remove function is
 		// called
 		// (value removal, not index removal)!!
-		pressed.remove((Object) i);
+		pressed.remove((Object) b);
 	}
 
 	public int pressCount() {
