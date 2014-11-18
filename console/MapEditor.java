@@ -123,6 +123,7 @@ public class MapEditor extends JPanel implements ComponentListener {
 
 	public void load(File file) {
 		tmap = new TileMap(file.getAbsolutePath());
+		creation.background.map = tmap;
 		creation.background.lastupdate = 0;
 		creation.background.repaint();
 		creation.repaint();
@@ -154,10 +155,12 @@ public class MapEditor extends JPanel implements ComponentListener {
 	}
 
 	@Override
-	public void componentHidden(ComponentEvent e) {}
+	public void componentHidden(ComponentEvent e) {
+	}
 
 	@Override
-	public void componentMoved(ComponentEvent e) {}
+	public void componentMoved(ComponentEvent e) {
+	}
 
 	@Override
 	public void componentResized(ComponentEvent e) {
@@ -167,5 +170,6 @@ public class MapEditor extends JPanel implements ComponentListener {
 	}
 
 	@Override
-	public void componentShown(ComponentEvent e) {}
+	public void componentShown(ComponentEvent e) {
+	}
 }

@@ -99,7 +99,7 @@ public class MEBar extends JMenuBar implements ActionListener {
 			if ((str != null) && (str.length() > 0))
 				editor.clearAll(str);
 		} else if (e.getSource() == load) {
-			if (filer.showSaveDialog(editor) == JFileChooser.APPROVE_OPTION) {
+			if(filer.showOpenDialog(editor) == JFileChooser.APPROVE_OPTION) {
 				editor.load(filer.getSelectedFile());
 			}
 		} else if (e.getSource() == pen) {

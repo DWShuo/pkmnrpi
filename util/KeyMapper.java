@@ -99,7 +99,7 @@ public class KeyMapper implements KeyListener {
 	@Override
 	public void keyPressed(KeyEvent e) {
 		input = e.getKeyCode();
-		if (!map.containsA(input)) {
+		if (!map.containsB(input)) {
 			System.out.println("Skipping un known input'" + input + "'");
 			return;
 		}

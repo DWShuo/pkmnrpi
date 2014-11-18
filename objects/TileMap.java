@@ -127,7 +127,7 @@ public class TileMap {
 				str += "\n" + mapdata[i][j];
 			}
 		}
-		return centerx + "\n" + centery + "\n" + name + str;
+		return centerx + "\n" + centery + "\n" + name + "\n" + mapdata.length + "\n" + mapdata[0].length + "\n" + str;
 	}
 
 	public Pair<String, Integer, Integer> get(Point a) {
