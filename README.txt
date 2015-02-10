@@ -10,4 +10,4 @@ How to get up and running:
 
 How to add changes:
 
-1) email them to me tedtenedorio@gmail.com
+1) email them to me fangt@rpi.edu
