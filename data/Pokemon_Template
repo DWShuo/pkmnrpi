@@ -1,0 +1,76 @@
+ID#: 152
+Name: Chikorita
+Type: Grass
+Species: Leaf
+Gender: Female
+Height: .9
+Weight: 6.4
+16 Bayleef
+32 Meganium
+
+HP: 45
+Attack: 49
+Defense: 65
+Sp.Attack: 49
+Sp.Defense: 65
+Speed: 45
+Total: 318
+Average: 53
+
+Catch_rate: 45
+Base_EXP: 64
+Growth_Rate: 0
+
+Gold: A sweet aroma gently wafts from the leaf on its head. It is docile and loves to soak up the sun's rays.
+Silver: Its pleasantly aromatic leaves have the ability to check the humidity and temperature.
+Crystal: It loves to bask in the sunlight. It uses the leaf on its head to seek out warm places.
+
+Tackle
+Growl
+
+
+8 Razor_Leaf
+12 Reflect
+15 Poisonpowder
+22 Synthesis
+29 Body_Slam
+36 Light_Screen
+43 Safeguard
+50 Solarbeam
+
+6 Toxic
+10 Hidden_Power
+11 Sunny_Day
+16 Light_Screen
+17 Protect
+20 Safeguard
+21 Frustration
+22 Solar_Beam
+27 Return
+32 Double_Team
+33 Reflect
+42 Facade
+44 Rest
+45 Attract
+48 Round
+49 Echoed_Voice
+53 Energy_Ball
+70 Flash
+75 Swords_Dance
+86 Grass_Knot
+87 Swagger
+88 Sleep_Talk
+90 Substitute
+96 Nature_Power
+100 Confide
+-----------------------
+#153 Bayleef
+-----------------------
+#154 Meganium
+-----------------------
+#155 Cyndaquil
+-----------------------
+#156 Quilava
+-----------------------
+#157 Typhlosion
+END
