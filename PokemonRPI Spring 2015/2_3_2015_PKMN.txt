@@ -1,0 +1,24 @@
+Notes for 2/3/2015, Tuesday.
+STUFF TO DO
+ -Pokemon Spritesheets(Battle animations)
+ -implement Functionality
+ -Items/Backpack
+ -Misc menu item features
+ -PokeBalls
+ -Moves logic
+ -AI for enemy pokemon
+ -clean/improve GUI
+ -RPI Maps.
+ -make toggle(or menu bar) for pokedex/half of screen
+ -add Vanilla content to game.
+ -Storyline/plot/character design
+ -level design/puzzles
+ -Possibility of multiplayer implementation?
+ -Save/load files
+ -FIX SAVE/LOAD menu items in mapeditor
+ -Storing known moves data; implement switching between active/inactive moves.
+ -Level loading
+TO PLAY THE GAME: RUN GameEngine.java
+TO CREATE MAPS: run MapEditor.java //note: save is load and load is save for now.
+
+Github: https://github.com/freetheinterns/pkmnrpi
