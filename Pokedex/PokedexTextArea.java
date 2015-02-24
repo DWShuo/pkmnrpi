@@ -1,6 +1,6 @@
 // @author Theodore Tenedorio
 
-package pokedex;
+package Pokedex;
 
 import java.awt.Color;
 import java.awt.Dimension;

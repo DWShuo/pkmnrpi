@@ -1,4 +1,4 @@
-package pokedex;
+package Pokedex;
 
 import java.awt.Dimension;
 import java.awt.Image;
