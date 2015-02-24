@@ -18,8 +18,8 @@ Features List:
   -Moddable/Open Source
   -Custom Game Engine and Map Editor
   -First two generations of Pokemon
-  -Most mechanics that you loved  about Pokemon kept the same!
-  -Annoying mechanics such as only being able to keep 4 moves at a time per pokemon!
+  -Most mechanics that you loved about Pokemon kept the same!
+  -Annoying mechanics removed, such as only being able to keep 4 moves at a time per pokemon!
   -Much more to come...
   
 RCOS Project
