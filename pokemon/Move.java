@@ -10,10 +10,9 @@ import animations.Sprite;
 public class Move implements Comparable<Move> {
 	public static final int PHYSICAL = 20, SPECIAL = 30, STATUS = 40;
 
-	public int type, damage, pp, pp_max, lvl_req, tm, category;
+	public int type, damage, pp, pp_max, lvl_req, tm, category,speed_priority;
 	public String name, description, effect;
 	public double crit_chance, hit_chance;
-	public int speed_priority;
 	public String sound = "src/sounds/moves/tackle.mid";
 	public Sprite sprite = new Sprite("src/tilesets/sprites/tackle.png");
 
