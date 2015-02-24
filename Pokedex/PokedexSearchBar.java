@@ -1,4 +1,4 @@
-package pokedex;
+package Pokedex;
 
 import game.GameEngine;
 

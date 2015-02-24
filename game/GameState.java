@@ -17,7 +17,7 @@ import objects.Backpack;
 import objects.TileMap;
 import animations.Clock;
 import animations.Sprite;
-import pokedex.Pokedex;
+import Pokedex.Pokedex;
 import pokemon.Move;
 import pokemon.Pokemon;
 import pokemon.Stats;

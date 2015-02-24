@@ -9,7 +9,7 @@ import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
 import battle.BattleEngine;
-import pokedex.Pokedex;
+import Pokedex.Pokedex;
 import pokemon.Pokemon;
 import util.KeyMapper;
 import util.Pair;

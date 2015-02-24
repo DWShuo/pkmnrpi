@@ -1,5 +1,5 @@
 //Author: Tommy Fang
-package pokedex;
+package Pokedex;
 
 import game.GameEngine;
 import game.GameState;

@@ -2,7 +2,7 @@ package pokemon;
 
 import java.util.ArrayList;
 
-import pokedex.Pokedex;
+import Pokedex.Pokedex;
 import util.FileParser;
 
 // Data holder class for Pokemon

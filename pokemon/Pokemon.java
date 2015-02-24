@@ -6,8 +6,8 @@ import java.util.HashMap;
 
 import animations.Sprite;
 import battle.BattleEngine;
-import pokedex.Pokedex;
-import pokedex.PokedexUI;
+import Pokedex.Pokedex;
+import Pokedex.PokedexUI;
 
 public class Pokemon implements PokedexUI, AI {
 	public static final int FIRE = 0, WATER = 1, GRASS = 2, GROUND = 3, ROCK = 4, DARK = 5, GHOST = 6, STEEL = 7, ELECTRIC = 8, FLYING = 9, DRAGON = 10, ICE = 11, PSYCHIC = 12,
