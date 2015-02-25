@@ -1,0 +1,21 @@
+<project default="game">
+    <property name="src.dir"     value="src" />
+    <property name="build.dir"   value="bin" />
+
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+    </target>
+
+    <target name="compile">
+        <mkdir dir="${build.dir}" />
+        <javac srcdir="${src.dir}" destdir="${build.dir}" debug="true" includeantruntime="false" />
+    </target>
+
+    <target name="mapedit" depends="compile">
+        <java classpath="${build.dir}" classname="edu.rcos.pkmnrpi.main.console.MapEditor" failonerror="true" fork="true" />
+    </target>
+
+    <target name="game" depends="compile">
+        <java classpath="${build.dir}" classname="edu.rcos.pkmnrpi.main.game.GameEngine" failonerror="true" fork="true" />
+    </target>
+</project>
