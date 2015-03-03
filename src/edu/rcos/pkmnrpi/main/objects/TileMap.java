@@ -1,10 +1,8 @@
 package edu.rcos.pkmnrpi.main.objects;
 
-import edu.rcos.pkmnrpi.main.game.GameState;
-
 import java.awt.Dimension;
-import java.awt.Rectangle;
 import java.awt.Point;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -12,6 +10,7 @@ import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 
+import edu.rcos.pkmnrpi.main.game.GameState;
 import edu.rcos.pkmnrpi.main.util.FileParser;
 import edu.rcos.pkmnrpi.main.util.ImageLibrary;
 import edu.rcos.pkmnrpi.main.util.Pair;

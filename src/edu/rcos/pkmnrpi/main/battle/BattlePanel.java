@@ -1,7 +1,5 @@
 package edu.rcos.pkmnrpi.main.battle;
 
-import edu.rcos.pkmnrpi.main.game.GamePanel;
-
 import java.awt.Color;
 import java.awt.Dimension;
 
@@ -10,6 +8,7 @@ import javax.swing.JLayeredPane;
 
 import edu.rcos.pkmnrpi.main.animations.Clock;
 import edu.rcos.pkmnrpi.main.animations.Sprite;
+import edu.rcos.pkmnrpi.main.game.GamePanel;
 import edu.rcos.pkmnrpi.main.pokemon.Pokemon;
 import edu.rcos.pkmnrpi.main.util.ImageLibrary;
 import edu.rcos.pkmnrpi.main.util.Library;

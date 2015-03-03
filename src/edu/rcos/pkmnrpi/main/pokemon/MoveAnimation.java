@@ -1,8 +1,8 @@
 package edu.rcos.pkmnrpi.main.pokemon;
 
-import edu.rcos.pkmnrpi.main.battle.BattleEngine;
 import edu.rcos.pkmnrpi.main.animations.Clock;
 import edu.rcos.pkmnrpi.main.animations.Sprite;
+import edu.rcos.pkmnrpi.main.battle.BattleEngine;
 
 public class MoveAnimation {
 	public BattleEngine engine;

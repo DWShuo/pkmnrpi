@@ -1,5 +1,5 @@
 //Author: Tommy Fang
-package edu.rcos.pkmnrpi.main.Pokedex;
+package edu.rcos.pkmnrpi.main.pokedex;
 
 import edu.rcos.pkmnrpi.main.game.GameEngine;
 import edu.rcos.pkmnrpi.main.game.GameState;

@@ -1,8 +1,8 @@
 package edu.rcos.pkmnrpi.main.items;
 
-import edu.rcos.pkmnrpi.main.game.GameEngine;
-
 import java.util.ArrayList;
+
+import edu.rcos.pkmnrpi.main.game.GameEngine;
 
 public class Ball extends Item {
 	public static final int POKEBALL = 0, GREATBALL = 1, ULTRABALL = 2, MASTERBALL = 3, FASTBALL = 4, HEAVYBALL = 5, LEVELBALL = 6, LUREBALL = 7, LOVEBALL = 8, MOONBALL = 9,

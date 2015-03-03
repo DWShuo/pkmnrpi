@@ -6,7 +6,7 @@ import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import javax.swing.*;
+import javax.swing.JScrollPane;
 
 import edu.rcos.pkmnrpi.main.animations.Sprite;
 import edu.rcos.pkmnrpi.main.animations.SpriteBoard;

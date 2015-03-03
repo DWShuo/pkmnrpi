@@ -1,7 +1,5 @@
 package edu.rcos.pkmnrpi.main.console;
 
-import edu.rcos.pkmnrpi.main.game.GameState;
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -17,6 +15,7 @@ import javax.swing.JScrollPane;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 
+import edu.rcos.pkmnrpi.main.game.GameState;
 import edu.rcos.pkmnrpi.main.objects.TileMap;
 import edu.rcos.pkmnrpi.main.util.ImageLibrary;
 import edu.rcos.pkmnrpi.main.util.Pair;

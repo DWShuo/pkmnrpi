@@ -1,13 +1,12 @@
 package edu.rcos.pkmnrpi.main.util;
 
-import edu.rcos.pkmnrpi.main.game.GameBoard;
-import edu.rcos.pkmnrpi.main.game.GameEngine;
-
 import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import edu.rcos.pkmnrpi.main.animations.WalkAnimation;
+import edu.rcos.pkmnrpi.main.game.GameBoard;
+import edu.rcos.pkmnrpi.main.game.GameEngine;
 import edu.rcos.pkmnrpi.main.trainers.Person;
 
 /**

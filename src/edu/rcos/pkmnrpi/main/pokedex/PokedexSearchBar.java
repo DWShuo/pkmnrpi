@@ -1,4 +1,4 @@
-package edu.rcos.pkmnrpi.main.Pokedex;
+package edu.rcos.pkmnrpi.main.pokedex;
 
 import edu.rcos.pkmnrpi.main.game.GameEngine;
 

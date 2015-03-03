@@ -6,8 +6,8 @@ import java.util.HashMap;
 
 import edu.rcos.pkmnrpi.main.animations.Sprite;
 import edu.rcos.pkmnrpi.main.battle.BattleEngine;
-import edu.rcos.pkmnrpi.main.Pokedex.Pokedex;
-import edu.rcos.pkmnrpi.main.Pokedex.PokedexUI;
+import edu.rcos.pkmnrpi.main.pokedex.Pokedex;
+import edu.rcos.pkmnrpi.main.pokedex.PokedexUI;
 
 public class Pokemon implements PokedexUI, AI {
 	public static final int FIRE = 0, WATER = 1, GRASS = 2, GROUND = 3, ROCK = 4, DARK = 5, GHOST = 6, STEEL = 7, ELECTRIC = 8, FLYING = 9, DRAGON = 10, ICE = 11, PSYCHIC = 12,

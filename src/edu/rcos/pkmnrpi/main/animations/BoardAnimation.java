@@ -1,7 +1,7 @@
 package edu.rcos.pkmnrpi.main.animations;
 
-import edu.rcos.pkmnrpi.main.trainers.Person;
 import edu.rcos.pkmnrpi.main.game.GameBoard;
+import edu.rcos.pkmnrpi.main.trainers.Person;
 
 public class BoardAnimation extends Animation {
 	public BoardAnimation(GameBoard b, int direction) {

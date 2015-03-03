@@ -1,6 +1,6 @@
 // @author Theodore Tenedorio
 
-package edu.rcos.pkmnrpi.main.Pokedex;
+package edu.rcos.pkmnrpi.main.pokedex;
 
 import java.awt.Color;
 import java.awt.Dimension;

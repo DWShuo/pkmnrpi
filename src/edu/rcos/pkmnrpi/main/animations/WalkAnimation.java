@@ -1,10 +1,9 @@
 package edu.rcos.pkmnrpi.main.animations;
 
-import edu.rcos.pkmnrpi.main.game.GameBoard;
-import edu.rcos.pkmnrpi.main.game.GameState;
-
 import java.awt.image.BufferedImage;
 
+import edu.rcos.pkmnrpi.main.game.GameBoard;
+import edu.rcos.pkmnrpi.main.game.GameState;
 import edu.rcos.pkmnrpi.main.trainers.Person;
 import edu.rcos.pkmnrpi.main.util.ImageLibrary;
 

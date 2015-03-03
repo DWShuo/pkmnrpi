@@ -13,11 +13,11 @@ import java.util.HashMap;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 
-import edu.rcos.pkmnrpi.main.objects.Backpack;
-import edu.rcos.pkmnrpi.main.objects.TileMap;
 import edu.rcos.pkmnrpi.main.animations.Clock;
 import edu.rcos.pkmnrpi.main.animations.Sprite;
-import edu.rcos.pkmnrpi.main.Pokedex.Pokedex;
+import edu.rcos.pkmnrpi.main.objects.Backpack;
+import edu.rcos.pkmnrpi.main.objects.TileMap;
+import edu.rcos.pkmnrpi.main.pokedex.Pokedex;
 import edu.rcos.pkmnrpi.main.pokemon.Move;
 import edu.rcos.pkmnrpi.main.pokemon.Pokemon;
 import edu.rcos.pkmnrpi.main.pokemon.Stats;

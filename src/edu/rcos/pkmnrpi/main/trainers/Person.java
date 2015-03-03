@@ -1,11 +1,10 @@
 package edu.rcos.pkmnrpi.main.trainers;
 
-import edu.rcos.pkmnrpi.main.game.GameBoard;
-
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 import edu.rcos.pkmnrpi.main.animations.Sprite;
+import edu.rcos.pkmnrpi.main.game.GameBoard;
 import edu.rcos.pkmnrpi.main.objects.Thing;
 import edu.rcos.pkmnrpi.main.objects.TileMap;
 

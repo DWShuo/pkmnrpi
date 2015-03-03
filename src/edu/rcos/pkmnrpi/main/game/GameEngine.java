@@ -9,7 +9,7 @@ import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
 import edu.rcos.pkmnrpi.main.battle.BattleEngine;
-import edu.rcos.pkmnrpi.main.Pokedex.Pokedex;
+import edu.rcos.pkmnrpi.main.pokedex.Pokedex;
 import edu.rcos.pkmnrpi.main.pokemon.Pokemon;
 import edu.rcos.pkmnrpi.main.util.KeyMapper;
 import edu.rcos.pkmnrpi.main.util.Pair;
