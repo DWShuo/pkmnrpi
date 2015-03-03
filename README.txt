@@ -7,7 +7,9 @@ How to get up and running:
 5) Delete the contents of this ...workspace/PokemonRPI/src directory.
 6) In a separate explorer open up you github repository
 7) Copy the contents of the pkmnrpi repository (excluding the .git file) to the ...workspace/PokemonRPI/src directory.
-
+8) Make sure you have JDK installed. Windows > Preferences > Java > Installed JREs.
+9) Add the latest version of JDK located in Program Files\Java.
+10) Right click the Ant build.xml and click Run as... Ant build.
 How to add changes:
 
 1) email them to me fangt@rpi.edu
