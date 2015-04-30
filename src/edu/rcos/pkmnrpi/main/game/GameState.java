@@ -32,6 +32,11 @@ import edu.rcos.pkmnrpi.main.util.Pair;
  * This class will initialize all static data, as well as load, hold, and save temporary data.
  */
 public class GameState {
+	// Constants
+	public static final String SAVE_DIRECTORY = "data/saves/";
+	public static final String DEFAULT_SAVE = SAVE_DIRECTORY + "default.save";
+	public static final String NEW_GAME_SAVE = DEFAULT_SAVE;  // I think this should be changed to a new game file
+	
 	// Animation clock
 	public static Clock clock;
 	// Walkable Terrain
@@ -59,7 +64,7 @@ public class GameState {
 	public GameState(GameEngine e) {
 		engine = e;
 		clock = new Clock();
-		load("data/saves/default.save");
+		load(DEFAULT_SAVE);
 	}
 
 	// Load save game
@@ -118,7 +123,7 @@ public class GameState {
 		return ary;
 	}
 
-	public static void initilize_all() {
+	public static void initializeAll() {
 		try {
 			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
 			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("data/fonts/pfont.ttf")));
@@ -131,7 +136,7 @@ public class GameState {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		// Initilize Static Libraries
+		// Initialize Static Libraries
 		Library.init();
 		ImageLibrary.init();
 		// Load Static Info Files
@@ -195,7 +200,6 @@ public class GameState {
 			line = data.get(index++ );
 		}
 		card = new ScoreCard(ary);
-		;
 		line = data.get(index++ );
 		ary = new ArrayList<String>();
 		while (!Pokemon.isUniform(line, '=')) {

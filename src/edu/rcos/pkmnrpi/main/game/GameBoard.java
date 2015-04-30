@@ -34,12 +34,6 @@ public class GameBoard extends JScrollPane implements KeyListener, SpriteBoard {
 	public GameBoard(GameEngine en) {
 		super();
 		engine = en;
-		// Set the look and feel to Nimbus
-		try {
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 		setHorizontalScrollBarPolicy(HORIZONTAL_SCROLLBAR_NEVER);
 		setVerticalScrollBarPolicy(VERTICAL_SCROLLBAR_NEVER);
 		setSize(area);
@@ -51,7 +45,7 @@ public class GameBoard extends JScrollPane implements KeyListener, SpriteBoard {
 		loadMap("Vanilla");
 		this.setViewportView(background);
 		this.setBackground(Color.black);
-		initilizePlayer();
+		initializePlayer();
 	}
 
 	public void loadMap(String filename) {
@@ -104,7 +98,7 @@ public class GameBoard extends JScrollPane implements KeyListener, SpriteBoard {
 		}
 	}
 
-	private void initilizePlayer() {
+	private void initializePlayer() {
 		player = engine.state.self;
 		player.map = map;
 		player.setLocation(player.x + map.centerx, player.y + map.centerx);

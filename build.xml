@@ -18,4 +18,8 @@
     <target name="game" depends="compile">
         <java classpath="${build.dir}" classname="edu.rcos.pkmnrpi.main.game.GameEngine" failonerror="true" fork="true" />
     </target>
+	
+	<target name="mainmenu" depends="compile">
+	    <java classpath="${build.dir}" classname="edu.rcos.pkmnrpi.main.game.MainMenu" failonerror="true" fork="true" />
+	</target>
 </project>

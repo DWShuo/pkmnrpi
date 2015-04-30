@@ -46,7 +46,7 @@ public class MapEditor extends JPanel implements ComponentListener {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		GameState.initilize_all();
+		GameState.initializeAll();
 		frame = f;
 		f.addComponentListener(this);
 		bar = new MEBar(this);

@@ -29,20 +29,24 @@ public class GameEngine {
 	public JPanel contents;
 	public BattleEngine battle;
 	public JLayeredPane window;
+	public MainMenu mainMenu;
 
 	public GameEngine() {
 		// This MUST be the first line. Initializes static data.
-		GameState.initilize_all();
+		GameState.initializeAll();
 		state = new GameState(this);
 		board = new GameBoard(this);
 		dex = new Pokedex(this);
 		frame = new JFrame("Pokemon RPI");
 		keymap = new KeyMapper(this);
 		contents = new JPanel();
+		mainMenu = new MainMenu(this);
 		window = new JLayeredPane();
 		window.setPreferredSize(new Dimension(width, height));
 		window.setLayout(null);
-		window.add(board, 1);
+		window.add(board, JLayeredPane.DEFAULT_LAYER);
+		window.add(mainMenu, JLayeredPane.MODAL_LAYER);
+		mainMenu.setBounds(0, 0, 400, 400);
 		board.setBounds(0, 0, 400, 400);
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -58,25 +62,14 @@ public class GameEngine {
 		frame.add(contents);
 		frame.pack();
 		frame.setVisible(true);
-
-		// battle = new BattleEngine(this, new Pokemon("Meganium", 40));
-		// startBattle();
-		// TODO: Play intro credits
-		// TODO: select save file or start new game
 	}
 
 	public void startBattle(Pair<String, Double, Integer> p) {
 		battling = true;
 		// TODO: transition animation
-		//System.out.println("HERE");
 		battle = new BattleEngine(this, new Pokemon(p.a, (int) (p.c + Math.random() * 5)));
 		window.add(battle.panel, 0);
 		battle.panel.setBounds(0, 0, 400, 400);
-//		try {
-//			Thread.sleep(10); // 1000 milliseconds is one second.
-//		} catch (InterruptedException ex) {
-//			Thread.currentThread().interrupt();
-//		}
 		battle.start();
 	}
 
@@ -99,6 +92,16 @@ public class GameEngine {
 
 	public void focusBoard() {
 		frame.removeKeyListener(dex.search);
+		frame.addKeyListener(keymap);
+	}
+	
+	public void launch() {
+		window.remove(mainMenu);
+		frame.removeKeyListener(keymap);
+		board = new GameBoard(this);
+		board.setBounds(0, 0, 400, 400);
+		keymap = new KeyMapper(this);
+		window.repaint();
 		frame.addKeyListener(keymap);
 	}
 

@@ -85,7 +85,7 @@ public class TileMap {
 	}
 
 	public static void main(String[] args) {
-		GameState.initilize_all();
+		GameState.initializeAll();
 		new TileMap("data/maps/ALL.map").export("sample");
 	}
 
