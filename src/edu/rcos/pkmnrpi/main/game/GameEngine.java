@@ -2,6 +2,7 @@ package edu.rcos.pkmnrpi.main.game;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.event.WindowEvent;
 
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
@@ -9,6 +10,7 @@ import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
 import edu.rcos.pkmnrpi.main.battle.BattleEngine;
+import edu.rcos.pkmnrpi.main.console.MapEditor;
 import edu.rcos.pkmnrpi.main.pokedex.Pokedex;
 import edu.rcos.pkmnrpi.main.pokemon.Pokemon;
 import edu.rcos.pkmnrpi.main.util.KeyMapper;
@@ -21,16 +23,16 @@ public class GameEngine {
 	public static int width = 400, height = 400;
 	public static boolean battling;
 
-	public GameState state;
-	public GameBoard board;
-	public KeyMapper keymap;
-	public Pokedex dex;
-	public JFrame frame;
-	public JPanel contents;
-	public BattleEngine battle;
-	public JLayeredPane window;
-	public MainMenu mainMenu;
-
+	private GameState state;
+	private GameBoard board;
+	private KeyMapper keymap;
+	private Pokedex dex;
+	private JFrame frame;
+	private JPanel contents;
+	private BattleEngine battle;
+	private JLayeredPane window;
+	private MainMenu mainMenu;
+	
 	public GameEngine() {
 		// This MUST be the first line. Initializes static data.
 		GameState.initializeAll();
@@ -62,6 +64,54 @@ public class GameEngine {
 		frame.add(contents);
 		frame.pack();
 		frame.setVisible(true);
+	}
+	
+	public GameBoard getBoard() {
+		return board;
+	}
+	
+	public GameState getState() {
+		return state;
+	}
+
+	public void setState(GameState state) {
+		this.state = state;
+	}
+
+	public void setBoard(GameBoard board) {
+		this.board = board;
+	}
+
+	public KeyMapper getKeymap() {
+		return keymap;
+	}
+
+	public void setKeymap(KeyMapper keymap) {
+		this.keymap = keymap;
+	}
+
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
+	}
+	
+	public JPanel getContents() {
+		return contents;
+	}
+
+	public void setContents(JPanel contents) {
+		this.contents = contents;
+	}
+
+	public BattleEngine getBattle() {
+		return battle;
+	}
+
+	public void setBattle(BattleEngine battle) {
+		this.battle = battle;
 	}
 
 	public void startBattle(Pair<String, Double, Integer> p) {
@@ -95,14 +145,31 @@ public class GameEngine {
 		frame.addKeyListener(keymap);
 	}
 	
+	public Pokedex getDex() {
+		return dex;
+	}
+
+	public void setDex(Pokedex dex) {
+		this.dex = dex;
+	}
+
 	public void launch() {
 		window.remove(mainMenu);
-		frame.removeKeyListener(keymap);
-		board = new GameBoard(this);
-		board.setBounds(0, 0, 400, 400);
-		keymap = new KeyMapper(this);
 		window.repaint();
-		frame.addKeyListener(keymap);
+		focusBoard();
+	}
+	
+	public void launchMapEditor() {
+		frame.dispose();
+		MapEditor editor = new MapEditor(frame);
+		frame.add(editor);
+		frame.pack();
+		frame.setResizable(true);
+		frame.setVisible(true);
+	}
+	
+	public void exit() {
+		frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
 	}
 
 	public static void main(String[] args) {

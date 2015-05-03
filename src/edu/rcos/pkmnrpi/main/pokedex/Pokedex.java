@@ -99,7 +99,7 @@ public class Pokedex extends JPanel implements Searchable, PokedexUI {
 		name.setNumber(next.ID + "");
 		info.update(next);
 		maintext.text = next.description;
-		engine.contents.repaint();
+		engine.getContents().repaint();
 	}
 
 	// Returns the instance of the pokemon that the text names.

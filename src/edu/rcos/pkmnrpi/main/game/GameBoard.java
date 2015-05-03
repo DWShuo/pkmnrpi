@@ -27,7 +27,7 @@ public class GameBoard extends JScrollPane implements KeyListener, SpriteBoard {
 
 	public GamePanel foreground;
 	public TileMap map;
-	public Trainer player;
+	private Trainer player;
 	public GameEngine engine;
 	public Canvas canvas;
 
@@ -46,6 +46,14 @@ public class GameBoard extends JScrollPane implements KeyListener, SpriteBoard {
 		this.setViewportView(background);
 		this.setBackground(Color.black);
 		initializePlayer();
+	}
+
+	public Trainer getPlayer() {
+		return player;
+	}
+
+	public void setPlayer(Trainer player) {
+		this.player = player;
 	}
 
 	public void loadMap(String filename) {
@@ -99,7 +107,7 @@ public class GameBoard extends JScrollPane implements KeyListener, SpriteBoard {
 	}
 
 	private void initializePlayer() {
-		player = engine.state.self;
+		player = engine.getState().self;
 		player.map = map;
 		player.setLocation(player.x + map.centerx, player.y + map.centerx);
 		foreground.sprites.add(player.sprite);

@@ -20,18 +20,18 @@ public class BattleEngine {
 	// Start a wild encounter with a pokemon
 	public BattleEngine(GameEngine e, Pokemon p) {
 		engine = e;
-		self = engine.board.player;
+		self = engine.getBoard().getPlayer();
 		friend = self.get_first_pokemon();
 		enemy = p;
 		panel = new BattlePanel(this);
-		engine.dex.search(p.name);
+		engine.getDex().search(p.name);
 	}
 
 	// Start a trainer battle
 	public BattleEngine(GameEngine e, Person p) {
 		engine = e;
 		opponent = (Trainer) p;
-		self = (Trainer) engine.board.player;
+		self = (Trainer) engine.getBoard().getPlayer();
 		friend = self.get_first_pokemon();
 		enemy = opponent.get_first_pokemon();
 		panel = new BattlePanel(this);

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 
+import edu.rcos.pkmnrpi.main.trainers.Trainer;
 import edu.rcos.pkmnrpi.main.util.Pair;
 
 public class Spawn {
@@ -15,9 +16,12 @@ public class Spawn {
 	public Spawn() {
 	}
 	public boolean roll(GameEngine e) {
-		if (!bounds.contains(e.board.player.x, e.board.player.y))
+		GameBoard board = e.getBoard();
+		Trainer player = board.getPlayer();
+		if (!bounds.contains(player.x, player.y))
 			return false;
-		Pair<String, Integer, Integer> pp = e.board.map.mapdata[e.board.player.y + e.board.map.centery][e.board.player.x + e.board.map.centerx];
+		
+		Pair<String, Integer, Integer> pp = board.map.mapdata[player.y + board.map.centery][player.x + board.map.centerx];
 		ArrayList<Pair<String, Double, Integer>> temp = chances.get(pp.a + ":" + pp.b + ":" + pp.c);
 		if (temp == null)
 			return false;
