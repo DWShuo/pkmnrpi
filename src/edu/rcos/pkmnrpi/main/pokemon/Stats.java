@@ -2,7 +2,7 @@ package edu.rcos.pkmnrpi.main.pokemon;
 
 import java.util.ArrayList;
 
-import edu.rcos.pkmnrpi.main.Pokedex.Pokedex;
+import edu.rcos.pkmnrpi.main.pokedex.Pokedex;
 import edu.rcos.pkmnrpi.main.util.FileParser;
 
 // Data holder class for Pokemon

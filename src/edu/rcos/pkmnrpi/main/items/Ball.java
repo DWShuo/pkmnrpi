@@ -1,8 +1,8 @@
 package edu.rcos.pkmnrpi.main.items;
 
-import edu.rcos.pkmnrpi.main.game.GameEngine;
-
 import java.util.ArrayList;
+
+import edu.rcos.pkmnrpi.main.game.GameEngine;
 
 public class Ball extends Item {
 	public static final int POKEBALL = 0, GREATBALL = 1, ULTRABALL = 2, MASTERBALL = 3, FASTBALL = 4, HEAVYBALL = 5, LEVELBALL = 6, LUREBALL = 7, LOVEBALL = 8, MOONBALL = 9,
@@ -127,17 +127,17 @@ public class Ball extends Item {
 	}
 
 	private double fastball(GameEngine e, double rate) {
-		return e.state.enemy.stats.speed > 100 ? 4 * rate : 1 * rate;
+		return e.getState().enemy.stats.speed > 100 ? 4 * rate : 1 * rate;
 	}
 
 	private double heavyball(GameEngine e, double rate) {
-		double w = e.state.enemy.weight;
+		double w = e.getState().enemy.weight;
 		return rate + (w < 995.4 ? -20 : (w < 1493.2 ? 20 : (w < 1990.8 ? 30 : 40)));
 	}
 
 	private double levelball(GameEngine e, double rate) {
-		int lvl1 = e.state.enemy.stats.level;
-		int lvl2 = e.state.defender.stats.level;
+		int lvl1 = e.getState().enemy.stats.level;
+		int lvl2 = e.getState().defender.stats.level;
 		double out = ((double) lvl2) / lvl1;
 		if (out < 1)
 			out = 1;
@@ -151,8 +151,8 @@ public class Ball extends Item {
 	}
 
 	private double loveball(GameEngine e, double rate) {
-		boolean matching = e.state.enemy.species.equalsIgnoreCase(e.state.defender.species);
-		boolean opposing = e.state.enemy.male != e.state.defender.male;
+		boolean matching = e.getState().enemy.species.equalsIgnoreCase(e.getState().defender.species);
+		boolean opposing = e.getState().enemy.male != e.getState().defender.male;
 		return matching && opposing ? 8 * rate : rate;
 	}
 

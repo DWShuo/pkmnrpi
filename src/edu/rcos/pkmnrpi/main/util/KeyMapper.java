@@ -1,14 +1,14 @@
 package edu.rcos.pkmnrpi.main.util;
 
-import edu.rcos.pkmnrpi.main.game.GameBoard;
-import edu.rcos.pkmnrpi.main.game.GameEngine;
-
 import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import edu.rcos.pkmnrpi.main.animations.WalkAnimation;
+import edu.rcos.pkmnrpi.main.game.GameBoard;
+import edu.rcos.pkmnrpi.main.game.GameEngine;
 import edu.rcos.pkmnrpi.main.trainers.Person;
+import edu.rcos.pkmnrpi.main.trainers.Trainer;
 
 /**
  * This class handles key events for the entire board. It should support key
@@ -17,21 +17,17 @@ import edu.rcos.pkmnrpi.main.trainers.Person;
 public class KeyMapper implements KeyListener {
 	public static final int ENTER = -1;
 	public GameEngine engine;
-	private GameBoard board;
-	private Person player;
 	public static KeyMap<Integer, Integer> map;
 	public boolean inmotion = false;
 	public int input;
 
-	public KeyMapper(GameEngine e) {
-		engine = e;
-		board = e.board;
-		player = board.player;
-		load_default();
+	public KeyMapper(GameEngine eng) {
+		engine = eng;
+		loadDefault();
 	}
 
 	// This loads the default key mapping
-	public static void load_default() {
+	public static void loadDefault() {
 		map = new KeyMap<Integer, Integer>();
 		map.put(Person.UP, 38);
 		map.put(Person.DOWN, 40);
@@ -41,40 +37,41 @@ public class KeyMapper implements KeyListener {
 	}
 
 	// This provides a portal for users to change key mapping.
-	public void change_map() {
+	public void changeMap() {
 		// TODO: float a window that lets you change key bindings.
 	}
 
-	// Attempt to intilize a key based event.
+	// Attempt to initialize a key based event.
 	public void listen() {
 		if (!inmotion)
 			return;
 		int dir = getDirection(input);
 		if (GameEngine.battling) {
 			if (dir >= 0)
-				engine.battle.move(dir);
+				engine.getBattle().move(dir);
 			else if (dir == -1)
-				engine.battle.enter();
+				engine.getBattle().enter();
 			return;
 		}
 		// Don't listen for input while walking.
 		if (WalkAnimation.iswalking)
 			return;
 
-		Point bound = engine.board.getViewport().getViewPosition();
+		Point bound = engine.getBoard().getViewport().getViewPosition();
 		if (dir >= 0)
-			WalkAnimation.run(board, player, dir, needScroll(bound, dir));
+			WalkAnimation.run(engine.getBoard(), engine.getBoard().getPlayer(), dir, needScroll(bound, dir));
 	}
 
 	// This returns true when the background should scroll when the player
 	// walks.
 	public boolean needScroll(Point bound, int dir) {
+		Trainer player = engine.getBoard().getPlayer();
 		if (dir == Person.UP)
 			return bound.y - GameBoard.tsize >= 0 && player.py >= 13;
 		else if (dir == Person.DOWN)
-			return bound.y + engine.board.getViewport().getHeight() + GameBoard.tsize <= engine.board.background.getHeight() && player.py <= 13;
+			return bound.y + engine.getBoard().getViewport().getHeight() + GameBoard.tsize <= engine.getBoard().background.getHeight() && player.py <= 13;
 		else if (dir == Person.RIGHT)
-			return bound.x + engine.board.getViewport().getWidth() + GameBoard.tsize <= engine.board.background.getWidth() && player.px >= 13;
+			return bound.x + engine.getBoard().getViewport().getWidth() + GameBoard.tsize <= engine.getBoard().background.getWidth() && player.px >= 13;
 		else if (dir == Person.LEFT)
 			return bound.x + GameBoard.tsize >= 0 && player.px <= 13;
 		return false;

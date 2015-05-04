@@ -1,10 +1,9 @@
 package edu.rcos.pkmnrpi.main.animations;
 
-import edu.rcos.pkmnrpi.main.game.GameBoard;
-import edu.rcos.pkmnrpi.main.game.GameState;
-
 import java.awt.image.BufferedImage;
 
+import edu.rcos.pkmnrpi.main.game.GameBoard;
+import edu.rcos.pkmnrpi.main.game.GameState;
 import edu.rcos.pkmnrpi.main.trainers.Person;
 import edu.rcos.pkmnrpi.main.util.ImageLibrary;
 
@@ -74,7 +73,7 @@ public class WalkAnimation extends Animation {
 			//Clock.nap(1000);
 			b.checkWildPokemon();
 			iswalking = false;
-			b.engine.keymap.listen();
+			b.engine.getKeymap().listen();
 			return;
 		}
 		System.out.println("Moving");
@@ -90,19 +89,19 @@ public class WalkAnimation extends Animation {
 		if (background_motion)
 			GameState.clock.animate(new BoardAnimation(b, direction));
 		else if (direction == Person.UP) {
-			b.player.py--;
+			b.getPlayer().py--;
 		} else if (direction == Person.DOWN) {
-			b.player.py++;
+			b.getPlayer().py++;
 		} else if (direction == Person.LEFT) {
-			b.player.px--;
+			b.getPlayer().px--;
 		} else if (direction == Person.RIGHT) {
-			b.player.px++;
+			b.getPlayer().px++;
 		}
 	}
 
 	@Override
 	public void finish() {
 		iswalking = false;
-		board.engine.keymap.listen();
+		board.engine.getKeymap().listen();
 	}
 }

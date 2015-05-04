@@ -6,7 +6,7 @@ import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import javax.swing.*;
+import javax.swing.JScrollPane;
 
 import edu.rcos.pkmnrpi.main.animations.Sprite;
 import edu.rcos.pkmnrpi.main.animations.SpriteBoard;
@@ -27,19 +27,13 @@ public class GameBoard extends JScrollPane implements KeyListener, SpriteBoard {
 
 	public GamePanel foreground;
 	public TileMap map;
-	public Trainer player;
+	private Trainer player;
 	public GameEngine engine;
 	public Canvas canvas;
 
 	public GameBoard(GameEngine en) {
 		super();
 		engine = en;
-		// Set the look and feel to Nimbus
-		try {
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 		setHorizontalScrollBarPolicy(HORIZONTAL_SCROLLBAR_NEVER);
 		setVerticalScrollBarPolicy(VERTICAL_SCROLLBAR_NEVER);
 		setSize(area);
@@ -51,7 +45,15 @@ public class GameBoard extends JScrollPane implements KeyListener, SpriteBoard {
 		loadMap("Vanilla");
 		this.setViewportView(background);
 		this.setBackground(Color.black);
-		initilizePlayer();
+		initializePlayer();
+	}
+
+	public Trainer getPlayer() {
+		return player;
+	}
+
+	public void setPlayer(Trainer player) {
+		this.player = player;
 	}
 
 	public void loadMap(String filename) {
@@ -104,8 +106,8 @@ public class GameBoard extends JScrollPane implements KeyListener, SpriteBoard {
 		}
 	}
 
-	private void initilizePlayer() {
-		player = engine.state.self;
+	private void initializePlayer() {
+		player = engine.getState().self;
 		player.map = map;
 		player.setLocation(player.x + map.centerx, player.y + map.centerx);
 		foreground.sprites.add(player.sprite);

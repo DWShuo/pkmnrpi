@@ -1,8 +1,8 @@
 package edu.rcos.pkmnrpi.main.util;
 
-import edu.rcos.pkmnrpi.main.game.GameState;
-
 import java.util.ArrayList;
+
+import edu.rcos.pkmnrpi.main.game.GameState;
 
 public class Flag {
 	public static final int TEXT = 0, DOOR = 1, ITEM = 2;

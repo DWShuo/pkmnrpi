@@ -1,9 +1,8 @@
 package edu.rcos.pkmnrpi.main.trainers;
 
-import edu.rcos.pkmnrpi.main.game.GameState;
-
 import java.util.ArrayList;
 
+import edu.rcos.pkmnrpi.main.game.GameState;
 import edu.rcos.pkmnrpi.main.objects.Point;
 import edu.rcos.pkmnrpi.main.pokemon.Pokemon;
 import edu.rcos.pkmnrpi.main.pokemon.Stats;

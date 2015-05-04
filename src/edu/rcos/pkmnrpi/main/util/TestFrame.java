@@ -17,8 +17,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import edu.rcos.pkmnrpi.main.util.panels.TestPanel;
 import edu.rcos.pkmnrpi.main.battle.BattlePanel;
+import edu.rcos.pkmnrpi.main.util.panels.TestPanel;
 
 // This class only displays a buffered image in a window.
 public class TestFrame extends JFrame {

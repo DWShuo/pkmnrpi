@@ -1,10 +1,9 @@
 package edu.rcos.pkmnrpi.main.pokemon;
 
-import edu.rcos.pkmnrpi.main.game.GameState;
-
 import java.util.ArrayList;
 
 import edu.rcos.pkmnrpi.main.animations.Sprite;
+import edu.rcos.pkmnrpi.main.game.GameState;
 
 //TODO: determine how to calculate status changes and special effects.
 public class Move implements Comparable<Move> {

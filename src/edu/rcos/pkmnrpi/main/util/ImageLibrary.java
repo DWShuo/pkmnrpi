@@ -1,7 +1,5 @@
 package edu.rcos.pkmnrpi.main.util;
 
-import edu.rcos.pkmnrpi.main.game.GameState;
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -11,6 +9,7 @@ import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 
+import edu.rcos.pkmnrpi.main.game.GameState;
 import edu.rcos.pkmnrpi.main.objects.SpriteSheet;
 
 /**

@@ -1,10 +1,16 @@
 package edu.rcos.pkmnrpi.main.objects;
 
-import edu.rcos.pkmnrpi.main.items.*;
-
 import java.util.ArrayList;
 import java.util.Collections;
 
+import edu.rcos.pkmnrpi.main.items.Ball;
+import edu.rcos.pkmnrpi.main.items.EvoItem;
+import edu.rcos.pkmnrpi.main.items.HoldItem;
+import edu.rcos.pkmnrpi.main.items.Item;
+import edu.rcos.pkmnrpi.main.items.KeyItem;
+import edu.rcos.pkmnrpi.main.items.MiscItem;
+import edu.rcos.pkmnrpi.main.items.RecoveryItem;
+import edu.rcos.pkmnrpi.main.items.Vitamin;
 import edu.rcos.pkmnrpi.main.pokemon.Move;
 import edu.rcos.pkmnrpi.main.pokemon.Pokemon;
 

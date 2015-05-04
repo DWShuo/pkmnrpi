@@ -1,9 +1,9 @@
 package edu.rcos.pkmnrpi.main.animations;
 
+import java.awt.image.BufferedImage;
+
 import edu.rcos.pkmnrpi.main.game.GameBoard;
 import edu.rcos.pkmnrpi.main.game.GameState;
-
-import java.awt.image.BufferedImage;
 
 public abstract class Animation {
 	public int[] counts, delta;
