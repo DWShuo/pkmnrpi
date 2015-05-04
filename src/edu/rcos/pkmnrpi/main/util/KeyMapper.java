@@ -43,7 +43,6 @@ public class KeyMapper implements KeyListener {
 
 	// Attempt to initialize a key based event.
 	public void listen() {
-		System.out.println("GOT EVENT");
 		if (!inmotion)
 			return;
 		int dir = getDirection(input);
@@ -96,7 +95,6 @@ public class KeyMapper implements KeyListener {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		System.out.println("KeyEvent");
 		input = e.getKeyCode();
 		if (!map.containsB(input)) {
 			System.out.println("Skipping un known input'" + input + "'");

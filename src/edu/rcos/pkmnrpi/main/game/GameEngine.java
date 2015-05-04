@@ -53,7 +53,6 @@ public class GameEngine {
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLocation(400, 200);
-		frame.addKeyListener(keymap);
 
 		contents.setLayout(new BoxLayout(contents, BoxLayout.X_AXIS));
 		contents.setBackground(Color.gray.darker().darker());
@@ -113,6 +112,14 @@ public class GameEngine {
 	public void setBattle(BattleEngine battle) {
 		this.battle = battle;
 	}
+	
+	public Pokedex getDex() {
+		return dex;
+	}
+
+	public void setDex(Pokedex dex) {
+		this.dex = dex;
+	}
 
 	public void startBattle(Pair<String, Double, Integer> p) {
 		battling = true;
@@ -144,19 +151,12 @@ public class GameEngine {
 		frame.removeKeyListener(dex.search);
 		frame.addKeyListener(keymap);
 	}
-	
-	public Pokedex getDex() {
-		return dex;
-	}
-
-	public void setDex(Pokedex dex) {
-		this.dex = dex;
-	}
 
 	public void launch() {
 		window.remove(mainMenu);
 		window.repaint();
 		focusBoard();
+		frame.requestFocus();
 	}
 	
 	public void launchMapEditor() {
