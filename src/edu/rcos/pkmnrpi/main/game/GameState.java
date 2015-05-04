@@ -9,6 +9,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
@@ -40,20 +42,20 @@ public class GameState {
 	// Animation clock
 	public static Clock clock;
 	// Walkable Terrain
-	public static HashMap<String, ArrayList<Dimension>> TERRAIN = new HashMap<String, ArrayList<Dimension>>();
+	public static Map<String, List<Dimension>> TERRAIN = new HashMap<String, List<Dimension>>();
 	// Icon tile maps
-	public static HashMap<String, TileMap> MAPS = new HashMap<String, TileMap>();
+	public static Map<String, TileMap> MAPS = new HashMap<String, TileMap>();
 	// Wild Pokemon spawn locations
-	public static HashMap<String, Spawn> SPAWNS = new HashMap<String, Spawn>();
+	public static Map<String, Spawn> SPAWNS = new HashMap<String, Spawn>();
 	// Items and events
-	public static ArrayList<Flag> FLAGS = new ArrayList<Flag>();
-	public static HashMap<String, ArrayList<Flag>> FLAG_POOL = new HashMap<String, ArrayList<Flag>>();
+	public static List<Flag> FLAGS = new ArrayList<Flag>();
+	public static Map<String, List<Flag>> FLAG_POOL = new HashMap<String, List<Flag>>();
 	public static Move[] MOVES;
-	public static ArrayList<Trainer> TRAINERS = new ArrayList<Trainer>();
+	public static List<Trainer> TRAINERS = new ArrayList<Trainer>();
 	public static Pokemon[] POKEMON;
 
-	public ArrayList<Pokemon> stored = new ArrayList<Pokemon>(), team = new ArrayList<Pokemon>();
-	public ArrayList<Trainer> opponents = new ArrayList<Trainer>();
+	public List<Pokemon> stored = new ArrayList<Pokemon>(), team = new ArrayList<Pokemon>();
+	public List<Trainer> opponents = new ArrayList<Trainer>();
 	public Pokemon enemy, defender;
 	public Backpack pack;
 	public GameEngine engine;
@@ -74,7 +76,7 @@ public class GameState {
 	}
 
 	public static void save(File file) {
-		ArrayList<String> data = new ArrayList<String>();
+		List<String> data = new ArrayList<String>();
 		FileParser.saveFile(saveTerrain(), "data/game/walkable_tiles.txt");
 		FileParser.saveFile(saveSpawns(), "data/game/spawn_locations.txt");
 		FileParser.saveFile(saveMoves(), "data/game/move_info.csv");
@@ -85,39 +87,39 @@ public class GameState {
 		FileParser.saveFile(data, file);
 	}
 
-	private static ArrayList<String> saveTerrain() {
-		ArrayList<String> ary = new ArrayList<String>();
+	private static List<String> saveTerrain() {
+		List<String> ary = new ArrayList<String>();
 		for (String str : TERRAIN.keySet())
 			for (Dimension d : TERRAIN.get(str))
 				ary.add(d.width + ":" + d.height + ":" + str);
 		return ary;
 	}
 
-	private static ArrayList<String> saveSpawns() {
-		ArrayList<String> ary = new ArrayList<String>();
+	private static List<String> saveSpawns() {
+		List<String> ary = new ArrayList<String>();
 		for (String str : SPAWNS.keySet()) {
 			ary.addAll(SPAWNS.get(str).save());
 		}
 		return ary;
 	}
 
-	private static ArrayList<String> saveFlags() {
-		ArrayList<String> ary = new ArrayList<String>();
+	private static List<String> saveFlags() {
+		List<String> ary = new ArrayList<String>();
 		for (Flag f : FLAGS)
 			ary.add(f.toString());
 		return ary;
 	}
 
-	private static ArrayList<String> saveMoves() {
-		ArrayList<String> ary = new ArrayList<String>();
+	private static List<String> saveMoves() {
+		List<String> ary = new ArrayList<String>();
 		for (Move m : MOVES) {
 			ary.add(m.toString());
 		}
 		return ary;
 	}
 
-	private static ArrayList<String> saveTrainers() {
-		ArrayList<String> ary = new ArrayList<String>();
+	private static List<String> saveTrainers() {
+		List<String> ary = new ArrayList<String>();
 		for (Trainer t : TRAINERS)
 			ary.addAll(t.saveStaticInfo());
 		return ary;
@@ -144,7 +146,7 @@ public class GameState {
 		initSpawns(FileParser.parseFile("data/game/spawn_locations.txt"));
 		initMoves(FileParser.parseFile("data/game/move_info.csv"));
 		// Load Game State File
-		ArrayList<ArrayList<String>> data = FileParser.parseSeperatedFile("data/game/state.txt", '(');
+		List<List<String>> data = FileParser.parseSeperatedFile("data/game/state.txt", '(');
 		initFlags(data.get(0));
 		initTrainers(data.get(1));
 		initPokemon();
@@ -156,10 +158,10 @@ public class GameState {
 
 	// load save from file.
 	public void load(String filename) {
-		ArrayList<String> data = FileParser.parseFile(filename);
+		List<String> data = FileParser.parseFile(filename);
 		int index = 0;
 		String line = data.get(index++ );
-		ArrayList<String> ary = new ArrayList<String>();
+		List<String> ary = new ArrayList<String>();
 		while (!Pokemon.isUniform(line, '=')) {
 			ary.add(line);
 			line = data.get(index++ );
@@ -231,7 +233,7 @@ public class GameState {
 		return all;
 	}
 
-	private static void initTerrain(ArrayList<String> data) {
+	private static void initTerrain(List<String> data) {
 		for (String str : data) {
 			String[] line = str.split(":");
 			Dimension d = new Dimension(Integer.parseInt(line[0]), Integer.parseInt(line[1]));
@@ -239,7 +241,7 @@ public class GameState {
 		}
 	}
 
-	private static void initSpawns(ArrayList<String> data) {
+	private static void initSpawns(List<String> data) {
 		int index = 0;
 		while (index < data.size()) {
 			Spawn s = new Spawn();
@@ -263,7 +265,7 @@ public class GameState {
 		}
 	}
 
-	private static void initFlags(ArrayList<String> data) {
+	private static void initFlags(List<String> data) {
 		for (String str : data) {
 			if (str.length() == 0)
 				continue;
@@ -271,7 +273,7 @@ public class GameState {
 		}
 	}
 
-	private void initPlayer(ArrayList<String> info) {
+	private void initPlayer(List<String> info) {
 		self = Trainer.loadTrainers(info).get(0);
 		self.team = team;
 		self.walk = new BufferedImage[10];
@@ -284,7 +286,7 @@ public class GameState {
 		self.bigsprite = new Sprite("data/tilesets/sprites/trainer back.png");
 	}
 
-	private static void initTrainers(ArrayList<String> data) {
+	private static void initTrainers(List<String> data) {
 		Trainer t;
 		int index = 0;
 		while (index < data.size()) {
@@ -313,8 +315,8 @@ public class GameState {
 		}
 	}
 
-	private static void initMoves(ArrayList<String> data) {
-		ArrayList<Move> all = new ArrayList<Move>();
+	public static void initMoves(List<String> data) {
+		List<Move> all = new ArrayList<Move>();
 		for (String line : data) {
 			String[] ary = line.split(",");
 			Move m = new Move();
@@ -333,8 +335,8 @@ public class GameState {
 	}
 
 	// Loads all static pokemon info
-	private static void initPokemon() {
-		ArrayList<String> info = FileParser.parseFile("data/game/pokemon.txt");
+	public static void initPokemon() {
+		List<String> info = FileParser.parseFile("data/game/pokemon.txt");
 		int index = 0;
 		POKEMON = new Pokemon[251];
 		Pokemon p;
@@ -346,7 +348,7 @@ public class GameState {
 			if (types.contains("/")) {
 				String[] ar = types.split("/");
 				p.type = Pokemon.getType(ar[0]);
-				p.t2 = Pokemon.getType(ar[1]);
+				p.type2 = Pokemon.getType(ar[1]);
 			} else
 				p.type = Pokemon.getType(types);
 			p.species = info.get(index++ );
@@ -358,11 +360,11 @@ public class GameState {
 				p.weight = Double.parseDouble(str);
 			str = info.get(index++ );
 			if (isDouble(str))
-				p.catch_rate = Integer.parseInt(str);
+				p.catchRate = Integer.parseInt(str);
 			str = info.get(index++ );
 			if (isDouble(str))
-				p.base_exp = Integer.parseInt(str);
-			p.base_happiness = Integer.parseInt(info.get(index++ ));
+				p.baseExperience = Integer.parseInt(str);
+			p.baseHappiness = Integer.parseInt(info.get(index++ ));
 			p.stats.growth_rate = info.get(index++ );
 			p.description = info.get(index++ );
 
@@ -420,7 +422,7 @@ public class GameState {
 		return Integer.parseInt(str);
 	}
 
-	private static Move[] order_moves(ArrayList<Move> all) {
+	private static Move[] order_moves(List<Move> all) {
 		Collections.sort(all);
 		Move[] mo = new Move[all.size()];
 		int index = 0;
@@ -438,7 +440,7 @@ public class GameState {
 		}
 	}
 
-	public void loadLocations(ArrayList<String> data) {
+	public void loadLocations(List<String> data) {
 		for (String str : data)
 			new Flag(str);
 	}

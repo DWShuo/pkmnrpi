@@ -7,6 +7,7 @@ package edu.rcos.pkmnrpi.main.util;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.ImageIcon;
 
@@ -17,7 +18,7 @@ public class Tileizer {
 
 	// This method just takes a filename and the number of tokens to return.
 	// It uses the Tile.width value to determine default tile size.
-	public static ArrayList<BufferedImage> tile_maker(String filename, int n) {
+	public static List<BufferedImage> tile_maker(String filename, int n) {
 		Image i = (new ImageIcon(filename)).getImage();
 		int w = i.getWidth(null), h = i.getHeight(null);
 
@@ -29,7 +30,7 @@ public class Tileizer {
 
 	// This is a more generic version of tile_maker that will cut out icons with
 	// the given dimensions.
-	public static ArrayList<BufferedImage> icon_maker(String filename, int icon_width, int icon_height, int n) {
+	public static List<BufferedImage> icon_maker(String filename, int icon_width, int icon_height, int n) {
 		Image i = (new ImageIcon(filename)).getImage();
 		int w = i.getWidth(null), h = i.getHeight(null);
 
@@ -41,10 +42,10 @@ public class Tileizer {
 
 	// This method does the actual slicing. It takes the source image & a set of
 	// dimensions.
-	public static ArrayList<BufferedImage> cutter(BufferedImage source, int total_w, int total_h, int w, int h, int n) {
+	public static List<BufferedImage> cutter(BufferedImage source, int total_w, int total_h, int w, int h, int n) {
 		// First see how many columns and rows there are.
 		int nx = total_w / w, ny = total_h / h;
-		ArrayList<BufferedImage> lst = new ArrayList<BufferedImage>();
+		List<BufferedImage> lst = new ArrayList<BufferedImage>();
 
 		// Iterate through the image and pull each sub image out.
 		for (int j = 0; j < ny; ++j)

@@ -27,7 +27,7 @@ public class MoveAnimation {
 		mod = x.x < y.x ? 1 : -1;
 		bonus = Pokemon.typeModifier(b, m);
 		crit = Pokemon.critRoll(m);
-		damage = Pokemon.calculateDamage(a, b, m, e, crit, bonus);
+		damage = Pokemon.calculateDamage(a, b, m, crit, bonus);
 	}
 
 	public void run() {

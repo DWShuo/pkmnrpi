@@ -1,16 +1,16 @@
 //Author: Tommy Fang
 package edu.rcos.pkmnrpi.main.pokedex;
 
-import edu.rcos.pkmnrpi.main.game.GameEngine;
-import edu.rcos.pkmnrpi.main.game.GameState;
-
 import java.awt.Dimension;
 import java.util.HashMap;
+import java.util.Map;
 
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+import edu.rcos.pkmnrpi.main.game.GameEngine;
+import edu.rcos.pkmnrpi.main.game.GameState;
 import edu.rcos.pkmnrpi.main.pokemon.Pokemon;
 import edu.rcos.pkmnrpi.main.util.Searchable;
 import edu.rcos.pkmnrpi.main.util.panels.ScalePanel;
@@ -21,7 +21,7 @@ import edu.rcos.pkmnrpi.main.util.panels.ScalePanel;
  */
 public class Pokedex extends JPanel implements Searchable, PokedexUI {
 	private static final int width = 400, height = 400 - PokedexSearchBar.pixel_height;
-	public static HashMap<String, Integer> pkmn_lookup = new HashMap<String, Integer>();
+	public static Map<String, Integer> pkmn_lookup = new HashMap<String, Integer>();
 
 	private JPanel contents;
 	private ScalePanel portrait;

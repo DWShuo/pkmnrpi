@@ -3,6 +3,7 @@ package edu.rcos.pkmnrpi.main.animations;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.Timer;
 
@@ -13,7 +14,7 @@ public class Clock extends Timer implements ActionListener {
 	public static final int FRAME_WAIT = 30;
 	public static boolean manual = false;
 
-	private ArrayList<Animation> animations = new ArrayList<Animation>();
+	private List<Animation> animations = new ArrayList<Animation>();
 
 	// Currently the instance of clock is never used, but the constructor is
 	// necessary to provide a valid board class to access.
@@ -55,7 +56,7 @@ public class Clock extends Timer implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		ArrayList<Animation> complete = new ArrayList<Animation>();
+		List<Animation> complete = new ArrayList<Animation>();
 		for (Animation a : animations) {
 			a.calculateDelta();
 			a.animate();

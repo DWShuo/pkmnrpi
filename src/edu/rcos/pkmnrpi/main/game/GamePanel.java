@@ -2,13 +2,14 @@ package edu.rcos.pkmnrpi.main.game;
 
 import java.awt.Graphics;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JPanel;
 
 import edu.rcos.pkmnrpi.main.animations.Sprite;
 
 public class GamePanel extends JPanel {
-	public ArrayList<Sprite> sprites;
+	public List<Sprite> sprites;
 
 	public GamePanel() {
 		super();

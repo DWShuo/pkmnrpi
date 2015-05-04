@@ -1,6 +1,6 @@
 package edu.rcos.pkmnrpi.main.pokemon;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import edu.rcos.pkmnrpi.main.pokedex.Pokedex;
 import edu.rcos.pkmnrpi.main.util.FileParser;
@@ -53,7 +53,7 @@ public class Stats {
 		return a;
 	}
 
-	public void merge(ArrayList<String> data) {
+	public void merge(List<String> data) {
 		int index = 0;
 		level = Integer.parseInt(data.get(index++ ));
 		ev = parseArray(data.get(index++ ));
@@ -98,7 +98,7 @@ public class Stats {
 	}
 
 	public static void init() {
-		ArrayList<String> data = FileParser.parseFile("data/game/base_stats.txt");
+		List<String> data = FileParser.parseFile("data/game/base_stats.txt");
 		for (String line : data) {
 			String[] ary = line.split(",");
 			Pokemon p = Pokedex.getPokemon(ary[0]);
@@ -111,7 +111,7 @@ public class Stats {
 			p.stats.base[4] = Integer.parseInt(ary[5]);
 			p.stats.base[5] = Integer.parseInt(ary[6]);
 			p.stats.level = 0;
-			p.stats.happiness = p.base_happiness;
+			p.stats.happiness = p.baseHappiness;
 			p.stats.exp = p.stats.total_exp = 0;
 			p.stats.growth_rate = rate;
 		}

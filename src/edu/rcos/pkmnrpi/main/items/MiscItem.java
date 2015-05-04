@@ -1,12 +1,13 @@
 package edu.rcos.pkmnrpi.main.items;
 
-import java.util.ArrayList;
+import java.util.List;
+
 
 public class MiscItem extends Item {
 
 	public MiscItem() {}
 
-	public MiscItem(ArrayList<String> data) {
+	public MiscItem(List<String> data) {
 		super(data);
 	}
 
@@ -19,7 +20,7 @@ public class MiscItem extends Item {
 		return null;
 	}
 
-	public static ArrayList<MiscItem> loadAll(ArrayList<String> data) {
+	public static List<MiscItem> loadAll(List<String> data) {
 		return null;
 	}
 }

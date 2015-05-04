@@ -1,12 +1,13 @@
 package edu.rcos.pkmnrpi.main.items;
 
-import java.util.ArrayList;
+import java.util.List;
+
 
 public class EvoItem extends Item {
 
 	public EvoItem() {}
 
-	public EvoItem(ArrayList<String> data) {
+	public EvoItem(List<String> data) {
 		super(data);
 	}
 
@@ -19,7 +20,7 @@ public class EvoItem extends Item {
 		return null;
 	}
 
-	public static ArrayList<EvoItem> loadAll(ArrayList<String> data) {
+	public static List<EvoItem> loadAll(List<String> data) {
 		return null;
 	}
 }

@@ -6,6 +6,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.ImageIcon;
 
@@ -22,7 +23,7 @@ public class ImageLibrary extends Library {
 	public static String[] image_sheet_names = { "data/tilesets/misc_tiles.png", "data/tilesets/day_roofs.png", "data/tilesets/day_buildings.png", "data/tilesets/day_landscape.png",
 			"data/tilesets/back_sprites.png" };
 	public static BufferedImage[] player;
-	public static ArrayList<SpriteSheet> sheets;
+	public static List<SpriteSheet> sheets;
 
 	// This method simply creates a solid color background sprite.
 	public static BufferedImage bufferSolidColor(Color c, int w, int h) {

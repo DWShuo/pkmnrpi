@@ -7,6 +7,7 @@ import java.awt.Graphics;
 import java.awt.GraphicsEnvironment;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
@@ -49,7 +50,7 @@ public class FontTester {
 	}
 
 	public FontTester(Filter filter) {
-		ArrayList<String> names = new ArrayList<String>();
+		List<String> names = new ArrayList<String>();
 		try {
 			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
 			for (Font f : ge.getAllFonts())

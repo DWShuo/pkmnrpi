@@ -1,6 +1,7 @@
 package edu.rcos.pkmnrpi.main.pokemon;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import edu.rcos.pkmnrpi.main.animations.Sprite;
 import edu.rcos.pkmnrpi.main.game.GameState;
@@ -29,8 +30,8 @@ public class Move implements Comparable<Move> {
 		}
 	}
 
-	public static ArrayList<Move> loadAll(ArrayList<String> data) {
-		ArrayList<Move> all = new ArrayList<Move>();
+	public static List<Move> loadAll(List<String> data) {
+		List<Move> all = new ArrayList<Move>();
 		for (String str : data)
 			all.add(lookup(str));
 		return all;

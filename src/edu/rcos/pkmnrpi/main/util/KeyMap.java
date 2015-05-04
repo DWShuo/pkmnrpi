@@ -2,14 +2,16 @@ package edu.rcos.pkmnrpi.main.util;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class KeyMap <A, B> {
 	// the string is what KeyEvent.getKeyText(e.getKeyCode()); returns
 	// the integer is the unique id of the event
-	private HashMap<A, B> data = new HashMap<A, B>();
-	private HashMap<B, A> revr = new HashMap<B, A>();
+	private Map<A, B> data = new HashMap<A, B>();
+	private Map<B, A> receiver = new HashMap<B, A>();
 	// this is a list of all pressed keys.
-	private ArrayList<B> pressed = new ArrayList<B>();
+	private List<B> pressed = new ArrayList<B>();
 
 	public KeyMap() {
 	}
@@ -19,11 +21,11 @@ public class KeyMap <A, B> {
 	}
 
 	public boolean containsB(B b) {
-		return revr.keySet().contains(b);
+		return receiver.keySet().contains(b);
 	}
 
 	public A getA(B b) {
-		return revr.get(b);
+		return receiver.get(b);
 	}
 
 	public B getB(A a) {
@@ -32,7 +34,7 @@ public class KeyMap <A, B> {
 
 	public void put(A a, B b) {
 		data.put(a, b);
-		revr.put(b, a);
+		receiver.put(b, a);
 	}
 
 	public void pressA(A a) {

@@ -1,6 +1,7 @@
 package edu.rcos.pkmnrpi.main.items;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import edu.rcos.pkmnrpi.main.game.GameEngine;
 
@@ -14,17 +15,17 @@ public class Ball extends Item {
 		super(name + "," + Item.POKEBALL);
 	}
 
-	public Ball(ArrayList<String> data) {
+	public Ball(List<String> data) {
 		super(data);
 		type = Item.POKEBALL;
 	}
 
-	public static ArrayList<Ball> loadAll(ArrayList<String> data) {
-		ArrayList<Ball> b = new ArrayList<Ball>();
+	public static List<Ball> loadAll(List<String> data) {
+		List<Ball> b = new ArrayList<Ball>();
 		int count = 0;
 		while (count < data.size()) {
 			String[] ary = data.get(count++ ).split(",");
-			ArrayList<String> temp = new ArrayList<String>();
+			List<String> temp = new ArrayList<String>();
 			temp.add(ary[0]);
 			temp.add(ary[1]);
 			b.add(new Ball(temp));
@@ -32,8 +33,8 @@ public class Ball extends Item {
 		return b;
 	}
 
-	public static ArrayList<Ball> staticLoad() {
-		ArrayList<Ball> list = new ArrayList<Ball>();
+	public static List<Ball> staticLoad() {
+		List<Ball> list = new ArrayList<Ball>();
 		list.add(new Ball("pokeball"));
 		list.add(new Ball("greatball"));
 		list.add(new Ball("ultraball"));

@@ -93,10 +93,6 @@ public class GameBoard extends JScrollPane implements KeyListener, SpriteBoard {
 	public void keyTyped(KeyEvent e) {
 	}
 
-	public static void main(String[] args) {
-		new GameEngine();
-	}
-
 	public void checkWildPokemon() {
 		for (String str : GameState.SPAWNS.keySet()) {
 			if (str.equalsIgnoreCase(map.name)) {
@@ -140,5 +136,9 @@ public class GameBoard extends JScrollPane implements KeyListener, SpriteBoard {
 		pt.y = Math.min(maxyextend, pt.y);
 
 		viewport.setViewPosition(pt);
+	}
+	
+	public static void main(String[] args) {
+		new GameEngine();
 	}
 }

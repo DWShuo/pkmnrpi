@@ -2,11 +2,14 @@
 
 package edu.rcos.pkmnrpi.main.pokedex;
 
+import static edu.rcos.pkmnrpi.main.pokedex.PokedexUI.font;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JPanel;
 
@@ -32,16 +35,16 @@ public class PokedexTextArea extends JPanel implements PokedexUI {
 		PatternPanel.paintTextArea(g, width, height);
 		g.setFont(font);
 		g.setColor(Color.black);
-		ArrayList<String> lines = parseText(g.getFontMetrics(), text);
+		List<String> lines = parseText(g.getFontMetrics(), text);
 		int buffer = g.getFontMetrics().getHeight() + 5;
 		for (int i = 0; i < lines.size(); ++i) {
 			g.drawString(lines.get(i), gap, vgap + (i + 1) * buffer);
 		}
 	}
 
-	public ArrayList<String> parseText(FontMetrics metric, String str) {
+	public List<String> parseText(FontMetrics metric, String str) {
 		String[] words = str.split("\\s+");
-		ArrayList<String> data = new ArrayList<String>();
+		List<String> data = new ArrayList<String>();
 		String line = "";
 		for (int i = 0; i < words.length; ++i) {
 			String temp = line + " " + words[i];

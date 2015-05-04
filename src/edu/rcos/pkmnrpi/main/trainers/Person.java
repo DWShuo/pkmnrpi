@@ -2,6 +2,7 @@ package edu.rcos.pkmnrpi.main.trainers;
 
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import java.util.List;
 
 import edu.rcos.pkmnrpi.main.animations.Sprite;
 import edu.rcos.pkmnrpi.main.game.GameBoard;
@@ -11,7 +12,7 @@ import edu.rcos.pkmnrpi.main.objects.TileMap;
 public class Person extends Thing {
 	public static final int UP = 0, DOWN = 1, RIGHT = 2, LEFT = 3;
 	public String name, intro;
-	public ArrayList<String> dialog = new ArrayList<String>();
+	public List<String> dialog = new ArrayList<String>();
 	public Sprite sprite, bigsprite;
 	public TileMap map;
 	public BufferedImage[] walk, bike;
