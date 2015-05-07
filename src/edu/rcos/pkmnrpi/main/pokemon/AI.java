@@ -2,5 +2,5 @@ package edu.rcos.pkmnrpi.main.pokemon;
 
 public interface AI {
 
-	public Move decide(Pokemon p);
+	public Move decide(Pokemon me, Pokemon enemy);
 }

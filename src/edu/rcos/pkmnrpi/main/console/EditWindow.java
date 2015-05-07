@@ -6,6 +6,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -55,7 +56,7 @@ public class EditWindow extends JPanel implements MouseListener, MouseMotionList
 		super.repaint();
 	}
 
-	private static boolean isIn(ArrayList<Point> ls, Point p) {
+	private static boolean isIn(List<Point> ls, Point p) {
 		for (Point o : ls) {
 			if (o.x == p.x && o.y == p.y)
 				return true;
@@ -64,12 +65,12 @@ public class EditWindow extends JPanel implements MouseListener, MouseMotionList
 	}
 
 	public void fillFrom(Point p, Pair<String, Integer, Integer> pa) {
-		ArrayList<Point> current = new ArrayList<Point>();
+		List<Point> current = new ArrayList<Point>();
 		current.add(p);
 		Pair<String, Integer, Integer> type = editor.tmap.mapdata[p.y][p.x];
-		ArrayList<Point> next = addNeighboors(p, current, type);
+		List<Point> next = addNeighboors(p, current, type);
 		while (!next.isEmpty()) {
-			ArrayList<Point> extra = new ArrayList<Point>();
+			List<Point> extra = new ArrayList<Point>();
 			for (Point a : next) {
 				current.add(a);
 				extra.addAll(addNeighboors(a, current, type));
@@ -86,12 +87,12 @@ public class EditWindow extends JPanel implements MouseListener, MouseMotionList
 		return p.x >= 0 && p.y >= 0 && p.x < editor.tmap.mapdata[0].length && p.y < editor.tmap.mapdata.length;
 	}
 
-	public ArrayList<Point> addNeighboors(Point p, ArrayList<Point> ls, Pair<String, Integer, Integer> type) {
+	public List<Point> addNeighboors(Point p, List<Point> ls, Pair<String, Integer, Integer> type) {
 		Point a = new Point(p.x + 1, p.y);
 		Point b = new Point(p.x - 1, p.y);
 		Point c = new Point(p.x, p.y + 1);
 		Point d = new Point(p.x, p.y - 1);
-		ArrayList<Point> next = new ArrayList<Point>();
+		List<Point> next = new ArrayList<Point>();
 		if (isValid(a) && !isIn(ls, a) && type.compareTo(editor.tmap.mapdata[a.y][a.x]) == 0) {
 			ls.add(a);
 			next.add(a);

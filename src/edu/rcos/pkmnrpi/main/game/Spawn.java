@@ -4,6 +4,7 @@ import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 
 import edu.rcos.pkmnrpi.main.trainers.Trainer;
 import edu.rcos.pkmnrpi.main.util.Pair;
@@ -36,8 +37,8 @@ public class Spawn {
 		return false;
 	}
 
-	public ArrayList<String> save() {
-		ArrayList<String> ary = new ArrayList<String>();
+	public List<String> save() {
+		List<String> ary = new ArrayList<String>();
 		ary.add(mapname);
 		ary.add(bounds.x + ":" + bounds.y + ":" + bounds.width + ":" + bounds.height);
 		for (String i : chances.keySet()) {

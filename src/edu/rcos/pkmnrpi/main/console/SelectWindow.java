@@ -6,7 +6,7 @@ import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JPanel;
 
@@ -33,7 +33,7 @@ public class SelectWindow extends JPanel implements MouseListener, MouseMotionLi
 		g.drawImage(sheet.base.getImage(), 0, 0, null);
 		if (flag == 0)
 			return;
-		ArrayList<Dimension> ary = GameState.TERRAIN.get(sheet.name);
+		List<Dimension> ary = GameState.TERRAIN.get(sheet.name);
 		if (ary == null)
 			return;
 		for (Dimension d : ary) {

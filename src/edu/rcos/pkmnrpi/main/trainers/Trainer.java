@@ -1,6 +1,7 @@
 package edu.rcos.pkmnrpi.main.trainers;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import edu.rcos.pkmnrpi.main.game.GameState;
 import edu.rcos.pkmnrpi.main.objects.Point;
@@ -9,9 +10,9 @@ import edu.rcos.pkmnrpi.main.pokemon.Stats;
 
 public class Trainer extends Person {
 	public String victory_outro, defeat_outro;
-	public ArrayList<Point> vision = new ArrayList<Point>();
-	public ArrayList<Pokemon> team = new ArrayList<Pokemon>();
-	public ArrayList<String> team_data = new ArrayList<String>();
+	public List<Point> vision = new ArrayList<Point>();
+	public List<Pokemon> team = new ArrayList<Pokemon>();
+	public List<String> team_data = new ArrayList<String>();
 
 	public Trainer() {}
 
@@ -40,8 +41,8 @@ public class Trainer extends Person {
 		return false;
 	}
 
-	public ArrayList<String> saveStaticInfo() {
-		ArrayList<String> data = new ArrayList<String>();
+	public List<String> saveStaticInfo() {
+		List<String> data = new ArrayList<String>();
 		data.add(name);
 		data.add(male ? "male" : "female");
 		data.add(cash + "");
@@ -72,8 +73,8 @@ public class Trainer extends Person {
 		return all;
 	}
 
-	public static ArrayList<Trainer> loadTrainers(ArrayList<String> data) {
-		ArrayList<Trainer> all = new ArrayList<Trainer>();
+	public static List<Trainer> loadTrainers(List<String> data) {
+		List<Trainer> all = new ArrayList<Trainer>();
 		int index = 0;
 		while (index < data.size()) {
 			Trainer t = new Trainer(data.get(index++ ));

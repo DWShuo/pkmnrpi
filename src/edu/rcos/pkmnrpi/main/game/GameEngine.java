@@ -123,7 +123,6 @@ public class GameEngine {
 
 	public void startBattle(Pair<String, Double, Integer> p) {
 		battling = true;
-		// TODO: transition animation
 		battle = new BattleEngine(this, new Pokemon(p.a, (int) (p.c + Math.random() * 5)));
 		window.add(battle.panel, 0);
 		battle.panel.setBounds(0, 0, 400, 400);
@@ -152,7 +151,7 @@ public class GameEngine {
 		frame.addKeyListener(keymap);
 	}
 
-	public void launch() {
+	public void launchGame() {
 		window.remove(mainMenu);
 		window.repaint();
 		focusBoard();

@@ -1,12 +1,13 @@
 package edu.rcos.pkmnrpi.main.items;
 
-import java.util.ArrayList;
+import java.util.List;
+
 
 public class Vitamin extends Item {
 
 	public Vitamin() {}
 
-	public Vitamin(ArrayList<String> data) {
+	public Vitamin(List<String> data) {
 		super(data);
 	}
 
@@ -19,7 +20,7 @@ public class Vitamin extends Item {
 		return null;
 	}
 
-	public static ArrayList<Vitamin> loadAll(ArrayList<String> data) {
+	public static List<Vitamin> loadAll(List<String> data) {
 		return null;
 	}
 }

@@ -3,15 +3,34 @@ package edu.rcos.pkmnrpi.main.pokemon;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import edu.rcos.pkmnrpi.main.animations.Sprite;
 import edu.rcos.pkmnrpi.main.battle.BattleEngine;
 import edu.rcos.pkmnrpi.main.pokedex.Pokedex;
 import edu.rcos.pkmnrpi.main.pokedex.PokedexUI;
+import edu.rcos.pkmnrpi.main.pokemon.ai.MostDamageAI;
 
-public class Pokemon implements PokedexUI, AI {
-	public static final int FIRE = 0, WATER = 1, GRASS = 2, GROUND = 3, ROCK = 4, DARK = 5, GHOST = 6, STEEL = 7, ELECTRIC = 8, FLYING = 9, DRAGON = 10, ICE = 11, PSYCHIC = 12,
-			POISON = 13, FIGHTING = 14, NORMAL = 15, BUG = 16;
+public class Pokemon implements PokedexUI { //, AI {
+	public static final int
+		FIRE = 0,
+		WATER = 1,
+		GRASS = 2,
+		GROUND = 3,
+		ROCK = 4,
+		DARK = 5,
+		GHOST = 6,
+		STEEL = 7,
+		ELECTRIC = 8,
+		FLYING = 9,
+		DRAGON = 10,
+		ICE = 11,
+		PSYCHIC = 12,
+		POISON = 13,
+		FIGHTING = 14,
+		NORMAL = 15,
+		BUG = 16;
 	public static final double[][] TE = {// Type Effectiveness
 			{
 					.5, .5, 2, 1, .5, 1, 1, 2, 1, 1, .5, 2, 1, 1, 1, 1, 2
@@ -53,16 +72,17 @@ public class Pokemon implements PokedexUI, AI {
 	public String name, species, description;
 	public Sprite sprite;
 	public boolean male = true, wild = false;
-	public int type, t2 = -1;
+	public int type, type2 = -1;
 	public double height = 1, weight = 10;
 	public int ID;
 	public Stats stats = new Stats();
-	public int catch_rate, base_exp, base_happiness;
-	public HashMap<String, String> evolutions = new HashMap<String, String>();
-	public ArrayList<Integer> ages = new ArrayList<Integer>();
-	public ArrayList<Move> history = new ArrayList<Move>(), learnset = new ArrayList<Move>();
-	public ArrayList<Move> known_moves = new ArrayList<Move>(), tmset = new ArrayList<Move>();
-
+	public int catchRate, baseExperience, baseHappiness;
+	public Map<String, String> evolutions = new HashMap<String, String>();
+	public List<Integer> ages = new ArrayList<Integer>();
+	public List<Move> history = new ArrayList<Move>(), learnset = new ArrayList<Move>();
+	public List<Move> knownMoves = new ArrayList<Move>(), tmset = new ArrayList<Move>();
+	private AI ai = new MostDamageAI();
+	
 	public Pokemon() {
 		name = "Pidgey";
 		species = "Bird";
@@ -70,9 +90,9 @@ public class Pokemon implements PokedexUI, AI {
 		ID = 16;
 		height = .3;
 		weight = 1.8;
-		catch_rate = 225;
-		base_exp = 55;
-		base_happiness = 70;
+		catchRate = 225;
+		baseExperience = 55;
+		baseHappiness = 70;
 		description = "This is a bird.";
 	}
 
@@ -99,13 +119,13 @@ public class Pokemon implements PokedexUI, AI {
 		species = p.species;
 		male = p.male;
 		type = p.type;
-		t2 = p.t2;
+		type2 = p.type2;
 		height = p.height;
 		weight = p.weight;
 		ID = p.ID;
-		catch_rate = p.catch_rate;
-		base_exp = p.base_exp;
-		base_happiness = p.base_happiness;
+		catchRate = p.catchRate;
+		baseExperience = p.baseExperience;
+		baseHappiness = p.baseHappiness;
 		evolutions = p.evolutions;
 		learnset = p.learnset;
 		tmset = p.tmset;
@@ -113,10 +133,18 @@ public class Pokemon implements PokedexUI, AI {
 		description = p.description;
 		stats = new Stats(p.stats);
 	}
+	
+	public AI getAI() {
+		return ai;
+	}
+
+	public void setAI(AI ai) {
+		this.ai = ai;
+	}
 
 	public int calculateEXP(Pokemon other, BattleEngine en) {
 		double a = wild ? 1.5 : 1;
-		double b = base_exp;
+		double b = baseExperience;
 		double e = 1;// change for lucky egg
 		double l = stats.level;
 		double s = 1; // number of pokemon to divide by
@@ -137,22 +165,24 @@ public class Pokemon implements PokedexUI, AI {
 				Move m = learnset.get(i);
 				if (!history.contains(m))
 					history.add(m);
-				if (known_moves.size() > 3)
+				if (knownMoves.size() > 3)
 					continue;
 				// if (Math.random() < ((double) ages.get(i)) / stats.level)
-				known_moves.add(m);
+				knownMoves.add(m);
 			}
 		}
 		// System.out.println(known_moves.size());
 	}
 
-	public static int calculateDamage(Pokemon attacker, Pokemon defender, Move atk, BattleEngine e, double crit, double type) {
+	public static int calculateDamage(Pokemon attacker, Pokemon defender, Move atk, double crit, double type) {
 		if (atk.category == Move.STATUS)
 			return 0;
 		double modifier = STAB(attacker, atk) * type * crit * (.85 + Math.random() * .15);
 		double level = attacker.stats.level;
-		double attack = atk.category == Move.PHYSICAL ? attacker.stats.attack : attacker.stats.special_attack;
-		double defense = atk.category == Move.PHYSICAL ? defender.stats.defense : defender.stats.special_defense;
+		double attack = atk.category == Move.PHYSICAL ?
+				attacker.stats.attack : attacker.stats.special_attack;
+		double defense = atk.category == Move.PHYSICAL ?
+				defender.stats.defense : defender.stats.special_defense;
 		double base = atk.damage;
 		return (int) (((2 * level + 10) / 250 * attack / defense * base + 2) * modifier);
 	}
@@ -162,44 +192,44 @@ public class Pokemon implements PokedexUI, AI {
 	}
 
 	public static double STAB(Pokemon p, Move m) {
-		return p.type == m.type || p.t2 == m.type ? 1.5 : 1;
+		return p.type == m.type || p.type2 == m.type ? 1.5 : 1;
 	}
 
 	public static double typeModifier(Pokemon p, Move m) {
-		double base = (p.t2 >= 0) ? TE[m.type][p.t2] : 1;
+		double base = (p.type2 >= 0) ? TE[m.type][p.type2] : 1;
 		return base * TE[m.type][p.type];
 	}
 
 	public String staticToString() {
 		String all = "", str = "\n";
 		all += ID + str + name + str + getType(type);
-		if (t2 > 0)
-			all += "/" + getType(t2);
-		all += str + species + str + height + str + weight + str + catch_rate + str;
-		all += base_happiness + str + description + str;
+		if (type2 > 0)
+			all += "/" + getType(type2);
+		all += str + species + str + height + str + weight + str + catchRate + str;
+		all += baseHappiness + str + description + str;
 		return all;
 	}
 
-	public void loadMoveSet(ArrayList<String> data) {
-		known_moves = new ArrayList<Move>();
+	public void loadMoveSet(List<String> data) {
+		knownMoves = new ArrayList<Move>();
 		for (String str : data)
-			known_moves.add(Move.lookup(str));
+			knownMoves.add(Move.lookup(str));
 	}
 
 	public int expToNextLevel() {
 		return levelToEXP(stats.level + 1, stats.growth_rate);
 	}
 
-	public static int levelToEXP(int n, String growth_rate) {
-		if (growth_rate.equalsIgnoreCase("Medium Slow")) {
+	public static int levelToEXP(int n, String growthRate) {
+		if (growthRate.equalsIgnoreCase("Medium Slow")) {
 			return ((6 * n * n * n) / 5) - 15 * n * n + 100 * n - 140;
-		} else if (growth_rate.equalsIgnoreCase("Medium Fast")) {
+		} else if (growthRate.equalsIgnoreCase("Medium Fast")) {
 			return n * n * n;
-		} else if (growth_rate.equalsIgnoreCase("Slow")) {
+		} else if (growthRate.equalsIgnoreCase("Slow")) {
 			return 5 * n * n * n / 4;
-		} else if (growth_rate.equalsIgnoreCase("Fast")) {
+		} else if (growthRate.equalsIgnoreCase("Fast")) {
 			return 4 * n * n * n / 5;
-		} else if (growth_rate.equalsIgnoreCase("Fluctuating")) {
+		} else if (growthRate.equalsIgnoreCase("Fluctuating")) {
 			int k = 1;
 			if (n <= 15)
 				k = (n + 1) / 3 + 24;
@@ -208,7 +238,7 @@ public class Pokemon implements PokedexUI, AI {
 			else
 				k = n / 2 + 32;
 			return n * n * n * k / 50;
-		} else if (growth_rate.equalsIgnoreCase("Erratic")) {
+		} else if (growthRate.equalsIgnoreCase("Erratic")) {
 			int k = 1;
 			int r = 100;
 			if (n <= 50)
@@ -230,18 +260,18 @@ public class Pokemon implements PokedexUI, AI {
 	}
 
 	// Loads a list of non static Pokemon from save data.
-	public static ArrayList<Pokemon> loadPokemon(ArrayList<String> data) {
-		ArrayList<Pokemon> lst = new ArrayList<Pokemon>();
+	public static List<Pokemon> loadPokemon(List<String> data) {
+		List<Pokemon> lst = new ArrayList<Pokemon>();
 		int count = 0;
 		while (count < data.size()) {
 			Pokemon p = new Pokemon(data.get(count++ ));
 			String line = data.get(count++ );
 			while (!isUniform(line, '*')) {
-				p.known_moves.add(Move.lookup(line));
+				p.knownMoves.add(Move.lookup(line));
 				line = data.get(count++ );
 			}
 			line = data.get(count++ );
-			ArrayList<String> info = new ArrayList<String>();
+			List<String> info = new ArrayList<String>();
 			while (!isUniform(line, '*')) {
 				info.add(line);
 				line = data.get(count++ );
@@ -279,7 +309,7 @@ public class Pokemon implements PokedexUI, AI {
 	public String toString() {
 		String str = "\n", all = name + str;
 		all += ID + str;
-		for (Move m : known_moves)
+		for (Move m : knownMoves)
 			all += m.name + str;
 		all += "*************\n";
 		all += stats.toString();
@@ -403,12 +433,7 @@ public class Pokemon implements PokedexUI, AI {
 	}
 
 	// Implement AI here
-	@Override
-	public Move decide(Pokemon p) {
-		Move m = known_moves.get(0);
-		for (Move mo : known_moves)
-			if (m.damage < mo.damage)
-				m = mo;
-		return m;
+	public Move decide(Pokemon enemy) {
+		return ai.decide(this, enemy);
 	}
 }

@@ -2,6 +2,7 @@ package edu.rcos.pkmnrpi.main.objects;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 import edu.rcos.pkmnrpi.main.items.Ball;
 import edu.rcos.pkmnrpi.main.items.EvoItem;
@@ -15,24 +16,24 @@ import edu.rcos.pkmnrpi.main.pokemon.Move;
 import edu.rcos.pkmnrpi.main.pokemon.Pokemon;
 
 public class Backpack {
-	public ArrayList<Ball> balls = new ArrayList<Ball>();
-	public ArrayList<Move> moves = new ArrayList<Move>();
-	public ArrayList<MiscItem> misc = new ArrayList<MiscItem>();
-	public ArrayList<EvoItem> evolution = new ArrayList<EvoItem>();
-	public ArrayList<RecoveryItem> recovery = new ArrayList<RecoveryItem>();
-	public ArrayList<HoldItem> hold = new ArrayList<HoldItem>();
-	public ArrayList<Vitamin> vitamin = new ArrayList<Vitamin>();
-	public ArrayList<KeyItem> keys = new ArrayList<KeyItem>();
+	public List<Ball> balls = new ArrayList<Ball>();
+	public List<Move> moves = new ArrayList<Move>();
+	public List<MiscItem> misc = new ArrayList<MiscItem>();
+	public List<EvoItem> evolution = new ArrayList<EvoItem>();
+	public List<RecoveryItem> recovery = new ArrayList<RecoveryItem>();
+	public List<HoldItem> hold = new ArrayList<HoldItem>();
+	public List<Vitamin> vitamin = new ArrayList<Vitamin>();
+	public List<KeyItem> keys = new ArrayList<KeyItem>();
 
-	public Backpack(ArrayList<String> data) {
-		ArrayList<String> moveset = new ArrayList<String>();
-		ArrayList<String> ballset = new ArrayList<String>();
-		ArrayList<String> miscset = new ArrayList<String>();
-		ArrayList<String> evoset = new ArrayList<String>();
-		ArrayList<String> recoset = new ArrayList<String>();
-		ArrayList<String> holdset = new ArrayList<String>();
-		ArrayList<String> vitaset = new ArrayList<String>();
-		ArrayList<String> keyset = new ArrayList<String>();
+	public Backpack(List<String> data) {
+		List<String> moveset = new ArrayList<String>();
+		List<String> ballset = new ArrayList<String>();
+		List<String> miscset = new ArrayList<String>();
+		List<String> evoset = new ArrayList<String>();
+		List<String> recoset = new ArrayList<String>();
+		List<String> holdset = new ArrayList<String>();
+		List<String> vitaset = new ArrayList<String>();
+		List<String> keyset = new ArrayList<String>();
 		int count = 0;
 		String line = data.get(count++ );
 		while (!Pokemon.isUniform(line, '+')) {
@@ -118,7 +119,7 @@ public class Backpack {
 		((ArrayList<Item>) items).add(i);
 	}
 
-	public static Item[] orderItems(ArrayList<Item> lst) {
+	public static Item[] orderItems(List<Item> lst) {
 		Collections.sort(lst);
 		Item[] items = new Item[lst.size()];
 		int index = 0;

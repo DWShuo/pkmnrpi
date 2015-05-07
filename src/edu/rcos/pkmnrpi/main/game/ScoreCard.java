@@ -1,6 +1,7 @@
 package edu.rcos.pkmnrpi.main.game;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import edu.rcos.pkmnrpi.main.pokemon.Pokemon;
 
@@ -8,13 +9,13 @@ public class ScoreCard {
 	public int damage_done, damage_taken, battles_won, battles_lost;
 	public int trainers_defeated, trianers_lost;
 	public double hours_played;
-	public ArrayList<String> victory = new ArrayList<String>();
-	public ArrayList<String> defeat = new ArrayList<String>();
-	public ArrayList<String> badges = new ArrayList<String>();
+	public List<String> victory = new ArrayList<String>();
+	public List<String> defeat = new ArrayList<String>();
+	public List<String> badges = new ArrayList<String>();
 
 	public ScoreCard() {}
 
-	public ScoreCard(ArrayList<String> data) {
+	public ScoreCard(List<String> data) {
 		int index = 0;
 		damage_done = Integer.parseInt(data.get(index++ ));
 		damage_taken = Integer.parseInt(data.get(index++ ));

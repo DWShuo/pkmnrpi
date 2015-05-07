@@ -1,6 +1,6 @@
 package edu.rcos.pkmnrpi.main.pokedex;
 
-import edu.rcos.pkmnrpi.main.game.GameEngine;
+import static edu.rcos.pkmnrpi.main.pokedex.PokedexUI.font;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -15,6 +15,7 @@ import java.awt.event.MouseListener;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+import edu.rcos.pkmnrpi.main.game.GameEngine;
 import edu.rcos.pkmnrpi.main.util.panels.PatternPanel;
 
 /**

@@ -1,5 +1,7 @@
 package edu.rcos.pkmnrpi.main.pokedex;
 
+import static edu.rcos.pkmnrpi.main.pokedex.PokedexUI.font;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -38,7 +40,7 @@ public class PokedexFieldArea extends JPanel implements PokedexUI {
 		g.drawString("Height: " + stats.mon.height, gap, 3 * (vgap + h));
 		g.drawString("Weight: " + stats.mon.weight, gap, 4 * (vgap + h));
 		g.drawString("Type1: " + Pokemon.getType(stats.mon.type), gap, 5 * (vgap + h));
-		g.drawString("Type2: " + Pokemon.getType(stats.mon.t2 == -1 ? stats.mon.type : stats.mon.t2), gap, 6 * (vgap + h));
+		g.drawString("Type2: " + Pokemon.getType(stats.mon.type2 == -1 ? stats.mon.type : stats.mon.type2), gap, 6 * (vgap + h));
 	}
 
 	public void update(Pokemon p) {

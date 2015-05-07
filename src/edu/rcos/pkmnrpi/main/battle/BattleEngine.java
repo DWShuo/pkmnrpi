@@ -127,7 +127,7 @@ public class BattleEngine {
 			stage++ ;
 			panel.makeSelection();
 		} else if (stage == 1) {// interpret selection
-			selection = friend.known_moves.get(panel.text.select);
+			selection = friend.knownMoves.get(panel.text.select);
 			startTurn();
 		} else if (stage == 2) {// counter;
 			if (checkEnemyDeath())

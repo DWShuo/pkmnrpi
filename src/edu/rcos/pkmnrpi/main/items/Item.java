@@ -1,6 +1,7 @@
 package edu.rcos.pkmnrpi.main.items;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import edu.rcos.pkmnrpi.main.objects.Thing;
 
@@ -14,7 +15,7 @@ public abstract class Item extends Thing implements Comparable<Item> {
 
 	public Item() {}
 
-	public Item(ArrayList<String> data) {
+	public Item(List<String> data) {
 		name = data.get(0);
 		count = Integer.parseInt(data.get(1));
 	}
@@ -34,11 +35,11 @@ public abstract class Item extends Thing implements Comparable<Item> {
 		return name.compareTo(o.name);
 	}
 
-	public static ArrayList<? extends Item> loadAll(ArrayList<String> data) {
-		ArrayList<Item> b = new ArrayList<Item>();
+	public static List<? extends Item> loadAll(List<String> data) {
+		List<Item> b = new ArrayList<Item>();
 		int count = 0;
 		while (count < data.size()) {
-			ArrayList<String> temp = new ArrayList<String>();
+			List<String> temp = new ArrayList<String>();
 			temp.add(data.get(count++ ));
 			temp.add(data.get(count++ ));
 			b.add(new MiscItem(temp));

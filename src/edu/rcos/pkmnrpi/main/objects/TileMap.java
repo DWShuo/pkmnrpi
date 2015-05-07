@@ -7,6 +7,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.imageio.ImageIO;
 
@@ -134,7 +135,7 @@ public class TileMap {
 	}
 
 	public void save(File file) {
-		ArrayList<String> data = new ArrayList<String>();
+		List<String> data = new ArrayList<String>();
 		data.add("" + centerx);
 		data.add("" + centery);
 		data.add(name);
@@ -150,7 +151,7 @@ public class TileMap {
 
 	@SuppressWarnings("unchecked")
 	public void load(File file) {
-		ArrayList<String> data = FileParser.parseFile(file.getAbsolutePath());
+		List<String> data = FileParser.parseFile(file.getAbsolutePath());
 		centerx = Integer.parseInt(data.get(0));
 		centery = Integer.parseInt(data.get(1));
 		name = data.get(2);

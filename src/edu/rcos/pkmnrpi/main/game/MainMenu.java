@@ -66,7 +66,7 @@ public class MainMenu extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				engine.getState().load(GameState.DEFAULT_SAVE);
-				engine.launch();
+				engine.launchGame();
 			}
 			
 		});
@@ -79,7 +79,7 @@ public class MainMenu extends JPanel {
 				fileChooser.setCurrentDirectory(new File(GameState.SAVE_DIRECTORY));
 				fileChooser.showOpenDialog(engine.getFrame());
 				engine.getState().load(fileChooser.getSelectedFile().getAbsolutePath());
-				engine.launch();
+				engine.launchGame();
 			}
 			
 		});

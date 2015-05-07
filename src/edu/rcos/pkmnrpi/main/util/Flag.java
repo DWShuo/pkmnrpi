@@ -1,6 +1,7 @@
 package edu.rcos.pkmnrpi.main.util;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import edu.rcos.pkmnrpi.main.game.GameState;
 
@@ -21,7 +22,7 @@ public class Flag {
 	}
 
 	public static void addFlag(Flag f) {
-		ArrayList<Flag> rm = new ArrayList<Flag>();
+		List<Flag> rm = new ArrayList<Flag>();
 		for (Flag fl : GameState.FLAGS)
 			if (f.x == fl.x && f.y == fl.y && f.mapname.equals(fl.mapname))
 				rm.add(fl);
@@ -31,7 +32,7 @@ public class Flag {
 		if (GameState.FLAG_POOL.containsKey(f.mapname))
 			GameState.FLAG_POOL.get(f.mapname).add(f);
 		else {
-			ArrayList<Flag> t = new ArrayList<Flag>();
+			List<Flag> t = new ArrayList<Flag>();
 			t.add(f);
 			GameState.FLAG_POOL.put(f.mapname, t);
 		}
@@ -47,7 +48,7 @@ public class Flag {
 	}
 
 	public static void save() {
-		ArrayList<String> ary = new ArrayList<String>();
+		List<String> ary = new ArrayList<String>();
 		for (Flag f : GameState.FLAGS)
 			ary.add(f.toString());
 		FileParser.saveFile(ary, "data/game/flags.txt");

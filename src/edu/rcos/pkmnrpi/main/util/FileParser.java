@@ -5,11 +5,12 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.List;
 
 public class FileParser {
 
-	public static ArrayList<String> parseFile(String filename) {
-		ArrayList<String> data = new ArrayList<String>();
+	public static List<String> parseFile(String filename) {
+		List<String> data = new ArrayList<String>();
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(filename));
 			String line;
@@ -23,7 +24,7 @@ public class FileParser {
 		return data;
 	}
 
-	public static void saveFile(ArrayList<String> data, String filename) {
+	public static void saveFile(List<String> data, String filename) {
 		try {
 			PrintWriter out = new PrintWriter(filename);
 			for (String str : data)
@@ -34,7 +35,7 @@ public class FileParser {
 		}
 	}
 
-	public static void saveFile(ArrayList<String> data, File file) {
+	public static void saveFile(List<String> data, File file) {
 		try {
 			PrintWriter out = new PrintWriter(file);
 			for (String str : data)
@@ -45,9 +46,9 @@ public class FileParser {
 		}
 	}
 
-	public static ArrayList<ArrayList<String>> parseSeperatedFile(String filename, char c) {
-		ArrayList<String> temp = new ArrayList<String>();
-		ArrayList<ArrayList<String>> all = new ArrayList<ArrayList<String>>();
+	public static List<List<String>> parseSeperatedFile(String filename, char c) {
+		List<String> temp = new ArrayList<String>();
+		List<List<String>> all = new ArrayList<List<String>>();
 		for (String str : parseFile(filename)) {
 			if (isUniform(str, c)) {
 				all.add(temp);

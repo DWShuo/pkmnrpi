@@ -1,12 +1,13 @@
 package edu.rcos.pkmnrpi.main.items;
 
-import java.util.ArrayList;
+import java.util.List;
+
 
 public class HoldItem extends Item {
 
 	public HoldItem() {}
 
-	public HoldItem(ArrayList<String> data) {
+	public HoldItem(List<String> data) {
 		super(data);
 	}
 
@@ -19,7 +20,7 @@ public class HoldItem extends Item {
 		return null;
 	}
 
-	public static ArrayList<HoldItem> loadAll(ArrayList<String> data) {
+	public static List<HoldItem> loadAll(List<String> data) {
 		return null;
 	}
 }

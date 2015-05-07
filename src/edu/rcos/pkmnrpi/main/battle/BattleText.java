@@ -9,6 +9,7 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Rectangle;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JPanel;
 
@@ -60,8 +61,8 @@ public class BattleText extends JPanel implements BattleUI {
 	}
 
 	public void drawMoves(Graphics g) {
-		for (int i = 0; i < engine.friend.known_moves.size(); ++i) {
-			drawMove(g, engine.friend.known_moves.get(i), (i < 2 ? 15 : width / 2 + 15) + offsetx, (i % 2 == 1 ? height / 2 + 10 : 20) + offsety, i == select);
+		for (int i = 0; i < engine.friend.knownMoves.size(); ++i) {
+			drawMove(g, engine.friend.knownMoves.get(i), (i < 2 ? 15 : width / 2 + 15) + offsetx, (i % 2 == 1 ? height / 2 + 10 : 20) + offsety, i == select);
 		}
 	}
 
@@ -129,17 +130,17 @@ public class BattleText extends JPanel implements BattleUI {
 	}
 
 	public void wrapText(Graphics g, String str, int x, int y) {
-		ArrayList<String> text = parseText(g.getFontMetrics(), str);
+		List<String> text = parseText(g.getFontMetrics(), str);
 		int gap = 25, offset = 5;
 		for (int i = 0; i < text.size(); ++i)
 			g.drawString(text.get(i), 15, offset + gap * (i + 1));
 	}
 
-	public ArrayList<String> parseText(FontMetrics metric, String str) {
+	public List<String> parseText(FontMetrics metric, String str) {
 		if (str.length() == 0)
 			return new ArrayList<String>();
 		String[] words = str.split("\\s+");
-		ArrayList<String> data = new ArrayList<String>();
+		List<String> data = new ArrayList<String>();
 		String line = words[0];
 		for (int i = 1; i < words.length; ++i) {
 			String temp = line + " " + words[i];

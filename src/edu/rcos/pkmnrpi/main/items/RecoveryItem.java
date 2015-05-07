@@ -1,12 +1,13 @@
 package edu.rcos.pkmnrpi.main.items;
 
-import java.util.ArrayList;
+import java.util.List;
+
 
 public class RecoveryItem extends Item {
 
 	public RecoveryItem() {}
 
-	public RecoveryItem(ArrayList<String> data) {
+	public RecoveryItem(List<String> data) {
 		super(data);
 	}
 
@@ -19,7 +20,7 @@ public class RecoveryItem extends Item {
 		return null;
 	}
 
-	public static ArrayList<RecoveryItem> loadAll(ArrayList<String> data) {
+	public static List<RecoveryItem> loadAll(List<String> data) {
 		return null;
 	}
 }
